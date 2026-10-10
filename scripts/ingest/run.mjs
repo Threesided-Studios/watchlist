@@ -81,6 +81,10 @@ async function openai(model, messages, schema, maxTokens = 900) {
     if (r.status === 429 || r.status >= 500) { await new Promise((s) => setTimeout(s, 2000 * (attempt + 1))); continue; }
     const j = await r.json();
     if (!r.ok) throw new Error(`openai ${r.status}: ${JSON.stringify(j).slice(0, 300)}`);
+    if (j.choices[0].finish_reason === 'length' && maxTokens < 6000) {   // long lists: retry once with room to finish
+      const more = await openai(model, messages, schema, Math.min(6000, maxTokens * 3));
+      return { ...more, cost: more.cost + costOf(model, j.usage) };
+    }
     return { out: JSON.parse(j.choices[0].message.content), cost: costOf(model, j.usage), usage: j.usage };
   }
   throw new Error('openai: retries exhausted');
@@ -556,7 +560,12 @@ async function processShot(s) {
     console.warn('error on', s.name || s.sha.slice(0, 12), String(err).slice(0, 200));
     entry.outcome = 'error';
     report.push({ name: s.name, outcome: 'error', error: String(err).slice(0, 120) });
-    return;   // not ledgered, not acked -> retried next run
+    ledger.errors = ledger.errors || {};
+    ledger.errors[s.sha] = (ledger.errors[s.sha] || 0) + 1;
+    changed = true;
+    if (ledger.errors[s.sha] < 3) return;   // not ledgered, not acked -> retried next run
+    entry.usd = 0; ledger.shots[s.sha] = entry; ledger.totals.shots++; pending.shots.push(s.sha);   // poison: give up after 3 tries
+    return;
   }
   entry.usd = Math.round(entry.usd * 1e6) / 1e6;
   runUsd += entry.usd;
