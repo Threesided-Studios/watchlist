@@ -32,6 +32,11 @@ async function sha256(str) {
 }
 function applyOwnerMode() {
   document.body.dataset.owner = isOwner ? 'true' : 'false';
+  document.body.dataset.view = window.WL_VIEW || window.WL_TYPE || 'all';
+  const n = items.filter(it => it.status === 'inbox').length;
+  document.querySelectorAll('a[href="/watchlist/inbox/"]').forEach(a => {
+    a.innerHTML = `📥 Inbox${n ? ` <span class="nav-badge">${n}</span>` : ''}`;
+  });
   const lock = $('#lock');
   if (lock) {
     lock.textContent = isOwner ? '🔓 Owner' : '🔒 Guest';
@@ -175,6 +180,16 @@ function render() {
     return;
   }
 
+  /* owner: prominent link to the screenshot inbox */
+  const pendingN = items.filter(it => it.status === 'inbox').length;
+  if (isOwner && pendingN && !window.WL_VIEW) {
+    const a = document.createElement('a');
+    a.className = 'inbox-banner';
+    a.href = '/watchlist/inbox/';
+    a.innerHTML = `<span class="inbox-banner-icon">📥</span><span class="inbox-banner-text"><strong>${pendingN} screenshot find${pendingN === 1 ? '' : 's'} to review</strong><span>Tap to Keep or Dismiss</span></span><span class="inbox-banner-go">Review →</span>`;
+    grid.appendChild(a);
+  }
+
   /* partition by verdict */
   const watch = [], loved = [], liked = [], disliked = [], skipped = [], played = [];
   for (const it of view) {
@@ -277,12 +292,13 @@ function reviewBar(it, node) {
   meta.textContent = [it.adult ? '🔞 adult — stays owner-only' : '', conf, it.enriched_via ? `matched on ${it.enriched_via}${it.match_ok === false ? ' (unverified)' : ''}` : 'no match found', it.added].filter(Boolean).join(' · ');
   bar.appendChild(meta);
   const actions = document.createElement('div');
-  actions.className = 'review-actions owner-only';
+  actions.className = 'review-actions';
   const keep = document.createElement('button');
   keep.className = 'btn btn-primary'; keep.type = 'button'; keep.textContent = '✓ Keep';
   const drop = document.createElement('button');
   drop.className = 'btn'; drop.type = 'button'; drop.textContent = '✕ Dismiss';
   const act = async (action) => {
+    if (!isOwner) { await toggleOwner(); if (!isOwner) return; }
     keep.disabled = drop.disabled = true;
     if (await sendReview(it, action)) {
       it.status = action === 'approve' ? 'todo' : 'dismissed';
@@ -322,7 +338,7 @@ async function uploadShots(files, msg) {
 }
 
 function renderInbox(q) {
-  const pending = applySort(applyFilters(items.filter(it => it.status === 'inbox'), q));
+  const pending = applySort(applyFilters(items.filter(it => it.status === 'inbox' && (isOwner || !it.adult)), q));
   const recent = items.filter(it => it.source === 'screenshot' && it.status !== 'inbox' && it.status !== 'dismissed')
     .sort((a, b) => String(b.added).localeCompare(String(a.added))).slice(0, 24);
 
@@ -331,11 +347,13 @@ function renderInbox(q) {
   intro.innerHTML = `
     <h2 class="section-head"><span class="section-name">📥 Screenshot inbox</span><span class="section-count">${pending.length}</span></h2>
     <p class="inbox-lede">Screenshots from your iPhone are read automatically. Titles it's sure about go straight onto the list; anything it's unsure about waits here for a quick ✓ or ✕.</p>
+    <button type="button" class="btn btn-primary inbox-unlock">🔒 Unlock to review</button>
     <p class="inbox-status" aria-live="polite"></p>
     <label class="btn inbox-upload owner-only">⬆ Add screenshots<input type="file" accept="image/*" multiple hidden /></label>
     <p class="inbox-upload-msg" aria-live="polite"></p>`;
   grid.replaceChildren(intro);
   inboxStatus($('.inbox-status', intro));
+  $('.inbox-unlock', intro).addEventListener('click', toggleOwner);
   const input = $('input[type=file]', intro);
   input.addEventListener('change', () => { if (input.files.length) uploadShots([...input.files], $('.inbox-upload-msg', intro)); });
 
