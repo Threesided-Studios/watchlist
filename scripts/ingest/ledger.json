@@ -3062,6 +3062,84 @@
     "griffin-ai"
    ],
    "usd": 0.001853
+  },
+  "3b01c9495d8b9bda696305f24220c9886b740045ff1785092b540df95e164454": {
+   "at": "2026-10-10T08:46:44.091Z",
+   "outcome": "parsed",
+   "ids": [
+    "brick",
+    "the-big-lebowski",
+    "dark-city",
+    "the-thirteenth-floor",
+    "the-matrix",
+    "dead-men-don-t-wear-plaid",
+    "l-a-confidential",
+    "constantine",
+    "the-last-boy-scout",
+    "kiss-kiss-bang-bang",
+    "the-nice-guys",
+    "the-long-kiss-goodnight",
+    "cowboy-bebop",
+    "under-the-silver-lake",
+    "body-heat",
+    "basic-instinct",
+    "bound",
+    "fatal-attraction",
+    "the-last-seduction",
+    "body-double",
+    "dressed-to-kill",
+    "suspiria",
+    "sin-city",
+    "nightmare-alley",
+    "inherent-vice",
+    "fargo",
+    "minority-report",
+    "strange-days",
+    "(pending)",
+    "nightcrawler",
+    "ex-machina"
+   ],
+   "usd": 0.00919
+  },
+  "7a0b348454ad27b99907fcf803649a639d1ce5199d2449daf3ef32686f1ba546": {
+   "at": "2026-10-10T08:46:44.100Z",
+   "outcome": "parsed",
+   "ids": [
+    "blue-velvet",
+    "ex-machina",
+    "angel-heart",
+    "memento",
+    "ad-astra",
+    "the-black-dahlia",
+    "drive",
+    "enter-the-void",
+    "the-long-goodbye",
+    "batman-mask-of-the-phantasm",
+    "out-of-the-past",
+    "taxi-driver",
+    "collateral",
+    "the-fourth-man",
+    "they-cloned-tyrone",
+    "the-man-who-wasn-t-there",
+    "blade-runner",
+    "roger-rabbit",
+    "chinatown",
+    "honey-don-t",
+    "mulholland-drive",
+    "red-rooms",
+    "gone-girl",
+    "the-blue-iguana",
+    "radioactive-dreams",
+    "payback",
+    "bunraku",
+    "world-on-a-wire",
+    "pursued",
+    "chip-and-dale-rescue-rangers",
+    "diabolique",
+    "wolfen",
+    "this-gun-for-hire"
+   ],
+   "usd": 0.009126
   }
  },
  "dismissed": [
@@ -3075,10 +3153,10 @@
   "game:gemini"
  ],
  "totals": {
-  "shots": 423,
-  "media": 182,
-  "added": 170,
-  "inbox": 128,
-  "usd": 0.407352
+  "shots": 425,
+  "media": 184,
+  "added": 214,
+  "inbox": 129,
+  "usd": 0.425668
  }
 }
