@@ -57924,28 +57924,6 @@
     "match_ok": false
   },
   {
-    "id": "wedding-day",
-    "title": "Wedding Day",
-    "type": "movie",
-    "year": 1942,
-    "blurb": "Wedding Day is a 1942 Italian \"white-telephones\" comedy film directed by Raffaello Matarazzo and starring Armando Falconi, Amelia Chellini and Anna Proclemer.",
-    "summary": "Wedding Day is a 1942 Italian \"white-telephones\" comedy film directed by Raffaello Matarazzo and starring Armando Falconi, Amelia Chellini and Anna Proclemer.",
-    "poster": "posters/wedding-day.jpg",
-    "link": "https://en.wikipedia.org/wiki/Wedding_Day_(film)",
-    "status": "todo",
-    "tags": [],
-    "rating": null,
-    "notes": "",
-    "added": "2026-10-10",
-    "source": "screenshot",
-    "source_context": "Instagram story ad by Shoptemu — Title shown as part of the ad text",
-    "recommended_by": "",
-    "ai_confidence": 0.7,
-    "enriched_via": "Wikipedia",
-    "screenshot": "5865accd2e2e",
-    "match_ok": true
-  },
-  {
     "id": "game-master-engine",
     "title": "Game Master Engine",
     "type": "game",
@@ -58952,31 +58930,6 @@
     "ai_confidence": 0.9,
     "enriched_via": "Wikipedia",
     "screenshot": "680cb8ea8b2a",
-    "match_ok": false
-  },
-  {
-    "id": "gpt-image",
-    "title": "GPT Image",
-    "type": "software",
-    "year": null,
-    "blurb": "",
-    "summary": "",
-    "poster": "",
-    "link": "",
-    "status": "inbox",
-    "tags": [
-      "technology",
-      "AI"
-    ],
-    "rating": null,
-    "notes": "",
-    "added": "2026-10-10",
-    "source": "screenshot",
-    "source_context": "Facebook post by Indradeep — Paid image generation tool",
-    "recommended_by": "",
-    "ai_confidence": 0.9,
-    "enriched_via": "",
-    "screenshot": "bfb4e5e8334b",
     "match_ok": false
   },
   {
@@ -61530,33 +61483,6 @@
     "art_via": "AniList"
   },
   {
-    "id": "time-to-play",
-    "title": "Time to Play",
-    "type": "book",
-    "year": 1991,
-    "blurb": "",
-    "summary": "",
-    "poster": "posters/time-to-play.jpg",
-    "link": "https://openlibrary.org/works/OL8500710W",
-    "status": "todo",
-    "tags": [
-      "LitRPG",
-      "Fantasy",
-      "Adventure"
-    ],
-    "rating": null,
-    "notes": "",
-    "added": "2026-10-10",
-    "source": "screenshot",
-    "source_context": "",
-    "recommended_by": "",
-    "ai_confidence": 1,
-    "enriched_via": "OpenLibrary",
-    "match_ok": false,
-    "screenshot": "4f149667dce5",
-    "author": "Tina Bruce"
-  },
-  {
     "id": "splintered",
     "title": "Splintered",
     "type": "game",
@@ -61770,7 +61696,7 @@
     "summary": "The Fruit of Grisaia  is a Japanese adult visual novel, the first in a series of visual novels by Frontwing, with character designs by Akio Watanabe and Fumio. It was released in February 2011 for Windows, and it was later ported to the PlayStation Portable and PlayStation Vita. Two sequel visual novels were also produced for Windows: The Labyrinth of Grisaia in February 2012 and The Eden of Grisaia in May 2013. The three games have been licensed in English and published worldwide by Sekai Project in 2015. There have been two manga adaptations published by Akita Shoten and Mag Garden. A 13-episode anime television series animated by Eight Bit and produced by NBCUniversal aired in Japan from October to December 2014. Subsequently, anime adaptations of the two sequel games aired between April and June 2015. An anime film adaptation of Grisaia: Phantom Trigger premiered on March 15, 2019. A sequel to the film titled Grisaia: Phantom Trigger the Animation Stargazer premiered on November 27, 2020. An anime television series adaptation of Grisaia: Phantom Trigger aired from January to March 2025.",
     "poster": "posters/the-fruit-of-grisaia.jpg",
     "link": "https://en.wikipedia.org/wiki/The_Fruit_of_Grisaia",
-    "status": "inbox",
+    "status": "todo",
     "tags": [
       "Anime",
       "harem",
@@ -62046,7 +61972,7 @@
     "summary": "Redo of Healer , also known in Japan as KaiYari for short, is a Japanese light novel series written by Rui Tsukiyo and illustrated by Shiokonbu. It began serialization online in December 2016 on the user-generated novel publishing website Shōsetsuka ni Narō. It was later acquired by Kadokawa Shoten, who have published the series since July 2017 under their Kadokawa Sneaker Bunko imprint.",
     "poster": "posters/redo-of-healer.jpg",
     "link": "https://en.wikipedia.org/wiki/Redo_of_Healer",
-    "status": "inbox",
+    "status": "todo",
     "tags": [
       "Anime",
       "harem",
@@ -62505,7 +62431,7 @@
     "summary": "World War Blue  is a Japanese fantasy manga series written by Anastasia Shestakova and illustrated by Crimson. The series is a re-imagining of the console wars between Sega and Nintendo featuring characters inspired by video games. An anime adaptation by 5th Avenue began airing in Japan on October 20, 2012.",
     "poster": "posters/world-war-blue.jpg",
     "link": "https://en.wikipedia.org/wiki/World_War_Blue",
-    "status": "inbox",
+    "status": "todo",
     "tags": [
       "Anime",
       "Action",
@@ -62580,7 +62506,7 @@
     "summary": "Triage X  is a Japanese manga series written and illustrated by Shōji Satō. It has been serialized in Fujimi Shobo's shōnen manga magazine Monthly Dragon Age since 2009 and collected in 31 tankōbon volumes so far, as of June 2026. Yen Press publishes the manga in North America and has released 28 volumes as of August 26, 2025. There was also a Special volume released, entitled \"Triage X Tribute\" with little side stories about the Triage X main character cast drawn by friends and assistants of Shōji Satō to honor his work. A 10-episode anime television series adaptation by Xebec was broadcast on Tokyo MX from April 8, 2015, to June 10, 2015. An anime OVA episode was bundled in the release of the series' twelfth volume in November 2015.",
     "poster": "posters/triage-x.jpg",
     "link": "https://en.wikipedia.org/wiki/Triage_X",
-    "status": "inbox",
+    "status": "todo",
     "tags": [
       "Anime",
       "Action",

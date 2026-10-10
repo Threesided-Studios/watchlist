@@ -3178,7 +3178,10 @@
   "screen:yanineko-chainsmoker-cat",
   "game:persona-4",
   "game:big-black-card",
-  "screen:spy-x-family"
+  "screen:spy-x-family",
+  "software:gpt-image",
+  "book:time-to-play",
+  "screen:wedding-day"
  ],
  "totals": {
   "shots": 425,
