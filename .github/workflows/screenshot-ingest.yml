@@ -1,0 +1,79 @@
+name: Screenshot ingest
+
+# Pulls iPhone screenshots queued at the watchlist-ingest Worker, AI-parses them
+# for movie/show/anime/book/game titles, and commits new items to data.json
+# (confident matches go on the list; unsure ones go to /inbox/ for review).
+# Also applies Keep/Dismiss decisions made in the inbox.
+on:
+  schedule:
+    - cron: "41 * * * *"      # hourly
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: "Max screenshots this run"
+        default: "40"
+
+permissions:
+  contents: write
+  actions: write              # keepalive: re-enable this schedule so it never idles out
+
+concurrency:
+  group: screenshot-ingest
+  cancel-in-progress: false
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Quick check for work
+        id: peek
+        env:
+          QK: ${{ secrets.WATCHLIST_QUEUE_KEY }}
+        run: |
+          s=$(curl -fsS https://watchlist-ingest.threesided.workers.dev/status)
+          echo "$s"
+          q=$(echo "$s" | python3 -c 'import json,sys;d=json.load(sys.stdin);print(d["queued"]+d["reviews"])')
+          echo "work=$q" >> "$GITHUB_OUTPUT"
+      - name: Install
+        if: steps.peek.outputs.work != '0'
+        working-directory: scripts/ingest
+        run: npm install --no-audit --no-fund
+      - name: Parse screenshots
+        if: steps.peek.outputs.work != '0'
+        working-directory: scripts/ingest
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
+          WATCHLIST_QUEUE_KEY: ${{ secrets.WATCHLIST_QUEUE_KEY }}
+          INGEST_LIMIT: ${{ inputs.limit || '40' }}
+        run: node run.mjs
+      - name: Commit
+        if: steps.peek.outputs.work != '0'
+        run: |
+          git add data.json posters scripts/ingest/ledger.json
+          if git diff --cached --quiet; then
+            echo "Nothing new."
+          else
+            git config user.name "watchlist-bot"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit -m "Add titles from screenshots"
+            ok=0
+            for i in 1 2 3; do if git pull --rebase -q && git push; then ok=1; break; fi; sleep 5; done
+            [ "$ok" = 1 ] || { echo "push failed; leaving screenshots queued for the next run"; exit 1; }
+          fi
+      - name: Ack processed screenshots
+        if: steps.peek.outputs.work != '0'
+        working-directory: scripts/ingest
+        env:
+          WATCHLIST_QUEUE_KEY: ${{ secrets.WATCHLIST_QUEUE_KEY }}
+        run: node run.mjs --ack
+      - name: Keepalive (GitHub disables idle schedules after 60 days)
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api -X PUT "repos/${{ github.repository }}/actions/workflows/screenshot-ingest.yml/enable" || true

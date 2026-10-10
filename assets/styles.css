@@ -1038,3 +1038,17 @@ body[data-owner="false"][data-voting="on"] .gvote {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ---------- Screenshot inbox (owner review) ---------- */
+.inbox-intro { margin: 8px 0 28px; max-width: 760px; }
+.inbox-lede { color: var(--muted); margin: 6px 0 10px; line-height: 1.5; }
+.inbox-status { color: var(--muted); font-size: 0.85rem; margin: 0 0 12px; min-height: 1.2em; }
+.inbox-upload { display: inline-flex; align-items: center; gap: 6px; cursor: pointer; }
+.inbox-upload-msg { color: var(--muted); font-size: 0.85rem; margin-top: 8px; min-height: 1.2em; }
+.review-bar { margin-top: 10px; padding-top: 10px; border-top: 1px dashed rgba(255,255,255,0.12); }
+.review-context { font-size: 0.8rem; line-height: 1.4; color: var(--text); margin: 0 0 4px; overflow-wrap: anywhere; }
+.review-meta { font-size: 0.72rem; color: var(--muted); margin: 0 0 8px; }
+.review-actions { display: flex; gap: 8px; }
+.review-actions .btn { flex: 1; min-height: 40px; }
+.card.reviewed { opacity: 0.35; transition: opacity .2s ease; }
+.type-section[data-seen="inbox"] .section-name { color: var(--gold); }

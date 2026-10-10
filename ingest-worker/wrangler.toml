@@ -1,0 +1,22 @@
+name = "watchlist-ingest"
+main = "src/index.js"
+compatibility_date = "2025-09-01"
+
+# Screenshot inbox for the Watchlist. The iPhone Shortcut POSTs screenshots here;
+# the "Screenshot ingest" GitHub Action pulls them, AI-parses them, commits new
+# titles to data.json, then acks (which deletes the image). Images live only
+# until they're processed. Storage is a SQLite-backed Durable Object (free plan).
+#
+# Secrets (wrangler secret put): INGEST_KEY (Shortcut), QUEUE_KEY (GitHub Action)
+[vars]
+ALLOW_ORIGIN = "https://threesided-studios.github.io"
+# sha256 of the owner passphrase (same value as OWNER_HASH in assets/app.js).
+OWNER_HASH = "73ed39e720cb63bd270d9610e8617f8f2fef3ef1ab5deb62832feb9b7ce929b5"
+
+[[durable_objects.bindings]]
+name = "QUEUE"
+class_name = "ShotQueue"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["ShotQueue"]

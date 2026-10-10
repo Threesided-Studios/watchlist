@@ -1,6 +1,26 @@
 # Watchlist
 
-A stylish, editable, image-rich media to-do list. Sourced from iPhone screenshots via an on-demand local pipeline; deployed free as a static site (GitHub Pages).
+A stylish, editable, image-rich media to-do list. Sourced from iPhone screenshots; deployed free as a static site (GitHub Pages).
+
+## Automatic screenshot ingest (current)
+
+```
+iPhone Shortcut (daily automation / share sheet)
+   └─ POST image ─▶ watchlist-ingest Worker (ingest-worker/, Durable Object queue, keyed by SHA-256)
+                        └─ hourly GitHub Action (.github/workflows/screenshot-ingest.yml → scripts/ingest/run.mjs)
+                             1. gpt-4.1-nano on a 384px thumbnail: "any movie/show/anime/book/game here?"  (~$0.0001)
+                             2. gpt-4.1-mini on a 1024px image: titles, type, year, source context, who recommended, confidence (~$0.002)
+                             3. enrich: TMDB (if TMDB_API_KEY secret is set) → Wikipedia; Steam for games; Open Library for books
+                             4. dedupe against data.json; confident + matched → list, otherwise status "inbox"
+                             5. commit data.json + posters/ + scripts/ingest/ledger.json, then ack (image deleted from the queue)
+```
+
+- Review unsure finds at **/watchlist/inbox/** (owner mode). ✓ Keep / ✕ Dismiss are applied on the next hourly run.
+- Phone setup: [`docs/iphone-shortcut.md`](docs/iphone-shortcut.md).
+- Local test: `cd scripts/ingest && npm i && OPENAI_API_KEY=… node run.mjs --local ~/some-screenshots --dry-run`.
+- Secrets: repo `OPENAI_API_KEY`, `WATCHLIST_QUEUE_KEY`, optional `TMDB_API_KEY`; Worker `INGEST_KEY`, `QUEUE_KEY`.
+
+The older Mac-only pipeline below (`pipeline/`, osxphotos + Vision OCR) still works for one-off bulk runs.
 
 ## Run the site locally
 
