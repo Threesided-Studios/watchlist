@@ -161,14 +161,1692 @@
    "outcome": "not-media",
    "ids": [],
    "usd": 0.000092
+  },
+  "1367e31e2a2c2d9287d9b591568a65e2f1b3d7c465d9387dc6dd554216b84119": {
+   "at": "2026-10-10T08:30:52.816Z",
+   "outcome": "parsed",
+   "ids": [
+    "hell-mode-the-hardcore-gamer-reincarnates-to-another-world"
+   ],
+   "usd": 0.001776
+  },
+  "237bd4d6861fc5f60748c2f79434572bde621264b059ddc192d2e71b8d970a58": {
+   "at": "2026-10-10T08:30:52.743Z",
+   "outcome": "parsed",
+   "ids": [
+    "no-longer-allowed-in-another-world"
+   ],
+   "usd": 0.001752
+  },
+  "c2d0c81d38e1850f9e325ced226b035fce13931ddf49ffadf6c046441a4d5b43": {
+   "at": "2026-10-10T08:30:56.142Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "858395c76948c60f8f35e25b9e545042bf66a965fba9d9df2af87821fcb9b6ed": {
+   "at": "2026-10-10T08:30:52.815Z",
+   "outcome": "parsed",
+   "ids": [
+    "haibara-s-teenage-new-game"
+   ],
+   "usd": 0.001792
+  },
+  "14e6379f1de0035d98554087e035c466c4339cc9bf981a18d7a0942fc6546ff2": {
+   "at": "2026-10-10T08:30:56.691Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000039
+  },
+  "fbbfd6c5eca021a1618054c79607860480822a519c8357c71a732f1ce34b4171": {
+   "at": "2026-10-10T08:30:56.806Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "30038fb597bb42d9f1fd41745b61812ace21ecc436d2c35f62eee00e193f1828": {
+   "at": "2026-10-10T08:30:52.822Z",
+   "outcome": "parsed",
+   "ids": [
+    "alterium-shift"
+   ],
+   "usd": 0.001747
+  },
+  "6a29c69d0644013e467c96d3006fd4b951ab6a07f350b28c7f071cf64fbc232e": {
+   "at": "2026-10-10T08:30:57.485Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000045
+  },
+  "978725115206a49ee8c63a0ef59b2877fd89681960668d223989500c4e43f67c": {
+   "at": "2026-10-10T08:30:57.584Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "9eb3e1080220943d2b81bb75f94d3fa4b94d45d9192e9f14edf9b8edd25b29ef": {
+   "at": "2026-10-10T08:30:57.408Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "dbfd9d38e356adceb03ee7fa429bef1442151c931626ee63e31308c16b579592": {
+   "at": "2026-10-10T08:30:58.248Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000042
+  },
+  "1d0f6fcc43954ac664e211b81268130d5cb42fd365b9253089b24e1b6d7f20e8": {
+   "at": "2026-10-10T08:30:58.531Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "cee7cb1c2a79867d6bf3774be280e52193a5ef49f55185151ce81e8408b98e4f": {
+   "at": "2026-10-10T08:30:58.503Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "f5d51ebeb6bbee6be1b61de6cdf8049cd937b9e718896c87f518df333ee9130d": {
+   "at": "2026-10-10T08:30:58.997Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "c9710638f373f5ecd34be9809930d4f634c7f5a6518d9101a7d8330e23147855": {
+   "at": "2026-10-10T08:30:59.611Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "a1522959e18e67e24c52ce0d03b3a222c42b96d4ca2974b55cf9cf18b876a630": {
+   "at": "2026-10-10T08:30:59.486Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000042
+  },
+  "95da9b4be0db68ba46e9fca99b4938f778c85c56cd688928f3a1b0c58607fc64": {
+   "at": "2026-10-10T08:31:00.238Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000024
+  },
+  "7ef37435855f96cd06454d76a0b41831058b1376ef404a87469e22ce5b09ac9e": {
+   "at": "2026-10-10T08:31:00.432Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "95b682278c97a86356c7e162955fafd006e335eac86c4694f23c92233d1276cb": {
+   "at": "2026-10-10T08:30:56.922Z",
+   "outcome": "parsed",
+   "ids": [
+    "claude",
+    "obsidian"
+   ],
+   "usd": 0.001869
+  },
+  "cef0e945e5af81b49c58bfbf41bb68f1579f076b0340afa193b318fd3697cd93": {
+   "at": "2026-10-10T08:31:00.784Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000045
+  },
+  "a1e73bd5041bfcbcfdde78429296ef752a833a61e580d3d85787a68d01303bfc": {
+   "at": "2026-10-10T08:31:01.221Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000048
+  },
+  "7590f0ef5487b9b4781bdc1a35444f17e97c5438fe53d066784e94093a683e36": {
+   "at": "2026-10-10T08:31:01.450Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.00006
+  },
+  "267bc4e21a27f1e2e10e97f487c4d50db5b96b6d33d8638635f8dc84ae7adfa3": {
+   "at": "2026-10-10T08:31:01.438Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000045
+  },
+  "62ca456fb23fd455c9ec31888e9d13ab3eef8dd2bc83718a7eb5c3dc73276649": {
+   "at": "2026-10-10T08:31:01.783Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.00006
+  },
+  "95815f0586a74a24e6a1557864770f3abb0a11d71ae15caeaf4f52e769526a8f": {
+   "at": "2026-10-10T08:31:02.010Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000063
+  },
+  "2005eceed40c8ef84d469c711c32e4934a83ef4931ac14fff3ed878dd87ed1d3": {
+   "at": "2026-10-10T08:31:02.130Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "c6453f26013137b1d8dabec79affc32f9435d81c6e4fe7909a75fb73926755d8": {
+   "at": "2026-10-10T08:31:02.398Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "b3a12060777e6d54918c5a937f983ddc3d4289535b49b18aa4a7997b3343c90f": {
+   "at": "2026-10-10T08:31:02.795Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000063
+  },
+  "c2be4302fb93f212a477eb646d87bb48ba6f6a0fdf41cfc7ee7c6078267cdc6d": {
+   "at": "2026-10-10T08:31:03.059Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000054
+  },
+  "ab446651374a284606a086cbc299a7c84819c84948fdacfafb0decbc6b1d2b9a": {
+   "at": "2026-10-10T08:31:03.436Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "5b7ef7bc6a5604eed54570d10f3f412feba8e7f72d0a80dd13a9d27a53cb9b82": {
+   "at": "2026-10-10T08:31:03.569Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000081
+  },
+  "71c04be581f0bcb3c8a9b48133c4b28d2fab42a25ba400ecef7e8bf489d10ab7": {
+   "at": "2026-10-10T08:31:04.119Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "d8402e47f20479b2c1c6a2cb535aab9bc693b653fbe8f8f14ddb746ff483c0a7": {
+   "at": "2026-10-10T08:31:04.749Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "b8fd6515cb54bc851ec4fd579f40203d6cf666fa3ae8861c43c7a1bd89ba6566": {
+   "at": "2026-10-10T08:30:59.189Z",
+   "outcome": "parsed",
+   "ids": [
+    "gunsmith-cats",
+    "black-lagoon",
+    "lupin-the-third",
+    "read-or-die",
+    "read-or-die-the-series",
+    "witch-hunter-robin",
+    "cowboy-bebop",
+    "jormungand",
+    "gunslinger-girl"
+   ],
+   "usd": 0.002713
+  },
+  "79def8f5ebe3a1ff89315b75cfd80771ef0e9e282e3b2691b6d95af7011bd6c3": {
+   "at": "2026-10-10T08:31:07.015Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "9ef2ba1897aa9bc225de9b920733893de1d4bdf0cf5223230f4eefb8b551c318": {
+   "at": "2026-10-10T08:31:03.183Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.00006
+  },
+  "e5a656bdb80fc39d13445c788ef219695c7132344d65f134f7bd5df3de85fa18": {
+   "at": "2026-10-10T08:31:05.388Z",
+   "outcome": "parsed",
+   "ids": [
+    "pillars-of-eternity-turn-based-edition"
+   ],
+   "usd": 0.001771
+  },
+  "eec8f4fb33166541264b13367830612c361d0280b153821847dc84a76dfb3d98": {
+   "at": "2026-10-10T08:31:07.624Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000033
+  },
+  "fd4d95e619e56887cae8d9a6f6c0d36461d719f379961e44efb4764092c25e66": {
+   "at": "2026-10-10T08:31:07.779Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000033
+  },
+  "66f773b419b62e3b362487f7ac60152ae21035e90354be576bac19f5aec688d9": {
+   "at": "2026-10-10T08:31:07.778Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000051
+  },
+  "8eacae8d24711ef0d898b58785d08a4ff6265ab77754cfd9bf027b941a012d36": {
+   "at": "2026-10-10T08:31:08.380Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000045
+  },
+  "671c4a9ec9975974c00e5afea4993cb669e8049ac3092dadf61abe18f51d0369": {
+   "at": "2026-10-10T08:31:08.478Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "0817fe90d4d109d529c7557f60967b2d1650c145782b2850811416bca9de8de0": {
+   "at": "2026-10-10T08:31:08.767Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "7f6d78af8f3751d2ecfd4913cbc1d1202d6367842582c98ab5d6ee5ff98a34b0": {
+   "at": "2026-10-10T08:31:08.947Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "538a984f649f87787a782a060bae026ad54a78df646228612545c25a01c10523": {
+   "at": "2026-10-10T08:31:09.139Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "e293c81d79846c5829f1399ae4ccf938f7752fd591043b1702b5a96e8f59212b": {
+   "at": "2026-10-10T08:31:09.425Z",
+   "outcome": "parsed",
+   "ids": [
+    "big-black-cards"
+   ],
+   "usd": 0.001729
+  },
+  "ac43fc2e6d9eeba5ee3a10ac8fa4661e0b6e8ff61b35ad5b7a024459704b4db5": {
+   "at": "2026-10-10T08:31:09.562Z",
+   "outcome": "parsed",
+   "ids": [
+    "the-graham-norton-show"
+   ],
+   "usd": 0.001747
+  },
+  "f48b347e87e2ac48aa85b399d2f793a367b7bb20cc41ca07e3e610bf5af54a71": {
+   "at": "2026-10-10T08:31:09.796Z",
+   "outcome": "parsed",
+   "ids": [
+    "legacies"
+   ],
+   "usd": 0.001761
+  },
+  "53d53b29517dc46657493c884131af8c07f591aa596a4c04244fd3452642a72c": {
+   "at": "2026-10-10T08:31:04.288Z",
+   "outcome": "parsed",
+   "ids": [
+    "horimiya",
+    "banished-from-the-hero-s-party-i-decided-to-live-a-quiet-life-in-the-countryside",
+    "i-have-a-crush-at-work",
+    "school-days",
+    "say-i-love-you",
+    "scum-s-wish",
+    "beastars",
+    "fruits-basket",
+    "b-gata-h-kei",
+    "tsuredere-children"
+   ],
+   "usd": 0.002747
+  },
+  "30b5f16b139dcd8683ff391fb68f79419e90904e8d83a3a62855eb6d4604ae5f": {
+   "at": "2026-10-10T08:31:11.594Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "51b06619599b76c167ba15506f68cd8993bfd511c22903bcd7b967fd01089839": {
+   "at": "2026-10-10T08:31:12.023Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000066
+  },
+  "4dbb760667f5cff3dd4417309a2890a587e7b52a9c564dbbbec02fa205ac2f2c": {
+   "at": "2026-10-10T08:31:12.552Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000048
+  },
+  "a7d2577bf975a88bd3d568d22d77b6f054b1a5f65d397bf1fe279238b9c1ce3d": {
+   "at": "2026-10-10T08:31:12.321Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "2c36b614719b1b6d5395e7874b088e4935adcf7e3d0897584f8f771229100b79": {
+   "at": "2026-10-10T08:31:13.103Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000045
+  },
+  "9fe2a26c3d8bdcf09f6ee6d174a3ae0c89ae60d73ea8be4c2f121750486ceafb": {
+   "at": "2026-10-10T08:31:13.401Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "bc7e61ce3ef828f8a4abd4f801e71a120a9190c054dac30a044d3d0c018ec58f": {
+   "at": "2026-10-10T08:31:12.498Z",
+   "outcome": "parsed",
+   "ids": [
+    "gail-daughtry-and-the-celebrity-sex-pass"
+   ],
+   "usd": 0.001233
+  },
+  "7683c0e1193599b232d870dd6b0f56b7970cf73d2444a09b0440c06e91db68a4": {
+   "at": "2026-10-10T08:31:14.037Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "c0d0ac35fe3b23b42dbf7418f44db3aff362583ac3d3f2180bf75dcc08876c45": {
+   "at": "2026-10-10T08:31:14.561Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000045
+  },
+  "843485d46e2b42a4239bd5029eb13068415081d15553023255a4d531f51452c6": {
+   "at": "2026-10-10T08:31:14.638Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000054
+  },
+  "3ce83ade22876ec893865e00814783f4c9651ad911407c4e82be7dd560c43079": {
+   "at": "2026-10-10T08:31:11.930Z",
+   "outcome": "parsed",
+   "ids": [
+    "samurai-priest-vampire-hunter",
+    "shadow-tracker-vampire-hunter",
+    "vampire-hunter-d-bloodlust",
+    "vampire-hunter-d"
+   ],
+   "usd": 0.001788
+  },
+  "642decba3b67b474a869b06958f1e6502627a1f1a026120bc087c548e71bd719": {
+   "at": "2026-10-10T08:31:13.659Z",
+   "outcome": "parsed",
+   "ids": [
+    "the-drifter"
+   ],
+   "usd": 0.001769
+  },
+  "6cb68e685e3d69dac959c06ae4ce7bdff1f2feafaeb16506cbdfbbc92f5b5dab": {
+   "at": "2026-10-10T08:31:15.108Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000054
+  },
+  "8f8672b9317c7cd025ec01830d3b8dc574b5b1a05eadb14c677d9048bede8b62": {
+   "at": "2026-10-10T08:31:15.567Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "d49d10d81a51d86474e46315fdb91e0cee8b4c0b0a7d9230a4cd26c1d7af2cd5": {
+   "at": "2026-10-10T08:31:15.942Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000048
+  },
+  "bdeb2b9c3b157cab10c67deb7c7f8fbe3b04a8a4b66dfb4c2bd30491a31444bc": {
+   "at": "2026-10-10T08:31:16.016Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "afab579020c7698ede7d0e3131358f0830262e96730f0e95179355a727d23f24": {
+   "at": "2026-10-10T08:31:16.506Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "c5a8e73f16af0155a08050863ca039bcdc808f1f68c0e62e5e0aa2f9ca5b9c86": {
+   "at": "2026-10-10T08:31:16.595Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "c525abe64a2684c5f5e9614ea3cdb98342a1b47af3fca8845c3813c4700414f4": {
+   "at": "2026-10-10T08:31:17.106Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "52ee0afdb2a2a2c1151e4dd3181fba986ac2e25a0fc08943a463f40f7c0f6f0c": {
+   "at": "2026-10-10T08:31:17.764Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "c729a53c254f435de975db105e44567d32114b84c30f0a304d18141976b84954": {
+   "at": "2026-10-10T08:31:16.217Z",
+   "outcome": "parsed",
+   "ids": [
+    "fairy-tail"
+   ],
+   "usd": 0.001737
+  },
+  "e8348759da857d1e9abd5f4b42e688475e454c7903b163d50569b08aa3c63cd2": {
+   "at": "2026-10-10T08:31:18.321Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "8d18c9ce9bd0ed5b6aae83e24315d02605934c4904a418e33da0d77bcb5d11ce": {
+   "at": "2026-10-10T08:31:18.417Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "f994e7bda30d54c37b081093ce2383ca4e68bd31a15c7b70a4f1b869473b3b8d": {
+   "at": "2026-10-10T08:31:19.029Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "719af2f7273df18c05ec454400465ad54a10953db5ffbdd7025b663478fcb68a": {
+   "at": "2026-10-10T08:31:19.181Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "0225d59e56f0d842d90562b51bcd107818fcf894e37fba0cbe8fb90ee262e252": {
+   "at": "2026-10-10T08:31:19.545Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "ba3a52018f389a810f85443932ae300e2134e75f4830ddd2da75684906912353": {
+   "at": "2026-10-10T08:31:19.813Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "92405c638443ed416ae33ed6479fec2c1bbf4bac711a6b30a2076e2bcb4754ea": {
+   "at": "2026-10-10T08:31:20.126Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "71db96fbbd5bbbb4b93c24e0692d865bbe47adfc46ecf70dcb1573a2770ee553": {
+   "at": "2026-10-10T08:31:17.318Z",
+   "outcome": "parsed",
+   "ids": [
+    "prisoners",
+    "hokum",
+    "contraband"
+   ],
+   "usd": 0.001981
+  },
+  "ac4cdfce3cc890ea76abd24fe8a196c2057b2aaa9a0e1fa52655bfed8abee935": {
+   "at": "2026-10-10T08:31:15.209Z",
+   "outcome": "parsed",
+   "ids": [
+    "flunk",
+    "lars",
+    "harajuku-girl",
+    "buddy",
+    "pixy-lixx",
+    "alpha-granny"
+   ],
+   "usd": 0.00219
+  },
+  "1c70afb9558be67f7bdaed5ed870f9a2f0bb7486b7b5cbb190d984f0d6fc5027": {
+   "at": "2026-10-10T08:31:20.685Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "20f22f5d1eddd6e1f6a7a1b38cb5cc0b7f6acc69d9df4497727bfff58f30a37f": {
+   "at": "2026-10-10T08:31:21.142Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "3c64b6479fd5021eb4fb154fb716798a781fa7c113f3766b7163cf127dd43a80": {
+   "at": "2026-10-10T08:31:21.812Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "de511e95c120d4f3d9b5e6a57ab6dc8dd4cf821bd6f309cf48ed3ec1cc2f5d7d": {
+   "at": "2026-10-10T08:31:22.386Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "6c21da79b68d971f1b319ba3e97b105ce0376d7925383ec3c8083337e4faeff3": {
+   "at": "2026-10-10T08:31:21.086Z",
+   "outcome": "parsed",
+   "ids": [
+    "tomoya"
+   ],
+   "usd": 0.00175
+  },
+  "ed5350259791ca2e0827f5707fc3aac7bef6a84dbc25bce64e80e1f4f21c65c5": {
+   "at": "2026-10-10T08:31:20.401Z",
+   "outcome": "parsed",
+   "ids": [
+    "old-skies"
+   ],
+   "usd": 0.001768
+  },
+  "85d790309fd40ce7604e9935230de4d5a9fac216450718d0679b36578d969590": {
+   "at": "2026-10-10T08:31:21.415Z",
+   "outcome": "parsed",
+   "ids": [
+    "alterium-shift"
+   ],
+   "usd": 0.001763
+  },
+  "5186f93c55426205ea02b0b1123575b329e9ac79ad378acbeb82511f0a906a5c": {
+   "at": "2026-10-10T08:31:23.175Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "aee10906849bdeb855c2c6b52fceccd0c9b644d82597a5e260565b1e2e8541e9": {
+   "at": "2026-10-10T08:31:23.004Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "faea39169363d9517db5f2bcffac031bd1e134cee087d4e6a5321b389c8dab3b": {
+   "at": "2026-10-10T08:31:23.275Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "6b8c7ac8674348026726ac8539193992de2269840fbf49edec8814b47af03c3e": {
+   "at": "2026-10-10T08:31:23.467Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "da29bd13d92e634570c76c7c9837820aa8a5c8f9108f36f1a9dc356c20ea171d": {
+   "at": "2026-10-10T08:31:23.784Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "959e54f691892a1e6b086cafd1fe4e1a96be316030100b30e2ed7e7c77983d8d": {
+   "at": "2026-10-10T08:31:23.957Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "c5ee35b596f0988c6dbd37cbe3cdc8bb27e3b03b9cb859eb31abe86644fd31b8": {
+   "at": "2026-10-10T08:31:24.221Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "a566de9d7abc76f1b983e216cc1f4b2c6c1233097560afd3de8f80d52efef2f0": {
+   "at": "2026-10-10T08:31:24.402Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "8e41bc1b19b23c038ca2960b7e2600419137c96c994d64fa84ecd307443cecfe": {
+   "at": "2026-10-10T08:31:25.042Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "ea2291d9a4c26ff3b1406175e0cda0a58cfebf89938e167d6c09cbce047cbd1d": {
+   "at": "2026-10-10T08:31:24.875Z",
+   "outcome": "parsed",
+   "ids": [
+    "suikoden-ii"
+   ],
+   "usd": 0.001753
+  },
+  "17f1239b369bc42404a6b4f62fcd6243e46df2737ed58197ae57dce6d3e4fd47": {
+   "at": "2026-10-10T08:31:27.274Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "d8d24ed4da44365cdf5bfe14bc34d635cea5d50b5c83b311aa13365ac6e500dd": {
+   "at": "2026-10-10T08:31:27.907Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "dba47322dbf88054dbba154a6e6376b8fd784d7ef20ee661a56b214f9dd4ebf6": {
+   "at": "2026-10-10T08:31:28.517Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "648c606021d1ee9c7fb4689a3e9c83894e53d7cb85ffcd4f3b50d0cab6fa816a": {
+   "at": "2026-10-10T08:31:25.697Z",
+   "outcome": "parsed",
+   "ids": [
+    "grav"
+   ],
+   "usd": 0.001777
+  },
+  "f44750fe6cfdc4c690f0672467a73aff30188550a3a44b88cc7ebc71c1482024": {
+   "at": "2026-10-10T08:31:29.125Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "13304b2a590293b95c496498b59e946371ff63a4fd3f050ec86e342c6521ef0c": {
+   "at": "2026-10-10T08:31:24.587Z",
+   "outcome": "parsed",
+   "ids": [
+    "hereditary",
+    "midsommar",
+    "beau-is-afraid",
+    "eddington"
+   ],
+   "usd": 0.002101
+  },
+  "7574f4cdb7cf0c8e28c82d7a060de9242f2e03e8a5732a1caf4bfc7e769e9068": {
+   "at": "2026-10-10T08:31:29.489Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "e3883805b72d4a486f2f0904abd54b3fadedccfeeba21c437d534d6db0b596b2": {
+   "at": "2026-10-10T08:31:29.758Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "9e968db65a06ca2577825baaf224b91684746684536e59ece0b607238f6cadee": {
+   "at": "2026-10-10T08:31:30.014Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "34818af79f17d19ea44684124a9c513e7e08381d263f1572c6039b0eba90d4d7": {
+   "at": "2026-10-10T08:31:30.050Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000072
+  },
+  "872fd4b37b82c20aa489bd6e6cba72adad0968487ac43be7e121e1e09bab9820": {
+   "at": "2026-10-10T08:31:30.347Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "998ba69702db852691f9d9cc47bb8bfdfa626da2751d550cb1f154555099f0dc": {
+   "at": "2026-10-10T08:31:30.622Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "53fd649869602bc68d27065722c099b58dcf471418bd807e7cecf05c22c9fcc5": {
+   "at": "2026-10-10T08:31:30.757Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "6cbbf5bd16528685b7e813a84d2ced5647eea22bedcddaf3e281476e1a73bd06": {
+   "at": "2026-10-10T08:31:30.934Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "5e8707625541942169db644f85c8de7b51de674bff82afbabd3e70a022774f06": {
+   "at": "2026-10-10T08:31:24.094Z",
+   "outcome": "parsed",
+   "ids": [
+    "qwythos"
+   ],
+   "usd": 0.001752
+  },
+  "5270db3e89f4dd6ddd2391391d9c020bc091659011e08a9fe23af35e7e286778": {
+   "at": "2026-10-10T08:31:31.311Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "6ef5cdf6a5768ff5b3642b39e0e08ddf875e70aea5c0ef3494cbc8130ec5b3a7": {
+   "at": "2026-10-10T08:31:31.478Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "aa7c08784d1b9f251e2ad87ba88ceda94e17c3a63f33fd44af22fe28578452c4": {
+   "at": "2026-10-10T08:31:31.494Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "3e2460514c59b92e444e4a6542837d9ee741b43c7782c59c5526f590f36f81b5": {
+   "at": "2026-10-10T08:31:31.737Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "1a91e0caf5338ff11bf400332392dc6e6565b690350656b3668a734bd6a40cd3": {
+   "at": "2026-10-10T08:31:31.927Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "bc6410b5e70af1afa25fe28868d5ccb987366bacbe65a7e5b44d20ac8a908989": {
+   "at": "2026-10-10T08:31:32.048Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "a1f3ba407e5f5775de2f575f24a13f1f9a1eb5c18444bab8edb1d578de947a3b": {
+   "at": "2026-10-10T08:31:32.197Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "d74a9026c2ae7e956dabc7b616368c809dd443d6e0c5c8e5240af8320054be21": {
+   "at": "2026-10-10T08:31:32.426Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "32895b65b2567cfe49935a405a01111a1feb902655bc16a9b73172b3776eee0e": {
+   "at": "2026-10-10T08:31:33.240Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "8c26e9e35d8902312385b80194834c0b281ac6b0840754d29c8b319a13a44605": {
+   "at": "2026-10-10T08:31:33.852Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "ec83cefd331b34498c649dcf9d22af305a4a1a331a7dd2262e703e41bdd8b4ff": {
+   "at": "2026-10-10T08:31:32.575Z",
+   "outcome": "parsed",
+   "ids": [
+    "treasure-of-the-rudras"
+   ],
+   "usd": 0.001761
+  },
+  "eb09b6170398bec76f07eea764f03a92cfd4df8c089efc38cf91b097658ed0ca": {
+   "at": "2026-10-10T08:31:34.748Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "bc025f0eae842fbf9e5f88057ae7354ac8017402cf9a89b09fe95cc663539bf3": {
+   "at": "2026-10-10T08:31:32.863Z",
+   "outcome": "parsed",
+   "ids": [
+    "rhapsody-a-musical-adventure"
+   ],
+   "usd": 0.001801
+  },
+  "5d007b59618f48b48db07f693a06b7f90dddf6d9bd8dbf0926e372a3677603b3": {
+   "at": "2026-10-10T08:31:32.741Z",
+   "outcome": "parsed",
+   "ids": [
+    "the-rocky-horror-picture-show"
+   ],
+   "usd": 0.001761
+  },
+  "b525cec0f0a88848a87f26d4ed92ef69088c100dd76e4995bc87f43327849b76": {
+   "at": "2026-10-10T08:31:35.131Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "80bded2582aa29f3aa5543eba32cd2bcdc4580f84182dd6a1f695d9f4a979b98": {
+   "at": "2026-10-10T08:31:35.288Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "5ef3828086909186673475b8b02ad22b97877b504b5f4397fa81fec82bc45fd5": {
+   "at": "2026-10-10T08:31:35.564Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "15f1285fb4fb051c596b0dcb866871bfc08913c86079c6eba0b86b872dfbaf5c": {
+   "at": "2026-10-10T08:31:35.803Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "d60d1a738f2e024bb3b8b62ac6a1c7d22743222de3daf77650d257ebc47121c7": {
+   "at": "2026-10-10T08:31:35.388Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "3c9d7612f5389a2f4a3df976960be6e950b09f63fc925171c7a1225ea9c8e478": {
+   "at": "2026-10-10T08:31:35.923Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "007bd02f21f6c32484e6a23f76f04a8456f49ec122f8722031201a5d4e8e5b37": {
+   "at": "2026-10-10T08:31:36.236Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "1ada0521833ef2d310bf86b168dd533ed12bf5cbf1de9fe70972a3c45226fead": {
+   "at": "2026-10-10T08:31:36.410Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "638fa1144f106143b752607d78fff5f85840938172075230f54d27466b6a64bf": {
+   "at": "2026-10-10T08:31:36.467Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "702c67b7660f71dbd6e0e752773ff46668be8ec431c77e41c238f63bbe78f2bb": {
+   "at": "2026-10-10T08:31:36.588Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "a6768bd5c7838be299e961183a00bf5b5747a27076987600754a424f8f2ba3ac": {
+   "at": "2026-10-10T08:31:36.769Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "8d3a7f4286c99a498666ce014194088ec79a2e0d973451555a93c62bac4bb4ff": {
+   "at": "2026-10-10T08:31:37.193Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "fad49201c1109c0043978bcae04d09c90814664990751cf5cf59592bc3398fea": {
+   "at": "2026-10-10T08:31:37.304Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "02128a684d59dd5c16ef4ec5d2213e2f01bef32e7488b24e2c588496d7818b63": {
+   "at": "2026-10-10T08:31:37.816Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "d83cce0af4c6d1172c9ad6df026626f4e8a00b5cc24bab1d2501d4451407ce76": {
+   "at": "2026-10-10T08:31:37.906Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "bb34a7287fededeac8643a63f1b503b64ebfeed6d8bfd45a6ccfef4ca4ff0fd0": {
+   "at": "2026-10-10T08:31:37.048Z",
+   "outcome": "no-titles",
+   "ids": [],
+   "usd": 0.001643
+  },
+  "eccaf252a3e627f8d7e95d57c46f57fba7eb26ad2185f593dbed240b1aeb5f3d": {
+   "at": "2026-10-10T08:31:38.466Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "59d8586b1f638a30ce52df9be7ac8318088af2bb3d2b63b0dffd246de7979cce": {
+   "at": "2026-10-10T08:31:38.436Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "22494aafb4138207e57af4d0e34e8b5c1adea09bb18a6feac723195173c3b804": {
+   "at": "2026-10-10T08:31:38.709Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "88229229d6275a78379436939dc97e57cf83d679b9f856bb02eb81dc368f7f83": {
+   "at": "2026-10-10T08:31:39.102Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "84985d2e3e3d369d9af71b2527038cddaae8ed49c7e6ed3f261a459ddb864814": {
+   "at": "2026-10-10T08:31:39.630Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "e84b40783b660dc87ce5f58006aa8004ddebd08816451d17b1939470cbe687f1": {
+   "at": "2026-10-10T08:31:39.794Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "08942d6a88f065cb4870776911efc75180b1ac00d06f1db3c20fe9664ddeebfd": {
+   "at": "2026-10-10T08:31:40.244Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "9ed31e953d145e42976d79f1c750a8922721c9843e07ef7051d2bda32a857ab9": {
+   "at": "2026-10-10T08:31:40.969Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "100602daf5d9865483c1a26ace4437c2a1a8822ecb23e166c60b833d0efb83bf": {
+   "at": "2026-10-10T08:31:40.650Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "412968f04a6d4933e920ee6a20cb2e62f4261c81e31ef560e7bc22bb205d0cca": {
+   "at": "2026-10-10T08:31:41.505Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "5c8463d363ecc3a45a00139a4d2e40c6dc2587bfad39cc8c5dd87d92be8f3c14": {
+   "at": "2026-10-10T08:31:41.501Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "ec5b02b64143fd7ca6b622e6ddc9ca9ea2fa932654679862cd91426b1f548f41": {
+   "at": "2026-10-10T08:31:42.094Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "e5eb7d9f246b1368b4efe76add2933c344af272250b9b592c16d95a91fc061b5": {
+   "at": "2026-10-10T08:31:42.661Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "f614f2454690d06914376b267fc7a931a4c49727b05efb5958a7ed9d60bfe5c7": {
+   "at": "2026-10-10T08:31:42.391Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "5179953a74e08a89542e6de0266637d5367dbb03062ddfd07ae5367c8e062450": {
+   "at": "2026-10-10T08:31:43.185Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "225c4d3c2708c92773aa7a09a3a1cc36a466c9c01a6721e11945631f4d0c9891": {
+   "at": "2026-10-10T08:31:43.416Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "9b86ef5cad1ab242533784431793304f79767c82bc061064e5a2ac85501e9dfb": {
+   "at": "2026-10-10T08:31:37.366Z",
+   "outcome": "parsed",
+   "ids": [
+    "shottr",
+    "betterdisplay",
+    "updatest",
+    "codexbar",
+    "ice",
+    "thaw",
+    "vorssaint"
+   ],
+   "usd": 0.002318
+  },
+  "5bd40542778e67f0ee213e73d3d47152f6fc4e1b1a9adea252974e481356a8cd": {
+   "at": "2026-10-10T08:31:43.722Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "0fdb518204ab35d6671ea48a3413ab0fe3f30592703f6f94d5a56a6abcb809ff": {
+   "at": "2026-10-10T08:31:44.330Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "c8f2dab8b04293863f5dddf03a46302b5d1e0de92e5fef5007eaaf23aad401d5": {
+   "at": "2026-10-10T08:31:44.547Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "09e08cf6299666c44e4f6613b3496f038b8b3d4277c93ecbd9e4f2413544e9c3": {
+   "at": "2026-10-10T08:31:44.944Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "c2d7639b785a2046868abda3bfc6d82313dd09fcb13a1bcb451b8bd847a1b278": {
+   "at": "2026-10-10T08:31:45.128Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "fbc93eeff79e3008dada007b14c62a9e0373f58e938951e848632f6a465e516a": {
+   "at": "2026-10-10T08:31:39.077Z",
+   "outcome": "parsed",
+   "ids": [
+    "the-princess-bride",
+    "free-guy",
+    "empire-records",
+    "night-at-the-museum",
+    "rio",
+    "star-wars-the-empire-strikes-back",
+    "star-wars-return-of-the-jedi"
+   ],
+   "usd": 0.002336
+  },
+  "5da313c8f2696220d7604cb1bbc332507a3cd7a0d7bbf853cc63af8c84d2da2d": {
+   "at": "2026-10-10T08:31:45.814Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "aa04a582e95b2f6bb9f6897178d813ed4262b965bcfa9adcdee639056eac982c": {
+   "at": "2026-10-10T08:31:46.449Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "5865accd2e2e447b393d56226f38d8e8775236ce35e504804009fe50fcf71e4d": {
+   "at": "2026-10-10T08:31:44.075Z",
+   "outcome": "parsed",
+   "ids": [
+    "wedding-day"
+   ],
+   "usd": 0.001736
+  },
+  "de05ded8c54917f9d2c3349fb2c5cf93326529a93e14c7e6bc35a299acb4ffe2": {
+   "at": "2026-10-10T08:31:48.142Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "6219e069bf8327cb787577be5cc818f63b622777b532a4b1e73ed7e016d1a87d": {
+   "at": "2026-10-10T08:31:48.841Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "615194fbe6fb759dbda57c34c6c61f7a19a4d1e8e5d965ed8599808ea3f396d5": {
+   "at": "2026-10-10T08:31:45.719Z",
+   "outcome": "parsed",
+   "ids": [
+    "game-master-engine-gm-edition",
+    "game-master-engine"
+   ],
+   "usd": 0.001849
+  },
+  "832ca5b6d2170232427d7694ba3df35248082f8f5dcc819227fee7cc0ef80bb5": {
+   "at": "2026-10-10T08:31:49.467Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "f0e10d9c1979521223779b7595e6892a6f3d102206d904de51323d432c9759a0": {
+   "at": "2026-10-10T08:31:49.643Z",
+   "outcome": "no-titles",
+   "ids": [],
+   "usd": 0.001646
+  },
+  "cc5e1e5613f2ba303e1742b831fc43605a3acf413f165487b043269c981666ef": {
+   "at": "2026-10-10T08:31:51.259Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "168152fe38f30bd5693a9f120b3509888634f35298aa1e07fe45ea61110a9261": {
+   "at": "2026-10-10T08:31:51.780Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "8c272158af9ad155a0f9f238ac002f12dd7d06ffe95d85df6bca9651dd6530b5": {
+   "at": "2026-10-10T08:31:50.502Z",
+   "outcome": "parsed",
+   "ids": [
+    "alpine-racer"
+   ],
+   "usd": 0.001753
+  },
+  "c9707b9383d0740ff5c6866e158579e1bf7f3c403bed74d145e82497907ee585": {
+   "at": "2026-10-10T08:31:52.428Z",
+   "outcome": "parsed",
+   "ids": [
+    "lost-eidolons-veil-of-the-witch"
+   ],
+   "usd": 0.001766
+  },
+  "56561c9a61367947801f6b523f363f11f4ba518acb9e3c29fd829d9eb44256b1": {
+   "at": "2026-10-10T08:31:53.244Z",
+   "outcome": "parsed",
+   "ids": [
+    "kartia-the-word-of-fate"
+   ],
+   "usd": 0.001763
+  },
+  "3bf5f04f2261fc09dd80eee328e7348fed0abde4b9201de8e81f5b5ad35d8146": {
+   "at": "2026-10-10T08:31:47.029Z",
+   "outcome": "parsed",
+   "ids": [
+    "phantom-thieves",
+    "hunter-x-hunter",
+    "victoria-of-many-faces",
+    "phantom-thief-jeanne",
+    "saint-tail",
+    "red-river",
+    "a-witch-s-life-in-mongol",
+    "love-of-kill",
+    "d-n-angel",
+    "lycoris-recoil",
+    "ghost-in-the-shell-stand-alone-complex",
+    "spy-x-family"
+   ],
+   "usd": 0.002859
+  },
+  "5ef19bb3549cce35d1f0ca2ea1bf3f38df0a438c46e06bb66d925bab1b150484": {
+   "at": "2026-10-10T08:31:55.892Z",
+   "outcome": "parsed",
+   "ids": [
+    "vamps"
+   ],
+   "usd": 0.001761
+  },
+  "2e1e068e5760ec287385fdf9d0ffa42f9cbb5f6f9b95cce84bd7d39761f2b57e": {
+   "at": "2026-10-10T08:31:55.208Z",
+   "outcome": "parsed",
+   "ids": [
+    "sex-and-zen"
+   ],
+   "usd": 0.001771
+  },
+  "a2145aa7e26e2e3e82661b169a62e80be396ac11750d3cceda065fae0228e144": {
+   "at": "2026-10-10T08:31:56.170Z",
+   "outcome": "parsed",
+   "ids": [
+    "hidden"
+   ],
+   "usd": 0.001763
+  },
+  "a24532f8d5701cf12f6d17a3b5a9f4087964b5f376022eb3d3ad3fa5f499bc73": {
+   "at": "2026-10-10T08:31:57.918Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "049130732137e8a399dcb5a7d3e9ba6d1903678b6f8266601bef4fb0a49d2afe": {
+   "at": "2026-10-10T08:31:58.489Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "465d343e70a27bd83231db76393fc722fa1379a9f76f9c3f09d50722bc250fec": {
+   "at": "2026-10-10T08:31:58.638Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "e8e76451570703ceb96f23a747f017aaadcf3b1ac71f55ddf233b4612b5304e9": {
+   "at": "2026-10-10T08:31:57.711Z",
+   "outcome": "parsed",
+   "ids": [
+    "virgin-territory"
+   ],
+   "usd": 0.001771
+  },
+  "108b39f6f2d73b4ddd014d283540eff01390e65b596eb3735489486b4766ef5f": {
+   "at": "2026-10-10T08:32:00.050Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "63bc22b63205131f7402ce150f56a9adbd731426c4c313df7f72f03f4b2d315d": {
+   "at": "2026-10-10T08:32:00.864Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "4c725c48edcb778be2476b986d1d3ed8e1eb50c2d17483195c2fe36fdb8a1163": {
+   "at": "2026-10-10T08:31:59.052Z",
+   "outcome": "parsed",
+   "ids": [
+    "avengement"
+   ],
+   "usd": 0.001758
+  },
+  "85339a960fe60b8718ffdd06a491edb9d7ed7f6bde62901c9b4c7da541eb5b5a": {
+   "at": "2026-10-10T08:31:45.520Z",
+   "outcome": "parsed",
+   "ids": [
+    "see-all",
+    "the-monkey-island",
+    "the-day-of-the-tentacle",
+    "maniac-mansion",
+    "indiana-jones-and-the-last-crusade",
+    "indiana-jones-and-the-fate-of-atlantis",
+    "full-throttle",
+    "deponia",
+    "king-s-quest-vi",
+    "king-s-quest-vii",
+    "simon-the-sorcerer",
+    "sam-and-max-hit-the-road",
+    "grim-fandango",
+    "beneath-a-steel-sky-1994",
+    "broken-sword",
+    "discworld-2",
+    "woodruff-and-the-schnibble-of-azimuth"
+   ],
+   "usd": 0.003283
+  },
+  "5a05bc989583fba2954807d403423a7e97a486f618d59f628883e444847ab311": {
+   "at": "2026-10-10T08:31:59.210Z",
+   "outcome": "parsed",
+   "ids": [
+    "money-heist"
+   ],
+   "usd": 0.001763
+  },
+  "78312c05f1fb27b8ab31e42eba4ac305f899b09a429abb419a85741578728ac2": {
+   "at": "2026-10-10T08:32:01.572Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "ff26e656184245777fda1e8aefa3e8a2323d4eac869cf86d27317ac5061dd3f8": {
+   "at": "2026-10-10T08:32:02.695Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "b69de47180838ab84c283b15ad31bd0562fc8429de37094325872750c0a8d8b9": {
+   "at": "2026-10-10T08:32:03.275Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "7ed8b51914f2088b4b091cccc3f982e7fb1d54f76b0813d2d758bb12f7011eb3": {
+   "at": "2026-10-10T08:32:01.452Z",
+   "outcome": "parsed",
+   "ids": [
+    "peacemaker"
+   ],
+   "usd": 0.001752
+  },
+  "2aa146388fe935f603de5018caac49503f1ce0b698c43a7a2f26de023a452373": {
+   "at": "2026-10-10T08:32:01.758Z",
+   "outcome": "parsed",
+   "ids": [
+    "tag"
+   ],
+   "usd": 0.001749
+  },
+  "7a8b02afca1fd3fe661b0fbb3cf32a00fefbcdc952143672bc43c7a7e7f061a1": {
+   "at": "2026-10-10T08:32:01.677Z",
+   "outcome": "parsed",
+   "ids": [
+    "to-your-eternity"
+   ],
+   "usd": 0.001752
+  },
+  "4a7e0e4db8d3a6183a4cfc166a9c79aff810b6cfb8365fb67aa1ae72513c9b5a": {
+   "at": "2026-10-10T08:32:03.789Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000066
+  },
+  "07a66d5fa9d12955d3c4081773afddca99613bb5a4e36cca9f95e324f8a4f67e": {
+   "at": "2026-10-10T08:32:03.945Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000039
+  },
+  "1d1e57c1b930bc5d744413fc10e7f91a2417e0dfea205cfc3cc197e4302af4ae": {
+   "at": "2026-10-10T08:32:04.415Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "d15f50c179968d5aa55608b01402c77c2bf54f56713b5cccb19d8131e07d90af": {
+   "at": "2026-10-10T08:32:04.506Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "bf04997f88b0bfb573fcdcf90702d4c552d624da62c1fe7dbb2322f69ad33482": {
+   "at": "2026-10-10T08:32:04.358Z",
+   "outcome": "parsed",
+   "ids": [
+    "(pending)"
+   ],
+   "usd": 0.001736
+  },
+  "e08a27e7460b8a7fb9bb5b4a358971c41e0fe1af4df0c2644b385bd4af208d84": {
+   "at": "2026-10-10T08:32:05.351Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "a4a0711010f5b0054f2d4789550202eaaba0dc501319a64623d546d66a27593d": {
+   "at": "2026-10-10T08:32:04.190Z",
+   "outcome": "parsed",
+   "ids": [
+    "big-black-card"
+   ],
+   "usd": 0.001741
+  },
+  "9bb9365916d2d05bc0b660a6aa0a2332469576446516de420c597319c513eebe": {
+   "at": "2026-10-10T08:32:06.124Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "80feb0c79ba877a1a09ba923cac06a436ede65c338a5b475dea265ad3ab692d1": {
+   "at": "2026-10-10T08:32:06.558Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "da41bd13aa900cb2e55f20b1f0c738e687a2a4cff8fcd1070d3f78792fedf039": {
+   "at": "2026-10-10T08:32:04.936Z",
+   "outcome": "parsed",
+   "ids": [
+    "cassette-beasts"
+   ],
+   "usd": 0.00175
+  },
+  "47b159fa26edf10bd46ec2641af37edbaa70b3b696686a95100b41238ec5932b": {
+   "at": "2026-10-10T08:32:06.667Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "e4fd4a0585aceba36b89696d6339fae41fbef06759bf0d294c0edf93fdf1c06e": {
+   "at": "2026-10-10T08:32:07.733Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "c0db5606862408368bc5efb90e7e20d770834ebaadd66eb52db837be266ad53d": {
+   "at": "2026-10-10T08:32:06.440Z",
+   "outcome": "parsed",
+   "ids": [
+    "heroic-age"
+   ],
+   "usd": 0.001758
+  },
+  "2a04c49c87b5a56de24151754875d535d777f3287aca300ec2935a49411514c3": {
+   "at": "2026-10-10T08:32:08.472Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "2cb567055f00f24b2ecba800f20b0a7d7ea94ee971459cb9ca0cffeb53aaf71c": {
+   "at": "2026-10-10T08:32:08.776Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "7e238441d5f916309d652f7c9f400a3fb79c2f0937bf7fde53479749b650be55": {
+   "at": "2026-10-10T08:32:09.008Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "8e5c9dd2333566515cb655001a2be2569773d7fc9cb0b1fa6e8681208aabf7fa": {
+   "at": "2026-10-10T08:32:07.170Z",
+   "outcome": "parsed",
+   "ids": [
+    "yudhra"
+   ],
+   "usd": 0.001779
+  },
+  "b55a5945b3f4270eb4eb56d74102ea2914cfd8dbdc48c7803fbd4a390968f6fb": {
+   "at": "2026-10-10T08:32:09.389Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "07e3b80eccf13631c198be368e98da4c51b940d41b086168dc6df51cc37bb825": {
+   "at": "2026-10-10T08:32:09.830Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "d96436f6186c41321422b7f5487e7a2b61f2badbc0839b0031a25888171e0482": {
+   "at": "2026-10-10T08:32:10.758Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "76414d33340c318c3e32c032acc2e2a4a1c971a4581f17e36b5adb6a576cc0cb": {
+   "at": "2026-10-10T08:32:09.579Z",
+   "outcome": "parsed",
+   "ids": [
+    "under-ninja"
+   ],
+   "usd": 0.001773
+  },
+  "f1fe412a44874c759173f1f4d108e471ff3ddfb76729fc79725fedafabe1eeb8": {
+   "at": "2026-10-10T08:32:10.092Z",
+   "outcome": "parsed",
+   "ids": [
+    "useless-creatures"
+   ],
+   "usd": 0.001749
+  },
+  "8dd77de90befa456f6aa4880493643309236931b72b8296077219831d2ff7c85": {
+   "at": "2026-10-10T08:32:11.890Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "2da082151717bf1105ae4baed30bdcd5da7266548a343f8299122e8fb6d34225": {
+   "at": "2026-10-10T08:32:12.543Z",
+   "outcome": "parsed",
+   "ids": [
+    "roking-star-yash-new-movie-scene"
+   ],
+   "usd": 0.001758
+  },
+  "c2e36e6f64e0ce7f0371fdbcf825b87b0cba6625575ea8318460371a736fed37": {
+   "at": "2026-10-10T08:32:15.059Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "680cb8ea8b2a48ed7dc24f7285ab5c7182f7d7076834c4629f5e707caaa9bc4f": {
+   "at": "2026-10-10T08:32:12.711Z",
+   "outcome": "parsed",
+   "ids": [
+    "toxic-a-fairy-tale-for-grown-ups",
+    "ladies-and-ladies"
+   ],
+   "usd": 0.001853
+  },
+  "9575b000ccdccad86a69dfedd9b2b9b6040089dd3ef731df7e9d831fd29d18ff": {
+   "at": "2026-10-10T08:32:15.629Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "bfb4e5e8334b6b0d53d13df05d12c69a7469d87e023f0e6b36f61a69a149f73a": {
+   "at": "2026-10-10T08:32:08.334Z",
+   "outcome": "parsed",
+   "ids": [
+    "higgsfield",
+    "artflow",
+    "elevenlabs",
+    "fishaudio",
+    "claude",
+    "gemini",
+    "gpt-image",
+    "google-flow",
+    "synthesia",
+    "heygen"
+   ],
+   "usd": 0.002544
+  },
+  "9260e65b09b7eefb095072b5026499e231b11e6863c030e556d5cc488e748484": {
+   "at": "2026-10-10T08:32:11.297Z",
+   "outcome": "parsed",
+   "ids": [
+    "black-bag",
+    "relay",
+    "the-day-of-the-jackal",
+    "peacock-tv",
+    "the-old-guard",
+    "ava",
+    "colombiana",
+    "leon",
+    "the-equalizer"
+   ],
+   "usd": 0.002542
+  },
+  "4ef70223add57b8aff4cdf9343f9d15250d16be50312db772dea9235b6d38eb6": {
+   "at": "2026-10-10T08:32:16.099Z",
+   "outcome": "parsed",
+   "ids": [
+    "4-cut-hero"
+   ],
+   "usd": 0.001768
+  },
+  "b440361ce0c42367ddcf578fa449918112b3c2e9cb2c0f0ceea2257fa3c365c8": {
+   "at": "2026-10-10T08:32:16.309Z",
+   "outcome": "parsed",
+   "ids": [
+    "spaceship-agga-ruter"
+   ],
+   "usd": 0.001779
+  },
+  "a20a5be73b9c4a888eae6b75f89d4f30be76a3d9d9dbd9d1fda5d1ca4967edd4": {
+   "at": "2026-10-10T08:32:17.397Z",
+   "outcome": "parsed",
+   "ids": [
+    "spaceship-agga-ruter"
+   ],
+   "usd": 0.001773
+  },
+  "3ee80b153dbbbab2b2a522f103ed1e3021cc864f13a07fc4288e71a98c45d7c3": {
+   "at": "2026-10-10T08:32:17.868Z",
+   "outcome": "parsed",
+   "ids": [
+    "chainsmoker-cat"
+   ],
+   "usd": 0.001757
+  },
+  "68df7e11b30112e6becd32fbd85012b99ae9a720fd9902e1bd85085ed5ab2794": {
+   "at": "2026-10-10T08:32:18.240Z",
+   "outcome": "parsed",
+   "ids": [
+    "interspecies-reviewers"
+   ],
+   "usd": 0.001753
+  },
+  "ec8d133bb8054e852c561ac478bab97a551354d7e2d4cf9c37ec2546dcf747c2": {
+   "at": "2026-10-10T08:32:18.709Z",
+   "outcome": "parsed",
+   "ids": [
+    "peter-grill-and-the-philosopher-s-time"
+   ],
+   "usd": 0.001768
+  },
+  "3f201316c5277a5e650822c747f4e663d2314a655424e870ea18dddc14d99f7f": {
+   "at": "2026-10-10T08:32:20.065Z",
+   "outcome": "parsed",
+   "ids": [
+    "testament-of-sister-new-devil"
+   ],
+   "usd": 0.001761
+  },
+  "e4e20e388d2b3d7ac259f380b01b0611e199acd071d079d5856dde6ac01e6d0e": {
+   "at": "2026-10-10T08:32:19.721Z",
+   "outcome": "parsed",
+   "ids": [
+    "sono-bisque-doll-wa-koi-wo-suru"
+   ],
+   "usd": 0.001771
+  },
+  "0a19bf134518cf4a24aca2f73dca89b46fd7b7989ba68196a24b69f64b3fa8c9": {
+   "at": "2026-10-10T08:32:20.176Z",
+   "outcome": "parsed",
+   "ids": [
+    "the-gigolo-dochinpira"
+   ],
+   "usd": 0.001773
+  },
+  "d38f7231923ee08da7846b91c29f8b9b456679ffbfcba7d548cc514aa5b82a12": {
+   "at": "2026-10-10T08:32:22.141Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "547e86b574a25ef81c11ae57e0fccc5f8950fe5a092c2a9d597654a33b4b973d": {
+   "at": "2026-10-10T08:32:21.053Z",
+   "outcome": "parsed",
+   "ids": [
+    "tougen-anki"
+   ],
+   "usd": 0.001763
+  },
+  "63fbf5b84a5484e49002c7cd4afdbe0a3f9a657f56c1b8aa13493ad6b6a0c0ab": {
+   "at": "2026-10-10T08:32:22.380Z",
+   "outcome": "parsed",
+   "ids": [
+    "this-ordinary-monk-turns-out-to-be-a-kung-fu-master"
+   ],
+   "usd": 0.001777
+  },
+  "e9116b8f37809d3d2cfe439cf1bbbad94c559a976bd865686879ff41188a470f": {
+   "at": "2026-10-10T08:32:22.956Z",
+   "outcome": "parsed",
+   "ids": [
+    "false-memory"
+   ],
+   "usd": 0.001753
+  },
+  "a889bca3c866ef62282b6dc302584e1307a5b124d702112be8432d928c103d30": {
+   "at": "2026-10-10T08:32:22.591Z",
+   "outcome": "parsed",
+   "ids": [
+    "fist-of-fury-soul"
+   ],
+   "usd": 0.001768
+  },
+  "3b1ab268cd7ce6f115120ddd8455a931ec2ea46c996828ef8ed5238defaef0a0": {
+   "at": "2026-10-10T08:32:23.667Z",
+   "outcome": "parsed",
+   "ids": [
+    "powerless-beggar-is-actually-a-supreme-master-no-one-in-the-martial-world-can-defeat-him",
+    "the-young-swordsman"
+   ],
+   "usd": 0.00188
+  },
+  "cc6fac65068869f711cd9078fe88fbacc62a0b83537291e1ceb2430a8c70ecce": {
+   "at": "2026-10-10T08:32:24.625Z",
+   "outcome": "parsed",
+   "ids": [
+    "time-to-close-the-hospital-because-the-crocodile-nurse-is-loose"
+   ],
+   "usd": 0.001781
   }
  },
  "dismissed": [],
  "totals": {
-  "shots": 25,
-  "media": 5,
-  "added": 4,
-  "inbox": 1,
-  "usd": 0.010912
+  "shots": 266,
+  "media": 78,
+  "added": 74,
+  "inbox": 64,
+  "usd": 0.162076
  }
 }
