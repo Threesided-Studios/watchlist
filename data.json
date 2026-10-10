@@ -58549,32 +58549,6 @@
     "match_ok": false
   },
   {
-    "id": "gemini",
-    "title": "Gemini",
-    "type": "game",
-    "year": 2011,
-    "blurb": "Discover a world where life is cheap, identities are bought &amp; sold, &amp; a quest for redemption can change the fate of a whole galaxy.",
-    "summary": "",
-    "poster": "posters/gemini.jpg",
-    "link": "https://store.steampowered.com/app/80310/",
-    "status": "todo",
-    "tags": [
-      "technology",
-      "AI"
-    ],
-    "rating": null,
-    "notes": "",
-    "added": "2026-10-10",
-    "source": "screenshot",
-    "source_context": "Facebook post by Indradeep — Free brainstorming ideas tool",
-    "recommended_by": "",
-    "ai_confidence": 0.9,
-    "enriched_via": "Steam",
-    "screenshot": "bfb4e5e8334b",
-    "steam_appid": 80310,
-    "match_ok": false
-  },
-  {
     "id": "toxic-a-fairy-tale-for-grown-ups",
     "title": "Toxic: A Fairy Tale for Grown-Ups",
     "type": "movie",

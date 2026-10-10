@@ -3071,7 +3071,8 @@
   "game:pixy-lixx",
   "game:alpha-granny",
   "screen:tomoya",
-  "software:buddy"
+  "software:buddy",
+  "game:gemini"
  ],
  "totals": {
   "shots": 423,
