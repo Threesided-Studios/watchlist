@@ -1,0 +1,178 @@
+{
+ "shots": {
+  "c61103b03371a242d2c72e18231f5cf89ddd17473e4ce86dde6a5342c0ec2d02": {
+   "at": "2026-10-10T08:08:15.731Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000092
+  },
+  "352d96dbdff25eb2bcc5b07301fc7fa51793091a85ad339806aeff97bb7af396": {
+   "at": "2026-10-10T08:08:17.675Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000092
+  },
+  "2cc95570c055be0f8c4c7a145bc97b0cff4cdb9a0fa9973faf9c9bee3531a4dd": {
+   "at": "2026-10-10T08:08:18.840Z",
+   "outcome": "parsed",
+   "ids": [
+    "konosuba",
+    "sleepy-princess-in-the-demon-castle",
+    "tis-time-for-torture",
+    "the-vampire-dies-in-no-time"
+   ],
+   "usd": 0.001962
+  },
+  "8c093e3b8eb5f84df3c2dfb433e0bc060e0495394c3e5eeb269b5cb7d88d4b3d": {
+   "at": "2026-10-10T08:08:25.335Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000092
+  },
+  "07f3a49f9e77bb8291684690737312ad36a2ec0dab7a17401f4fa82450e7dc58": {
+   "at": "2026-10-10T08:08:26.678Z",
+   "outcome": "parsed",
+   "ids": [
+    "the-man-from-earth",
+    "primer"
+   ],
+   "usd": 0.001718
+  },
+  "e47f7bfb5bde1aa41d3e72cd1a4cc90b1f92c8cbf0eee1af6f45898946f89d92": {
+   "at": "2026-10-10T08:08:29.269Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000092
+  },
+  "ede6306127c9c624ca17ce7ee8ff7bdf45fb8f493b9db36de15c76c91c86840b": {
+   "at": "2026-10-10T08:08:30.385Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000092
+  },
+  "a3c662817c7c26bbd22419c479826b622dd4e9434227f43216c5100b1d312b24": {
+   "at": "2026-10-10T08:08:31.519Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000092
+  },
+  "246717236ac3f48bb451596b65962093ec70511a7f1331a42f6957f9c87bbac9": {
+   "at": "2026-10-10T08:08:32.654Z",
+   "outcome": "parsed",
+   "ids": [
+    "audition"
+   ],
+   "usd": 0.001639
+  },
+  "43a6b38ff6f1f3d37b8c782e7bb8dbe7d66b39c28b17c105e89e0c2034812043": {
+   "at": "2026-10-10T08:08:35.860Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000092
+  },
+  "b93fed47bca7661644544c05823ab47dbd41e75c0f03ad4ef31797a137381b16": {
+   "at": "2026-10-10T08:08:36.759Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000092
+  },
+  "afecbe68ea315d67d300f47e1c36925cf96acedca2bcce1158fc1371e5ea6149": {
+   "at": "2026-10-10T08:08:37.392Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000042
+  },
+  "aff1c1b1323b2cd683ec12435b04c780609fa1385925734150433b400dffc36a": {
+   "at": "2026-10-10T08:08:37.939Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000092
+  },
+  "1b323bbf839be5ea76d97846f0ea93556f8be039f98c3d1737582f19a0406940": {
+   "at": "2026-10-10T08:08:39.890Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000092
+  },
+  "81219f7dd7de20c914ac2f038816f5646f5f3ac1206b1cd1842c48668951915e": {
+   "at": "2026-10-10T08:08:40.618Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000033
+  },
+  "66c1c15cb4fda76640751f0fe40e93d15f967c23291cf08ef91a51de989241d9": {
+   "at": "2026-10-10T08:08:41.165Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000092
+  },
+  "9a819cd38064b980d54c696c9db6585f5fadb8c8c8564bf9413d487f487b88e6": {
+   "at": "2026-10-10T08:08:41.842Z",
+   "outcome": "parsed",
+   "ids": [
+    "onyx-storm"
+   ],
+   "usd": 0.001602
+  },
+  "62fd3965e34867306f7430d9626c96b30bdbf8a2a338b298d66db596330df674": {
+   "at": "2026-10-10T08:08:44.442Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000092
+  },
+  "e35d7bc8b48027a5a55ed38c73dd6f1d3b89b04a818a9358ceddf0af60085f5d": {
+   "at": "2026-10-10T08:08:45.032Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000092
+  },
+  "f4e90db0005ecc269343aa5a4c67cbd97e56604178abecf23df164053201ecf1": {
+   "at": "2026-10-10T08:08:45.736Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000092
+  },
+  "94d90213d5145563f96bcce0526e1d83c48e3a847c441b746c677d9291be6a14": {
+   "at": "2026-10-10T08:08:46.678Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000092
+  },
+  "d9ce55bc8fc6286ca410229fce05eb4af13b1a4c71ecbb0074a6ca189c0c18d7": {
+   "at": "2026-10-10T08:08:47.312Z",
+   "outcome": "parsed",
+   "ids": [
+    "exploding-kittens-2"
+   ],
+   "usd": 0.001649
+  },
+  "f2c8eaab3f8945b363f457a00372223b80c2ea93d93cbe0fcd35140d530acc25": {
+   "at": "2026-10-10T08:08:50.901Z",
+   "outcome": "parsed",
+   "ids": [
+    "soldier"
+   ],
+   "usd": 0.00163
+  },
+  "cf103248e5cc33491e484e24c98786ac743c314078824202e86a49672d98eb52": {
+   "at": "2026-10-10T08:08:52.813Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000092
+  },
+  "2585340c2f11c86f2e4b79bcaba6c250fadbb8b6456b983b2d57e857c033fb84": {
+   "at": "2026-10-10T08:08:53.555Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000092
+  }
+ },
+ "dismissed": [],
+ "totals": {
+  "shots": 25,
+  "media": 6,
+  "added": 7,
+  "inbox": 0,
+  "usd": 0.011839
+ }
+}
