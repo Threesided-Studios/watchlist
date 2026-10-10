@@ -68,9 +68,9 @@ async function toggleOwner() {
 const VERDICTS = { love: 'loved', up: 'liked', down: 'disliked', played: 'played', skip: 'not interested' };
 
 /* section order + plural labels for the grouped view */
-const TYPE_ORDER = ['movie','show','game','book','music','recipe','venue','purchase','project','other'];
+const TYPE_ORDER = ['movie','show','game','book','software','music','recipe','venue','purchase','project','other'];
 const TYPE_LABEL = {
-  movie:'Movies', show:'Shows', game:'Games', book:'Books', music:'Music',
+  movie:'Movies', show:'Shows', game:'Games', book:'Books', software:'Software', music:'Music',
   recipe:'Recipes', venue:'Venues', purchase:'Purchases', project:'Projects', other:'Other',
 };
 
@@ -80,6 +80,7 @@ const TYPE_META = {
   show:     { glyph: '📺', grad: ['#0f3040','#1b6b7a'] },
   game:     { glyph: '🎮', grad: ['#3d1608','#7a3518'] },
   book:     { glyph: '📖', grad: ['#2d2010','#5c4020'] },
+  software: { glyph: '💻', grad: ['#0c2a2a','#16524f'] },
   music:    { glyph: '🎵', grad: ['#3a0a25','#7a1850'] },
   recipe:   { glyph: '🍽️', grad: ['#0f2d14','#1f5e2a'] },
   venue:    { glyph: '📍', grad: ['#0a1e35','#14406e'] },
@@ -151,7 +152,7 @@ function applySort(arr) {
 function render() {
   const q = { q: $('#q').value, type: $('#type').value, status: $('#status').value };
   if (window.WL_VIEW === 'inbox') { renderInbox(q); return; }
-  const filtered = applyFilters(items.filter(it => !HIDDEN_STATUSES.has(it.status)), q);
+  const filtered = applyFilters(items.filter(it => !HIDDEN_STATUSES.has(it.status) && (isOwner || !it.adult)), q);
   const view = applySort(filtered);
   grid.replaceChildren();
 
@@ -226,7 +227,7 @@ function render() {
   }
 
   if (countEl) {
-    const total = items.filter(it => !HIDDEN_STATUSES.has(it.status)).length;
+    const total = items.filter(it => !HIDDEN_STATUSES.has(it.status) && (isOwner || !it.adult)).length;
     countEl.textContent = visibleCount === total
       ? `${total} item${total !== 1 ? 's' : ''}`
       : `${visibleCount} of ${total} item${total !== 1 ? 's' : ''}`;
@@ -273,7 +274,7 @@ function reviewBar(it, node) {
   const meta = document.createElement('p');
   meta.className = 'review-meta';
   const conf = typeof it.ai_confidence === 'number' ? `${Math.round(it.ai_confidence * 100)}% sure` : '';
-  meta.textContent = [conf, it.enriched_via ? `matched on ${it.enriched_via}` : 'no match found', it.added].filter(Boolean).join(' · ');
+  meta.textContent = [it.adult ? '🔞 adult — stays owner-only' : '', conf, it.enriched_via ? `matched on ${it.enriched_via}${it.match_ok === false ? ' (unverified)' : ''}` : 'no match found', it.added].filter(Boolean).join(' · ');
   bar.appendChild(meta);
   const actions = document.createElement('div');
   actions.className = 'review-actions owner-only';
@@ -639,7 +640,7 @@ async function sendSuggest() {
 /* ---------- SURPRISE ME (random backlog game) ---------- */
 const surpriseModal = $('#surprise-modal');
 function rollSurprise() {
-  const pool = items.filter(it => (it.type || '') === 'game' && !it.verdict && it.status !== 'done' && !HIDDEN_STATUSES.has(it.status));
+  const pool = items.filter(it => (it.type || '') === 'game' && !it.verdict && it.status !== 'done' && !HIDDEN_STATUSES.has(it.status) && (isOwner || !it.adult));
   if (!pool.length) return;
   const it = pool[Math.floor(Math.random() * pool.length)];
   const img = $('#surprise-poster');

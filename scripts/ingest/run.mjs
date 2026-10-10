@@ -115,10 +115,11 @@ const PARSE_SCHEMA = {
       type: 'array',
       items: {
         type: 'object', additionalProperties: false,
-        required: ['title', 'type', 'is_anime', 'year', 'creator', 'recommended_by', 'why', 'genres', 'evidence', 'confidence'],
+        required: ['title', 'category', 'type', 'is_anime', 'year', 'creator', 'recommended_by', 'why', 'genres', 'evidence', 'adult', 'confidence'],
         properties: {
           title: { type: 'string', description: 'Canonical title, properly capitalised, no year' },
-          type: { type: 'string', enum: ['movie', 'show', 'book', 'game'] },
+          category: { type: 'string', enum: ['media_work', 'software_app_or_ai_tool', 'website_or_service', 'person_or_username', 'product_or_brand', 'place_or_business', 'other'], description: 'What this name actually refers to in the screenshot. media_work and software_app_or_ai_tool are kept.' },
+          type: { type: 'string', enum: ['movie', 'show', 'book', 'game', 'software'], description: 'software = apps, utilities, AI tools, dev tools (when category is software_app_or_ai_tool)' },
           is_anime: { type: 'boolean' },
           year: { type: ['integer', 'null'] },
           creator: { type: ['string', 'null'], description: 'Author for books, director/studio if visible; null otherwise' },
@@ -126,6 +127,7 @@ const PARSE_SCHEMA = {
           why: { type: 'string', description: 'Very short reason it was mentioned (e.g. "top-voted reply: like Arrival but darker"). Empty if none.' },
           genres: { type: 'array', items: { type: 'string' }, description: 'Up to 3 genres' },
           evidence: { type: 'string', enum: ['recommended_or_discussed', 'poster_or_cover', 'store_or_streaming_page', 'ambiguous'], description: 'How the screenshot presents it as a work. ambiguous = could be a brand, product, phrase or unrelated word.' },
+          adult: { type: 'boolean', description: 'true for pornographic/hentai/explicitly sexual works or ones promoted mainly for sexual content' },
           confidence: { type: 'number', description: '0-1: certainty that this exact title is named/shown as a creative work AND correctly identified (title and type)' },
         },
       },
@@ -139,7 +141,7 @@ async function parseShot(img) {
     { role: 'system', content: [
       'You extract media titles from iPhone screenshots for a personal watch/read/play list.',
       'Only list titles that are explicitly named or clearly shown (poster/cover/title card) AS a movie, TV show, anime, book, or video game. Never invent titles that are not on screen.',
-      'Brand names, product names, companies, logos on merchandise, song/album names, YouTube videos, podcasts and people are NOT titles. A word that merely matches a book or game name is not enough: there must be a sign it is the work (recommended, discussed, being watched/read/played, a poster/cover/store page).',
+      'Software, apps (Mac/iOS/Android utilities), AI tools and models, websites, CMSs, browser extensions, player names/usernames in game lobbies, people, restaurants, brand names, product names, companies, logos on merchandise, song/album names, YouTube videos, podcasts are NOT media: label them with the matching category, never media_work. Software/apps/utilities/AI tools that are recommended or shown ARE kept, but as category software_app_or_ai_tool with type software (never type game). A game must be a video game you play, not an app used for work. A word that merely matches a book or game name is not enough: there must be a sign it is the work (recommended, discussed, being watched/read/played, a poster/cover/store page).',
       'Pick the type from context: "on Netflix", "watch", "season", "episodes" => show or movie even if a game or book shares the name; "read", "author", "novel" => book; "play", "Steam", "Switch" => game.',
       'Use the title as it is commonly listed on Wikipedia/TMDB/Steam/Goodreads, with correct capitalisation and punctuation; expand obvious abbreviations ("TLOU" => "The Last of Us").',
       'Include every distinct qualifying title (max 25), including ones recommended in comments. Use low confidence and evidence=ambiguous when unsure.',
@@ -200,6 +202,7 @@ async function viaTMDB(c) {
   if (!hit) return null;
   const date = hit.release_date || hit.first_air_date || '';
   return {
+    typeOk: true,
     title: hit.title || hit.name, year: Number(date.slice(0, 4)) || c.year || null,
     blurb: (hit.overview || '').split(/(?<=\.)\s/)[0] || '', summary: hit.overview || '',
     link: `https://www.themoviedb.org/${kind}/${hit.id}`, tmdb_id: hit.id,
@@ -208,6 +211,21 @@ async function viaTMDB(c) {
 }
 
 const WIKI_HINT = { movie: 'film', show: 'TV series', book: 'novel', game: 'video game' };
+/* Does the Wikipedia page describe a work of the expected type (not a person, company, app...)? */
+const WIKI_TYPE_RX = {
+  movie: /\b(film|movie|animated feature)\b/i,
+  show: /\b(television|tv) (series|show|programme|program|special)|\banime\b|\b(web|animated|anthology|drama|streaming) series\b|\bsitcom\b|\btalk show\b|\bminiseries\b|\bmanga\b|\blight novel\b/i,
+  game: /\bvideo games?\b|\b(role-playing|adventure|puzzle|platform|strategy|survival|visual novel|fighting|shooter|roguelike|simulation) (video )?game\b|\bgame (developed|published) by\b/i,
+  book: /\b(novel|book|novella|memoir|short stor(y|ies)|manga|light novel|graphic novel|comic|poetry collection|non-fiction)\b/i,
+};
+const WIKI_BAD_RX = /\b(software|application|app\b|company|corporation|website|platform|programming|operating system|startup|actor|actress|singer|musician|politician|footballer|restaurant|brand|chatbot|language model)\b/i;
+function wikiTypeOk(w, c) {
+  const head = `${w.description || ''}. ${(w.extract || '').split(/(?<=\.)\s/)[0]}`;
+  const rx = c.is_anime && c.type !== 'game' ? new RegExp(`${WIKI_TYPE_RX[c.type].source}|\\banime\\b|\\bmanga\\b`, 'i') : WIKI_TYPE_RX[c.type];
+  if (!rx || !rx.test(head)) return false;
+  return !WIKI_BAD_RX.test(w.description || '');
+}
+
 async function viaWikipedia(c) {
   const hint = c.is_anime ? (c.type === 'movie' ? 'anime film' : 'anime') : WIKI_HINT[c.type];
   const s = await getJSON(`https://en.wikipedia.org/w/api.php?${new URLSearchParams({ action: 'query', list: 'search', srsearch: `${c.title} ${hint}`, format: 'json', srlimit: '5' })}`);
@@ -224,6 +242,7 @@ async function viaWikipedia(c) {
     if (!w || w.type === 'disambiguation') continue;
     const y = (w.description || '').match(YEAR) || (w.extract || '').match(YEAR);
     return {
+      typeOk: wikiTypeOk(w, c),
       title: stripParen(w.title || c.title), year: c.year || (y ? Number(y[0]) : null),
       blurb: (w.extract || '').split(/(?<=\.)\s/)[0] || '', summary: w.extract || '',
       link: w.content_urls?.desktop?.page || '',
@@ -239,7 +258,10 @@ async function viaSteam(c) {
   if (!hit) return null;
   const d = (await getJSON(`https://store.steampowered.com/api/appdetails?appids=${hit.id}&cc=us&l=en`))?.[hit.id]?.data;
   const y = (d?.release_date?.date || '').match(YEAR);
+  const SOFTWARE = /utilit|software|design|illustration|video production|audio production|animation|modeling|photo editing|web publishing|education|game development|accounting/i;
+  const typeOk = !!d && d.type === 'game' && !(d.genres || []).some((g) => SOFTWARE.test(g.description));
   return {
+    typeOk,
     title: clean(hit.name), year: y ? Number(y[0]) : c.year || null,
     blurb: d?.short_description || '', summary: '',
     link: `https://store.steampowered.com/app/${hit.id}/`, steam_appid: hit.id,
@@ -256,20 +278,77 @@ async function viaOpenLibrary(c) {
   const hit = (j?.docs || []).find((d) => sameTitle(d.title, c.title) && d.cover_i) || (j?.docs || []).find((d) => sameTitle(d.title, c.title));
   if (!hit) return null;
   return {
+    typeOk: !!hit.author_name?.length,
     title: hit.title, year: hit.first_publish_year || c.year || null, author: hit.author_name?.[0] || c.creator || '',
     blurb: '', summary: '', link: `https://openlibrary.org${hit.key}`,
     posterUrl: hit.cover_i ? `https://covers.openlibrary.org/b/id/${hit.cover_i}-L.jpg` : null,
   };
 }
 
+/* Software: Apple App Store / Mac App Store (iTunes Search API), then GitHub. */
+async function viaAppStore(c) {
+  for (const entity of ['macSoftware', 'software']) {
+    const j = await getJSON(`https://itunes.apple.com/search?${new URLSearchParams({ term: c.title, entity, limit: '8', country: 'us' })}`);
+    const hit = (j?.results || []).find((r) => exactTitle(r.trackName.split(/\s[-–—:|]\s/)[0], c.title) || exactTitle(r.trackName, c.title));
+    if (!hit) continue;
+    return {
+      typeOk: true, title: clean(hit.trackName.split(/\s[-–—:|]\s/)[0]),
+      year: Number((hit.releaseDate || '').slice(0, 4)) || null,
+      blurb: (hit.description || '').split(/(?<=[.!?])\s/)[0].slice(0, 220), summary: '',
+      link: hit.trackViewUrl, author: hit.artistName || '',
+      posterUrl: (hit.artworkUrl512 || hit.artworkUrl100 || '').replace(/\/\d+x\d+bb\./, '/600x600bb.') || null,
+      posterFallback: hit.screenshotUrls?.[0] || null,
+    };
+  }
+  return null;
+}
+/* Homebrew cask = the app's official homepage + description (covers direct-download Mac utilities). */
+async function viaHomebrew(c) {
+  const slug = titleKey(c.title);
+  for (const tok of [slug, `${slug}-app`]) {
+    const j = await getJSON(`https://formulae.brew.sh/api/cask/${tok}.json`);
+    if (!j || !(j.name || []).some((n) => exactTitle(n, c.title))) continue;
+    const host = (() => { try { return new URL(j.homepage).hostname; } catch { return ''; } })();
+    return {
+      typeOk: true, title: c.title, year: null, blurb: j.desc || '', summary: '', link: j.homepage, author: '',
+      posterUrl: host ? `https://www.google.com/s2/favicons?domain=${host}&sz=256` : null, posterFallback: null,
+    };
+  }
+  return null;
+}
+async function viaGitHub(c) {
+  const tok = process.env.GITHUB_TOKEN ? { Authorization: `Bearer ${process.env.GITHUB_TOKEN}` } : {};
+  const j = await getJSON(`https://api.github.com/search/repositories?${new URLSearchParams({ q: `${c.title} in:name`, sort: 'stars', per_page: '5' })}`, { Accept: 'application/vnd.github+json', ...tok });
+  const hit = (j?.items || []).find((r) => exactTitle(r.name.replace(/[-_]/g, ' '), c.title) && r.stargazers_count >= 100);
+  if (!hit) return null;
+  return {
+    typeOk: true, title: c.title, year: Number((hit.created_at || '').slice(0, 4)) || null,
+    blurb: hit.description || '', summary: '', link: hit.homepage || hit.html_url, author: hit.owner?.login || '',
+    posterUrl: `https://opengraph.githubassets.com/1/${hit.full_name}`, posterFallback: hit.owner?.avatar_url || null,
+  };
+}
+
+/* Software names are generic ("Ice", "Flow"): confirm the store/repo hit is the thing the screenshot meant. */
+const SAME_SCHEMA = { type: 'object', additionalProperties: false, required: ['same'], properties: { same: { type: 'boolean' } } };
+async function sameSoftware(c, r) {
+  if (!c.context) return true;
+  try {
+    const { out } = await openai(CLASSIFY_MODEL, [{ role: 'user', content:
+      `A screenshot mentioned the software "${c.title}" in this context: ${c.context}\nCandidate match: "${r.title}" — ${r.blurb || '(no description)'} — ${r.link}\nIs the candidate very likely the same product? Answer false if it is a different product that merely shares the name.` }], SAME_SCHEMA, 10);
+    return !!out.same;
+  } catch { return false; }
+}
+
 async function enrich(c) {
-  const chain = c.type === 'game' ? [viaSteam, viaWikipedia]
+  let fallback = null;
+  const chain = c.type === 'software' ? [viaHomebrew, viaAppStore, viaGitHub]
+    : c.type === 'game' ? [viaSteam, viaWikipedia]
     : c.type === 'book' ? [viaOpenLibrary, viaWikipedia]
     : [viaTMDB, viaWikipedia];
   for (const fn of chain) {
-    try { const r = await fn(c); if (r) return { ...r, via: fn.name.replace('via', '') }; } catch { /* next */ }
+    try { const r = await fn(c); if (r?.typeOk && c.type === 'software' && !(await sameSoftware(c, r))) continue; if (r?.typeOk) return { ...r, via: fn.name.replace('via', '') }; if (r && !fallback) fallback = { ...r, via: fn.name.replace('via', '') }; } catch { /* next */ }
   }
-  return null;
+  return fallback;
 }
 
 async function savePoster(urls, id) {
@@ -315,6 +394,72 @@ if (!LOCAL) {
   if (reviews.length) console.log(`applied ${reviews.length} review decision(s)`);
 }
 
+/* --audit: re-check every screenshot-sourced item with the current rules (text-only, no images). */
+if (flag('--audit')) {
+  const AUDIT_SCHEMA = {
+    type: 'object', additionalProperties: false, required: ['verdicts'],
+    properties: { verdicts: { type: 'array', items: {
+      type: 'object', additionalProperties: false, required: ['id', 'verdict', 'adult'],
+      properties: {
+        id: { type: 'string' },
+        verdict: { type: 'string', enum: ['media', 'software', 'doubtful', 'not_media'] },
+        adult: { type: 'boolean' },
+      } } } },
+  };
+  const targets = items.filter((it) => it.source === 'screenshot');
+  const verdicts = new Map();
+  let auditUsd = 0;
+  for (let i = 0; i < targets.length; i += 20) {
+    const batch = targets.slice(i, i + 20).map((it) => ({ id: it.id, title: it.title, type: it.type, tags: it.tags, context: it.source_context, matched_page: it.link, blurb: (it.blurb || '').slice(0, 160) }));
+    const { out, cost } = await openai(PARSE_MODEL, [
+      { role: 'system', content: 'You audit entries auto-extracted from phone screenshots into a movie/TV/anime/book/video-game watchlist. For each entry decide: "media" = a real movie, TV show, anime, book or video game that the context presents as something to watch/read/play, with the stated type plausible; "software" = an app, utility, AI tool or developer tool (Mac/iOS/web/open source) that was recommended or shown; "not_media" = player names/usernames, people, restaurants, physical products, brands, websites that are not apps, or anything else that is neither a creative work nor software; "doubtful" = might be media but the title, type or match looks wrong or unverifiable. Mark adult=true for pornographic/hentai/explicitly sexual works or ones promoted mainly for sexual content.' },
+      { role: 'user', content: JSON.stringify(batch) },
+    ], AUDIT_SCHEMA, 3000);
+    auditUsd += cost;
+    for (const v of out.verdicts) verdicts.set(v.id, v);
+  }
+  const counts = { removed: [], toInbox: [], adult: [], software: [], kept: 0 };
+  for (const it of targets) {
+    const v = verdicts.get(it.id) || { verdict: 'doubtful', adult: false };
+    if (v.verdict === 'not_media') {
+      ledger.dismissed.push(`${family(it.type)}:${titleKey(it.title)}`);
+      if (it.poster && existsSync(join(ROOT, it.poster)) && !DRY) unlinkSync(join(ROOT, it.poster));
+      items.splice(items.indexOf(it), 1);
+      counts.removed.push(it.title);
+      continue;
+    }
+    let reEnriched = false;
+    if (v.verdict === 'software' || it.type === 'software') {
+      it.type = 'software'; it.tags = (it.tags || []).filter((t) => t !== 'Anime'); reEnriched = true;
+    }
+    const cand = { title: it.title, type: it.type, is_anime: (it.tags || []).includes('Anime'), year: it.year, creator: it.author || null, context: it.source_context || '' };
+    const e = await enrich(cand);
+    if (reEnriched) {
+      if (it.poster && existsSync(join(ROOT, it.poster)) && !DRY) unlinkSync(join(ROOT, it.poster));
+      Object.assign(it, { year: e?.year || null, blurb: e?.blurb || '', summary: '', link: e?.link || '', enriched_via: e?.via || '', poster: '' });
+      if (e?.author) it.author = e.author; else delete it.author;
+      delete it.steam_appid;
+      if (e) it.poster = await savePoster([e.posterUrl, e.posterFallback], it.id);
+      counts.software.push(it.title);
+    }
+    const ok = !!e && e.typeOk && exactTitle(e.title, it.title);
+    it.match_ok = ok;
+    if (v.adult) { it.adult = true; counts.adult.push(it.title); }
+    if (it.status === 'todo' && (v.adult || v.verdict === 'doubtful' || !ok)) { it.status = 'inbox'; counts.toInbox.push(it.title); }
+    else if (reEnriched && it.status === 'inbox' && ok && !v.adult) { it.status = 'todo'; counts.kept++; }   // software with a real store/GitHub match
+    else counts.kept++;
+  }
+  ledger.dismissed = [...new Set(ledger.dismissed)];
+  ledger.totals.usd = Math.round((ledger.totals.usd + auditUsd) * 1e6) / 1e6;
+  if (!DRY) { writeFileSync(DATA, JSON.stringify(items, null, 2)); writeFileSync(LEDGER, JSON.stringify(ledger, null, 1)); }
+  console.log(JSON.stringify({ audited: targets.length, removed: counts.removed.length, movedToInbox: counts.toInbox.length, adult: counts.adult.length, software: counts.software.length, auditUsd: Math.round(auditUsd * 1e4) / 1e4 }));
+  console.log('REMOVED:', counts.removed.join(' | '));
+  console.log('TO INBOX:', counts.toInbox.join(' | '));
+  console.log('ADULT:', counts.adult.join(' | '));
+  console.log('SOFTWARE:', counts.software.map((t) => `${t}${items.find((x) => x.title === t)?.status === 'todo' ? ' ✓' : ' (inbox)'}`).join(' | '));
+  process.exit(0);
+}
+
 /* 2) collect screenshots */
 let shots = [];
 if (LOCAL) {
@@ -358,17 +503,21 @@ async function processShot(s) {
       for (const t of titles) {
         const cand = { ...t, title: clean(t.title) };
         if (cand.title.length < 2 || (cand.confidence ?? 0) < 0.3) continue;   // model itself says "not a title"
+        if (cand.category === 'software_app_or_ai_tool') { cand.type = 'software'; cand.is_anime = false; }
+        if (cand.type === 'software' && cand.category === 'media_work') cand.category = 'software_app_or_ai_tool';
+        if (cand.category && !['media_work', 'software_app_or_ai_tool'].includes(cand.category)) { report.push({ name: s.name, title: cand.title, outcome: `skipped (${cand.category})` }); continue; }
         const famKey = `${family(cand.type)}:${titleKey(cand.title)}`;
         if (dismissed.has(famKey)) { report.push({ name: s.name, title: cand.title, outcome: 'previously-dismissed' }); continue; }
         const dup = findDuplicate(index, cand);
         if (dup) { report.push({ name: s.name, title: cand.title, outcome: `duplicate of ${dup}` }); entry.ids.push(dup); continue; }
+        cand.context = [p.out.source_context, cand.why].filter(Boolean).join(' — ');
         index.set(famKey, '(pending)');   // reserve before any await so parallel shots can't add the same title twice
         const e = await enrich(cand);
-        const exact = !!e && exactTitle(e.title, cand.title);
+        const exact = !!e && e.typeOk && exactTitle(e.title, cand.title);
         const title = e?.title && exact ? clean(e.title) : cand.title;
         const id = uniqueId(title, taken, e?.year || cand.year);
         taken.add(id);   // claim the id before the poster download await
-        const status = cand.evidence === 'ambiguous' ? 'inbox' : decideStatus(cand, { enriched: exact, threshold: 0.85 });
+        const status = (cand.evidence === 'ambiguous' || cand.adult) ? 'inbox' : decideStatus(cand, { enriched: exact, threshold: 0.85 });
         const poster = e ? await savePoster([e.posterUrl, e.posterFallback], id) : '';
         const tags = [...(cand.is_anime ? ['Anime'] : []), ...(cand.genres || [])].slice(0, 4);
         const { who, ctx } = privacyScrub(cand, [p.out.source_context, cand.why].filter(Boolean).join(' — '));
@@ -378,7 +527,8 @@ async function processShot(s) {
           status, tags, rating: null, notes: '', added: today(),
           source: 'screenshot', source_context: ctx, recommended_by: who,
           ai_confidence: Math.round((cand.confidence || 0) * 100) / 100,
-          enriched_via: e?.via || '', screenshot: s.sha.slice(0, 12),
+          enriched_via: e?.via || '', match_ok: exact, screenshot: s.sha.slice(0, 12),
+          ...(cand.adult ? { adult: true } : {}),
           ...(e?.author || cand.creator && cand.type === 'book' ? { author: e?.author || cand.creator } : {}),
           ...(e?.tmdb_id ? { tmdb_id: e.tmdb_id } : {}),
           ...(e?.steam_appid ? { steam_appid: e.steam_appid } : {}),

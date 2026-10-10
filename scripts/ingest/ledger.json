@@ -1841,12 +1841,20 @@
    "usd": 0.001781
   }
  },
- "dismissed": [],
+ "dismissed": [
+  "game:flunk",
+  "game:lars",
+  "game:harajuku-girl",
+  "game:pixy-lixx",
+  "game:alpha-granny",
+  "screen:tomoya",
+  "software:buddy"
+ ],
  "totals": {
   "shots": 266,
   "media": 78,
   "added": 74,
   "inbox": 64,
-  "usd": 0.162076
+  "usd": 0.180856
  }
 }

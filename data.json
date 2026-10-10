@@ -55618,7 +55618,8 @@
     "recommended_by": "BeckQuillion89",
     "ai_confidence": 0.9,
     "enriched_via": "Wikipedia",
-    "screenshot": "2cc95570c055"
+    "screenshot": "2cc95570c055",
+    "match_ok": true
   },
   {
     "id": "sleepy-princess-in-the-demon-castle",
@@ -55643,7 +55644,8 @@
     "recommended_by": "BeckQuillion89",
     "ai_confidence": 0.9,
     "enriched_via": "Wikipedia",
-    "screenshot": "2cc95570c055"
+    "screenshot": "2cc95570c055",
+    "match_ok": true
   },
   {
     "id": "tis-time-for-torture",
@@ -55667,7 +55669,8 @@
     "recommended_by": "Fools_Requiem",
     "ai_confidence": 0.8,
     "enriched_via": "Wikipedia",
-    "screenshot": "2cc95570c055"
+    "screenshot": "2cc95570c055",
+    "match_ok": false
   },
   {
     "id": "the-vampire-dies-in-no-time",
@@ -55692,7 +55695,8 @@
     "recommended_by": "Fools_Requiem",
     "ai_confidence": 0.9,
     "enriched_via": "Wikipedia",
-    "screenshot": "2cc95570c055"
+    "screenshot": "2cc95570c055",
+    "match_ok": true
   },
   {
     "id": "audition",
@@ -55716,7 +55720,8 @@
     "recommended_by": "Creepy Catalog",
     "ai_confidence": 1,
     "enriched_via": "Wikipedia",
-    "screenshot": "246717236ac3"
+    "screenshot": "246717236ac3",
+    "match_ok": true
   },
   {
     "id": "hell-mode-the-hardcore-gamer-reincarnates-to-another-world",
@@ -55742,7 +55747,8 @@
     "recommended_by": "_hakai_02_",
     "ai_confidence": 1,
     "enriched_via": "",
-    "screenshot": "1367e31e2a2c"
+    "screenshot": "1367e31e2a2c",
+    "match_ok": false
   },
   {
     "id": "no-longer-allowed-in-another-world",
@@ -55768,7 +55774,8 @@
     "recommended_by": "animechronix",
     "ai_confidence": 1,
     "enriched_via": "Wikipedia",
-    "screenshot": "237bd4d6861f"
+    "screenshot": "237bd4d6861f",
+    "match_ok": true
   },
   {
     "id": "haibara-s-teenage-new-game",
@@ -55794,7 +55801,8 @@
     "recommended_by": "ig.animangavault",
     "ai_confidence": 1,
     "enriched_via": "Wikipedia",
-    "screenshot": "858395c76948"
+    "screenshot": "858395c76948",
+    "match_ok": true
   },
   {
     "id": "alterium-shift",
@@ -55819,18 +55827,19 @@
     "ai_confidence": 0.9,
     "enriched_via": "Steam",
     "screenshot": "30038fb597bb",
-    "steam_appid": 1586990
+    "steam_appid": 1586990,
+    "match_ok": true
   },
   {
     "id": "claude",
     "title": "Claude",
-    "type": "game",
-    "year": 2026,
-    "blurb": "A free narrative game about the best roommate you'll ever have. He cooks, he cleans, he fixes your relationship. Everything improves. Nobody asked what it costs. A short satire about saying yes until you forget what no sounds like. Multiple endings. 1-2 hours.",
+    "type": "software",
+    "year": null,
+    "blurb": "Anthropic's official Claude AI desktop app",
     "summary": "",
     "poster": "posters/claude.jpg",
-    "link": "https://store.steampowered.com/app/4437280/",
-    "status": "inbox",
+    "link": "https://claude.com/download",
+    "status": "todo",
     "tags": [
       "productivity",
       "software"
@@ -55842,19 +55851,19 @@
     "source_context": "Reddit r/ClaudeAI: \"Claude Code + Obsidian?\" — mentioned as a software/productivity tool in combination with Obsidian",
     "recommended_by": "ch-12",
     "ai_confidence": 0.9,
-    "enriched_via": "Steam",
+    "enriched_via": "Homebrew",
     "screenshot": "95b682278c97",
-    "steam_appid": 4437280
+    "match_ok": true
   },
   {
     "id": "obsidian",
     "title": "Obsidian",
-    "type": "game",
-    "year": 2023,
-    "blurb": "Venture into the surreal worlds of Obƨidian...if you dare. In Obƨidian, your life is in your hands, so tread carefully. Forget everything you know about existence and prepare to be flipped on your ear. Welcome to the unknown...",
+    "type": "software",
+    "year": null,
+    "blurb": "Knowledge base that works on top of a local folder of plain text Markdown files",
     "summary": "",
     "poster": "posters/obsidian.jpg",
-    "link": "https://store.steampowered.com/app/2471130/",
+    "link": "https://obsidian.md/",
     "status": "todo",
     "tags": [
       "productivity",
@@ -55867,9 +55876,9 @@
     "source_context": "Reddit r/ClaudeAI: \"Claude Code + Obsidian?\" — mentioned as a vault framework for productivity",
     "recommended_by": "ch-12",
     "ai_confidence": 0.9,
-    "enriched_via": "Steam",
+    "enriched_via": "Homebrew",
     "screenshot": "95b682278c97",
-    "steam_appid": 2471130
+    "match_ok": true
   },
   {
     "id": "black-lagoon",
@@ -55894,7 +55903,8 @@
     "recommended_by": "Aggressive-Tip7472",
     "ai_confidence": 0.9,
     "enriched_via": "Wikipedia",
-    "screenshot": "b8fd6515cb54"
+    "screenshot": "b8fd6515cb54",
+    "match_ok": true
   },
   {
     "id": "lupin-the-third",
@@ -55905,7 +55915,7 @@
     "summary": "Lupin III , also written as Lupin the Third, Lupin the 3rd, or Lupin the IIIrd, is a Japanese media franchise created by Monkey Punch. The series follows the endeavors of master thief Lupin III, grandson of gentleman thief Arsène Lupin, joined by his criminal gang. The original Lupin III manga debuted in Weekly Manga Action on August 10, 1967.",
     "poster": "",
     "link": "https://en.wikipedia.org/wiki/Lupin_the_Third",
-    "status": "todo",
+    "status": "inbox",
     "tags": [
       "Anime",
       "action",
@@ -55920,7 +55930,8 @@
     "recommended_by": "Aggressive-Tip7472",
     "ai_confidence": 0.9,
     "enriched_via": "Wikipedia",
-    "screenshot": "b8fd6515cb54"
+    "screenshot": "b8fd6515cb54",
+    "match_ok": false
   },
   {
     "id": "read-or-die",
@@ -55946,7 +55957,8 @@
     "recommended_by": "AlgaeWafers",
     "ai_confidence": 0.9,
     "enriched_via": "Wikipedia",
-    "screenshot": "b8fd6515cb54"
+    "screenshot": "b8fd6515cb54",
+    "match_ok": true
   },
   {
     "id": "read-or-die-the-series",
@@ -55972,7 +55984,8 @@
     "recommended_by": "AlgaeWafers",
     "ai_confidence": 0.9,
     "enriched_via": "Wikipedia",
-    "screenshot": "b8fd6515cb54"
+    "screenshot": "b8fd6515cb54",
+    "match_ok": false
   },
   {
     "id": "witch-hunter-robin",
@@ -55998,7 +56011,8 @@
     "recommended_by": "AlgaeWafers",
     "ai_confidence": 0.9,
     "enriched_via": "Wikipedia",
-    "screenshot": "b8fd6515cb54"
+    "screenshot": "b8fd6515cb54",
+    "match_ok": true
   },
   {
     "id": "jormungand",
@@ -56023,7 +56037,8 @@
     "recommended_by": "khiba",
     "ai_confidence": 0.9,
     "enriched_via": "Wikipedia",
-    "screenshot": "b8fd6515cb54"
+    "screenshot": "b8fd6515cb54",
+    "match_ok": true
   },
   {
     "id": "gunslinger-girl",
@@ -56049,7 +56064,8 @@
     "recommended_by": "khiba",
     "ai_confidence": 0.9,
     "enriched_via": "Wikipedia",
-    "screenshot": "b8fd6515cb54"
+    "screenshot": "b8fd6515cb54",
+    "match_ok": true
   },
   {
     "id": "pillars-of-eternity-turn-based-edition",
@@ -56074,7 +56090,8 @@
     "recommended_by": "RPGFan",
     "ai_confidence": 1,
     "enriched_via": "",
-    "screenshot": "e5a656bdb80f"
+    "screenshot": "e5a656bdb80f",
+    "match_ok": false
   },
   {
     "id": "banished-from-the-hero-s-party-i-decided-to-live-a-quiet-life-in-the-countryside",
@@ -56100,7 +56117,8 @@
     "recommended_by": "Fangsong_37",
     "ai_confidence": 0.9,
     "enriched_via": "Wikipedia",
-    "screenshot": "53d53b29517d"
+    "screenshot": "53d53b29517d",
+    "match_ok": false
   },
   {
     "id": "i-have-a-crush-at-work",
@@ -56125,7 +56143,8 @@
     "recommended_by": "uselessDM",
     "ai_confidence": 0.8,
     "enriched_via": "Wikipedia",
-    "screenshot": "53d53b29517d"
+    "screenshot": "53d53b29517d",
+    "match_ok": true
   },
   {
     "id": "school-days",
@@ -56150,7 +56169,8 @@
     "recommended_by": "uselessDM",
     "ai_confidence": 0.9,
     "enriched_via": "Wikipedia",
-    "screenshot": "53d53b29517d"
+    "screenshot": "53d53b29517d",
+    "match_ok": false
   },
   {
     "id": "big-black-cards",
@@ -56175,7 +56195,8 @@
     "recommended_by": "",
     "ai_confidence": 1,
     "enriched_via": "",
-    "screenshot": "e293c81d7984"
+    "screenshot": "e293c81d7984",
+    "match_ok": false
   },
   {
     "id": "say-i-love-you",
@@ -56200,7 +56221,8 @@
     "recommended_by": "ricci3469",
     "ai_confidence": 0.9,
     "enriched_via": "Wikipedia",
-    "screenshot": "53d53b29517d"
+    "screenshot": "53d53b29517d",
+    "match_ok": true
   },
   {
     "id": "the-graham-norton-show",
@@ -56224,7 +56246,8 @@
     "recommended_by": "",
     "ai_confidence": 0.9,
     "enriched_via": "Wikipedia",
-    "screenshot": "ac43fc2e6d9e"
+    "screenshot": "ac43fc2e6d9e",
+    "match_ok": true
   },
   {
     "id": "b-gata-h-kei",
@@ -56249,7 +56272,8 @@
     "recommended_by": "ricci3469",
     "ai_confidence": 0.9,
     "enriched_via": "Wikipedia",
-    "screenshot": "53d53b29517d"
+    "screenshot": "53d53b29517d",
+    "match_ok": true
   },
   {
     "id": "tsuredere-children",
@@ -56274,7 +56298,8 @@
     "recommended_by": "ricci3469",
     "ai_confidence": 0.9,
     "enriched_via": "",
-    "screenshot": "53d53b29517d"
+    "screenshot": "53d53b29517d",
+    "match_ok": false
   },
   {
     "id": "gail-daughtry-and-the-celebrity-sex-pass",
@@ -56297,7 +56322,8 @@
     "recommended_by": "alfredyankovic",
     "ai_confidence": 0.9,
     "enriched_via": "Wikipedia",
-    "screenshot": "bc7e61ce3ef8"
+    "screenshot": "bc7e61ce3ef8",
+    "match_ok": true
   },
   {
     "id": "samurai-priest-vampire-hunter",
@@ -56321,7 +56347,8 @@
     "recommended_by": "",
     "ai_confidence": 1,
     "enriched_via": "",
-    "screenshot": "3ce83ade2287"
+    "screenshot": "3ce83ade2287",
+    "match_ok": false
   },
   {
     "id": "vampire-hunter-d-bloodlust",
@@ -56347,7 +56374,8 @@
     "recommended_by": "",
     "ai_confidence": 1,
     "enriched_via": "Wikipedia",
-    "screenshot": "3ce83ade2287"
+    "screenshot": "3ce83ade2287",
+    "match_ok": true
   },
   {
     "id": "vampire-hunter-d",
@@ -56373,7 +56401,8 @@
     "recommended_by": "",
     "ai_confidence": 1,
     "enriched_via": "Wikipedia",
-    "screenshot": "3ce83ade2287"
+    "screenshot": "3ce83ade2287",
+    "match_ok": true
   },
   {
     "id": "fairy-tail",
@@ -56399,79 +56428,8 @@
     "recommended_by": "",
     "ai_confidence": 1,
     "enriched_via": "Wikipedia",
-    "screenshot": "c729a53c254f"
-  },
-  {
-    "id": "flunk",
-    "title": "Flunk",
-    "type": "game",
-    "year": null,
-    "blurb": "",
-    "summary": "",
-    "poster": "",
-    "link": "",
-    "status": "inbox",
-    "tags": [
-      "party",
-      "multiplayer"
-    ],
-    "rating": null,
-    "notes": "",
-    "added": "2026-10-10",
-    "source": "screenshot",
-    "source_context": "bigblackcards.com game lobby — player name in game lobby",
-    "recommended_by": "",
-    "ai_confidence": 0.8,
-    "enriched_via": "",
-    "screenshot": "ac4cdfce3cc8"
-  },
-  {
-    "id": "lars",
-    "title": "Lars",
-    "type": "game",
-    "year": null,
-    "blurb": "",
-    "summary": "",
-    "poster": "",
-    "link": "",
-    "status": "inbox",
-    "tags": [
-      "party",
-      "multiplayer"
-    ],
-    "rating": null,
-    "notes": "",
-    "added": "2026-10-10",
-    "source": "screenshot",
-    "source_context": "bigblackcards.com game lobby — player name in game lobby",
-    "recommended_by": "",
-    "ai_confidence": 0.8,
-    "enriched_via": "",
-    "screenshot": "ac4cdfce3cc8"
-  },
-  {
-    "id": "harajuku-girl",
-    "title": "Harajuku Girl",
-    "type": "game",
-    "year": null,
-    "blurb": "",
-    "summary": "",
-    "poster": "",
-    "link": "",
-    "status": "inbox",
-    "tags": [
-      "party",
-      "multiplayer"
-    ],
-    "rating": null,
-    "notes": "",
-    "added": "2026-10-10",
-    "source": "screenshot",
-    "source_context": "bigblackcards.com game lobby — player name in game lobby",
-    "recommended_by": "",
-    "ai_confidence": 0.8,
-    "enriched_via": "",
-    "screenshot": "ac4cdfce3cc8"
+    "screenshot": "c729a53c254f",
+    "match_ok": true
   },
   {
     "id": "hokum",
@@ -56495,32 +56453,8 @@
     "recommended_by": "SurfingSecretary",
     "ai_confidence": 0.8,
     "enriched_via": "Wikipedia",
-    "screenshot": "71db96fbbd5b"
-  },
-  {
-    "id": "buddy",
-    "title": "Buddy",
-    "type": "game",
-    "year": 2025,
-    "blurb": "Bit Buddy reacts to your keyboard, mouse, and even your voice in real time. Collect decorations as you use your computer, customize your workspace, explore over 3,000 community-made buddies and decorations through Steam Workshop, or create and share your own.",
-    "summary": "",
-    "poster": "posters/buddy.jpg",
-    "link": "https://store.steampowered.com/app/3874950/",
-    "status": "inbox",
-    "tags": [
-      "party",
-      "multiplayer"
-    ],
-    "rating": null,
-    "notes": "",
-    "added": "2026-10-10",
-    "source": "screenshot",
-    "source_context": "bigblackcards.com game lobby — player name in game lobby",
-    "recommended_by": "",
-    "ai_confidence": 0.8,
-    "enriched_via": "Steam",
-    "screenshot": "ac4cdfce3cc8",
-    "steam_appid": 3874950
+    "screenshot": "71db96fbbd5b",
+    "match_ok": true
   },
   {
     "id": "contraband",
@@ -56544,80 +56478,8 @@
     "recommended_by": "Covid_45",
     "ai_confidence": 0.8,
     "enriched_via": "Wikipedia",
-    "screenshot": "71db96fbbd5b"
-  },
-  {
-    "id": "pixy-lixx",
-    "title": "Pixy Lixx",
-    "type": "game",
-    "year": null,
-    "blurb": "",
-    "summary": "",
-    "poster": "",
-    "link": "",
-    "status": "inbox",
-    "tags": [
-      "party",
-      "multiplayer"
-    ],
-    "rating": null,
-    "notes": "",
-    "added": "2026-10-10",
-    "source": "screenshot",
-    "source_context": "bigblackcards.com game lobby — player name in game lobby",
-    "recommended_by": "",
-    "ai_confidence": 0.8,
-    "enriched_via": "",
-    "screenshot": "ac4cdfce3cc8"
-  },
-  {
-    "id": "alpha-granny",
-    "title": "Alpha Granny",
-    "type": "game",
-    "year": null,
-    "blurb": "",
-    "summary": "",
-    "poster": "",
-    "link": "",
-    "status": "inbox",
-    "tags": [
-      "party",
-      "multiplayer"
-    ],
-    "rating": null,
-    "notes": "",
-    "added": "2026-10-10",
-    "source": "screenshot",
-    "source_context": "bigblackcards.com game lobby — player name in game lobby",
-    "recommended_by": "",
-    "ai_confidence": 0.8,
-    "enriched_via": "",
-    "screenshot": "ac4cdfce3cc8"
-  },
-  {
-    "id": "tomoya",
-    "title": "Tomoya",
-    "type": "movie",
-    "year": 1986,
-    "blurb": "Tomoya Nakamura  is a Japanese actor.",
-    "summary": "Tomoya Nakamura  is a Japanese actor.",
-    "poster": "",
-    "link": "https://en.wikipedia.org/wiki/Tomoya_Nakamura",
-    "status": "inbox",
-    "tags": [
-      "food",
-      "documentary",
-      "culture"
-    ],
-    "rating": null,
-    "notes": "",
-    "added": "2026-10-10",
-    "source": "screenshot",
-    "source_context": "Instagram post by judithnewcomer — Japanese restaurant recommended in post",
-    "recommended_by": "judithnewcomer",
-    "ai_confidence": 0.8,
-    "enriched_via": "Wikipedia",
-    "screenshot": "6c21da79b68d"
+    "screenshot": "71db96fbbd5b",
+    "match_ok": true
   },
   {
     "id": "old-skies",
@@ -56643,7 +56505,8 @@
     "ai_confidence": 0.9,
     "enriched_via": "Steam",
     "screenshot": "ed5350259791",
-    "steam_appid": 1346360
+    "steam_appid": 1346360,
+    "match_ok": true
   },
   {
     "id": "suikoden-ii",
@@ -56667,7 +56530,8 @@
     "recommended_by": "Nobi",
     "ai_confidence": 1,
     "enriched_via": "Wikipedia",
-    "screenshot": "ea2291d9a4c2"
+    "screenshot": "ea2291d9a4c2",
+    "match_ok": true
   },
   {
     "id": "hereditary",
@@ -56692,7 +56556,8 @@
     "recommended_by": "Monique",
     "ai_confidence": 1,
     "enriched_via": "Wikipedia",
-    "screenshot": "13304b2a5902"
+    "screenshot": "13304b2a5902",
+    "match_ok": true
   },
   {
     "id": "midsommar",
@@ -56717,7 +56582,8 @@
     "recommended_by": "Monique",
     "ai_confidence": 1,
     "enriched_via": "Wikipedia",
-    "screenshot": "13304b2a5902"
+    "screenshot": "13304b2a5902",
+    "match_ok": true
   },
   {
     "id": "grav",
@@ -56728,7 +56594,7 @@
     "summary": "",
     "poster": "posters/grav.jpg",
     "link": "https://store.steampowered.com/app/332500/",
-    "status": "todo",
+    "status": "inbox",
     "tags": [
       "software",
       "CMS",
@@ -56743,7 +56609,8 @@
     "ai_confidence": 0.9,
     "enriched_via": "Steam",
     "screenshot": "648c606021d1",
-    "steam_appid": 332500
+    "steam_appid": 332500,
+    "match_ok": true
   },
   {
     "id": "beau-is-afraid",
@@ -56767,7 +56634,8 @@
     "recommended_by": "Monique",
     "ai_confidence": 1,
     "enriched_via": "Wikipedia",
-    "screenshot": "13304b2a5902"
+    "screenshot": "13304b2a5902",
+    "match_ok": true
   },
   {
     "id": "eddington",
@@ -56791,7 +56659,8 @@
     "recommended_by": "Monique",
     "ai_confidence": 0.9,
     "enriched_via": "Wikipedia",
-    "screenshot": "13304b2a5902"
+    "screenshot": "13304b2a5902",
+    "match_ok": true
   },
   {
     "id": "qwythos",
@@ -56816,7 +56685,8 @@
     "recommended_by": "EmperoAI",
     "ai_confidence": 0.9,
     "enriched_via": "",
-    "screenshot": "5e8707625541"
+    "screenshot": "5e8707625541",
+    "match_ok": false
   },
   {
     "id": "treasure-of-the-rudras",
@@ -56841,7 +56711,8 @@
     "recommended_by": "FantasyAnime",
     "ai_confidence": 1,
     "enriched_via": "Wikipedia",
-    "screenshot": "ec83cefd331b"
+    "screenshot": "ec83cefd331b",
+    "match_ok": true
   },
   {
     "id": "rhapsody-a-musical-adventure",
@@ -56867,7 +56738,8 @@
     "ai_confidence": 1,
     "enriched_via": "Steam",
     "screenshot": "bc025f0eae84",
-    "steam_appid": 1866430
+    "steam_appid": 1866430,
+    "match_ok": true
   },
   {
     "id": "the-rocky-horror-picture-show",
@@ -56892,18 +56764,19 @@
     "recommended_by": "Marco",
     "ai_confidence": 1,
     "enriched_via": "Wikipedia",
-    "screenshot": "5d007b59618f"
+    "screenshot": "5d007b59618f",
+    "match_ok": true
   },
   {
     "id": "shottr",
     "title": "Shottr",
-    "type": "game",
+    "type": "software",
     "year": null,
-    "blurb": "",
+    "blurb": "Screenshot measurement and annotation tool",
     "summary": "",
-    "poster": "",
-    "link": "",
-    "status": "inbox",
+    "poster": "posters/shottr.jpg",
+    "link": "https://shottr.cc/",
+    "status": "todo",
     "tags": [
       "utility"
     ],
@@ -56914,19 +56787,20 @@
     "source_context": "Reddit r/macOS: \"Must-have apps for macOS 26/27?\" — recommended for screenshots",
     "recommended_by": "o_sorik",
     "ai_confidence": 0.9,
-    "enriched_via": "",
-    "screenshot": "9b86ef5cad1a"
+    "enriched_via": "Homebrew",
+    "screenshot": "9b86ef5cad1a",
+    "match_ok": true
   },
   {
     "id": "betterdisplay",
     "title": "BetterDisplay",
-    "type": "game",
+    "type": "software",
     "year": null,
-    "blurb": "",
+    "blurb": "Display management tool",
     "summary": "",
-    "poster": "",
-    "link": "",
-    "status": "inbox",
+    "poster": "posters/betterdisplay.jpg",
+    "link": "https://betterdisplay.pro/",
+    "status": "todo",
     "tags": [
       "utility"
     ],
@@ -56937,19 +56811,20 @@
     "source_context": "Reddit r/macOS: \"Must-have apps for macOS 26/27?\" — recommended for managing multiple displays",
     "recommended_by": "o_sorik",
     "ai_confidence": 0.9,
-    "enriched_via": "",
-    "screenshot": "9b86ef5cad1a"
+    "enriched_via": "Homebrew",
+    "screenshot": "9b86ef5cad1a",
+    "match_ok": true
   },
   {
     "id": "updatest",
     "title": "Updatest",
-    "type": "game",
+    "type": "software",
     "year": null,
-    "blurb": "",
+    "blurb": "Utility that shows the latest app updates",
     "summary": "",
-    "poster": "",
-    "link": "",
-    "status": "inbox",
+    "poster": "posters/updatest.jpg",
+    "link": "https://updatest.app/",
+    "status": "todo",
     "tags": [
       "utility"
     ],
@@ -56960,19 +56835,20 @@
     "source_context": "Reddit r/macOS: \"Must-have apps for macOS 26/27?\" — recommended for updating apps",
     "recommended_by": "o_sorik",
     "ai_confidence": 0.8,
-    "enriched_via": "",
-    "screenshot": "9b86ef5cad1a"
+    "enriched_via": "Homebrew",
+    "screenshot": "9b86ef5cad1a",
+    "match_ok": true
   },
   {
     "id": "codexbar",
     "title": "Codexbar",
-    "type": "game",
+    "type": "software",
     "year": null,
-    "blurb": "",
+    "blurb": "Menu bar app for tracking agentic coding limits and usage",
     "summary": "",
-    "poster": "",
-    "link": "",
-    "status": "inbox",
+    "poster": "posters/codexbar.jpg",
+    "link": "https://codexbar.app/",
+    "status": "todo",
     "tags": [
       "utility"
     ],
@@ -56983,19 +56859,20 @@
     "source_context": "Reddit r/macOS: \"Must-have apps for macOS 26/27?\" — recommended for tracking limits in LLMs",
     "recommended_by": "o_sorik",
     "ai_confidence": 0.9,
-    "enriched_via": "",
-    "screenshot": "9b86ef5cad1a"
+    "enriched_via": "Homebrew",
+    "screenshot": "9b86ef5cad1a",
+    "match_ok": true
   },
   {
     "id": "ice",
     "title": "Ice",
-    "type": "game",
-    "year": null,
-    "blurb": "",
+    "type": "software",
+    "year": 2023,
+    "blurb": "Powerful menu bar manager for macOS",
     "summary": "",
-    "poster": "",
-    "link": "",
-    "status": "inbox",
+    "poster": "posters/ice.jpg",
+    "link": "https://icemenubar.app",
+    "status": "todo",
     "tags": [
       "utility"
     ],
@@ -57006,8 +56883,10 @@
     "source_context": "Reddit r/macOS: \"Must-have apps for macOS 26/27?\" — recommended for menu bar management",
     "recommended_by": "o_sorik",
     "ai_confidence": 0.9,
-    "enriched_via": "",
-    "screenshot": "9b86ef5cad1a"
+    "enriched_via": "GitHub",
+    "screenshot": "9b86ef5cad1a",
+    "author": "jordanbaird",
+    "match_ok": true
   },
   {
     "id": "the-princess-bride",
@@ -57032,7 +56911,8 @@
     "recommended_by": "vegas",
     "ai_confidence": 0.9,
     "enriched_via": "Wikipedia",
-    "screenshot": "fbc93eeff79e"
+    "screenshot": "fbc93eeff79e",
+    "match_ok": true
   },
   {
     "id": "free-guy",
@@ -57057,7 +56937,8 @@
     "recommended_by": "vegas",
     "ai_confidence": 0.9,
     "enriched_via": "Wikipedia",
-    "screenshot": "fbc93eeff79e"
+    "screenshot": "fbc93eeff79e",
+    "match_ok": true
   },
   {
     "id": "thaw",
@@ -57068,7 +56949,7 @@
     "summary": "",
     "poster": "posters/thaw.jpg",
     "link": "https://store.steampowered.com/app/2897250/",
-    "status": "todo",
+    "status": "inbox",
     "tags": [
       "utility"
     ],
@@ -57081,7 +56962,8 @@
     "ai_confidence": 0.9,
     "enriched_via": "Steam",
     "screenshot": "9b86ef5cad1a",
-    "steam_appid": 2897250
+    "steam_appid": 2897250,
+    "match_ok": true
   },
   {
     "id": "empire-records",
@@ -57106,18 +56988,19 @@
     "recommended_by": "vegas",
     "ai_confidence": 0.9,
     "enriched_via": "Wikipedia",
-    "screenshot": "fbc93eeff79e"
+    "screenshot": "fbc93eeff79e",
+    "match_ok": true
   },
   {
     "id": "vorssaint",
     "title": "Vorssaint",
-    "type": "game",
+    "type": "software",
     "year": null,
-    "blurb": "",
+    "blurb": "Menu bar toolkit with keep-awake, system monitor and volume mixer",
     "summary": "",
-    "poster": "",
-    "link": "",
-    "status": "inbox",
+    "poster": "posters/vorssaint.jpg",
+    "link": "https://github.com/vorssaint/vorssaint-utils",
+    "status": "todo",
     "tags": [
       "utility"
     ],
@@ -57128,8 +57011,9 @@
     "source_context": "Reddit r/macOS: \"Must-have apps for macOS 26/27?\" — recommended for multiple system tweaks",
     "recommended_by": "o_sorik",
     "ai_confidence": 0.9,
-    "enriched_via": "",
-    "screenshot": "9b86ef5cad1a"
+    "enriched_via": "Homebrew",
+    "screenshot": "9b86ef5cad1a",
+    "match_ok": true
   },
   {
     "id": "night-at-the-museum",
@@ -57154,7 +57038,8 @@
     "recommended_by": "vegas",
     "ai_confidence": 0.9,
     "enriched_via": "Wikipedia",
-    "screenshot": "fbc93eeff79e"
+    "screenshot": "fbc93eeff79e",
+    "match_ok": true
   },
   {
     "id": "rio",
@@ -57179,7 +57064,8 @@
     "recommended_by": "vegas",
     "ai_confidence": 0.9,
     "enriched_via": "Wikipedia",
-    "screenshot": "fbc93eeff79e"
+    "screenshot": "fbc93eeff79e",
+    "match_ok": true
   },
   {
     "id": "star-wars-the-empire-strikes-back",
@@ -57204,7 +57090,8 @@
     "recommended_by": "vegas",
     "ai_confidence": 0.9,
     "enriched_via": "Wikipedia",
-    "screenshot": "fbc93eeff79e"
+    "screenshot": "fbc93eeff79e",
+    "match_ok": false
   },
   {
     "id": "star-wars-return-of-the-jedi",
@@ -57229,7 +57116,8 @@
     "recommended_by": "vegas",
     "ai_confidence": 0.9,
     "enriched_via": "Wikipedia",
-    "screenshot": "fbc93eeff79e"
+    "screenshot": "fbc93eeff79e",
+    "match_ok": false
   },
   {
     "id": "wedding-day",
@@ -57250,7 +57138,8 @@
     "recommended_by": "",
     "ai_confidence": 0.7,
     "enriched_via": "Wikipedia",
-    "screenshot": "5865accd2e2e"
+    "screenshot": "5865accd2e2e",
+    "match_ok": true
   },
   {
     "id": "game-master-engine-gm-edition",
@@ -57276,7 +57165,8 @@
     "recommended_by": "",
     "ai_confidence": 1,
     "enriched_via": "",
-    "screenshot": "615194fbe6fb"
+    "screenshot": "615194fbe6fb",
+    "match_ok": false
   },
   {
     "id": "game-master-engine",
@@ -57303,7 +57193,8 @@
     "ai_confidence": 0.9,
     "enriched_via": "Steam",
     "screenshot": "615194fbe6fb",
-    "steam_appid": 1451680
+    "steam_appid": 1451680,
+    "match_ok": true
   },
   {
     "id": "alpine-racer",
@@ -57327,7 +57218,8 @@
     "recommended_by": "lasvegaschicas",
     "ai_confidence": 0.9,
     "enriched_via": "Wikipedia",
-    "screenshot": "8c272158af9a"
+    "screenshot": "8c272158af9a",
+    "match_ok": true
   },
   {
     "id": "the-monkey-island",
@@ -57352,7 +57244,8 @@
     "ai_confidence": 1,
     "enriched_via": "Steam",
     "screenshot": "85339a960fe6",
-    "steam_appid": 730820
+    "steam_appid": 730820,
+    "match_ok": false
   },
   {
     "id": "phantom-thieves",
@@ -57377,7 +57270,8 @@
     "recommended_by": "nice-_one",
     "ai_confidence": 0.8,
     "enriched_via": "",
-    "screenshot": "3bf5f04f2261"
+    "screenshot": "3bf5f04f2261",
+    "match_ok": false
   },
   {
     "id": "victoria-of-many-faces",
@@ -57402,7 +57296,8 @@
     "recommended_by": "Invisiblevampire",
     "ai_confidence": 0.8,
     "enriched_via": "Wikipedia",
-    "screenshot": "3bf5f04f2261"
+    "screenshot": "3bf5f04f2261",
+    "match_ok": true
   },
   {
     "id": "phantom-thief-jeanne",
@@ -57427,7 +57322,8 @@
     "recommended_by": "Invisiblevampire",
     "ai_confidence": 1,
     "enriched_via": "Wikipedia",
-    "screenshot": "3bf5f04f2261"
+    "screenshot": "3bf5f04f2261",
+    "match_ok": true
   },
   {
     "id": "the-day-of-the-tentacle",
@@ -57452,7 +57348,8 @@
     "ai_confidence": 1,
     "enriched_via": "Steam",
     "screenshot": "85339a960fe6",
-    "steam_appid": 388210
+    "steam_appid": 388210,
+    "match_ok": false
   },
   {
     "id": "saint-tail",
@@ -57477,7 +57374,8 @@
     "recommended_by": "Invisiblevampire",
     "ai_confidence": 1,
     "enriched_via": "Wikipedia",
-    "screenshot": "3bf5f04f2261"
+    "screenshot": "3bf5f04f2261",
+    "match_ok": true
   },
   {
     "id": "a-witch-s-life-in-mongol",
@@ -57502,7 +57400,8 @@
     "recommended_by": "Invisiblevampire",
     "ai_confidence": 0.7,
     "enriched_via": "Wikipedia",
-    "screenshot": "3bf5f04f2261"
+    "screenshot": "3bf5f04f2261",
+    "match_ok": true
   },
   {
     "id": "maniac-mansion",
@@ -57527,7 +57426,8 @@
     "ai_confidence": 1,
     "enriched_via": "Steam",
     "screenshot": "85339a960fe6",
-    "steam_appid": 529890
+    "steam_appid": 529890,
+    "match_ok": true
   },
   {
     "id": "love-of-kill",
@@ -57552,7 +57452,8 @@
     "recommended_by": "Invisiblevampire",
     "ai_confidence": 1,
     "enriched_via": "Wikipedia",
-    "screenshot": "3bf5f04f2261"
+    "screenshot": "3bf5f04f2261",
+    "match_ok": true
   },
   {
     "id": "d-n-angel",
@@ -57577,7 +57478,8 @@
     "recommended_by": "Invisiblevampire",
     "ai_confidence": 1,
     "enriched_via": "Wikipedia",
-    "screenshot": "3bf5f04f2261"
+    "screenshot": "3bf5f04f2261",
+    "match_ok": true
   },
   {
     "id": "lost-eidolons-veil-of-the-witch",
@@ -57603,7 +57505,8 @@
     "ai_confidence": 1,
     "enriched_via": "Steam",
     "screenshot": "c9707b9383d0",
-    "steam_appid": 2530490
+    "steam_appid": 2530490,
+    "match_ok": true
   },
   {
     "id": "lycoris-recoil",
@@ -57628,7 +57531,8 @@
     "recommended_by": "Inquisitor_Glokta_",
     "ai_confidence": 1,
     "enriched_via": "Wikipedia",
-    "screenshot": "3bf5f04f2261"
+    "screenshot": "3bf5f04f2261",
+    "match_ok": true
   },
   {
     "id": "full-throttle",
@@ -57653,7 +57557,8 @@
     "ai_confidence": 1,
     "enriched_via": "Steam",
     "screenshot": "85339a960fe6",
-    "steam_appid": 228360
+    "steam_appid": 228360,
+    "match_ok": false
   },
   {
     "id": "ghost-in-the-shell-stand-alone-complex",
@@ -57678,7 +57583,8 @@
     "recommended_by": "Inquisitor_Glokta_",
     "ai_confidence": 1,
     "enriched_via": "Wikipedia",
-    "screenshot": "3bf5f04f2261"
+    "screenshot": "3bf5f04f2261",
+    "match_ok": true
   },
   {
     "id": "kartia-the-word-of-fate",
@@ -57702,7 +57608,8 @@
     "recommended_by": "RPGFan",
     "ai_confidence": 1,
     "enriched_via": "Wikipedia",
-    "screenshot": "56561c9a6136"
+    "screenshot": "56561c9a6136",
+    "match_ok": true
   },
   {
     "id": "spy-x-family",
@@ -57727,7 +57634,8 @@
     "recommended_by": "Inquisitor_Glokta_",
     "ai_confidence": 1,
     "enriched_via": "",
-    "screenshot": "3bf5f04f2261"
+    "screenshot": "3bf5f04f2261",
+    "match_ok": false
   },
   {
     "id": "king-s-quest-vi",
@@ -57751,7 +57659,8 @@
     "recommended_by": "Gabi",
     "ai_confidence": 1,
     "enriched_via": "Wikipedia",
-    "screenshot": "85339a960fe6"
+    "screenshot": "85339a960fe6",
+    "match_ok": true
   },
   {
     "id": "king-s-quest-vii",
@@ -57775,7 +57684,8 @@
     "recommended_by": "Gabi",
     "ai_confidence": 1,
     "enriched_via": "Wikipedia",
-    "screenshot": "85339a960fe6"
+    "screenshot": "85339a960fe6",
+    "match_ok": true
   },
   {
     "id": "sex-and-zen",
@@ -57786,7 +57696,7 @@
     "summary": "Sex and Zen is a 1991 Hong Kong erotic sex comedy film directed by Michael Mak, and starring Amy Yip and Lawrence Ng. The film is loosely based on The Carnal Prayer Mat, a Chinese erotic novel by seventeenth-century author and playwright Li Yu.",
     "poster": "posters/sex-and-zen.jpg",
     "link": "https://en.wikipedia.org/wiki/Sex_and_Zen",
-    "status": "todo",
+    "status": "inbox",
     "tags": [
       "Erotic",
       "Comedy",
@@ -57801,7 +57711,9 @@
     "recommended_by": "",
     "ai_confidence": 1,
     "enriched_via": "Wikipedia",
-    "screenshot": "2e1e068e5760"
+    "screenshot": "2e1e068e5760",
+    "match_ok": true,
+    "adult": true
   },
   {
     "id": "simon-the-sorcerer",
@@ -57826,7 +57738,8 @@
     "ai_confidence": 1,
     "enriched_via": "Steam",
     "screenshot": "85339a960fe6",
-    "steam_appid": 1417950
+    "steam_appid": 1417950,
+    "match_ok": false
   },
   {
     "id": "hidden",
@@ -57851,7 +57764,8 @@
     "recommended_by": "netflixappmovies",
     "ai_confidence": 1,
     "enriched_via": "Wikipedia",
-    "screenshot": "a2145aa7e26e"
+    "screenshot": "a2145aa7e26e",
+    "match_ok": true
   },
   {
     "id": "sam-and-max-hit-the-road",
@@ -57876,7 +57790,8 @@
     "ai_confidence": 1,
     "enriched_via": "Steam",
     "screenshot": "85339a960fe6",
-    "steam_appid": 355170
+    "steam_appid": 355170,
+    "match_ok": true
   },
   {
     "id": "grim-fandango",
@@ -57901,7 +57816,8 @@
     "ai_confidence": 1,
     "enriched_via": "Steam",
     "screenshot": "85339a960fe6",
-    "steam_appid": 316790
+    "steam_appid": 316790,
+    "match_ok": false
   },
   {
     "id": "beneath-a-steel-sky-1994",
@@ -57926,7 +57842,8 @@
     "ai_confidence": 1,
     "enriched_via": "Steam",
     "screenshot": "85339a960fe6",
-    "steam_appid": 1368340
+    "steam_appid": 1368340,
+    "match_ok": true
   },
   {
     "id": "virgin-territory",
@@ -57950,7 +57867,8 @@
     "recommended_by": "memestypeshiiii",
     "ai_confidence": 1,
     "enriched_via": "Wikipedia",
-    "screenshot": "e8e764515707"
+    "screenshot": "e8e764515707",
+    "match_ok": true
   },
   {
     "id": "broken-sword",
@@ -57975,7 +57893,8 @@
     "ai_confidence": 1,
     "enriched_via": "Steam",
     "screenshot": "85339a960fe6",
-    "steam_appid": 580440
+    "steam_appid": 580440,
+    "match_ok": true
   },
   {
     "id": "woodruff-and-the-schnibble-of-azimuth",
@@ -57999,7 +57918,8 @@
     "recommended_by": "Gabi",
     "ai_confidence": 1,
     "enriched_via": "",
-    "screenshot": "85339a960fe6"
+    "screenshot": "85339a960fe6",
+    "match_ok": false
   },
   {
     "id": "money-heist",
@@ -58024,7 +57944,8 @@
     "recommended_by": "mennsclubb",
     "ai_confidence": 1,
     "enriched_via": "Wikipedia",
-    "screenshot": "5a05bc989583"
+    "screenshot": "5a05bc989583",
+    "match_ok": true
   },
   {
     "id": "peacemaker",
@@ -58049,7 +57970,8 @@
     "recommended_by": "cinema49243",
     "ai_confidence": 1,
     "enriched_via": "Wikipedia",
-    "screenshot": "7ed8b51914f2"
+    "screenshot": "7ed8b51914f2",
+    "match_ok": true
   },
   {
     "id": "tag",
@@ -58074,7 +57996,8 @@
     "recommended_by": "movie.versedaily",
     "ai_confidence": 1,
     "enriched_via": "Wikipedia",
-    "screenshot": "2aa146388fe9"
+    "screenshot": "2aa146388fe9",
+    "match_ok": true
   },
   {
     "id": "big-black-card",
@@ -58099,7 +58022,8 @@
     "recommended_by": "",
     "ai_confidence": 0.9,
     "enriched_via": "",
-    "screenshot": "a4a0711010f5"
+    "screenshot": "a4a0711010f5",
+    "match_ok": false
   },
   {
     "id": "cassette-beasts",
@@ -58125,7 +58049,8 @@
     "ai_confidence": 1,
     "enriched_via": "Steam",
     "screenshot": "da41bd13aa90",
-    "steam_appid": 1321440
+    "steam_appid": 1321440,
+    "match_ok": true
   },
   {
     "id": "heroic-age",
@@ -58151,7 +58076,8 @@
     "recommended_by": "shasha_anime_epic",
     "ai_confidence": 1,
     "enriched_via": "Wikipedia",
-    "screenshot": "c0db56068624"
+    "screenshot": "c0db56068624",
+    "match_ok": true
   },
   {
     "id": "yudhra",
@@ -58176,7 +58102,8 @@
     "recommended_by": "story_maza",
     "ai_confidence": 1,
     "enriched_via": "Wikipedia",
-    "screenshot": "8e5c9dd23335"
+    "screenshot": "8e5c9dd23335",
+    "match_ok": true
   },
   {
     "id": "under-ninja",
@@ -58187,7 +58114,7 @@
     "summary": "Under Ninja  is a Japanese manga series written and illustrated by Kengo Hanazawa. It has been serialized in Kodansha's Weekly Young Magazine since July 2018. An anime television series adaptation by Tezuka Productions aired from October to December 2023. A live-action film adaptation premiered in Japanese theaters in January 2025.",
     "poster": "posters/under-ninja.jpg",
     "link": "https://en.wikipedia.org/wiki/Under_Ninja",
-    "status": "todo",
+    "status": "inbox",
     "tags": [
       "action",
       "comedy",
@@ -58201,7 +58128,8 @@
     "recommended_by": "shinobufilm",
     "ai_confidence": 0.9,
     "enriched_via": "Wikipedia",
-    "screenshot": "76414d33340c"
+    "screenshot": "76414d33340c",
+    "match_ok": false
   },
   {
     "id": "useless-creatures",
@@ -58226,12 +58154,13 @@
     "recommended_by": "",
     "ai_confidence": 1,
     "enriched_via": "Wikipedia",
-    "screenshot": "f1fe412a4487"
+    "screenshot": "f1fe412a4487",
+    "match_ok": false
   },
   {
     "id": "higgsfield",
     "title": "Higgsfield",
-    "type": "game",
+    "type": "software",
     "year": null,
     "blurb": "",
     "summary": "",
@@ -58250,12 +58179,13 @@
     "recommended_by": "",
     "ai_confidence": 0.9,
     "enriched_via": "",
-    "screenshot": "bfb4e5e8334b"
+    "screenshot": "bfb4e5e8334b",
+    "match_ok": false
   },
   {
     "id": "artflow",
     "title": "ArtFlow",
-    "type": "game",
+    "type": "software",
     "year": null,
     "blurb": "",
     "summary": "",
@@ -58274,18 +58204,19 @@
     "recommended_by": "",
     "ai_confidence": 0.9,
     "enriched_via": "",
-    "screenshot": "bfb4e5e8334b"
+    "screenshot": "bfb4e5e8334b",
+    "match_ok": false
   },
   {
     "id": "elevenlabs",
     "title": "ElevenLabs",
-    "type": "game",
-    "year": 2022,
-    "blurb": "ElevenLabs Inc.",
-    "summary": "ElevenLabs Inc. is a software company that specializes in developing natural-sounding speech synthesis software using deep learning. It was founded in 2022 by Polish entrepreneurs Piotr Dąbkowski and Mateusz Staniszewski. ElevenLabs is legally incorporated in the US. It is based in London and also has offices in New York City, Warsaw and San Francisco.",
-    "poster": "posters/elevenlabs.jpg",
-    "link": "https://en.wikipedia.org/wiki/ElevenLabs",
-    "status": "todo",
+    "type": "software",
+    "year": null,
+    "blurb": "",
+    "summary": "",
+    "poster": "",
+    "link": "",
+    "status": "inbox",
     "tags": [
       "technology",
       "AI"
@@ -58297,13 +58228,14 @@
     "source_context": "Facebook post by Indradeep — Paid voice cloning tool",
     "recommended_by": "",
     "ai_confidence": 0.9,
-    "enriched_via": "Wikipedia",
-    "screenshot": "bfb4e5e8334b"
+    "enriched_via": "",
+    "screenshot": "bfb4e5e8334b",
+    "match_ok": false
   },
   {
     "id": "fishaudio",
     "title": "FishAudio",
-    "type": "game",
+    "type": "software",
     "year": null,
     "blurb": "",
     "summary": "",
@@ -58322,7 +58254,8 @@
     "recommended_by": "",
     "ai_confidence": 0.9,
     "enriched_via": "",
-    "screenshot": "bfb4e5e8334b"
+    "screenshot": "bfb4e5e8334b",
+    "match_ok": false
   },
   {
     "id": "roking-star-yash-new-movie-scene",
@@ -58345,7 +58278,8 @@
     "recommended_by": "N2R World",
     "ai_confidence": 0.7,
     "enriched_via": "",
-    "screenshot": "2da082151717"
+    "screenshot": "2da082151717",
+    "match_ok": false
   },
   {
     "id": "gemini",
@@ -58370,7 +58304,8 @@
     "ai_confidence": 0.9,
     "enriched_via": "Steam",
     "screenshot": "bfb4e5e8334b",
-    "steam_appid": 80310
+    "steam_appid": 80310,
+    "match_ok": false
   },
   {
     "id": "toxic-a-fairy-tale-for-grown-ups",
@@ -58393,12 +58328,13 @@
     "recommended_by": "",
     "ai_confidence": 0.9,
     "enriched_via": "Wikipedia",
-    "screenshot": "680cb8ea8b2a"
+    "screenshot": "680cb8ea8b2a",
+    "match_ok": false
   },
   {
     "id": "gpt-image",
     "title": "GPT Image",
-    "type": "game",
+    "type": "software",
     "year": null,
     "blurb": "",
     "summary": "",
@@ -58417,7 +58353,8 @@
     "recommended_by": "",
     "ai_confidence": 0.9,
     "enriched_via": "",
-    "screenshot": "bfb4e5e8334b"
+    "screenshot": "bfb4e5e8334b",
+    "match_ok": false
   },
   {
     "id": "ladies-and-ladies",
@@ -58440,7 +58377,8 @@
     "recommended_by": "",
     "ai_confidence": 0.8,
     "enriched_via": "",
-    "screenshot": "680cb8ea8b2a"
+    "screenshot": "680cb8ea8b2a",
+    "match_ok": false
   },
   {
     "id": "black-bag",
@@ -58464,17 +58402,18 @@
     "recommended_by": "BasedGodBrody",
     "ai_confidence": 0.9,
     "enriched_via": "Wikipedia",
-    "screenshot": "9260e65b09b7"
+    "screenshot": "9260e65b09b7",
+    "match_ok": true
   },
   {
     "id": "google-flow",
     "title": "Google Flow",
-    "type": "game",
+    "type": "software",
     "year": null,
-    "blurb": "Google LLC is an American multinational technology corporation focused on information technology, online advertising, search engine technology, email, cloud computing, software, quantum computing, e-commerce, consumer electronics, and artificial intelligence (AI).",
-    "summary": "Google LLC is an American multinational technology corporation focused on information technology, online advertising, search engine technology, email, cloud computing, software, quantum computing, e-commerce, consumer electronics, and artificial intelligence (AI). It has been referred to as \"the most powerful company in the world\" by the BBC, and is one of the world's most valuable brands. Google's parent company Alphabet Inc. has been described as a Big Tech company.",
-    "poster": "posters/google-flow.jpg",
-    "link": "https://en.wikipedia.org/wiki/Google",
+    "blurb": "",
+    "summary": "",
+    "poster": "",
+    "link": "",
     "status": "inbox",
     "tags": [
       "technology",
@@ -58487,8 +58426,9 @@
     "source_context": "Facebook post by Indradeep — Free image generation tool",
     "recommended_by": "",
     "ai_confidence": 0.9,
-    "enriched_via": "Wikipedia",
-    "screenshot": "bfb4e5e8334b"
+    "enriched_via": "",
+    "screenshot": "bfb4e5e8334b",
+    "match_ok": false
   },
   {
     "id": "relay",
@@ -58512,7 +58452,8 @@
     "recommended_by": "hellcat1592",
     "ai_confidence": 0.9,
     "enriched_via": "Wikipedia",
-    "screenshot": "9260e65b09b7"
+    "screenshot": "9260e65b09b7",
+    "match_ok": true
   },
   {
     "id": "the-old-guard",
@@ -58536,18 +58477,19 @@
     "recommended_by": "OhDivineBussy",
     "ai_confidence": 0.9,
     "enriched_via": "Wikipedia",
-    "screenshot": "9260e65b09b7"
+    "screenshot": "9260e65b09b7",
+    "match_ok": true
   },
   {
     "id": "synthesia",
     "title": "Synthesia",
-    "type": "game",
+    "type": "software",
     "year": null,
-    "blurb": "Synthesia is a piano keyboard trainer for Microsoft Windows, iOS, macOS, and Android which allows users to play a MIDI keyboard or use a computer keyboard in time to a MIDI file by following on-screen directions, much in the style of Keyboard Mania or Guitar Hero.",
-    "summary": "Synthesia is a piano keyboard trainer for Microsoft Windows, iOS, macOS, and Android which allows users to play a MIDI keyboard or use a computer keyboard in time to a MIDI file by following on-screen directions, much in the style of Keyboard Mania or Guitar Hero. Additionally, Synthesia can be paired with MIDI keyboards that have illuminated keys, or with virtual player piano on screen, which some people believe makes learning piano easier for beginners. It was originally named Piano Hero, due to the similarity of gameplay with Guitar Hero, until Activision sent a cease and desist letter to the program's creator, Nicholas Piegdon.",
-    "poster": "posters/synthesia.jpg",
-    "link": "https://en.wikipedia.org/wiki/Synthesia_(video_game)",
-    "status": "todo",
+    "blurb": "",
+    "summary": "",
+    "poster": "",
+    "link": "",
+    "status": "inbox",
     "tags": [
       "technology",
       "AI"
@@ -58559,8 +58501,9 @@
     "source_context": "Facebook post by Indradeep — Paid AI avatar tool",
     "recommended_by": "",
     "ai_confidence": 0.9,
-    "enriched_via": "Wikipedia",
-    "screenshot": "bfb4e5e8334b"
+    "enriched_via": "",
+    "screenshot": "bfb4e5e8334b",
+    "match_ok": false
   },
   {
     "id": "ava",
@@ -58584,18 +58527,19 @@
     "recommended_by": "OhDivineBussy",
     "ai_confidence": 0.95,
     "enriched_via": "Wikipedia",
-    "screenshot": "9260e65b09b7"
+    "screenshot": "9260e65b09b7",
+    "match_ok": true
   },
   {
     "id": "heygen",
     "title": "HeyGen",
-    "type": "game",
+    "type": "software",
     "year": null,
-    "blurb": "HeyGen is a generative artificial intelligence company that creates photo-realistic avatars via user-submitted photos and videos as well as a library of pre-made avatars and voices.",
-    "summary": "HeyGen is a generative artificial intelligence company that creates photo-realistic avatars via user-submitted photos and videos as well as a library of pre-made avatars and voices. The digital avatar can recite prompts in multiple languages.",
-    "poster": "posters/heygen.jpg",
-    "link": "https://en.wikipedia.org/wiki/HeyGen",
-    "status": "todo",
+    "blurb": "",
+    "summary": "",
+    "poster": "",
+    "link": "",
+    "status": "inbox",
     "tags": [
       "technology",
       "AI"
@@ -58607,8 +58551,9 @@
     "source_context": "Facebook post by Indradeep — Free AI avatar tool",
     "recommended_by": "",
     "ai_confidence": 0.9,
-    "enriched_via": "Wikipedia",
-    "screenshot": "bfb4e5e8334b"
+    "enriched_via": "",
+    "screenshot": "bfb4e5e8334b",
+    "match_ok": false
   },
   {
     "id": "colombiana",
@@ -58632,7 +58577,8 @@
     "recommended_by": "OhDivineBussy",
     "ai_confidence": 0.95,
     "enriched_via": "Wikipedia",
-    "screenshot": "9260e65b09b7"
+    "screenshot": "9260e65b09b7",
+    "match_ok": true
   },
   {
     "id": "leon",
@@ -58656,7 +58602,8 @@
     "recommended_by": "OhDivineBussy",
     "ai_confidence": 0.95,
     "enriched_via": "Wikipedia",
-    "screenshot": "9260e65b09b7"
+    "screenshot": "9260e65b09b7",
+    "match_ok": false
   },
   {
     "id": "the-equalizer",
@@ -58680,7 +58627,8 @@
     "recommended_by": "OhDivineBussy",
     "ai_confidence": 0.9,
     "enriched_via": "Wikipedia",
-    "screenshot": "9260e65b09b7"
+    "screenshot": "9260e65b09b7",
+    "match_ok": true
   },
   {
     "id": "4-cut-hero",
@@ -58706,7 +58654,8 @@
     "recommended_by": "Anivibein",
     "ai_confidence": 1,
     "enriched_via": "",
-    "screenshot": "4ef70223add5"
+    "screenshot": "4ef70223add5",
+    "match_ok": false
   },
   {
     "id": "spaceship-agga-ruter",
@@ -58732,7 +58681,8 @@
     "recommended_by": "deliciousweebreformed",
     "ai_confidence": 0.9,
     "enriched_via": "",
-    "screenshot": "b440361ce0c4"
+    "screenshot": "b440361ce0c4",
+    "match_ok": false
   },
   {
     "id": "chainsmoker-cat",
@@ -58758,7 +58708,8 @@
     "recommended_by": "cinemaahq",
     "ai_confidence": 0.9,
     "enriched_via": "Wikipedia",
-    "screenshot": "3ee80b153dbb"
+    "screenshot": "3ee80b153dbb",
+    "match_ok": true
   },
   {
     "id": "peter-grill-and-the-philosopher-s-time",
@@ -58769,7 +58720,7 @@
     "summary": "Peter Grill and the Philosopher's Time  is a Japanese fantasy manga series by Daisuke Hiyama. It was serialized in Futabasha's seinen manga magazine Monthly Action from August 2017 to February 2024 before being transferred to the Web Action manga website, where it finished serialization in August 2024. It has been collected in fifteen tankōbon volumes. The manga is licensed in North America by Seven Seas Entertainment. An anime television series adaptation by Wolfsbane aired from July to September 2020. A second season by Wolfsbane and Seven aired from October to December 2022.",
     "poster": "posters/peter-grill-and-the-philosopher-s-time.jpg",
     "link": "https://en.wikipedia.org/wiki/Peter_Grill_and_the_Philosopher's_Time",
-    "status": "todo",
+    "status": "inbox",
     "tags": [
       "Anime",
       "ecchi",
@@ -58784,7 +58735,9 @@
     "recommended_by": "animerecks",
     "ai_confidence": 1,
     "enriched_via": "Wikipedia",
-    "screenshot": "ec8d133bb805"
+    "screenshot": "ec8d133bb805",
+    "match_ok": true,
+    "adult": true
   },
   {
     "id": "sono-bisque-doll-wa-koi-wo-suru",
@@ -58810,7 +58763,9 @@
     "recommended_by": "animerecks",
     "ai_confidence": 0.7,
     "enriched_via": "",
-    "screenshot": "e4e20e388d2b"
+    "screenshot": "e4e20e388d2b",
+    "match_ok": false,
+    "adult": true
   },
   {
     "id": "the-gigolo-dochinpira",
@@ -58836,7 +58791,9 @@
     "recommended_by": "deliciousweebreformed",
     "ai_confidence": 0.9,
     "enriched_via": "",
-    "screenshot": "0a19bf134518"
+    "screenshot": "0a19bf134518",
+    "match_ok": false,
+    "adult": true
   },
   {
     "id": "tougen-anki",
@@ -58862,7 +58819,8 @@
     "recommended_by": "anime_editz_foru",
     "ai_confidence": 0.9,
     "enriched_via": "Wikipedia",
-    "screenshot": "547e86b574a2"
+    "screenshot": "547e86b574a2",
+    "match_ok": true
   },
   {
     "id": "this-ordinary-monk-turns-out-to-be-a-kung-fu-master",
@@ -58887,7 +58845,8 @@
     "recommended_by": "古风甜偶录",
     "ai_confidence": 0.9,
     "enriched_via": "",
-    "screenshot": "63fbf5b84a54"
+    "screenshot": "63fbf5b84a54",
+    "match_ok": false
   },
   {
     "id": "false-memory",
@@ -58898,7 +58857,7 @@
     "summary": "In the field of psychology, a false memory is a phenomenon in which someone recalls something that did not actually happen or recalls it differently from the way it actually happened. Suggestibility, activation of associated information, the incorporation of misinformation, and source misattribution have been suggested as mechanisms that underlie a variety of types of false memory.",
     "poster": "",
     "link": "https://en.wikipedia.org/wiki/False_memory",
-    "status": "todo",
+    "status": "inbox",
     "tags": [
       "documentary",
       "psychology",
@@ -58912,7 +58871,8 @@
     "recommended_by": "JustPepin",
     "ai_confidence": 0.9,
     "enriched_via": "Wikipedia",
-    "screenshot": "e9116b8f3780"
+    "screenshot": "e9116b8f3780",
+    "match_ok": false
   },
   {
     "id": "fist-of-fury-soul",
@@ -58937,7 +58897,8 @@
     "recommended_by": "古风甜偶录",
     "ai_confidence": 1,
     "enriched_via": "",
-    "screenshot": "a889bca3c866"
+    "screenshot": "a889bca3c866",
+    "match_ok": false
   },
   {
     "id": "powerless-beggar-is-actually-a-supreme-master-no-one-in-the-martial-world-can-defeat-him",
@@ -58962,7 +58923,8 @@
     "recommended_by": "InDrama",
     "ai_confidence": 0.9,
     "enriched_via": "",
-    "screenshot": "3b1ab268cd7c"
+    "screenshot": "3b1ab268cd7c",
+    "match_ok": false
   },
   {
     "id": "the-young-swordsman",
@@ -58987,7 +58949,8 @@
     "recommended_by": "InDrama",
     "ai_confidence": 0.8,
     "enriched_via": "Wikipedia",
-    "screenshot": "3b1ab268cd7c"
+    "screenshot": "3b1ab268cd7c",
+    "match_ok": true
   },
   {
     "id": "time-to-close-the-hospital-because-the-crocodile-nurse-is-loose",
@@ -59012,6 +58975,7 @@
     "recommended_by": "itstheheyman",
     "ai_confidence": 0.9,
     "enriched_via": "",
-    "screenshot": "cc6fac650688"
+    "screenshot": "cc6fac650688",
+    "match_ok": false
   }
 ]
