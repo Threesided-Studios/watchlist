@@ -18,6 +18,7 @@ import { fileURLToPath } from 'node:url';
 import sharp from 'sharp';
 import { titleKey, family, buildIndex, findDuplicate, uniqueId, costOf, decideStatus } from './lib.mjs';
 import { huntArt } from './art.mjs';
+import { qaScreen, tmdbPosterUrl } from './qa.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(HERE, '../..');
@@ -409,6 +410,55 @@ if (!LOCAL) {
   if (reviews.length) console.log(`applied ${reviews.length} review decision(s)`);
 }
 
+/* --qa-posters: verify every movie/show poster is the right work (same-title collisions). */
+if (flag('--qa-posters')) {
+  const TOKEN = process.env.TMDB_READ_TOKEN;
+  if (!TOKEN) { console.error('TMDB_READ_TOKEN missing'); process.exit(1); }
+  const only = opt('--ids', '') ? new Set(opt('--ids', '').split(',')) : null;
+  const targets = items.filter((it) => (it.type === 'movie' || it.type === 'show') && !it.qa_lock && (!only || only.has(it.id)));   // qa_lock: hand-verified, skip
+  let usd = 0; const res = { ok: 0, okUnverified: 0, nomatch: 0, fixed: [], ambiguous: [], typeFixed: [], idAdded: 0 };
+  let next = 0, done = 0;
+  await Promise.all(Array.from({ length: 4 }, async () => {
+    while (next < targets.length) {
+      const it = targets[next++];
+      try {
+        const pth = it.poster && join(ROOT, it.poster);
+        const posterBytes = pth && existsSync(pth) ? await sharp(pth).resize({ width: 256, withoutEnlargement: true }).jpeg({ quality: 70 }).toBuffer() : null;
+        const q = await qaScreen(it, { openai, token: TOKEN, posterBytes });
+        usd += q.cost;
+        const fmt = (c) => c ? `${c.title} (${c.year || '?'}, ${c.kind}${c.lang && c.lang !== 'en' ? `, ${c.lang}` : ''})` : 'unknown';
+        if (q.verdict === 'fix') {
+          const poster = await savePoster([tmdbPosterUrl(q.pick)], it.id);
+          if (!poster) { res.ambiguous.push(`${it.title}: poster download failed`); continue; }
+          res.fixed.push(`${it.title}${it.year ? ` [${it.year}]` : ''}: ${fmt(q.current)} -> ${fmt(q.pick)}`);
+          it.poster = poster; it.tmdb_id = q.pick.id;
+          if (!it.year || Math.abs(it.year - (q.pick.year || it.year)) > 1) it.year = q.pick.year || it.year;
+          const kind = q.pick.kind === 'tv' ? 'show' : 'movie';
+          if (kind !== it.type) { res.typeFixed.push(`${it.title}: ${it.type} -> ${kind}`); it.type = kind; }
+          it.qa = 'fixed';
+        } else if (q.verdict === 'ambiguous') {
+          res.ambiguous.push(`${it.title}${it.year ? ` [${it.year}]` : ''}: ${q.cands.length} same-title works (poster shows ${fmt(q.current)}; best guess ${fmt(q.pick)})`);
+          if (it.status === 'todo') it.status = 'inbox';
+          it.qa = `ambiguous: ${q.cands.length} same-title works`;
+        } else if (q.verdict === 'nomatch') res.nomatch++;
+        else {
+          q.verdict === 'ok' ? res.ok++ : res.okUnverified++;
+          if (!it.tmdb_id && q.pick && q.verdict === 'ok') { it.tmdb_id = q.pick.id; res.idAdded++; }
+        }
+      } catch (e) { console.warn('qa error', it.title, String(e).slice(0, 120)); }
+      if (++done % 100 === 0) console.error(`qa ${done}/${targets.length} $${usd.toFixed(3)}`);
+    }
+  }));
+  for (const it of targets) delete it.qa_hint;
+  ledger.totals.usd = Math.round((ledger.totals.usd + usd) * 1e6) / 1e6;
+  if (!DRY) { writeFileSync(DATA, JSON.stringify(items, null, 2)); writeFileSync(LEDGER, JSON.stringify(ledger, null, 1)); }
+  console.log(JSON.stringify({ checked: targets.length, ok: res.ok, okUnverified: res.okUnverified, nomatch: res.nomatch, fixed: res.fixed.length, ambiguous: res.ambiguous.length, typeFixed: res.typeFixed.length, tmdbIdsAdded: res.idAdded, usd: Math.round(usd * 1e4) / 1e4 }));
+  console.log('FIXED:\n  ' + res.fixed.join('\n  '));
+  console.log('TYPE FIXED:\n  ' + res.typeFixed.join('\n  '));
+  console.log('AMBIGUOUS -> inbox:\n  ' + res.ambiguous.join('\n  '));
+  process.exit(0);
+}
+
 /* --art-hunt: deeper cover-art search for Inbox items that still have no art (adult stays hidden). */
 if (flag('--art-hunt')) {
   const targets = items.filter((it) => it.status === 'inbox' && !it.adult && !(it.poster && existsSync(join(ROOT, it.poster))));
@@ -590,10 +640,28 @@ async function processShot(s) {
           ...(art ? { art_via: art.source, ...(e?.link ? {} : { link: art.link }) } : {}),
           ...(e?.steam_appid ? { steam_appid: e.steam_appid } : {}),
         };
+        /* poster QA: same-title collisions (remake vs original, same-name films, movie vs series).
+           The screenshot's year/context decides; unclear cases wait in the Inbox. */
+        if ((item.type === 'movie' || item.type === 'show') && process.env.TMDB_READ_TOKEN) {
+          try {
+            const q = await qaScreen(item, { openai, token: process.env.TMDB_READ_TOKEN, extra: { context: cand.context } });
+            entry.usd += q.cost;
+            if (q.cands.length > 1) item.same_title_works = q.cands.length;
+            if (q.verdict === 'fix') {
+              const p2 = await savePoster([tmdbPosterUrl(q.pick)], id);
+              if (p2) {
+                Object.assign(item, { poster: p2, tmdb_id: q.pick.id, type: q.pick.kind === 'tv' ? 'show' : 'movie', qa: 'fixed' });
+                if (!item.year || Math.abs(item.year - (q.pick.year || item.year)) > 1) item.year = q.pick.year || item.year;
+                if (!cand.adult) item.status = 'todo';
+              }
+            } else if (q.verdict === 'ambiguous') { item.status = 'inbox'; item.qa = `ambiguous: ${q.cands.length} same-title works`; }
+            else if (q.verdict === 'ok' && q.pick && !item.tmdb_id) item.tmdb_id = q.pick.id;
+          } catch (err) { console.warn('qa failed', title, String(err).slice(0, 100)); }
+        }
         items.push(item); taken.add(id); index.set(famKey, id); changed = true;
         entry.ids.push(id);
-        ledger.totals[status === 'todo' ? 'added' : 'inbox']++;
-        report.push({ name: s.name, title, type: cand.type, year: item.year, outcome: status, conf: item.ai_confidence, via: item.enriched_via || 'none', poster: !!poster, context: ctx });
+        ledger.totals[item.status === 'todo' ? 'added' : 'inbox']++;
+        report.push({ name: s.name, title, type: item.type, year: item.year, outcome: item.status + (item.qa ? ` (qa ${item.qa})` : ''), conf: item.ai_confidence, via: item.enriched_via || 'none', poster: !!poster, context: ctx });
       }
       ledger.totals.media++;
     } else {

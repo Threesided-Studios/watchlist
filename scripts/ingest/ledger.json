@@ -3150,13 +3150,41 @@
   "game:alpha-granny",
   "screen:tomoya",
   "software:buddy",
-  "game:gemini"
+  "game:gemini",
+  "book:time-to-close-the-hospital-because-the-crocodile-nurse-is-loose",
+  "book:my-life-has-taken-a-turn-for-the-worse-thanks-to-a-sorceress-who-hates-me-but-i-think-in-a-way-that-means-she-s-really-into-me-but-maybe-that-s-just-her-face",
+  "book:i-think-our-son-is-not-our-son-and-is-instead-a-golem-made-out-of-meat-that-was-placed-in-our-house-by-the-government",
+  "book:reincarnated-as-a-buzz-saw-i-now-seek-revenge-on-my-party-members-who-left-me-for-dead-with-the-buzz-saw-witch-because-seriously-what-the-f-did-they-think-was-gonna-happen",
+  "book:my-sister-my-sister-why-do-you-look-at-me-as-if-my-hands-are-now-the-heads-of-pigs",
+  "book:poked-with-a-stick-by-my-ex-landlord-i-am-now-lost-in-the-swamp-of-curses-where-my-only-companion-is-a-talking-stone",
+  "book:in-my-cosmic-van-i-travel-the-multiverse",
+  "book:my-birthday-party-was-cancelled-so-now-i-will-murder-all-my-friends-who-did-not-attend-even-though-they-couldn-t-have-because-it-was-cancelled-i-m-just-a-b-tch-that-way",
+  "game:claude-fable-5",
+  "game:gpt-5-6-terra",
+  "game:gpt-5-6-luna",
+  "game:qwen3-8-27b",
+  "screen:roking-star-yash-new-movie-scene",
+  "book:8-000-phone-agent",
+  "book:qwythos",
+  "screen:everyone-chose-ultimate-power-while-i-picked-the-mysterious-gold-coin",
+  "game:final-fantasy-x",
+  "game:day-of-the-tentacle",
+  "game:grim-fandango",
+  "game:monkey-island",
+  "game:oblivion",
+  "game:pillars-of-eternity-turn-based-edition",
+  "game:game-master-engine-gm-edition",
+  "game:dragon-quest-viii",
+  "screen:yanineko-chainsmoker-cat",
+  "game:persona-4",
+  "game:big-black-card",
+  "screen:spy-x-family"
  ],
  "totals": {
   "shots": 425,
   "media": 184,
   "added": 214,
   "inbox": 129,
-  "usd": 0.555076
+  "usd": 0.827466
  }
 }
