@@ -1,8 +1,9 @@
 /* Watchlist screenshot inbox.
  *
- *   POST /i/<INGEST_KEY>            raw image body (iOS Shortcut). ?name=IMG_123.PNG optional
+ *   POST /i/<INGEST_KEY>            raw image body (iOS Shortcut). Optional ?name=IMG_123.PNG&taken=<date taken>
+ *                                   (name+taken also dedupes re-encoded copies)
  *   POST /ingest                    same, auth via X-Ingest-Key or X-Owner-Pass (web upload)
- *   GET  /status                    public counts {queued, processed, reviews}
+ *   GET  /status                    public counts {queued, queued_mb, processed, reviews, received_last_hour}
  *   POST /review                    owner review decision {id, action: approve|dismiss, title, pass}
  *
  *   -- GitHub Action only (X-Queue-Key) --
@@ -19,6 +20,7 @@ import { DurableObject } from 'cloudflare:workers';
 
 const CHUNK = 1_500_000;          // DO SQLite rows max out at 2 MB
 const MAX_BYTES = 20_000_000;
+const QUEUE_SOFT_CAP = 3_500_000_000;   // free-plan DO storage is 5 GB; above this, ask the phone to retry later
 
 const hex = (buf) => [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, '0')).join('');
 const sha256 = async (data) => hex(await crypto.subtle.digest('SHA-256', data));
@@ -39,11 +41,21 @@ export class ShotQueue extends DurableObject {
       received TEXT, status TEXT NOT NULL DEFAULT 'queued', done_at TEXT)`);
     this.sql.exec(`CREATE TABLE IF NOT EXISTS parts (sha TEXT, idx INTEGER, data BLOB, PRIMARY KEY (sha, idx))`);
     this.sql.exec(`CREATE TABLE IF NOT EXISTS reviews (id TEXT PRIMARY KEY, action TEXT, title TEXT, at TEXT)`);
+    // Stable photo identity from the Shortcut (file name + date taken), so a
+    // re-encoded copy of an already-sent screenshot is still recognised.
+    this.sql.exec(`CREATE TABLE IF NOT EXISTS seen_keys (k TEXT PRIMARY KEY, sha TEXT)`);
+    this.sql.exec(`CREATE INDEX IF NOT EXISTS shots_status_received ON shots (status, received)`);
   }
 
-  put(sha, name, ctype, bytes) {
+  put(sha, name, ctype, bytes, key) {
+    if (key && this.sql.exec('SELECT 1 FROM seen_keys WHERE k = ?', key).toArray().length) return { status: 'duplicate', sha };
     const seen = this.sql.exec('SELECT status FROM shots WHERE sha = ?', sha).toArray();
-    if (seen.length) return { status: 'duplicate', sha };
+    if (seen.length) {
+      if (key) this.sql.exec('INSERT OR IGNORE INTO seen_keys (k, sha) VALUES (?, ?)', key, sha);
+      return { status: 'duplicate', sha };
+    }
+    const queuedBytes = this.sql.exec(`SELECT COALESCE(SUM(size), 0) AS b FROM shots WHERE status = 'queued'`).toArray()[0].b;
+    if (queuedBytes + bytes.byteLength > QUEUE_SOFT_CAP) return { status: 'busy', sha };
     const u8 = new Uint8Array(bytes);
     const parts = Math.max(1, Math.ceil(u8.byteLength / CHUNK));
     for (let i = 0; i < parts; i++) {
@@ -51,6 +63,7 @@ export class ShotQueue extends DurableObject {
     }
     this.sql.exec('INSERT INTO shots (sha, name, ctype, size, parts, received) VALUES (?, ?, ?, ?, ?, ?)',
       sha, name, ctype, u8.byteLength, parts, new Date().toISOString());
+    if (key) this.sql.exec('INSERT OR IGNORE INTO seen_keys (k, sha) VALUES (?, ?)', key, sha);
     return { status: 'queued', sha };
   }
 
@@ -78,8 +91,12 @@ export class ShotQueue extends DurableObject {
 
   status() {
     const c = (q) => this.sql.exec(q).toArray()[0].n;
+    const hourAgo = new Date(Date.now() - 3600_000).toISOString();
     return {
       queued: c(`SELECT COUNT(*) AS n FROM shots WHERE status = 'queued'`),
+      queued_mb: Math.round(this.sql.exec(`SELECT COALESCE(SUM(size), 0) AS b FROM shots WHERE status = 'queued'`).toArray()[0].b / 1e6),
+      received_last_hour: this.sql.exec('SELECT COUNT(*) AS n FROM shots WHERE received > ?', hourAgo).toArray()[0].n,
+      last_received: this.sql.exec('SELECT MAX(received) AS m FROM shots').toArray()[0].m,
       processed: c(`SELECT COUNT(*) AS n FROM shots WHERE status = 'done'`),
       reviews: c('SELECT COUNT(*) AS n FROM reviews'),
     };
@@ -141,8 +158,11 @@ export default {
         if (!bytes.byteLength) return json({ error: 'empty body' }, 400);
         if (bytes.byteLength > MAX_BYTES) return json({ error: 'too large' }, 413);
         const name = (url.searchParams.get('name') || req.headers.get('X-File-Name') || '').slice(0, 120);
+        const taken = (url.searchParams.get('taken') || '').slice(0, 64);
+        const photoKey = name && taken ? `${name}|${taken}` : null;
         const sha = await sha256(bytes);
-        const r = await q.put(sha, name, ctype, bytes);
+        const r = await q.put(sha, name, ctype, bytes, photoKey);
+        if (r.status === 'busy') return json({ ...r, message: 'inbox is full right now; send again later (already-sent ones are skipped)' }, 503);
         return json(r, r.status === 'queued' ? 201 : 200);
       }
 
