@@ -1052,3 +1052,7 @@ body[data-owner="false"][data-voting="on"] .gvote {
 .review-actions .btn { flex: 1; min-height: 40px; }
 .card.reviewed { opacity: 0.35; transition: opacity .2s ease; }
 .type-section[data-seen="inbox"] .section-name { color: var(--gold); }
+
+/* ---------- Software: app icons / repo cards on a tinted tile ---------- */
+.card[data-type="software"] .poster { background: radial-gradient(120% 90% at 50% 30%, #1d4a47 0%, #0c2a2a 70%); }
+.card[data-type="software"] .poster img { object-fit: contain; padding: 22% 16%; filter: drop-shadow(0 10px 22px rgba(0,0,0,0.45)); }
