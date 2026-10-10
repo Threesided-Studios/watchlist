@@ -55962,12 +55962,12 @@
     "id": "hell-mode-the-hardcore-gamer-reincarnates-to-another-world",
     "title": "Hell Mode: The Hardcore Gamer Reincarnates to Another World",
     "type": "show",
-    "year": null,
+    "year": 2026,
     "blurb": "",
     "summary": "",
-    "poster": "",
-    "link": "",
-    "status": "inbox",
+    "poster": "posters/hell-mode-the-hardcore-gamer-reincarnates-to-another-world.jpg",
+    "link": "https://anilist.co/anime/185262",
+    "status": "todo",
     "tags": [
       "Anime",
       "Isekai",
@@ -55983,7 +55983,8 @@
     "ai_confidence": 1,
     "enriched_via": "",
     "screenshot": "1367e31e2a2c",
-    "match_ok": false
+    "match_ok": false,
+    "art_via": "AniList"
   },
   {
     "id": "no-longer-allowed-in-another-world",
@@ -56148,9 +56149,9 @@
     "year": 1967,
     "blurb": "Lupin III , also written as Lupin the Third, Lupin the 3rd, or Lupin the IIIrd, is a Japanese media franchise created by Monkey Punch.",
     "summary": "Lupin III , also written as Lupin the Third, Lupin the 3rd, or Lupin the IIIrd, is a Japanese media franchise created by Monkey Punch. The series follows the endeavors of master thief Lupin III, grandson of gentleman thief Arsène Lupin, joined by his criminal gang. The original Lupin III manga debuted in Weekly Manga Action on August 10, 1967.",
-    "poster": "",
+    "poster": "posters/lupin-the-third.jpg",
     "link": "https://en.wikipedia.org/wiki/Lupin_the_Third",
-    "status": "inbox",
+    "status": "todo",
     "tags": [
       "Anime",
       "action",
@@ -56166,7 +56167,9 @@
     "ai_confidence": 0.9,
     "enriched_via": "Wikipedia",
     "screenshot": "b8fd6515cb54",
-    "match_ok": false
+    "match_ok": false,
+    "art_via": "TMDB",
+    "tmdb_id": 31572
   },
   {
     "id": "read-or-die",
@@ -56311,9 +56314,9 @@
     "year": null,
     "blurb": "",
     "summary": "",
-    "poster": "",
-    "link": "",
-    "status": "inbox",
+    "poster": "posters/pillars-of-eternity-turn-based-edition.jpg",
+    "link": "https://store.steampowered.com/app/291650/",
+    "status": "todo",
     "tags": [
       "RPG",
       "Turn-based",
@@ -56328,7 +56331,8 @@
     "ai_confidence": 1,
     "enriched_via": "",
     "screenshot": "e5a656bdb80f",
-    "match_ok": false
+    "match_ok": false,
+    "art_via": "Steam"
   },
   {
     "id": "banished-from-the-hero-s-party-i-decided-to-live-a-quiet-life-in-the-countryside",
@@ -57402,9 +57406,9 @@
     "year": 2021,
     "blurb": "",
     "summary": "",
-    "poster": "",
-    "link": "",
-    "status": "inbox",
+    "poster": "posters/game-master-engine-gm-edition.jpg",
+    "link": "https://store.steampowered.com/app/1793480/",
+    "status": "todo",
     "tags": [
       "Strategy",
       "Adventure",
@@ -57420,7 +57424,8 @@
     "ai_confidence": 1,
     "enriched_via": "",
     "screenshot": "615194fbe6fb",
-    "match_ok": false
+    "match_ok": false,
+    "art_via": "Steam"
   },
   {
     "id": "game-master-engine",
@@ -58431,9 +58436,9 @@
     "year": null,
     "blurb": "",
     "summary": "",
-    "poster": "",
-    "link": "",
-    "status": "inbox",
+    "poster": "posters/higgsfield.jpg",
+    "link": "https://higgsfield.ai/",
+    "status": "todo",
     "tags": [
       "technology",
       "AI"
@@ -58447,7 +58452,8 @@
     "ai_confidence": 0.9,
     "enriched_via": "",
     "screenshot": "bfb4e5e8334b",
-    "match_ok": false
+    "match_ok": false,
+    "art_via": "official site"
   },
   {
     "id": "artflow",
@@ -58456,9 +58462,9 @@
     "year": null,
     "blurb": "",
     "summary": "",
-    "poster": "",
-    "link": "",
-    "status": "inbox",
+    "poster": "posters/artflow.jpg",
+    "link": "https://artflow.app/Landing",
+    "status": "todo",
     "tags": [
       "technology",
       "AI"
@@ -58472,7 +58478,8 @@
     "ai_confidence": 0.9,
     "enriched_via": "",
     "screenshot": "bfb4e5e8334b",
-    "match_ok": false
+    "match_ok": false,
+    "art_via": "official site"
   },
   {
     "id": "elevenlabs",
@@ -58481,9 +58488,9 @@
     "year": null,
     "blurb": "",
     "summary": "",
-    "poster": "",
-    "link": "",
-    "status": "inbox",
+    "poster": "posters/elevenlabs.jpg",
+    "link": "https://elevenlabs.io/",
+    "status": "todo",
     "tags": [
       "technology",
       "AI"
@@ -58497,7 +58504,8 @@
     "ai_confidence": 0.9,
     "enriched_via": "",
     "screenshot": "bfb4e5e8334b",
-    "match_ok": false
+    "match_ok": false,
+    "art_via": "official site"
   },
   {
     "id": "fishaudio",
@@ -58506,9 +58514,9 @@
     "year": null,
     "blurb": "",
     "summary": "",
-    "poster": "",
-    "link": "",
-    "status": "inbox",
+    "poster": "posters/fishaudio.jpg",
+    "link": "https://fish.audio/",
+    "status": "todo",
     "tags": [
       "technology",
       "AI"
@@ -58522,7 +58530,8 @@
     "ai_confidence": 0.9,
     "enriched_via": "",
     "screenshot": "bfb4e5e8334b",
-    "match_ok": false
+    "match_ok": false,
+    "art_via": "official site"
   },
   {
     "id": "roking-star-yash-new-movie-scene",
@@ -58651,12 +58660,12 @@
     "id": "google-flow",
     "title": "Google Flow",
     "type": "software",
-    "year": null,
+    "year": 2026,
     "blurb": "",
     "summary": "",
-    "poster": "",
-    "link": "",
-    "status": "inbox",
+    "poster": "posters/google-flow.jpg",
+    "link": "https://apps.apple.com/us/app/google-flow/id6751294549?uo=4",
+    "status": "todo",
     "tags": [
       "technology",
       "AI"
@@ -58670,7 +58679,8 @@
     "ai_confidence": 0.9,
     "enriched_via": "",
     "screenshot": "bfb4e5e8334b",
-    "match_ok": false
+    "match_ok": false,
+    "art_via": "App Store"
   },
   {
     "id": "relay",
@@ -58731,9 +58741,9 @@
     "year": null,
     "blurb": "",
     "summary": "",
-    "poster": "",
-    "link": "",
-    "status": "inbox",
+    "poster": "posters/synthesia.jpg",
+    "link": "https://www.synthesia.io/",
+    "status": "todo",
     "tags": [
       "technology",
       "AI"
@@ -58747,7 +58757,8 @@
     "ai_confidence": 0.9,
     "enriched_via": "",
     "screenshot": "bfb4e5e8334b",
-    "match_ok": false
+    "match_ok": false,
+    "art_via": "official site"
   },
   {
     "id": "ava",
@@ -58782,9 +58793,9 @@
     "year": null,
     "blurb": "",
     "summary": "",
-    "poster": "",
-    "link": "",
-    "status": "inbox",
+    "poster": "posters/heygen.jpg",
+    "link": "https://www.heygen.com/",
+    "status": "todo",
     "tags": [
       "technology",
       "AI"
@@ -58798,7 +58809,8 @@
     "ai_confidence": 0.9,
     "enriched_via": "",
     "screenshot": "bfb4e5e8334b",
-    "match_ok": false
+    "match_ok": false,
+    "art_via": "App Store"
   },
   {
     "id": "colombiana",
@@ -58913,7 +58925,7 @@
     "year": 1998,
     "blurb": "",
     "summary": "",
-    "poster": "",
+    "poster": "posters/spaceship-agga-ruter.jpg",
     "link": "",
     "status": "inbox",
     "tags": [
@@ -58931,7 +58943,9 @@
     "ai_confidence": 0.9,
     "enriched_via": "",
     "screenshot": "b440361ce0c4",
-    "match_ok": false
+    "match_ok": false,
+    "adult": true,
+    "art_via": "AniList"
   },
   {
     "id": "chainsmoker-cat",
@@ -59450,12 +59464,12 @@
     "id": "zui-dao-ke",
     "title": "Zui Dao Ke",
     "type": "movie",
-    "year": null,
+    "year": 2025,
     "blurb": "",
     "summary": "",
-    "poster": "",
-    "link": "",
-    "status": "inbox",
+    "poster": "posters/zui-dao-ke.jpg",
+    "link": "https://www.themoviedb.org/movie/1553949",
+    "status": "todo",
     "tags": [
       "action",
       "drama"
@@ -59469,7 +59483,9 @@
     "ai_confidence": 0.8,
     "enriched_via": "",
     "match_ok": false,
-    "screenshot": "3724abd4362f"
+    "screenshot": "3724abd4362f",
+    "art_via": "TMDB",
+    "tmdb_id": 1553949
   },
   {
     "id": "citizen-vigilante",
@@ -59501,12 +59517,12 @@
     "id": "blades-of-the-guardians-wind-rises-in-the-desert",
     "title": "Blades of the Guardians: Wind Rises in the Desert",
     "type": "movie",
-    "year": null,
+    "year": 2026,
     "blurb": "",
     "summary": "",
-    "poster": "",
-    "link": "",
-    "status": "inbox",
+    "poster": "posters/blades-of-the-guardians-wind-rises-in-the-desert.jpg",
+    "link": "https://www.themoviedb.org/movie/1305781",
+    "status": "todo",
     "tags": [
       "action",
       "saga"
@@ -59520,7 +59536,9 @@
     "ai_confidence": 1,
     "enriched_via": "",
     "match_ok": false,
-    "screenshot": "6bbfd21fdd72"
+    "screenshot": "6bbfd21fdd72",
+    "art_via": "TMDB",
+    "tmdb_id": 1305781
   },
   {
     "id": "the-saga-of-tanya-the-evil",
@@ -59636,9 +59654,9 @@
     "year": null,
     "blurb": "",
     "summary": "",
-    "poster": "",
-    "link": "",
-    "status": "inbox",
+    "poster": "posters/renoise-ai.jpg",
+    "link": "https://renoise.ai/",
+    "status": "todo",
     "tags": [],
     "rating": null,
     "notes": "",
@@ -59649,7 +59667,8 @@
     "ai_confidence": 0.9,
     "enriched_via": "",
     "match_ok": false,
-    "screenshot": "e3571d5fe126"
+    "screenshot": "e3571d5fe126",
+    "art_via": "official site"
   },
   {
     "id": "angel-baby",
@@ -60116,12 +60135,12 @@
     "id": "reincarnated-as-an-aristocrat",
     "title": "Reincarnated as an Aristocrat",
     "type": "show",
-    "year": null,
+    "year": 2024,
     "blurb": "",
     "summary": "",
-    "poster": "",
-    "link": "",
-    "status": "inbox",
+    "poster": "posters/reincarnated-as-an-aristocrat.jpg",
+    "link": "https://anilist.co/anime/164702",
+    "status": "todo",
     "tags": [
       "Anime",
       "fantasy",
@@ -60136,7 +60155,8 @@
     "ai_confidence": 0.8,
     "enriched_via": "",
     "match_ok": false,
-    "screenshot": "05f6edcea609"
+    "screenshot": "05f6edcea609",
+    "art_via": "AniList"
   },
   {
     "id": "cautious-hero-the-hero-is-overpowered-but-overly-cautious",
@@ -60169,12 +60189,12 @@
     "id": "maoyuu-maou-yuusha",
     "title": "Maoyuu Maou Yuusha",
     "type": "show",
-    "year": null,
+    "year": 2013,
     "blurb": "",
     "summary": "",
-    "poster": "",
-    "link": "",
-    "status": "inbox",
+    "poster": "posters/maoyuu-maou-yuusha.jpg",
+    "link": "https://anilist.co/anime/14833",
+    "status": "todo",
     "tags": [
       "Anime",
       "fantasy",
@@ -60189,7 +60209,8 @@
     "ai_confidence": 0.9,
     "enriched_via": "",
     "match_ok": false,
-    "screenshot": "05f6edcea609"
+    "screenshot": "05f6edcea609",
+    "art_via": "AniList"
   },
   {
     "id": "appleseed",
@@ -61400,12 +61421,12 @@
     "id": "the-world-s-strongest-rearguard-the-newcomer-in-the-labyrinth",
     "title": "The World's Strongest Rearguard: The Newcomer in the Labyrinth",
     "type": "show",
-    "year": null,
+    "year": 2026,
     "blurb": "",
     "summary": "",
-    "poster": "",
-    "link": "",
-    "status": "inbox",
+    "poster": "posters/the-world-s-strongest-rearguard-the-newcomer-in-the-labyrinth.jpg",
+    "link": "https://anilist.co/anime/198409",
+    "status": "todo",
     "tags": [
       "Anime",
       "Action",
@@ -61421,7 +61442,8 @@
     "ai_confidence": 1,
     "enriched_via": "",
     "match_ok": false,
-    "screenshot": "cb968f27b0fa"
+    "screenshot": "cb968f27b0fa",
+    "art_via": "AniList"
   },
   {
     "id": "time-to-play",
@@ -61794,9 +61816,9 @@
     "year": null,
     "blurb": "",
     "summary": "",
-    "poster": "",
-    "link": "",
-    "status": "inbox",
+    "poster": "posters/firecrawl.jpg",
+    "link": "https://www.firecrawl.dev/",
+    "status": "todo",
     "tags": [],
     "rating": null,
     "notes": "",
@@ -61807,7 +61829,8 @@
     "ai_confidence": 0.9,
     "enriched_via": "",
     "match_ok": false,
-    "screenshot": "0626a7022a03"
+    "screenshot": "0626a7022a03",
+    "art_via": "official site"
   },
   {
     "id": "the-world-god-only-knows",
@@ -62186,12 +62209,12 @@
     "id": "me-a-genius-i-was-reborn-into-another-world-and-i-think-they-ve-got-the-wrong-idea",
     "title": "Me, a Genius? I Was Reborn Into Another World and I Think They've Got the Wrong Idea!",
     "type": "book",
-    "year": null,
+    "year": 2015,
     "blurb": "",
     "summary": "",
-    "poster": "",
-    "link": "",
-    "status": "inbox",
+    "poster": "posters/me-a-genius-i-was-reborn-into-another-world-and-i-think-they-ve-got-the-wrong-idea.jpg",
+    "link": "https://anilist.co/manga/102342",
+    "status": "todo",
     "tags": [
       "fantasy",
       "isekai",
@@ -62207,7 +62230,8 @@
     "enriched_via": "",
     "match_ok": false,
     "screenshot": "1150c982e064",
-    "author": "Nyun"
+    "author": "Nyun",
+    "art_via": "AniList"
   },
   {
     "id": "i-may-be-a-guild-receptionist-but-i-ll-solo-to-clock-out-on-time",
@@ -62240,12 +62264,12 @@
     "id": "i-was-told-to-relinquish-my-fiance-to-my-little-sister-and-the-greatest-dragon-took-a-liking-to-me-and-unbelievably-took-over-the-kingdom",
     "title": "I Was Told to Relinquish My Fiance to My Little Sister, and the Greatest Dragon Took a Liking to Me and Unbelievably Took Over The Kingdom",
     "type": "book",
-    "year": null,
+    "year": 2019,
     "blurb": "",
     "summary": "",
-    "poster": "",
-    "link": "",
-    "status": "inbox",
+    "poster": "posters/i-was-told-to-relinquish-my-fiance-to-my-little-sister-and-the-greatest-dragon-took-a-liking-to-me-and-unbelievably-took-over-the-kingdom.jpg",
+    "link": "https://anilist.co/manga/109231",
+    "status": "todo",
     "tags": [
       "fantasy",
       "romance"
@@ -62259,7 +62283,8 @@
     "ai_confidence": 1,
     "enriched_via": "",
     "match_ok": false,
-    "screenshot": "de215f962600"
+    "screenshot": "de215f962600",
+    "art_via": "AniList"
   },
   {
     "id": "my-birthday-party-was-cancelled-so-now-i-will-murder-all-my-friends-who-did-not-attend-even-though-they-couldn-t-have-because-it-was-cancelled-i-m-just-a-b-tch-that-way",
@@ -62896,12 +62921,12 @@
     "id": "my-gift-lvl-9999-unlimited-gacha",
     "title": "My Gift Lvl 9999 Unlimited Gacha",
     "type": "show",
-    "year": null,
+    "year": 2025,
     "blurb": "",
     "summary": "",
-    "poster": "",
-    "link": "",
-    "status": "inbox",
+    "poster": "posters/my-gift-lvl-9999-unlimited-gacha.jpg",
+    "link": "https://anilist.co/anime/184322",
+    "status": "todo",
     "tags": [
       "Anime",
       "anime",
@@ -62917,7 +62942,8 @@
     "ai_confidence": 0.9,
     "enriched_via": "",
     "match_ok": false,
-    "screenshot": "eb9a6d87fe31"
+    "screenshot": "eb9a6d87fe31",
+    "art_via": "AniList"
   },
   {
     "id": "thick-as-thieves",
@@ -63199,12 +63225,12 @@
     "id": "full-dive-rpg",
     "title": "Full Dive RPG",
     "type": "show",
-    "year": null,
+    "year": 2021,
     "blurb": "",
     "summary": "",
-    "poster": "",
-    "link": "",
-    "status": "inbox",
+    "poster": "posters/full-dive-rpg.jpg",
+    "link": "https://anilist.co/anime/126791",
+    "status": "todo",
     "tags": [
       "Anime",
       "anime",
@@ -63220,7 +63246,8 @@
     "ai_confidence": 0.95,
     "enriched_via": "",
     "match_ok": false,
-    "screenshot": "c1f54de3156b"
+    "screenshot": "c1f54de3156b",
+    "art_via": "AniList"
   },
   {
     "id": "viral-hit",
@@ -64498,9 +64525,9 @@
     "year": 2022,
     "blurb": "",
     "summary": "",
-    "poster": "",
-    "link": "",
-    "status": "inbox",
+    "poster": "posters/chip-and-dale-rescue-rangers.jpg",
+    "link": "https://www.themoviedb.org/movie/420821",
+    "status": "todo",
     "tags": [],
     "rating": null,
     "notes": "",
@@ -64511,7 +64538,9 @@
     "ai_confidence": 1,
     "enriched_via": "",
     "match_ok": false,
-    "screenshot": "7a0b348454ad"
+    "screenshot": "7a0b348454ad",
+    "art_via": "TMDB",
+    "tmdb_id": 420821
   },
   {
     "id": "diabolique",
