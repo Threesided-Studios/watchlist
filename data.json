@@ -56983,11 +56983,11 @@
     "title": "Big Black Cards",
     "type": "game",
     "year": null,
-    "blurb": "",
+    "blurb": "Threesided Studios’ own online party game: cybergoth cards, live cursors, free in the browser.",
     "summary": "",
-    "poster": "",
-    "link": "",
-    "status": "inbox",
+    "poster": "posters/big-black-cards.jpg",
+    "link": "https://bigblackcards.com/",
+    "status": "todo",
     "tags": [
       "party",
       "card",
@@ -56995,7 +56995,7 @@
       "card game"
     ],
     "rating": null,
-    "notes": "",
+    "notes": "Threesided Studios project",
     "added": "2026-10-10",
     "source": "screenshot",
     "source_context": "title shown as the game name",
@@ -57006,7 +57006,8 @@
     "match_ok": false,
     "aka": [
       "Big Black Card"
-    ]
+    ],
+    "art_via": "official game art"
   },
   {
     "id": "say-i-love-you",
