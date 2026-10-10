@@ -159,9 +159,9 @@ export default {
         if (bytes.byteLength > MAX_BYTES) return json({ error: 'too large' }, 413);
         const name = (url.searchParams.get('name') || req.headers.get('X-File-Name') || '').slice(0, 120);
         const taken = (url.searchParams.get('taken') || '').slice(0, 64);
-        const key = name && taken ? `${name}|${taken}` : null;
+        const photoKey = name && taken ? `${name}|${taken}` : null;
         const sha = await sha256(bytes);
-        const r = await q.put(sha, name, ctype, bytes, key);
+        const r = await q.put(sha, name, ctype, bytes, photoKey);
         if (r.status === 'busy') return json({ ...r, message: 'inbox is full right now; send again later (already-sent ones are skipped)' }, 503);
         return json(r, r.status === 'queued' ? 201 : 200);
       }
