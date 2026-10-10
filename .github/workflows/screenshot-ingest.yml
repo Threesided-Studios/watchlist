@@ -49,6 +49,7 @@ jobs:
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
+          TMDB_READ_TOKEN: ${{ secrets.TMDB_READ_TOKEN }}
           GITHUB_TOKEN: ${{ github.token }}   # GitHub repo search for software matches
           WATCHLIST_QUEUE_KEY: ${{ secrets.WATCHLIST_QUEUE_KEY }}
           # TEMP backfill settings (6-month screenshot import, 2026-10-10).
