@@ -110,22 +110,23 @@ const PARSE_SCHEMA = {
   required: ['screenshot_kind', 'source_context', 'titles'],
   properties: {
     screenshot_kind: { type: 'string', description: 'e.g. reddit thread, streaming app page, poster, book cover, store page, text message, social post, list' },
-    source_context: { type: 'string', description: 'Where this came from, short. e.g. \'Reddit r/MovieSuggestions: "Best slow-burn horror?"\' or \'Netflix title page\'. Empty if unclear.' },
+    source_context: { type: 'string', description: 'Where this came from, short. e.g. \'Reddit r/MovieSuggestions: "Best slow-burn horror?"\' or \'Netflix title page\' or \'Facebook post by a friend\'. Never include full names of private people (first names or usernames only). Empty if unclear.' },
     titles: {
       type: 'array',
       items: {
         type: 'object', additionalProperties: false,
-        required: ['title', 'type', 'is_anime', 'year', 'creator', 'recommended_by', 'why', 'genres', 'confidence'],
+        required: ['title', 'type', 'is_anime', 'year', 'creator', 'recommended_by', 'why', 'genres', 'evidence', 'confidence'],
         properties: {
           title: { type: 'string', description: 'Canonical title, properly capitalised, no year' },
           type: { type: 'string', enum: ['movie', 'show', 'book', 'game'] },
           is_anime: { type: 'boolean' },
           year: { type: ['integer', 'null'] },
           creator: { type: ['string', 'null'], description: 'Author for books, director/studio if visible; null otherwise' },
-          recommended_by: { type: ['string', 'null'], description: 'Reddit username or a first name if someone recommends it; null otherwise' },
+          recommended_by: { type: ['string', 'null'], description: 'Who recommends it: a Reddit/online username, or ONLY the first name of a private person. Never a full name. null if none.' },
           why: { type: 'string', description: 'Very short reason it was mentioned (e.g. "top-voted reply: like Arrival but darker"). Empty if none.' },
           genres: { type: 'array', items: { type: 'string' }, description: 'Up to 3 genres' },
-          confidence: { type: 'number', description: '0-1: certainty that this exact title is named/shown AND correctly identified' },
+          evidence: { type: 'string', enum: ['recommended_or_discussed', 'poster_or_cover', 'store_or_streaming_page', 'ambiguous'], description: 'How the screenshot presents it as a work. ambiguous = could be a brand, product, phrase or unrelated word.' },
+          confidence: { type: 'number', description: '0-1: certainty that this exact title is named/shown as a creative work AND correctly identified (title and type)' },
         },
       },
     },
@@ -135,7 +136,14 @@ const PARSE_SCHEMA = {
 async function parseShot(img) {
   const big = await sharp(img).rotate().resize({ width: 1024, withoutEnlargement: true }).jpeg({ quality: 80 }).toBuffer();
   return openai(PARSE_MODEL, [
-    { role: 'system', content: 'You extract media titles from iPhone screenshots for a personal watch/read/play list. Only list titles that are explicitly named or clearly shown (poster/cover/title card). Never invent titles that are not on screen. Include every distinct movie, TV show, anime, book, or video game mentioned (max 25), including ones recommended in comments. Skip music, podcasts, YouTube videos, and people. For text you can read but cannot identify as a real work, still include it with low confidence.' },
+    { role: 'system', content: [
+      'You extract media titles from iPhone screenshots for a personal watch/read/play list.',
+      'Only list titles that are explicitly named or clearly shown (poster/cover/title card) AS a movie, TV show, anime, book, or video game. Never invent titles that are not on screen.',
+      'Brand names, product names, companies, logos on merchandise, song/album names, YouTube videos, podcasts and people are NOT titles. A word that merely matches a book or game name is not enough: there must be a sign it is the work (recommended, discussed, being watched/read/played, a poster/cover/store page).',
+      'Pick the type from context: "on Netflix", "watch", "season", "episodes" => show or movie even if a game or book shares the name; "read", "author", "novel" => book; "play", "Steam", "Switch" => game.',
+      'Use the title as it is commonly listed on Wikipedia/TMDB/Steam/Goodreads, with correct capitalisation and punctuation; expand obvious abbreviations ("TLOU" => "The Last of Us").',
+      'Include every distinct qualifying title (max 25), including ones recommended in comments. Use low confidence and evidence=ambiguous when unsure.',
+    ].join(' ') },
     { role: 'user', content: [
       { type: 'text', text: 'Extract the titles in this screenshot.' },
       { type: 'image_url', image_url: { url: dataUrl(big), detail: 'high' } },
@@ -152,6 +160,33 @@ function sameTitle(a, b) {
   return s.length >= 4 && (l.startsWith(s + '-') || l.endsWith('-' + s) || l === s);
 }
 const YEAR = /\b(18|19|20)\d{2}\b/;
+const clean = (t) => String(t || '').replace(/[®™©]/g, '').replace(/\s+/g, ' ').trim();
+const stripParen = (t) => clean(t).replace(/\s*\([^)]*\)\s*$/, '');
+/* exact = same title after normalising (optionally ignoring a ": subtitle" on either side) */
+function exactTitle(a, b) {
+  return titleKey(stripParen(a)) === titleKey(stripParen(b));
+}
+/* "Foo (2003 video game)" is only acceptable when the disambiguator fits the type */
+function parenFits(pageTitle, rx) {
+  const m = pageTitle.match(/\(([^)]*)\)\s*$/);
+  return !m || rx.test(m[1]);
+}
+/* Keep friends' full names out of a public repo: first names / usernames only. */
+function privacyScrub(cand, ctx) {
+  let who = clean(cand.recommended_by || '');
+  const personal = /facebook|instagram|threads|imessage|text message|messages|whatsapp|messenger|group chat|discord|snapchat|email/i.test(ctx);
+  const looksLikePerson = (n) => /^[A-Z][a-z'’-]+(\s+[A-Z][A-Za-z'’.-]+){1,3}$/.test(n);
+  if (personal && who && looksLikePerson(who)) {
+    const first = who.split(/\s+/)[0];
+    ctx = ctx.split(who).join(first);
+    who = first;
+  }
+  if (personal) {
+    ctx = ctx.replace(/\b(post|comment|message|text|story|reply|chat)\s+(by|from)\s+([A-Z][a-z'’-]+)((?:\s+[A-Z][A-Za-z'’.-]+){1,3})/g,
+      (m, what, prep, first) => `${what} ${prep} ${first}`);
+  }
+  return { who, ctx };
+}
 
 async function viaTMDB(c) {
   if (!TMDB) return null;
@@ -160,7 +195,8 @@ async function viaTMDB(c) {
   const keyQ = TMDB.length > 40 ? '' : `&api_key=${TMDB}`;
   const yq = c.year ? (kind === 'tv' ? `&first_air_date_year=${c.year}` : `&year=${c.year}`) : '';
   const j = await getJSON(`https://api.themoviedb.org/3/search/${kind}?query=${encodeURIComponent(c.title)}${yq}${keyQ}`, auth);
-  const hit = (j?.results || []).find((h) => sameTitle(h.title || h.name, c.title));
+  const hits = j?.results || [];
+  const hit = hits.find((h) => exactTitle(h.title || h.name, c.title)) || hits.find((h) => sameTitle(h.title || h.name, c.title));
   if (!hit) return null;
   const date = hit.release_date || hit.first_air_date || '';
   return {
@@ -176,15 +212,19 @@ async function viaWikipedia(c) {
   const hint = c.is_anime ? (c.type === 'movie' ? 'anime film' : 'anime') : WIKI_HINT[c.type];
   const s = await getJSON(`https://en.wikipedia.org/w/api.php?${new URLSearchParams({ action: 'query', list: 'search', srsearch: `${c.title} ${hint}`, format: 'json', srlimit: '5' })}`);
   const hits = s?.query?.search || [];
-  const rx = new RegExp(hint.split(' ').pop(), 'i');
-  const ordered = [...hits.filter((h) => sameTitle(h.title.replace(/\s*\([^)]*\)$/, ''), c.title) && rx.test(h.snippet + h.title)),
-    ...hits.filter((h) => sameTitle(h.title.replace(/\s*\([^)]*\)$/, ''), c.title))];
+  const rx = new RegExp({ film: 'film|movie', series: 'series|show|anime', anime: 'anime|series|film|manga', novel: 'novel|book|series', game: 'game' }[hint.split(' ').pop()] || hint, 'i');
+  const ok = hits.filter((h) => parenFits(h.title, rx));
+  const ordered = [
+    ...ok.filter((h) => exactTitle(h.title, c.title) && rx.test(h.snippet + h.title)),
+    ...ok.filter((h) => exactTitle(h.title, c.title)),
+    ...ok.filter((h) => sameTitle(stripParen(h.title), c.title) && rx.test(h.snippet + h.title)),
+  ];
   for (const h of ordered.slice(0, 2)) {
     const w = await getJSON(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(h.title.replace(/ /g, '_'))}`);
     if (!w || w.type === 'disambiguation') continue;
     const y = (w.description || '').match(YEAR) || (w.extract || '').match(YEAR);
     return {
-      title: c.title, year: c.year || (y ? Number(y[0]) : null),
+      title: stripParen(w.title || c.title), year: c.year || (y ? Number(y[0]) : null),
       blurb: (w.extract || '').split(/(?<=\.)\s/)[0] || '', summary: w.extract || '',
       link: w.content_urls?.desktop?.page || '',
       posterUrl: w.originalimage?.source || w.thumbnail?.source || null,
@@ -195,12 +235,12 @@ async function viaWikipedia(c) {
 
 async function viaSteam(c) {
   const j = await getJSON(`https://store.steampowered.com/api/storesearch/?term=${encodeURIComponent(c.title)}&cc=us&l=en`);
-  const hit = (j?.items || []).find((h) => sameTitle(h.name, c.title));
+  const hit = (j?.items || []).find((h) => exactTitle(h.name, c.title)) || (j?.items || []).find((h) => sameTitle(h.name, c.title));
   if (!hit) return null;
   const d = (await getJSON(`https://store.steampowered.com/api/appdetails?appids=${hit.id}&cc=us&l=en`))?.[hit.id]?.data;
   const y = (d?.release_date?.date || '').match(YEAR);
   return {
-    title: hit.name, year: y ? Number(y[0]) : c.year || null,
+    title: clean(hit.name), year: y ? Number(y[0]) : c.year || null,
     blurb: d?.short_description || '', summary: '',
     link: `https://store.steampowered.com/app/${hit.id}/`, steam_appid: hit.id,
     posterUrl: `https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/${hit.id}/library_600x900_2x.jpg`,
@@ -315,24 +355,25 @@ for (const s of shots) {
       const titles = p.out.titles || [];
       entry.outcome = titles.length ? 'parsed' : 'no-titles';
       for (const t of titles) {
-        const cand = { ...t, title: String(t.title || '').trim() };
-        if (cand.title.length < 2) continue;
+        const cand = { ...t, title: clean(t.title) };
+        if (cand.title.length < 2 || (cand.confidence ?? 0) < 0.3) continue;   // model itself says "not a title"
         const famKey = `${family(cand.type)}:${titleKey(cand.title)}`;
         if (dismissed.has(famKey)) { report.push({ name: s.name, title: cand.title, outcome: 'previously-dismissed' }); continue; }
         const dup = findDuplicate(index, cand);
         if (dup) { report.push({ name: s.name, title: cand.title, outcome: `duplicate of ${dup}` }); entry.ids.push(dup); continue; }
         const e = await enrich(cand);
-        const title = e?.title && sameTitle(e.title, cand.title) ? e.title : cand.title;
+        const exact = !!e && exactTitle(e.title, cand.title);
+        const title = e?.title && exact ? clean(e.title) : cand.title;
         const id = uniqueId(title, taken, e?.year || cand.year);
-        const status = decideStatus(cand, { enriched: !!e });
+        const status = cand.evidence === 'ambiguous' ? 'inbox' : decideStatus(cand, { enriched: exact, threshold: 0.85 });
         const poster = e ? await savePoster([e.posterUrl, e.posterFallback], id) : '';
         const tags = [...(cand.is_anime ? ['Anime'] : []), ...(cand.genres || [])].slice(0, 4);
-        const ctx = [p.out.source_context, cand.why].filter(Boolean).join(' — ');
+        const { who, ctx } = privacyScrub(cand, [p.out.source_context, cand.why].filter(Boolean).join(' — '));
         const item = {
           id, title, type: cand.type, year: e?.year || cand.year || null,
           blurb: e?.blurb || '', summary: e?.summary || '', poster, link: e?.link || '',
           status, tags, rating: null, notes: '', added: today(),
-          source: 'screenshot', source_context: ctx, recommended_by: cand.recommended_by || '',
+          source: 'screenshot', source_context: ctx, recommended_by: who,
           ai_confidence: Math.round((cand.confidence || 0) * 100) / 100,
           enriched_via: e?.via || '', screenshot: s.sha.slice(0, 12),
           ...(e?.author || cand.creator && cand.type === 'book' ? { author: e?.author || cand.creator } : {}),

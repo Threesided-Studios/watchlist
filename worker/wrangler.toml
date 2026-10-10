@@ -9,8 +9,8 @@ compatibility_date = "2024-11-01"
 AIRTABLE_BASE = "appiRs5WrwZtOds9u"
 VOTES_TABLE = "Votes"
 WATCHLIST_TABLE = "Watchlist"
-DATA_URL = "https://adamaragon.github.io/watchlist/data.json"
-ALLOW_ORIGIN = "https://adamaragon.github.io"
+DATA_URL = "https://threesided-studios.github.io/watchlist/data.json"
+ALLOW_ORIGIN = "https://threesided-studios.github.io"
 
 # NOTE: no cron here. The full data.json->Watchlist sync is 155 Airtable
 # batches, over Cloudflare's free 50-subrequest/invocation limit. The daily
