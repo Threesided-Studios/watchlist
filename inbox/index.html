@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="robots" content="noindex" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Watchlist — Screenshot inbox</title>
+  <meta name="description" content="Screenshot finds awaiting review." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='26' font-size='28'%3E%F0%9F%8E%9E%EF%B8%8F%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/styles.css?v=25" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">◐</span>
+      <h1>Watchlist</h1>
+      <span class="brand-sub">a private marquee</span>
+      <nav class="pagenav" aria-label="Lists">
+        <a href="/watchlist/">All</a>
+        <a href="/watchlist/movies/">Movies</a>
+        <a href="/watchlist/shows/">Shows</a>
+        <a href="/watchlist/games/">Games</a>
+        <a href="/watchlist/books/">Books</a>
+        <a href="/watchlist/recommended/">★ Friends</a>
+        <a href="/watchlist/inbox/" class="owner-only">📥 Inbox</a>
+      </nav>
+    </div>
+    <div class="controls" role="toolbar" aria-label="Filters and actions">
+      <label class="field field-search">
+        <span class="field-label">find</span>
+        <input id="q" type="search" placeholder="title, tag, anything…" autocomplete="off" />
+      </label>
+      <label class="field">
+        <span class="field-label">type</span>
+        <select id="type">
+          <option value="">all</option>
+          <!-- options populated dynamically from data (only types present) -->
+        </select>
+      </label>
+      <label class="field">
+        <span class="field-label">status</span>
+        <select id="status">
+          <option value="">any</option>
+          <option value="todo">to watch</option>
+          <option value="active">in progress</option>
+          <option value="done">done</option>
+        </select>
+      </label>
+      <label class="field">
+        <span class="field-label">sort</span>
+        <select id="sort">
+          <option value="added-desc">newest first</option>
+          <option value="added-asc">oldest first</option>
+          <option value="title-asc">title a–z</option>
+          <option value="title-desc">title z–a</option>
+          <option value="year-desc">year ↓</option>
+          <option value="year-asc">year ↑</option>
+          <option value="type">by type</option>
+        </select>
+      </label>
+      <div class="actions">
+        <button id="surprise" class="btn" type="button" title="Pick a random game from the backlog">🎲 <span class="surprise-label">Surprise</span></button>
+        <button id="add" class="btn btn-primary" type="button"><span aria-hidden="true">+</span> <span class="add-label">Add</span></button>
+        <button id="export" class="btn owner-only" type="button">Export</button>
+        <label class="btn import owner-only">
+          <input id="import" type="file" accept="application/json" hidden />
+          Import
+        </label>
+        <button id="lock" class="btn" type="button">🔒 Guest</button>
+      </div>
+    </div>
+  </header>
+
+  <aside id="intro" class="intro" hidden>
+    <div class="intro-body">
+      <button id="intro-dismiss" class="intro-x" type="button" aria-label="Dismiss intro">×</button>
+      <h2 class="intro-h">A private marquee — browse freely.</h2>
+      <p class="intro-p">Everything I'm watching, playing, and reading, gathered in one place. As a guest you can:</p>
+      <ul class="intro-list">
+        <li><strong>Browse &amp; filter</strong> — search by title or tag, or narrow by type and status.</li>
+        <li><strong>👍 / 👎 a title</strong> — what guests love rises into <a href="/watchlist/recommended/">★ Recommended by Friends</a>.</li>
+        <li><strong>+ Suggest</strong> — spotted something I should add? Send it over.</li>
+      </ul>
+      <p class="intro-note">Rating and editing are owner-only — but your votes and suggestions are always welcome.</p>
+    </div>
+  </aside>
+
+  <main id="grid" class="grid" aria-live="polite" aria-label="Watchlist items"></main>
+
+  <template id="card-tpl">
+    <article class="card" draggable="true" data-status="todo">
+      <div class="stage">
+        <div class="obj">
+          <div class="poster">
+            <div class="poster-placeholder" aria-hidden="true">
+              <span class="placeholder-glyph"></span>
+              <span class="placeholder-title"></span>
+            </div>
+            <img loading="lazy" decoding="async" alt="" />
+            <div class="scrim" aria-hidden="true"></div>
+          </div>
+          <div class="spine" aria-hidden="true"><span class="spine-title"></span></div>
+          <div class="edge-top" aria-hidden="true"></div>
+        </div>
+        <span class="type"></span>
+        <span class="rec-badge" aria-hidden="true"></span>
+        <div class="verdict" role="group" aria-label="Rate">
+          <button class="v-love" type="button" title="Loved it"         aria-label="Loved it">⭐</button>
+          <button class="v-up"   type="button" title="Liked it"         aria-label="Liked it">👍</button>
+          <button class="v-down" type="button" title="Did not like it"  aria-label="Did not like it">👎</button>
+          <button class="v-skip" type="button" title="Not interested"   aria-label="Not interested">🚫</button>
+        </div>
+        <div class="gvote" role="group" aria-label="Recommend">
+          <button class="gv-up"   type="button" title="Recommend this">👍 Rec</button>
+          <button class="gv-down" type="button" title="Don't recommend">👎</button>
+        </div>
+      </div>
+      <div class="meta">
+        <div class="meta-head">
+          <h2 class="title" contenteditable="true" spellcheck="false"></h2>
+          <span class="year"></span>
+        </div>
+        <span class="playtime" aria-label="playtime"></span>
+        <div class="byline"></div>
+        <p class="blurb" contenteditable="true"></p>
+        <div class="genres" aria-label="Genres"></div>
+        <details class="summary">
+          <summary><span class="summary-label">Summary</span><span class="summary-caret" aria-hidden="true">▾</span></summary>
+          <p class="summary-text"></p>
+        </details>
+        <div class="row">
+          <select class="status" aria-label="Status">
+            <option value="todo">to watch</option>
+            <option value="active">in progress</option>
+            <option value="done">done</option>
+          </select>
+          <a class="meta-link" href="#" target="_blank" rel="noopener noreferrer" title="Open external link" aria-label="External link">↗</a>
+        </div>
+      </div>
+    </article>
+  </template>
+
+  <div id="suggest-modal" class="modal" hidden>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="suggest-h">
+      <h3 id="suggest-h">Suggest a title</h3>
+      <p class="modal-sub">Send a movie, show, game, or book to add to the list.</p>
+      <input id="suggest-title" type="text" placeholder="Title (and year, if you know it)" autocomplete="off" />
+      <textarea id="suggest-note" rows="2" placeholder="Optional note — why, or where to find it"></textarea>
+      <div class="modal-actions">
+        <button id="suggest-cancel" class="btn" type="button">Cancel</button>
+        <button id="suggest-send" class="btn btn-primary" type="button">Send</button>
+      </div>
+      <p id="suggest-msg" class="modal-msg" aria-live="polite"></p>
+    </div>
+  </div>
+
+  <div id="surprise-modal" class="modal" hidden>
+    <div class="modal-card surprise-card" role="dialog" aria-modal="true" aria-labelledby="surprise-h">
+      <h3 id="surprise-h">🎲 Tonight, play…</h3>
+      <div class="surprise-pick">
+        <img id="surprise-poster" alt="" />
+        <div class="surprise-meta">
+          <div class="surprise-title"></div>
+          <div class="surprise-year"></div>
+          <p class="surprise-blurb"></p>
+          <a class="surprise-link" href="#" target="_blank" rel="noopener noreferrer" hidden>Open in store ↗</a>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button id="surprise-again" class="btn" type="button">🎲 Roll again</button>
+        <button id="surprise-close" class="btn btn-primary" type="button">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <span class="count" id="count" aria-live="polite"></span>
+    <span class="dot">·</span>
+    <span class="footer-note">drag to reorder · click title or blurb to edit</span>
+  </footer>
+
+  <script>window.WL_VIEW="inbox";window.WL_DATA="../data.json";window.WL_BASE="../";</script>
+  <script type="module" src="../assets/app.js?v=23"></script>
+</body>
+</html>

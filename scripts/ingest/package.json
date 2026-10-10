@@ -1,0 +1,7 @@
+{
+  "name": "watchlist-screenshot-ingest",
+  "private": true,
+  "type": "module",
+  "scripts": { "test": "node --test" },
+  "dependencies": { "sharp": "^0.34.4" }
+}

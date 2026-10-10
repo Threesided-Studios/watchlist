@@ -10,3 +10,8 @@ osxphotos_crash.log
 pipeline/candidates.json
 pipeline/candidates.enriched.json
 pipeline/skipped.json
+
+# screenshot ingest scratch
+scripts/ingest/node_modules/
+scripts/ingest/.pending-acks.json
+scripts/ingest/.last-report.json

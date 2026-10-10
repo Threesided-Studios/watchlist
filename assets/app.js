@@ -7,6 +7,9 @@ const LS_KEY      = 'watchlist.v9';   /* bumped: 100% posters, rating/verdict sy
 const LS_SORT_KEY = 'watchlist.sort';
 const LS_OWNER    = 'watchlist.owner';
 const LS_INTRO    = 'watchlist.introSeen';
+const LS_PASS     = 'watchlist.ownerPass';   /* sent to the ingest Worker, which checks it against OWNER_HASH */
+const INGEST_URL  = 'https://watchlist-ingest.threesided.workers.dev';
+const HIDDEN_STATUSES = new Set(['inbox', 'dismissed']);   /* screenshot finds awaiting review */
 const $ = (s, r=document) => r.querySelector(s);
 const grid    = $('#grid');
 const tpl     = $('#card-tpl');
@@ -51,11 +54,11 @@ function applyIntro() {
   intro.hidden = isOwner || localStorage.getItem(LS_INTRO) === '1';
 }
 async function toggleOwner() {
-  if (isOwner) { isOwner = false; localStorage.removeItem(LS_OWNER); applyOwnerMode(); render(); return; }
+  if (isOwner) { isOwner = false; localStorage.removeItem(LS_OWNER); localStorage.removeItem(LS_PASS); applyOwnerMode(); render(); return; }
   const phrase = prompt('Enter owner passphrase to enable rating:');
   if (phrase == null) return;
   if (await sha256(phrase) === OWNER_HASH) {
-    isOwner = true; localStorage.setItem(LS_OWNER, '1'); applyOwnerMode(); render();
+    isOwner = true; localStorage.setItem(LS_OWNER, '1'); localStorage.setItem(LS_PASS, phrase); applyOwnerMode(); render();
   } else {
     alert('Incorrect passphrase.');
   }
@@ -147,7 +150,8 @@ function applySort(arr) {
 /* ---------- RENDER ---------- */
 function render() {
   const q = { q: $('#q').value, type: $('#type').value, status: $('#status').value };
-  const filtered = applyFilters(items, q);
+  if (window.WL_VIEW === 'inbox') { renderInbox(q); return; }
+  const filtered = applyFilters(items.filter(it => !HIDDEN_STATUSES.has(it.status)), q);
   const view = applySort(filtered);
   grid.replaceChildren();
 
@@ -222,11 +226,133 @@ function render() {
   }
 
   if (countEl) {
-    const total = items.length;
+    const total = items.filter(it => !HIDDEN_STATUSES.has(it.status)).length;
     countEl.textContent = visibleCount === total
       ? `${total} item${total !== 1 ? 's' : ''}`
       : `${visibleCount} of ${total} item${total !== 1 ? 's' : ''}`;
   }
+}
+
+/* ---------- SCREENSHOT INBOX (owner review) ----------
+   Titles the screenshot pipeline wasn't sure about land here (status 'inbox').
+   Keep / Dismiss are sent to the ingest Worker (owner passphrase checked
+   server-side); the hourly GitHub Action applies them to data.json. The
+   choice also sticks locally right away. */
+function ownerPass() {
+  let p = localStorage.getItem(LS_PASS);
+  if (!p) {
+    p = prompt('Enter the owner passphrase to review screenshot finds:');
+    if (p) localStorage.setItem(LS_PASS, p);
+  }
+  return p || '';
+}
+
+async function sendReview(it, action) {
+  const pass = ownerPass();
+  if (!pass) return false;
+  try {
+    const r = await fetch(`${INGEST_URL}/review`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'X-Owner-Pass': pass },
+      body: JSON.stringify({ id: it.id, action, title: it.title }),
+    });
+    if (r.status === 403) { localStorage.removeItem(LS_PASS); alert('Passphrase not accepted.'); return false; }
+    return r.ok;
+  } catch { alert('Could not reach the inbox service. Try again in a minute.'); return false; }
+}
+
+function reviewBar(it, node) {
+  const bar = document.createElement('div');
+  bar.className = 'review-bar';
+  if (it.source_context) {
+    const ctx = document.createElement('p');
+    ctx.className = 'review-context';
+    ctx.textContent = it.source_context + (it.recommended_by ? ` · via ${it.recommended_by}` : '');
+    bar.appendChild(ctx);
+  }
+  const meta = document.createElement('p');
+  meta.className = 'review-meta';
+  const conf = typeof it.ai_confidence === 'number' ? `${Math.round(it.ai_confidence * 100)}% sure` : '';
+  meta.textContent = [conf, it.enriched_via ? `matched on ${it.enriched_via}` : 'no match found', it.added].filter(Boolean).join(' · ');
+  bar.appendChild(meta);
+  const actions = document.createElement('div');
+  actions.className = 'review-actions owner-only';
+  const keep = document.createElement('button');
+  keep.className = 'btn btn-primary'; keep.type = 'button'; keep.textContent = '✓ Keep';
+  const drop = document.createElement('button');
+  drop.className = 'btn'; drop.type = 'button'; drop.textContent = '✕ Dismiss';
+  const act = async (action) => {
+    keep.disabled = drop.disabled = true;
+    if (await sendReview(it, action)) {
+      it.status = action === 'approve' ? 'todo' : 'dismissed';
+      persist();
+      node.classList.add('reviewed');
+      setTimeout(render, 250);
+    } else { keep.disabled = drop.disabled = false; }
+  };
+  keep.addEventListener('click', () => act('approve'));
+  drop.addEventListener('click', () => act('dismiss'));
+  actions.append(keep, drop);
+  bar.appendChild(actions);
+  return bar;
+}
+
+async function inboxStatus(el) {
+  try {
+    const s = await (await fetch(`${INGEST_URL}/status`, { cache: 'no-store' })).json();
+    el.textContent = `${s.queued} screenshot${s.queued === 1 ? '' : 's'} waiting to be read · ${s.processed} read so far · ${s.reviews} decision${s.reviews === 1 ? '' : 's'} syncing`;
+  } catch { el.textContent = ''; }
+}
+
+async function uploadShots(files, msg) {
+  const pass = ownerPass();
+  if (!pass) return;
+  let ok = 0, dup = 0, bad = 0;
+  for (const f of files) {
+    msg.textContent = `Uploading ${ok + dup + bad + 1} of ${files.length}…`;
+    try {
+      const r = await fetch(`${INGEST_URL}/ingest?name=${encodeURIComponent(f.name)}`, {
+        method: 'POST', headers: { 'X-Owner-Pass': pass, 'Content-Type': f.type || 'application/octet-stream' }, body: f,
+      });
+      if (r.status === 201) ok++; else if (r.ok) dup++; else bad++;
+    } catch { bad++; }
+  }
+  msg.textContent = `Sent ${ok} new${dup ? `, ${dup} already seen` : ''}${bad ? `, ${bad} failed` : ''}. They're read within the hour.`;
+}
+
+function renderInbox(q) {
+  const pending = applySort(applyFilters(items.filter(it => it.status === 'inbox'), q));
+  const recent = items.filter(it => it.source === 'screenshot' && it.status !== 'inbox' && it.status !== 'dismissed')
+    .sort((a, b) => String(b.added).localeCompare(String(a.added))).slice(0, 24);
+
+  const intro = document.createElement('section');
+  intro.className = 'inbox-intro';
+  intro.innerHTML = `
+    <h2 class="section-head"><span class="section-name">📥 Screenshot inbox</span><span class="section-count">${pending.length}</span></h2>
+    <p class="inbox-lede">Screenshots from your iPhone are read automatically. Titles it's sure about go straight onto the list; anything it's unsure about waits here for a quick ✓ or ✕.</p>
+    <p class="inbox-status" aria-live="polite"></p>
+    <label class="btn inbox-upload owner-only">⬆ Add screenshots<input type="file" accept="image/*" multiple hidden /></label>
+    <p class="inbox-upload-msg" aria-live="polite"></p>`;
+  grid.replaceChildren(intro);
+  inboxStatus($('.inbox-status', intro));
+  const input = $('input[type=file]', intro);
+  input.addEventListener('change', () => { if (input.files.length) uploadShots([...input.files], $('.inbox-upload-msg', intro)); });
+
+  if (!pending.length) {
+    const e = document.createElement('div');
+    e.className = 'empty-state';
+    e.innerHTML = `<div class="empty-glyph">✨</div><p class="empty-msg">Nothing to review.</p><p class="empty-hint">New screenshot finds show up here.</p>`;
+    grid.appendChild(e);
+  } else {
+    const sec = buildSection('Needs a look', pending, { seen: 'inbox', glyph: '🔎' });
+    for (const node of sec.querySelectorAll('.card')) {
+      const it = items.find(x => x.id === node.dataset.id);
+      if (it) $('.meta', node)?.appendChild(reviewBar(it, node)) || node.appendChild(reviewBar(it, node));
+    }
+    grid.appendChild(sec);
+  }
+  if (recent.length) grid.appendChild(buildSection('Recently added from screenshots', recent, { seen: 'from-shots', glyph: '📸', collapsed: true }));
+  if (countEl) countEl.textContent = `${pending.length} to review`;
 }
 
 /* build one section (a <section> with header + grid). Collapsed sections use <details>. */
@@ -513,7 +639,7 @@ async function sendSuggest() {
 /* ---------- SURPRISE ME (random backlog game) ---------- */
 const surpriseModal = $('#surprise-modal');
 function rollSurprise() {
-  const pool = items.filter(it => (it.type || '') === 'game' && !it.verdict && it.status !== 'done');
+  const pool = items.filter(it => (it.type || '') === 'game' && !it.verdict && it.status !== 'done' && !HIDDEN_STATUSES.has(it.status));
   if (!pool.length) return;
   const it = pool[Math.floor(Math.random() * pool.length)];
   const img = $('#surprise-poster');
@@ -597,6 +723,11 @@ if (surpriseModal) {
 
 /* ---------- TYPE SUBPAGE (e.g. /books/) ---------- */
 function applyForcedType() {
+  if (window.WL_VIEW === 'inbox') {
+    document.title = 'Watchlist — Screenshot inbox';
+    const sub = $('.brand-sub'); if (sub) sub.textContent = 'screenshot inbox';
+    return;
+  }
   if (window.WL_VIEW === 'recommended') {
     document.title = 'Watchlist — Recommended by Friends';
     const sub = $('.brand-sub'); if (sub) sub.textContent = 'recommended by friends';
