@@ -190,22 +190,30 @@ function privacyScrub(cand, ctx) {
   return { who, ctx };
 }
 
+const TMDB_GENRES = { 28: 'Action', 12: 'Adventure', 16: 'Animation', 35: 'Comedy', 80: 'Crime', 99: 'Documentary', 18: 'Drama', 10751: 'Family', 14: 'Fantasy', 36: 'History', 27: 'Horror', 10402: 'Music', 9648: 'Mystery', 10749: 'Romance', 878: 'Sci-Fi', 53: 'Thriller', 10752: 'War', 37: 'Western', 10759: 'Action & Adventure', 10762: 'Kids', 10765: 'Sci-Fi & Fantasy', 10768: 'War & Politics' };
+async function tmdbSearch(kind, title, year) {
+  const auth = process.env.TMDB_READ_TOKEN ? { Authorization: `Bearer ${process.env.TMDB_READ_TOKEN}` } : {};
+  const keyQ = process.env.TMDB_READ_TOKEN ? '' : `&api_key=${TMDB}`;
+  const yq = year ? (kind === 'tv' ? `&first_air_date_year=${year}` : `&year=${year}`) : '';
+  const url = (y) => `https://api.themoviedb.org/3/search/${kind}?query=${encodeURIComponent(title)}&include_adult=false${y}${keyQ}`;
+  let j = await getJSON(url(yq), auth);
+  if (yq && !(j?.results || []).length) j = await getJSON(url(''), auth);   // the screenshot's year may be off
+  return j?.results || [];
+}
 async function viaTMDB(c) {
-  if (!TMDB) return null;
+  if (!TMDB && !process.env.TMDB_READ_TOKEN) return null;
   const kind = c.type === 'show' ? 'tv' : 'movie';
-  const auth = TMDB.length > 40 ? { Authorization: `Bearer ${TMDB}` } : {};
-  const keyQ = TMDB.length > 40 ? '' : `&api_key=${TMDB}`;
-  const yq = c.year ? (kind === 'tv' ? `&first_air_date_year=${c.year}` : `&year=${c.year}`) : '';
-  const j = await getJSON(`https://api.themoviedb.org/3/search/${kind}?query=${encodeURIComponent(c.title)}${yq}${keyQ}`, auth);
-  const hits = j?.results || [];
-  const hit = hits.find((h) => exactTitle(h.title || h.name, c.title)) || hits.find((h) => sameTitle(h.title || h.name, c.title));
+  const hits = await tmdbSearch(kind, c.title, c.year);
+  const exact = hits.filter((h) => exactTitle(h.title || h.name, c.title) || exactTitle(h.original_title || h.original_name || '', c.title));
+  const hit = exact[0] || hits.find((h) => sameTitle(h.title || h.name, c.title));
   if (!hit) return null;
   const date = hit.release_date || hit.first_air_date || '';
   return {
-    typeOk: true,
+    typeOk: !!exact.length && (!c.is_anime || (hit.genre_ids || []).includes(16) || hit.original_language === 'ja'),
     title: hit.title || hit.name, year: Number(date.slice(0, 4)) || c.year || null,
     blurb: (hit.overview || '').split(/(?<=\.)\s/)[0] || '', summary: hit.overview || '',
     link: `https://www.themoviedb.org/${kind}/${hit.id}`, tmdb_id: hit.id,
+    genres: (hit.genre_ids || []).map((g) => TMDB_GENRES[g]).filter(Boolean),
     posterUrl: hit.poster_path ? `https://image.tmdb.org/t/p/w500${hit.poster_path}` : null,
   };
 }
@@ -517,9 +525,11 @@ async function processShot(s) {
         const title = e?.title && exact ? clean(e.title) : cand.title;
         const id = uniqueId(title, taken, e?.year || cand.year);
         taken.add(id);   // claim the id before the poster download await
-        const status = (cand.evidence === 'ambiguous' || cand.adult) ? 'inbox' : decideStatus(cand, { enriched: exact, threshold: 0.85 });
         const poster = e ? await savePoster([e.posterUrl, e.posterFallback], id) : '';
-        const tags = [...(cand.is_anime ? ['Anime'] : []), ...(cand.genres || [])].slice(0, 4);
+        /* Adam's rule: has cover art => straight onto the list; no art yet => Inbox.
+           Adult/explicit always waits in the (owner-only) Inbox because the list is public. */
+        const status = cand.adult ? 'inbox' : (poster ? 'todo' : 'inbox');
+        const tags = [...new Set([...(cand.is_anime ? ['Anime'] : []), ...((e?.genres?.length ? e.genres : cand.genres) || [])])].slice(0, 4);
         const { who, ctx } = privacyScrub(cand, [p.out.source_context, cand.why].filter(Boolean).join(' — '));
         const item = {
           id, title, type: cand.type, year: e?.year || cand.year || null,
