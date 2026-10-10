@@ -11,7 +11,7 @@ on:
     inputs:
       limit:
         description: "Max screenshots this run"
-        default: "40"
+        default: "600"
 
 permissions:
   contents: write
@@ -24,7 +24,7 @@ concurrency:
 jobs:
   ingest:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 55
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -50,7 +50,12 @@ jobs:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
           WATCHLIST_QUEUE_KEY: ${{ secrets.WATCHLIST_QUEUE_KEY }}
-          INGEST_LIMIT: ${{ inputs.limit || '40' }}
+          # TEMP backfill settings (6-month screenshot import, 2026-10-10).
+          # Restore afterwards: INGEST_LIMIT 40, MAX_RUN_USD 2.
+          INGEST_LIMIT: ${{ inputs.limit || '600' }}
+          MAX_RUN_USD: "5"
+          INGEST_CONCURRENCY: "4"
+          INGEST_MAX_MINUTES: "40"
         run: node run.mjs
       - name: Commit
         if: steps.peek.outputs.work != '0'

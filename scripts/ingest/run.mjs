@@ -336,13 +336,14 @@ const taken = new Set(items.map((i) => i.id));
 let runUsd = 0;
 const report = [];
 
-for (const s of shots) {
-  if (runUsd >= MAX_RUN_USD) { console.warn(`stopping: run budget $${MAX_RUN_USD} reached`); break; }
-  if (ledger.shots[s.sha]) { pending.shots.push(s.sha); report.push({ name: s.name, outcome: 'already-processed' }); continue; }
+let budgetHit = false;
+async function processShot(s) {
+  if (runUsd >= MAX_RUN_USD) { budgetHit = true; return; }
+  if (ledger.shots[s.sha]) { pending.shots.push(s.sha); report.push({ name: s.name, outcome: 'already-processed' }); return; }
   let bytes = s.bytes;
   if (!bytes) {
     const r = await qfetch(`/queue/${s.sha}`);
-    if (!r.ok) { console.warn('fetch failed', s.sha.slice(0, 12)); continue; }
+    if (!r.ok) { console.warn('fetch failed', s.sha.slice(0, 12)); return; }
     bytes = Buffer.from(await r.arrayBuffer());
   }
   const entry = { at: new Date().toISOString(), outcome: 'not-media', ids: [], usd: 0 };
@@ -361,10 +362,12 @@ for (const s of shots) {
         if (dismissed.has(famKey)) { report.push({ name: s.name, title: cand.title, outcome: 'previously-dismissed' }); continue; }
         const dup = findDuplicate(index, cand);
         if (dup) { report.push({ name: s.name, title: cand.title, outcome: `duplicate of ${dup}` }); entry.ids.push(dup); continue; }
+        index.set(famKey, '(pending)');   // reserve before any await so parallel shots can't add the same title twice
         const e = await enrich(cand);
         const exact = !!e && exactTitle(e.title, cand.title);
         const title = e?.title && exact ? clean(e.title) : cand.title;
         const id = uniqueId(title, taken, e?.year || cand.year);
+        taken.add(id);   // claim the id before the poster download await
         const status = cand.evidence === 'ambiguous' ? 'inbox' : decideStatus(cand, { enriched: exact, threshold: 0.85 });
         const poster = e ? await savePoster([e.posterUrl, e.posterFallback], id) : '';
         const tags = [...(cand.is_anime ? ['Anime'] : []), ...(cand.genres || [])].slice(0, 4);
@@ -393,7 +396,7 @@ for (const s of shots) {
     console.warn('error on', s.name || s.sha.slice(0, 12), String(err).slice(0, 200));
     entry.outcome = 'error';
     report.push({ name: s.name, outcome: 'error', error: String(err).slice(0, 120) });
-    continue;   // not ledgered, not acked -> retried next run
+    return;   // not ledgered, not acked -> retried next run
   }
   entry.usd = Math.round(entry.usd * 1e6) / 1e6;
   runUsd += entry.usd;
@@ -403,6 +406,19 @@ for (const s of shots) {
   pending.shots.push(s.sha);
   changed = true;
 }
+
+/* small worker pool: screenshots are independent; shared state is only touched synchronously */
+const CONCURRENCY = Number(process.env.INGEST_CONCURRENCY || 4);
+const DEADLINE = Date.now() + Number(process.env.INGEST_MAX_MINUTES || 40) * 60_000;
+let next = 0;
+await Promise.all(Array.from({ length: CONCURRENCY }, async () => {
+  while (next < shots.length && !budgetHit && Date.now() < DEADLINE) {
+    const s = shots[next++];
+    await processShot(s);
+  }
+}));
+if (budgetHit) console.warn(`stopped early: run budget $${MAX_RUN_USD} reached`);
+if (Date.now() >= DEADLINE) console.warn('stopped early: time budget reached (rest stays queued)');
 
 if (!DRY) {
   if (changed) {
