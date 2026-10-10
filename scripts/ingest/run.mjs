@@ -17,6 +17,7 @@ import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import sharp from 'sharp';
 import { titleKey, family, buildIndex, findDuplicate, uniqueId, costOf, decideStatus } from './lib.mjs';
+import { huntArt } from './art.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(HERE, '../..');
@@ -369,7 +370,9 @@ async function savePoster(urls, id) {
       const r = await fetch(url, { headers: UA, signal: AbortSignal.timeout(15000) });
       if (!r.ok) continue;
       const buf = Buffer.from(await r.arrayBuffer());
-      const out = await sharp(buf).rotate().resize({ width: 500, withoutEnlargement: true }).jpeg({ quality: 80, mozjpeg: true }).toBuffer();
+      const meta = await sharp(buf).metadata();
+      if ((meta.width || 0) < 96 || (meta.height || 0) < 96) continue;   // favicon-sized or broken: not cover art
+      const out = await sharp(buf).flatten({ background: '#ffffff' }).rotate().resize({ width: 500, withoutEnlargement: true }).jpeg({ quality: 80, mozjpeg: true }).toBuffer();
       if (!DRY) writeFileSync(join(POSTERS, `${id}.jpg`), out);
       return `posters/${id}.jpg`;
     } catch { /* try next */ }
@@ -404,6 +407,38 @@ if (!LOCAL) {
     pending.reviews.push(rv.id);
   }
   if (reviews.length) console.log(`applied ${reviews.length} review decision(s)`);
+}
+
+/* --art-hunt: deeper cover-art search for Inbox items that still have no art (adult stays hidden). */
+if (flag('--art-hunt')) {
+  const targets = items.filter((it) => it.status === 'inbox' && !it.adult && !(it.poster && existsSync(join(ROOT, it.poster))));
+  let usd = 0; const found = [], missed = [];
+  let next = 0;
+  await Promise.all(Array.from({ length: 3 }, async () => {
+    while (next < targets.length) {
+      const it = targets[next++];
+      const c = { title: it.title, type: it.type, year: it.year, author: it.author, tags: it.tags, is_anime: (it.tags || []).includes('Anime'), context: it.source_context || '' };
+      const h = await huntArt(c, openai);
+      usd += h.cost;
+      const poster = h.found ? await savePoster([h.found.image, h.found.image2, h.found.image3], it.id) : '';
+      if (poster && h.found.adult) {   // database flags it 18+: keep hidden in the Inbox
+        Object.assign(it, { poster, adult: true, art_via: h.found.source });
+        missed.push(`${it.title} [${it.type}] — art found but ${h.found.source} marks it adult, kept hidden`);
+      } else if (poster) {
+        Object.assign(it, { poster, status: 'todo', art_via: h.found.source });
+        if (!it.link) it.link = h.found.link;
+        if (h.found.tmdb_id && !it.tmdb_id) it.tmdb_id = h.found.tmdb_id;
+        if (!it.year && h.found.year) it.year = h.found.year;
+        found.push(`${it.title} [${it.type}] <- ${h.found.source}: ${h.found.titles[0]}${h.found.year ? ` (${h.found.year})` : ''}`);
+      } else missed.push(`${it.title} [${it.type}] — ${h.found ? 'image unusable' : h.reason} (${h.tried} candidates)`);
+    }
+  }));
+  ledger.totals.usd = Math.round((ledger.totals.usd + usd) * 1e6) / 1e6;
+  if (!DRY) { writeFileSync(DATA, JSON.stringify(items, null, 2)); writeFileSync(LEDGER, JSON.stringify(ledger, null, 1)); }
+  console.log(JSON.stringify({ checked: targets.length, found: found.length, missed: missed.length, usd: Math.round(usd * 1e4) / 1e4 }));
+  console.log('FOUND:\n  ' + found.join('\n  '));
+  console.log('MISSED:\n  ' + missed.join('\n  '));
+  process.exit(0);
 }
 
 /* --audit: re-check every screenshot-sourced item with the current rules (text-only, no images). */
@@ -529,7 +564,14 @@ async function processShot(s) {
         const title = e?.title && exact ? clean(e.title) : cand.title;
         const id = uniqueId(title, taken, e?.year || cand.year);
         taken.add(id);   // claim the id before the poster download await
-        const poster = e ? await savePoster([e.posterUrl, e.posterFallback], id) : '';
+        let poster = e ? await savePoster([e.posterUrl, e.posterFallback], id) : '';
+        let art = null;
+        if (!poster && !cand.adult) {   // deeper hunt: AniList/MAL/alt titles, book & web-novel sites, itch, official sites
+          const h = await huntArt({ ...cand, tags: cand.genres }, openai);
+          entry.usd += h.cost;
+          if (h.found) { poster = await savePoster([h.found.image, h.found.image2, h.found.image3], id); if (poster) art = h.found; }
+          if (art?.adult) cand.adult = true;   // AniList/MAL 18+ flag: keep hidden
+        }
         /* Adam's rule: has cover art => straight onto the list; no art yet => Inbox.
            Adult/explicit always waits in the (owner-only) Inbox because the list is public. */
         const status = cand.adult ? 'inbox' : (poster ? 'todo' : 'inbox');
@@ -544,7 +586,8 @@ async function processShot(s) {
           enriched_via: e?.via || '', match_ok: exact, screenshot: s.sha.slice(0, 12),
           ...(cand.adult ? { adult: true } : {}),
           ...(e?.author || cand.creator && cand.type === 'book' ? { author: e?.author || cand.creator } : {}),
-          ...(e?.tmdb_id ? { tmdb_id: e.tmdb_id } : {}),
+          ...(e?.tmdb_id || art?.tmdb_id ? { tmdb_id: e?.tmdb_id || art.tmdb_id } : {}),
+          ...(art ? { art_via: art.source, ...(e?.link ? {} : { link: art.link }) } : {}),
           ...(e?.steam_appid ? { steam_appid: e.steam_appid } : {}),
         };
         items.push(item); taken.add(id); index.set(famKey, id); changed = true;
