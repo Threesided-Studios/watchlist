@@ -3181,7 +3181,9 @@
   "screen:spy-x-family",
   "software:gpt-image",
   "book:time-to-play",
-  "screen:wedding-day"
+  "screen:wedding-day",
+  "software:higgsfield",
+  "software:artflow"
  ],
  "totals": {
   "shots": 425,

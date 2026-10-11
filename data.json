@@ -58570,7 +58570,7 @@
     "summary": "",
     "poster": "",
     "link": "",
-    "status": "inbox",
+    "status": "todo",
     "tags": [
       "adventure",
       "point-and-click"
@@ -58801,58 +58801,6 @@
     "ai_confidence": 1,
     "enriched_via": "Wikipedia",
     "screenshot": "f1fe412a4487",
-    "match_ok": false,
-    "art_via": "official site"
-  },
-  {
-    "id": "higgsfield",
-    "title": "Higgsfield",
-    "type": "software",
-    "year": null,
-    "blurb": "",
-    "summary": "",
-    "poster": "posters/higgsfield.jpg",
-    "link": "https://higgsfield.ai/",
-    "status": "todo",
-    "tags": [
-      "technology",
-      "AI"
-    ],
-    "rating": null,
-    "notes": "",
-    "added": "2026-10-10",
-    "source": "screenshot",
-    "source_context": "Facebook post by Indradeep — Paid video generation tool",
-    "recommended_by": "",
-    "ai_confidence": 0.9,
-    "enriched_via": "",
-    "screenshot": "bfb4e5e8334b",
-    "match_ok": false,
-    "art_via": "official site"
-  },
-  {
-    "id": "artflow",
-    "title": "ArtFlow",
-    "type": "software",
-    "year": null,
-    "blurb": "",
-    "summary": "",
-    "poster": "posters/artflow.jpg",
-    "link": "https://artflow.app/Landing",
-    "status": "todo",
-    "tags": [
-      "technology",
-      "AI"
-    ],
-    "rating": null,
-    "notes": "",
-    "added": "2026-10-10",
-    "source": "screenshot",
-    "source_context": "Facebook post by Indradeep — Free video generation tool",
-    "recommended_by": "",
-    "ai_confidence": 0.9,
-    "enriched_via": "",
-    "screenshot": "bfb4e5e8334b",
     "match_ok": false,
     "art_via": "official site"
   },
@@ -59253,7 +59201,7 @@
     "summary": "",
     "poster": "posters/spaceship-agga-ruter.jpg",
     "link": "",
-    "status": "inbox",
+    "status": "todo",
     "tags": [
       "Anime",
       "sci-fi",
@@ -63318,7 +63266,7 @@
     "summary": "",
     "poster": "",
     "link": "",
-    "status": "inbox",
+    "status": "todo",
     "tags": [
       "technology",
       "AI",
