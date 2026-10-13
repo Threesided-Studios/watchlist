@@ -2,10 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <title>Watchlist — a private marquee</title>
   <meta name="description" content="A personal watchlist. Movies, shows, games, books — kept in one place." />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='26' font-size='28'%3E%F0%9F%8E%9E%EF%B8%8F%3C/text%3E%3C/svg%3E" />
+  <link rel="manifest" href="/watchlist/manifest.webmanifest" />
+  <meta name="theme-color" content="#0d0b10" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Watchlist" />
+  <link rel="apple-touch-icon" href="/watchlist/assets/icons/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/watchlist/assets/icons/favicon-32.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -183,5 +191,6 @@
   </footer>
 
   <script type="module" src="assets/app.js?v=25"></script>
+  <script>if("serviceWorker" in navigator)addEventListener("load",()=>navigator.serviceWorker.register("/watchlist/sw.js",{scope:"/watchlist/"}));</script>
 </body>
 </html>
