@@ -1075,3 +1075,18 @@ body[data-view="inbox"] .gvote, body[data-view="inbox"] .verdict { display: none
   .review-actions .btn { min-height: 52px; }
   .inbox-banner { margin: 0 0 20px; }
 }
+
+/* PWA: respect the notch and home indicator in standalone mode */
+.topbar {
+  padding-top: calc(32px + env(safe-area-inset-top, 0px));
+  padding-left: max(clamp(20px, 4vw, 56px), env(safe-area-inset-left, 0px));
+  padding-right: max(clamp(20px, 4vw, 56px), env(safe-area-inset-right, 0px));
+}
+body {
+  padding-left: env(safe-area-inset-left, 0px);
+  padding-right: env(safe-area-inset-right, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+@media (display-mode: standalone) {
+  html, body { overscroll-behavior-y: none; }
+}
