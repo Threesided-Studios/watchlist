@@ -1,13 +1,13 @@
 /* Watchlist service worker. Bump VERSION to roll caches. */
-const VERSION = 'v1';
+const VERSION = 'v2';
 const SHELL = `wl-shell-${VERSION}`;
 const DATA = `wl-data-${VERSION}`;
 const POSTERS = `wl-posters-${VERSION}`;
 const KEEP = [SHELL, DATA, POSTERS];
-const B = '/watchlist/';
+const B = '/';
 const SHELL_URLS = [
   B, B + 'movies/', B + 'shows/', B + 'games/', B + 'books/', B + 'software/', B + 'recommended/', B + 'inbox/',
-  B + 'assets/styles.css?v=28', B + 'assets/app.js?v=25', B + 'manifest.webmanifest',
+  B + 'assets/styles.css?v=28', B + 'assets/app.js?v=26', B + 'manifest.webmanifest',
   B + 'assets/icons/icon-192.png', B + 'assets/icons/apple-touch-icon.png',
 ];
 

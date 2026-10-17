@@ -2,6 +2,8 @@
 
 A stylish, editable, image-rich media to-do list. Sourced from iPhone screenshots; deployed free as a static site (GitHub Pages).
 
+Live at **https://watch.threesided.com** (GitHub Pages custom domain; the old threesided-studios.github.io/watchlist/ URL redirects there).
+
 ## Automatic screenshot ingest (current)
 
 ```
@@ -15,7 +17,7 @@ iPhone Shortcut (daily automation / share sheet)
                              5. commit data.json + posters/ + scripts/ingest/ledger.json, then ack (image deleted from the queue)
 ```
 
-- Review unsure finds at **/watchlist/inbox/** (owner mode). ✓ Keep / ✕ Dismiss are applied on the next hourly run.
+- Review unsure finds at **/inbox/** (owner mode). ✓ Keep / ✕ Dismiss are applied on the next hourly run.
 - Phone setup: [`docs/iphone-shortcut.md`](docs/iphone-shortcut.md).
 - Local test: `cd scripts/ingest && npm i && OPENAI_API_KEY=… node run.mjs --local ~/some-screenshots --dry-run`.
 - Secrets: repo `OPENAI_API_KEY`, `WATCHLIST_QUEUE_KEY`, optional `TMDB_API_KEY`; Worker `INGEST_KEY`, `QUEUE_KEY`.

@@ -39590,9 +39590,9 @@
     "id": "tom-clancy-s-rainbow-six-3-athena-sword",
     "title": "Tom Clancy's Rainbow Six 3: Athena Sword",
     "type": "game",
-    "year": null,
+    "year": 2004,
     "blurb": "",
-    "poster": "",
+    "poster": "posters/tom-clancy-s-rainbow-six-3-athena-sword.jpg",
     "link": "https://store.steampowered.com/app/19840/",
     "tags": [],
     "rating": null,
@@ -39601,7 +39601,8 @@
     "status": "todo",
     "verdict": "skip",
     "summary": "",
-    "source": "steam"
+    "source": "steam",
+    "art_via": "Rainbow Six Wiki (Fandom)"
   },
   {
     "id": "far-cry-2",
@@ -52197,7 +52198,8 @@
     "verdict": "played",
     "summary": "",
     "source": "steam",
-    "hours": 38
+    "hours": 38,
+    "source_context": "gamerant.com article about Vanguard Bandits — mentioned as a similar RPG released in 1998"
   },
   {
     "id": "the-jackbox-party-pack-6",
@@ -55746,7 +55748,8 @@
     "verdict": "played",
     "summary": "An action RPG following either Claude (a Federation officer from a spacefaring future) or Rena (a healer from a seemingly medieval world) as their paths collide and they work to prevent a galaxy-threatening catastrophe. The game is celebrated for its real-time combat, an enormous cast of optional party members, and one of the most expansive post-game areas in JRPG history. Its dual-protagonist structure and branching Private Actions system gave it exceptional replayability.",
     "source": "steam",
-    "hours": 3
+    "hours": 3,
+    "source_context": "gamerant.com article about Vanguard Bandits — mentioned as a similar RPG released in 1998"
   },
   {
     "id": "disgaea-7-vows-of-the-virtueless",
@@ -57090,14 +57093,14 @@
   },
   {
     "id": "tsuredere-children",
-    "title": "Tsuredere Children",
+    "title": "Tsuredure Children",
     "type": "show",
-    "year": null,
+    "year": 2017,
     "blurb": "",
     "summary": "",
-    "poster": "",
-    "link": "",
-    "status": "inbox",
+    "poster": "posters/tsuredere-children.jpg",
+    "link": "https://anilist.co/anime/98291",
+    "status": "todo",
     "tags": [
       "Anime",
       "comedy",
@@ -57112,7 +57115,8 @@
     "ai_confidence": 0.9,
     "enriched_via": "",
     "screenshot": "53d53b29517d",
-    "match_ok": false
+    "match_ok": false,
+    "art_via": "AniList"
   },
   {
     "id": "gail-daughtry-and-the-celebrity-sex-pass",
@@ -58565,11 +58569,11 @@
     "id": "woodruff-and-the-schnibble-of-azimuth",
     "title": "Woodruff & the Schnibble of Azimuth",
     "type": "game",
-    "year": null,
+    "year": 1994,
     "blurb": "",
     "summary": "",
-    "poster": "",
-    "link": "",
+    "poster": "posters/woodruff-and-the-schnibble-of-azimuth.jpg",
+    "link": "https://en.wikipedia.org/wiki/The_Bizarre_Adventures_of_Woodruff_and_the_Schnibble",
     "status": "todo",
     "tags": [
       "adventure",
@@ -58584,7 +58588,8 @@
     "ai_confidence": 1,
     "enriched_via": "",
     "screenshot": "85339a960fe6",
-    "match_ok": false
+    "match_ok": false,
+    "art_via": "Wikipedia"
   },
   {
     "id": "money-heist",
@@ -59288,11 +59293,11 @@
     "id": "sono-bisque-doll-wa-koi-wo-suru",
     "title": "Sono Bisque Doll wa Koi wo Suru",
     "type": "show",
-    "year": null,
+    "year": 2022,
     "blurb": "",
     "summary": "",
-    "poster": "",
-    "link": "",
+    "poster": "posters/sono-bisque-doll-wa-koi-wo-suru.jpg",
+    "link": "https://anilist.co/anime/132405",
     "status": "inbox",
     "tags": [
       "Anime",
@@ -59301,7 +59306,7 @@
       "slice of life"
     ],
     "rating": null,
-    "notes": "",
+    "notes": "Art found (AniList: My Dress-Up Darling, 2022). AniList does not mark it 18+; it is held only because the screenshot flagged it adult. Keep it to make it public.",
     "added": "2026-10-10",
     "source": "screenshot",
     "source_context": "Instagram post by animerecks — Mentioned as an ecchi anime pushing limits",
@@ -59310,7 +59315,8 @@
     "enriched_via": "",
     "screenshot": "e4e20e388d2b",
     "match_ok": false,
-    "adult": true
+    "adult": true,
+    "art_via": "AniList"
   },
   {
     "id": "the-gigolo-dochinpira",
@@ -59319,8 +59325,8 @@
     "year": 1993,
     "blurb": "",
     "summary": "",
-    "poster": "",
-    "link": "",
+    "poster": "posters/the-gigolo-dochinpira.jpg",
+    "link": "https://anilist.co/anime/4693",
     "status": "inbox",
     "tags": [
       "Anime",
@@ -59329,7 +59335,7 @@
       "drama"
     ],
     "rating": null,
-    "notes": "",
+    "notes": "Art found (AniList). AniList marks it 18+, so it stays hidden in the Inbox.",
     "added": "2026-10-10",
     "source": "screenshot",
     "source_context": "Instagram post by deliciousweebreformed — Mentioned as a 1993 single episode OVA anime",
@@ -59338,7 +59344,8 @@
     "enriched_via": "",
     "screenshot": "0a19bf134518",
     "match_ok": false,
-    "adult": true
+    "adult": true,
+    "art_via": "AniList"
   },
   {
     "id": "tougen-anki",
@@ -59813,9 +59820,9 @@
     "year": 2026,
     "blurb": "",
     "summary": "",
-    "poster": "",
-    "link": "",
-    "status": "inbox",
+    "poster": "posters/whoa-adventure.jpg",
+    "link": "https://apps.apple.com/us/app/whoa-adventure/id6772872703",
+    "status": "todo",
     "tags": [
       "MMORPG",
       "fantasy",
@@ -59830,7 +59837,8 @@
     "ai_confidence": 1,
     "enriched_via": "",
     "match_ok": false,
-    "screenshot": "a31dea980d70"
+    "screenshot": "a31dea980d70",
+    "art_via": "App Store"
   },
   {
     "id": "renoise-ai",
@@ -60074,8 +60082,8 @@
     "year": 2012,
     "blurb": "",
     "summary": "",
-    "poster": "",
-    "link": "",
+    "poster": "posters/ebiten-ebisugawa-s-public-high-school-tenmonbu.jpg",
+    "link": "https://kitsu.app/anime/7077",
     "status": "inbox",
     "tags": [
       "Anime",
@@ -60084,7 +60092,7 @@
       "Parody"
     ],
     "rating": null,
-    "notes": "",
+    "notes": "Art found (Kitsu/AniList, 2012 ONA). Not marked 18+ by AniList; held only because the screenshot flagged it adult. Keep it to make it public.",
     "added": "2026-10-10",
     "source": "screenshot",
     "source_context": "Instagram post by animecyro — Anime details and synopsis provided",
@@ -60093,7 +60101,8 @@
     "enriched_via": "",
     "match_ok": false,
     "screenshot": "e5df5b3d5fb4",
-    "adult": true
+    "adult": true,
+    "art_via": "Kitsu"
   },
   {
     "id": "an-archdemon-s-dilemma-how-to-love-your-elf-bride",
@@ -61459,17 +61468,17 @@
     "id": "super-dramon-quest",
     "title": "Super Dramon Quest",
     "type": "game",
-    "year": null,
+    "year": 2014,
     "blurb": "",
     "summary": "",
-    "poster": "",
-    "link": "",
+    "poster": "posters/super-dramon-quest.jpg",
+    "link": "https://www.dlsite.com/maniax/work/=/product_id/RJ134376.html",
     "status": "inbox",
     "tags": [
       "RPG"
     ],
     "rating": null,
-    "notes": "",
+    "notes": "Art found (DLsite RJ134376). It is an adult (H) RPG, so it stays hidden in the Inbox.",
     "added": "2026-10-10",
     "source": "screenshot",
     "source_context": "Reddit r/dragonquest — best you'll see out there, DQ style RPG",
@@ -61478,7 +61487,8 @@
     "enriched_via": "",
     "match_ok": false,
     "screenshot": "d40b89edba87",
-    "adult": true
+    "adult": true,
+    "art_via": "DLsite"
   },
   {
     "id": "the-book-of-rynn",
@@ -61487,9 +61497,9 @@
     "year": null,
     "blurb": "",
     "summary": "",
-    "poster": "",
-    "link": "",
-    "status": "inbox",
+    "poster": "posters/the-book-of-rynn.jpg",
+    "link": "https://sebotron.itch.io/the-book-of-rynn",
+    "status": "todo",
     "tags": [
       "RPG"
     ],
@@ -61502,7 +61512,8 @@
     "ai_confidence": 0.95,
     "enriched_via": "",
     "match_ok": false,
-    "screenshot": "d40b89edba87"
+    "screenshot": "d40b89edba87",
+    "art_via": "itch.io"
   },
   {
     "id": "radiant-historia",
@@ -62574,9 +62585,9 @@
     "year": null,
     "blurb": "",
     "summary": "",
-    "poster": "",
-    "link": "",
-    "status": "inbox",
+    "poster": "posters/skyrim-nolvus.jpg",
+    "link": "https://www.nolvus.net/",
+    "status": "todo",
     "tags": [
       "RPG",
       "Fantasy",
@@ -62591,7 +62602,8 @@
     "ai_confidence": 0.9,
     "enriched_via": "",
     "match_ok": false,
-    "screenshot": "97e7d46021d1"
+    "screenshot": "97e7d46021d1",
+    "art_via": "official site (nolvus.net)"
   },
   {
     "id": "jade",
@@ -62624,9 +62636,9 @@
     "year": null,
     "blurb": "",
     "summary": "",
-    "poster": "",
-    "link": "",
-    "status": "inbox",
+    "poster": "posters/lorerim.jpg",
+    "link": "https://lorerim.com/",
+    "status": "todo",
     "tags": [
       "RPG",
       "Fantasy",
@@ -62641,7 +62653,8 @@
     "ai_confidence": 0.7,
     "enriched_via": "",
     "match_ok": false,
-    "screenshot": "97e7d46021d1"
+    "screenshot": "97e7d46021d1",
+    "art_via": "Wabbajack modlist / Nexus Mods"
   },
   {
     "id": "never-talk-to-strangers",
@@ -63262,10 +63275,10 @@
     "title": "Griffin AI",
     "type": "software",
     "year": null,
-    "blurb": "",
+    "blurb": "Tavus's real-time video model, which the company says passed a video Turing test (Oct 2026).",
     "summary": "",
-    "poster": "",
-    "link": "",
+    "poster": "posters/griffin-ai.jpg",
+    "link": "https://www.tavus.io/griffin",
     "status": "todo",
     "tags": [
       "technology",
@@ -63281,7 +63294,8 @@
     "ai_confidence": 0.9,
     "enriched_via": "",
     "match_ok": false,
-    "screenshot": "34b2455f092c"
+    "screenshot": "34b2455f092c",
+    "art_via": "official site og:image (tavus.io)"
   },
   {
     "id": "the-big-lebowski",
@@ -64468,14 +64482,14 @@
   },
   {
     "id": "growlanser-4-wayfarer-of-time",
-    "title": "Growlanser 4: Wayfarer Of Time",
+    "title": "Growlanser: Wayfarer of Time",
     "type": "game",
     "year": 2011,
     "blurb": "",
     "summary": "",
-    "poster": "",
-    "link": "",
-    "status": "inbox",
+    "poster": "posters/growlanser-4-wayfarer-of-time.jpg",
+    "link": "https://en.wikipedia.org/wiki/Growlanser:_Wayfarer_of_Time",
+    "status": "todo",
     "tags": [
       "RPG",
       "Strategy"
@@ -64489,7 +64503,8 @@
     "ai_confidence": 1,
     "enriched_via": "",
     "match_ok": false,
-    "screenshot": "9cd5ec7ea95b"
+    "screenshot": "9cd5ec7ea95b",
+    "art_via": "Wikipedia"
   },
   {
     "id": "god-wars-the-complete-legend",
@@ -64544,32 +64559,6 @@
     "screenshot": "513e316624cf"
   },
   {
-    "id": "final-fantasy-tactics",
-    "title": "Final Fantasy Tactics",
-    "type": "game",
-    "year": 2025,
-    "blurb": "Featuring fully voiced dialogue, beautifully enhanced graphics, and countless gameplay improvements, the genre-defining tactical RPG makes its long-awaited return.",
-    "summary": "",
-    "poster": "posters/final-fantasy-tactics.jpg",
-    "link": "https://store.steampowered.com/app/1004640/",
-    "status": "todo",
-    "tags": [
-      "RPG",
-      "Tactical RPG"
-    ],
-    "rating": null,
-    "notes": "",
-    "added": "2026-10-17",
-    "source": "screenshot",
-    "source_context": "gamerant.com article about Vanguard Bandits — mentioned as a similar RPG released in 1998",
-    "recommended_by": "",
-    "ai_confidence": 1,
-    "enriched_via": "Steam",
-    "match_ok": false,
-    "screenshot": "513e316624cf",
-    "steam_appid": 1004640
-  },
-  {
     "id": "onimusha-tactics",
     "title": "Onimusha Tactics",
     "type": "game",
@@ -64597,13 +64586,13 @@
   },
   {
     "id": "breath-of-fire-3",
-    "title": "Breath of Fire 3",
+    "title": "Breath of Fire III",
     "type": "game",
-    "year": 1993,
-    "blurb": "Breath of Fire is a role-playing video game developed by Capcom originally for the Super Nintendo Entertainment System.",
+    "year": 1997,
+    "blurb": "Capcom role-playing game for the PlayStation (1997).",
     "summary": "Breath of Fire is a role-playing video game developed by Capcom originally for the Super Nintendo Entertainment System. Initially released in Japan in April 1993, the game was later made available in North America in August 1994 by Square Soft, who handled the title's English localization and promotion. It is the first entry in the Breath of Fire series.",
     "poster": "posters/breath-of-fire-3.jpg",
-    "link": "https://en.wikipedia.org/wiki/Breath_of_Fire_(video_game)",
+    "link": "https://en.wikipedia.org/wiki/Breath_of_Fire_III",
     "status": "todo",
     "tags": [
       "RPG"
@@ -64617,7 +64606,8 @@
     "ai_confidence": 1,
     "enriched_via": "Wikipedia",
     "match_ok": false,
-    "screenshot": "513e316624cf"
+    "screenshot": "513e316624cf",
+    "art_via": "Wikipedia"
   },
   {
     "id": "god-wars-future-past",
@@ -64645,31 +64635,6 @@
     "match_ok": false,
     "screenshot": "178d0402279f",
     "art_via": "Steam"
-  },
-  {
-    "id": "star-ocean-the-second-story",
-    "title": "Star Ocean: The Second Story",
-    "type": "game",
-    "year": 2023,
-    "blurb": "In this science fantasy RPG, choose between Claude or Rena, play through their perspectives, and unlock various endings. Recruit allies and defeat foes in fast paced real-time battles.",
-    "summary": "",
-    "poster": "posters/star-ocean-the-second-story.jpg",
-    "link": "https://store.steampowered.com/app/2238900/",
-    "status": "todo",
-    "tags": [
-      "RPG"
-    ],
-    "rating": null,
-    "notes": "",
-    "added": "2026-10-17",
-    "source": "screenshot",
-    "source_context": "gamerant.com article about Vanguard Bandits — mentioned as a similar RPG released in 1998",
-    "recommended_by": "",
-    "ai_confidence": 1,
-    "enriched_via": "Steam",
-    "match_ok": false,
-    "screenshot": "513e316624cf",
-    "steam_appid": 2238900
   },
   {
     "id": "parasite-eve",
@@ -64719,33 +64684,6 @@
     "enriched_via": "Wikipedia",
     "match_ok": false,
     "screenshot": "513e316624cf"
-  },
-  {
-    "id": "i-may-be-a-guild-receptionist-but-i-ll-solo-to-clock-out-on-time-2024",
-    "title": "I May Be a Guild Receptionist, but I'll Solo to Clock Out on Time",
-    "type": "show",
-    "year": 2024,
-    "blurb": "",
-    "summary": "",
-    "poster": "",
-    "link": "",
-    "status": "inbox",
-    "tags": [
-      "Anime",
-      "fantasy",
-      "slice of life",
-      "comedy"
-    ],
-    "rating": null,
-    "notes": "",
-    "added": "2026-10-17",
-    "source": "screenshot",
-    "source_context": "Instagram post by itstheheyman — anime poster shown in social post",
-    "recommended_by": "itstheheyman",
-    "ai_confidence": 1,
-    "enriched_via": "",
-    "match_ok": false,
-    "screenshot": "bd48f4302463"
   },
   {
     "id": "keijo",
@@ -64861,15 +64799,15 @@
     "year": null,
     "blurb": "",
     "summary": "",
-    "poster": "posters/the-monarch-money-killer.jpg",
+    "poster": "",
     "link": "https://apps.apple.com/us/app/mm-tweaks-for-monarch-money/id6753774259?uo=4",
-    "status": "todo",
+    "status": "inbox",
     "tags": [
       "personal finance",
       "AI advisor"
     ],
     "rating": null,
-    "notes": "",
+    "notes": "Art check: the title is a tagline (\"The Monarch Money killer.\"), not an app name. The App Store match was a different app (MM Tweaks for Monarch Money), so it was removed. Needs the real app name from the post.",
     "added": "2026-10-17",
     "source": "screenshot",
     "source_context": "Instagram post by sebastianhardy_ — mentioned as an AI advisor for personal finance",
@@ -64922,7 +64860,7 @@
       "slice of life"
     ],
     "rating": null,
-    "notes": "",
+    "notes": "No art found on AniList, Kitsu, MAL or Open Library under this title. It may be an English fan title. Needs the official name.",
     "added": "2026-10-17",
     "source": "screenshot",
     "source_context": "TikTok post by missanime0227 — described in post text",
@@ -65183,13 +65121,13 @@
     "summary": "Will Radford is a top analyst for Homeland Security who tracks potential threats through a mass surveillance program, until one day an attack by an unknown entity leads him to question whether the government is hiding something from him... and from the rest of the world.",
     "poster": "posters/war-of-the-worlds.jpg",
     "link": "https://www.themoviedb.org/movie/755898",
-    "status": "todo",
+    "status": "inbox",
     "tags": [
       "Sci-Fi",
       "Thriller"
     ],
     "rating": null,
-    "notes": "",
+    "notes": "Poster QA: picked the 2025 film (Ice Cube). The other titles from that r/MovieSuggestions screenshot are Spielberg/classic sci-fi, so it may be the 2005 Spielberg film (TMDB 74). Confirm which one.",
     "added": "2026-10-17",
     "source": "screenshot",
     "source_context": "r/MovieSuggestions",
@@ -65346,15 +65284,15 @@
     "year": 2025,
     "blurb": "",
     "summary": "",
-    "poster": "",
+    "poster": "posters/battle-mage-farmer.jpg",
     "link": "https://openlibrary.org/works/OL42432059W",
-    "status": "inbox",
+    "status": "todo",
     "tags": [
       "fantasy",
       "adventure"
     ],
     "rating": null,
-    "notes": "",
+    "notes": "Series entry (Battle Mage Farmer by Seth Ring); cover is from Book 3, Cultivation.",
     "added": "2026-10-17",
     "source": "screenshot",
     "source_context": "TikTok video by Andy Peloquin — shown prominently in hand",
@@ -65363,18 +65301,19 @@
     "enriched_via": "OpenLibrary",
     "match_ok": false,
     "screenshot": "0f12ecba50ce",
-    "author": "Seth Ring"
+    "author": "Seth Ring",
+    "art_via": "Open Library"
   },
   {
     "id": "the-dragon-of-deepwood",
-    "title": "The Dragon of Deepwood",
+    "title": "Dragons of Deepwood Fen",
     "type": "book",
-    "year": null,
+    "year": 2023,
     "blurb": "",
     "summary": "",
-    "poster": "",
-    "link": "",
-    "status": "inbox",
+    "poster": "posters/the-dragon-of-deepwood.jpg",
+    "link": "https://openlibrary.org/search?q=Dragons+of+Deepwood+Fen",
+    "status": "todo",
     "tags": [
       "fantasy"
     ],
@@ -65388,7 +65327,8 @@
     "enriched_via": "",
     "match_ok": false,
     "screenshot": "bc330ec446f0",
-    "author": "Bradley P. Beaulieu"
+    "author": "Bradley P. Beaulieu",
+    "art_via": "Open Library"
   },
   {
     "id": "the-gutter-prayer",
@@ -65422,14 +65362,14 @@
     "year": 2009,
     "blurb": "",
     "summary": "",
-    "poster": "posters/wolf.jpg",
+    "poster": "",
     "link": "https://openlibrary.org/works/OL464512W",
-    "status": "todo",
+    "status": "inbox",
     "tags": [
       "fantasy"
     ],
     "rating": null,
-    "notes": "",
+    "notes": "Art check: Open Library matched \"Wolf\" by Hilary Mantel (2009), but the screenshot is a fantasy author's TikTok bookshelf. Probably a different book. Needs the author.",
     "added": "2026-10-17",
     "source": "screenshot",
     "source_context": "TikTok video by Andy Peloquin",
@@ -65517,12 +65457,12 @@
     "id": "don-t-die-dave",
     "title": "Don't Die Dave",
     "type": "book",
-    "year": null,
+    "year": 2026,
     "blurb": "",
     "summary": "",
-    "poster": "",
-    "link": "",
-    "status": "inbox",
+    "poster": "posters/don-t-die-dave.jpg",
+    "link": "https://www.goodreads.com/en/book/show/248971467-don-t-die-dave",
+    "status": "todo",
     "tags": [
       "adventure",
       "comedy"
@@ -65537,32 +65477,8 @@
     "enriched_via": "",
     "match_ok": false,
     "screenshot": "97c45cf49725",
-    "author": "A. R. Witham"
-  },
-  {
-    "id": "thrice-fold",
-    "title": "Thrice Fold",
-    "type": "book",
-    "year": null,
-    "blurb": "",
-    "summary": "",
-    "poster": "",
-    "link": "",
-    "status": "inbox",
-    "tags": [
-      "fantasy"
-    ],
-    "rating": null,
-    "notes": "",
-    "added": "2026-10-17",
-    "source": "screenshot",
-    "source_context": "TikTok video by Andy Peloquin — visible spine on bookshelf",
-    "recommended_by": "",
-    "ai_confidence": 0.8,
-    "enriched_via": "",
-    "match_ok": false,
-    "screenshot": "0f12ecba50ce",
-    "author": "Christopher"
+    "author": "A. R. Witham",
+    "art_via": "Goodreads"
   },
   {
     "id": "thrice-forged",
@@ -65578,7 +65494,7 @@
       "fantasy"
     ],
     "rating": null,
-    "notes": "",
+    "notes": "No art found. Possible match: The Thrice-Bound Fool by Christopher Buehlman (Tor, Oct 13, 2026), a fantasy novel. Confirm the title.",
     "added": "2026-10-17",
     "source": "screenshot",
     "source_context": "TikTok post by Andy Peloquin",

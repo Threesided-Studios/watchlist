@@ -5,7 +5,11 @@
  *   book/manga/novel: AniList (manga/novels), Open Library, Google Books, Royal Road
  *   game:             Steam, itch.io
  *   software:         App Store / Mac App Store, GitHub org avatar, official site icon (apple-touch-icon / manifest / og:image)
- * Not used: NovelUpdates (Cloudflare challenge), IGDB (needs Twitch app credentials), Webnovel (bot wall).
+ *   all types:        Wikipedia lead image (incl. non-free cover art), added 2026-10-17
+ *   anime:            Kitsu as a second anime database (added 2026-10-17)
+ * Not used: NovelUpdates (Cloudflare challenge), IGDB (needs Twitch app credentials), Webnovel (bot wall),
+ *   TVDB (paid key), PCGamingWiki (cargo API locked). Google Books uses GOOGLE_BOOKS_KEY when set
+ *   (the anonymous daily quota is often exhausted).
  */
 const UA = { 'User-Agent': 'Mozilla/5.0 (watchlist art lookup; github.com/Threesided-Studios/watchlist)' };
 const sleep = (ms) => new Promise((s) => setTimeout(s, ms));
@@ -67,6 +71,25 @@ async function tmdb(q, kind) {
     link: `https://www.themoviedb.org/${kind}/${m.id}`, blurb: (m.overview || '').slice(0, 160),
   }));
 }
+async function kitsu(q) {
+  const j = await get(`https://kitsu.io/api/edge/anime?filter[text]=${encodeURIComponent(q)}&page[limit]=5`);
+  return (j?.data || []).map((d) => d.attributes).filter((a) => a.posterImage).map((a) => ({
+    source: 'Kitsu', kind: `ANIME ${a.subtype || ''}`.trim(),
+    titles: [a.titles?.en, a.canonicalTitle, a.titles?.en_jp, a.titles?.ja_jp, ...(a.abbreviatedTitles || []).slice(0, 2)].filter(Boolean).filter((v, i, x) => x.indexOf(v) === i),
+    year: yr(a.startDate), image: a.posterImage.large || a.posterImage.original, link: `https://kitsu.app/anime/${a.slug}`, adult: !!a.nsfw,
+  }));
+}
+const WIKI_KIND = { movie: 'film', show: 'television series', book: 'novel', game: 'video game', software: 'software' };
+async function wikipedia(q, type) {
+  const s = await get(`https://en.wikipedia.org/w/api.php?action=query&format=json&list=search&srlimit=4&srsearch=${encodeURIComponent(`${q} ${WIKI_KIND[type] || ''}`)}`);
+  const titles = (s?.query?.search || []).map((r) => r.title);
+  if (!titles.length) return [];
+  const j = await get(`https://en.wikipedia.org/w/api.php?action=query&format=json&prop=pageimages|extracts&exintro=1&explaintext=1&exchars=200&piprop=original&pilicense=any&titles=${encodeURIComponent(titles.join('|'))}`);
+  return Object.values(j?.query?.pages || {}).filter((p) => p.original?.source && !/\.svg/i.test(p.original.source)).map((p) => ({
+    source: 'Wikipedia', kind: 'encyclopedia article', titles: [p.title], year: null,
+    image: p.original.source.replace(/\?.*$/, ''), link: `https://en.wikipedia.org/wiki/${encodeURIComponent(p.title.replace(/ /g, '_'))}`, blurb: (p.extract || '').slice(0, 160),
+  }));
+}
 async function openLibrary(q) {
   const j = await get(`https://openlibrary.org/search.json?title=${encodeURIComponent(q)}&limit=5&fields=key,title,author_name,first_publish_year,cover_i`);
   return (j?.docs || []).filter((d) => d.cover_i).map((d) => ({
@@ -75,7 +98,8 @@ async function openLibrary(q) {
   }));
 }
 async function googleBooks(q) {
-  const j = await get(`https://www.googleapis.com/books/v1/volumes?q=${encodeURIComponent(`intitle:${q}`)}&maxResults=5&printType=books`);
+  const k = process.env.GOOGLE_BOOKS_KEY ? `&key=${process.env.GOOGLE_BOOKS_KEY}` : '';
+  const j = await get(`https://www.googleapis.com/books/v1/volumes?q=${encodeURIComponent(`intitle:${q}`)}&maxResults=5&printType=books${k}`);
   return (j?.items || []).filter((v) => v.volumeInfo?.imageLinks?.thumbnail).map((v) => ({
     source: 'Google Books', kind: 'book', titles: [[v.volumeInfo.title, v.volumeInfo.subtitle].filter(Boolean).join(': ')],
     year: yr(v.volumeInfo.publishedDate), author: (v.volumeInfo.authors || []).slice(0, 2).join(', '),
@@ -179,7 +203,7 @@ async function gather(c) {
     if (c.type === 'show' || c.type === 'movie') {
       const ani = c.is_anime || /anime/i.test((c.tags || []).join(' '));
       const al = ani ? await anilist(s, 'ANIME') : [];
-      lists.push(al, ani && !al.length ? await jikan(s, 'anime') : [], await tmdb(s, c.type === 'show' ? 'tv' : 'movie'));
+      lists.push(al, ani && !al.length ? await jikan(s, 'anime') : [], ani && !al.length ? await kitsu(s) : [], await tmdb(s, c.type === 'show' ? 'tv' : 'movie'));
       for (const alt of al.slice(0, 2).flatMap((m) => m.titles.slice(0, 2))) if (alt && alt !== s) lists.push(await tmdb(alt, c.type === 'show' ? 'tv' : 'movie'));
     } else if (c.type === 'book') {
       const al = await anilist(s, 'MANGA');
@@ -191,6 +215,7 @@ async function gather(c) {
     }
     if (lists.flat().length >= 6) break;
   }
+  lists.push(await wikipedia(qs[1] || qs[0], c.type));   // lead image of the work's own article (often the official cover)
   const seen = new Set();
   return lists.flat().filter((x) => x.image && !seen.has(x.link) && seen.add(x.link)).slice(0, 14);
 }

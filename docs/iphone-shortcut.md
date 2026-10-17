@@ -4,7 +4,7 @@ iOS has no "a screenshot was just taken" trigger, so the phone side is a small
 Shortcut that runs on a schedule (no tapping once it's set up) and sends recent
 screenshots to the Watchlist inbox. Everything after that is automatic: an hourly
 job reads them, adds the titles it's sure of, and parks the rest in
-`/watchlist/inbox/` for a quick ✓ / ✕.
+`/inbox/` for a quick ✓ / ✕.
 
 The upload URL (with its key) is in the vault under
 **"Watchlist screenshot ingest"** → *Shortcut upload URL*. Below it's written as
@@ -84,5 +84,19 @@ and run the same chunk again.
 
 ## Backlog alternative (Mac)
 
-Drop files on the **⬆ Add screenshots** button on `/watchlist/inbox/` (owner
+Drop files on the **⬆ Add screenshots** button on `/inbox/` (owner
 mode), e.g. after exporting screenshots from Photos on a Mac.
+
+## Troubleshooting: "my screenshots never showed up"
+
+Open `https://watchlist-ingest.threesided.workers.dev/status`:
+
+- `last_received` is the newest screenshot the server accepted. If it is older than your
+  screenshots, the phone never sent them.
+- `last_attempt` / `attempts_last_day` count every upload try, including rejected ones
+  (`forbidden` = wrong key in the URL, `bad-type` = body isn't an image, `too-large`, `empty`).
+  If these are empty too, the Shortcut didn't run or never reached the network: open
+  Shortcuts → Automation and check the automation exists, is set to **Run Immediately**, and points
+  at **Send to Watchlist** (not the Backfill copy). Run the Shortcut once by hand so iOS can ask
+  for Photos and network permission.
+- Request Body can be **File** (preferred) or **Form**; both are accepted.

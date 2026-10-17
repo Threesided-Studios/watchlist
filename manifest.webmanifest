@@ -2,9 +2,9 @@
   "name": "Watchlist",
   "short_name": "Watchlist",
   "description": "A personal watchlist. Movies, shows, games, books, kept in one place.",
-  "id": "/watchlist/",
-  "start_url": "/watchlist/",
-  "scope": "/watchlist/",
+  "id": "/",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "orientation": "any",
   "background_color": "#0d0b10",
@@ -16,6 +16,6 @@
     { "src": "assets/icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
   ],
   "shortcuts": [
-    { "name": "Inbox", "url": "/watchlist/inbox/", "icons": [{ "src": "assets/icons/icon-192.png", "sizes": "192x192" }] }
+    { "name": "Inbox", "url": "/inbox/", "icons": [{ "src": "assets/icons/icon-192.png", "sizes": "192x192" }] }
   ]
 }

@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Watchlist</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+/* The site moved from threesided-studios.github.io/watchlist/ to watch.threesided.com/.
+   Old /watchlist/... links land here; send them to the same page at the root. */
+(function () {
+  var p = location.pathname;
+  if (/^\/watchlist(\/|$)/.test(p)) { location.replace((p.replace(/^\/watchlist/, '') || '/') + location.search + location.hash); return; }
+})();
+</script>
+<style>body{background:#0d0b10;color:#eee;font:16px system-ui;display:grid;place-items:center;min-height:90vh}a{color:#f5b}</style>
+</head><body><p>Page not found. <a href="/">Go to the Watchlist →</a></p></body></html>

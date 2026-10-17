@@ -34,7 +34,7 @@ function applyOwnerMode() {
   document.body.dataset.owner = isOwner ? 'true' : 'false';
   document.body.dataset.view = window.WL_VIEW || window.WL_TYPE || 'all';
   const n = items.filter(it => it.status === 'inbox').length;
-  document.querySelectorAll('a[href="/watchlist/inbox/"]').forEach(a => {
+  document.querySelectorAll('a[href="/inbox/"]').forEach(a => {
     a.innerHTML = `📥 Inbox${n ? ` <span class="nav-badge">${n}</span>` : ''}`;
   });
   const lock = $('#lock');
@@ -185,7 +185,7 @@ function render() {
   if (isOwner && pendingN && !window.WL_VIEW) {
     const a = document.createElement('a');
     a.className = 'inbox-banner';
-    a.href = '/watchlist/inbox/';
+    a.href = '/inbox/';
     a.innerHTML = `<span class="inbox-banner-icon">📥</span><span class="inbox-banner-text"><strong>${pendingN} screenshot find${pendingN === 1 ? '' : 's'} to review</strong><span>Tap to Keep or Dismiss</span></span><span class="inbox-banner-go">Review →</span>`;
     grid.appendChild(a);
   }

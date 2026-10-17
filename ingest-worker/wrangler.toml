@@ -9,7 +9,7 @@ compatibility_date = "2025-09-01"
 #
 # Secrets (wrangler secret put): INGEST_KEY (Shortcut), QUEUE_KEY (GitHub Action)
 [vars]
-ALLOW_ORIGIN = "https://threesided-studios.github.io"
+ALLOW_ORIGIN = "https://watch.threesided.com,https://threesided-studios.github.io"
 # sha256 of the owner passphrase (same value as OWNER_HASH in assets/app.js).
 OWNER_HASH = "73ed39e720cb63bd270d9610e8617f8f2fef3ef1ab5deb62832feb9b7ce929b5"
 
@@ -20,3 +20,6 @@ class_name = "ShotQueue"
 [[migrations]]
 tag = "v1"
 new_sqlite_classes = ["ShotQueue"]
+
+[observability]
+enabled = true

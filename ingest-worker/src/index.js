@@ -11,6 +11,7 @@
  *   GET  /queue/<sha>               image bytes
  *   POST /queue/<sha>/done          drop the image, keep the sha as "seen"
  *   GET  /reviews                   pending review decisions
+ *   GET  /queue-attempts            recent upload attempts (accepted / duplicate / rejected)
  *   POST /reviews/ack               {ids:[...]} clear applied decisions
  *
  * Every image is keyed by its SHA-256, so re-sending the same screenshot (the
@@ -45,6 +46,20 @@ export class ShotQueue extends DurableObject {
     // re-encoded copy of an already-sent screenshot is still recognised.
     this.sql.exec(`CREATE TABLE IF NOT EXISTS seen_keys (k TEXT PRIMARY KEY, sha TEXT)`);
     this.sql.exec(`CREATE INDEX IF NOT EXISTS shots_status_received ON shots (status, received)`);
+    // Every upload attempt (accepted, duplicate or rejected), so "my screenshots never showed up"
+    // can be told apart from "the Shortcut never ran". Trimmed to the newest 2000 rows.
+    this.sql.exec(`CREATE TABLE IF NOT EXISTS attempts (at TEXT, result TEXT, code INTEGER, ctype TEXT, size INTEGER, via TEXT)`);
+  }
+
+  logAttempt(result, code, ctype, size, via) {
+    this.sql.exec('INSERT INTO attempts (at, result, code, ctype, size, via) VALUES (?, ?, ?, ?, ?, ?)',
+      new Date().toISOString(), result, code, String(ctype || '').slice(0, 80), size || 0, via || '');
+    this.sql.exec('DELETE FROM attempts WHERE rowid NOT IN (SELECT rowid FROM attempts ORDER BY at DESC LIMIT 2000)');
+    return { ok: true };
+  }
+
+  attempts(limit = 50) {
+    return this.sql.exec('SELECT at, result, code, ctype, size, via FROM attempts ORDER BY at DESC LIMIT ?', limit).toArray();
   }
 
   put(sha, name, ctype, bytes, key) {
@@ -99,6 +114,10 @@ export class ShotQueue extends DurableObject {
       last_received: this.sql.exec('SELECT MAX(received) AS m FROM shots').toArray()[0].m,
       processed: c(`SELECT COUNT(*) AS n FROM shots WHERE status = 'done'`),
       reviews: c('SELECT COUNT(*) AS n FROM reviews'),
+      attempts_last_day: this.sql.exec('SELECT result, COUNT(*) AS n FROM attempts WHERE at > ? GROUP BY result', new Date(Date.now() - 86400_000).toISOString())
+        .toArray().reduce((o, r) => ({ ...o, [r.result]: r.n }), {}),
+      last_attempt: this.sql.exec('SELECT at, result, code FROM attempts ORDER BY at DESC LIMIT 1').toArray()[0] || null,
+      last_rejected: this.sql.exec(`SELECT at, result, code, ctype FROM attempts WHERE code >= 400 ORDER BY at DESC LIMIT 1`).toArray()[0] || null,
     };
   }
 
@@ -120,9 +139,11 @@ export default {
   async fetch(req, env) {
     const url = new URL(req.url);
     const origin = req.headers.get('Origin');
-    const allow = env.ALLOW_ORIGIN || '*';
+    // ALLOW_ORIGIN may list several origins, comma-separated (custom domain + the old github.io host).
+    const allowed = String(env.ALLOW_ORIGIN || '*').split(',').map((o) => o.trim()).filter(Boolean);
+    const allow = allowed.includes('*') ? '*' : (allowed.includes(origin) ? origin : allowed[0]);
     const cors = {
-      'Access-Control-Allow-Origin': origin === allow ? allow : allow,
+      'Access-Control-Allow-Origin': allow,
       'Access-Control-Allow-Methods': 'GET,POST,OPTIONS',
       'Access-Control-Allow-Headers': 'Content-Type,X-Ingest-Key,X-Owner-Pass,X-Queue-Key,X-File-Name',
       'Access-Control-Max-Age': '86400',
@@ -150,18 +171,35 @@ export default {
       const keyInPath = path.startsWith('/i/') ? decodeURIComponent(path.slice(3)) : null;
       if ((keyInPath !== null || path === '/ingest') && req.method === 'POST') {
         const key = keyInPath ?? req.headers.get('X-Ingest-Key') ?? '';
+        const via = keyInPath !== null ? 'shortcut' : (req.headers.get('X-Owner-Pass') ? 'web' : 'header-key');
+        let ctype = (req.headers.get('Content-Type') || 'application/octet-stream').split(';')[0].trim().toLowerCase();
+        const reject = async (result, code, body, size = 0) => { await q.logAttempt(result, code, ctype, size, via); return json(body, code); };
         const authed = (env.INGEST_KEY && safeEqual(key, env.INGEST_KEY)) || (await ownerOk());
-        if (!authed) return json({ error: 'forbidden' }, 403);
-        const ctype = (req.headers.get('Content-Type') || 'application/octet-stream').split(';')[0];
-        if (!/^(image\/|application\/octet-stream)/.test(ctype)) return json({ error: 'send the image as the raw request body' }, 415);
-        const bytes = await req.arrayBuffer();
-        if (!bytes.byteLength) return json({ error: 'empty body' }, 400);
-        if (bytes.byteLength > MAX_BYTES) return json({ error: 'too large' }, 413);
-        const name = (url.searchParams.get('name') || req.headers.get('X-File-Name') || '').slice(0, 120);
+        if (!authed) return reject('forbidden', 403, { error: 'forbidden' });
+        let bytes; let partName = '';
+        if (ctype === 'multipart/form-data') {
+          // Shortcut set to "Request Body: Form" instead of "File": take the first file field.
+          const form = await req.formData();
+          const file = [...form.values()].find((v) => typeof v === 'object' && v && 'arrayBuffer' in v);
+          if (!file) return reject('no-file-in-form', 400, { error: 'form had no file; set Request Body to File' });
+          bytes = await file.arrayBuffer(); ctype = (file.type || 'application/octet-stream').toLowerCase(); partName = file.name || '';
+        } else if (!/^(image\/|application\/octet-stream|binary\/)/.test(ctype)) {
+          // Some clients label raw image bodies oddly (e.g. x-www-form-urlencoded). Accept if the bytes look like an image.
+          bytes = await req.arrayBuffer();
+          const b = new Uint8Array(bytes.slice(0, 12));
+          const isImg = (b[0] === 0xff && b[1] === 0xd8) || (b[0] === 0x89 && b[1] === 0x50) || (b[4] === 0x66 && b[5] === 0x74 && b[6] === 0x79 && b[7] === 0x70);
+          if (!isImg) return reject('bad-type', 415, { error: 'send the image as the raw request body' }, bytes.byteLength);
+          ctype = b[0] === 0xff ? 'image/jpeg' : b[0] === 0x89 ? 'image/png' : 'image/heic';
+        }
+        if (!bytes) bytes = await req.arrayBuffer();
+        if (!bytes.byteLength) return reject('empty', 400, { error: 'empty body' });
+        if (bytes.byteLength > MAX_BYTES) return reject('too-large', 413, { error: 'too large' }, bytes.byteLength);
+        const name = (url.searchParams.get('name') || req.headers.get('X-File-Name') || partName || '').slice(0, 120);
         const taken = (url.searchParams.get('taken') || '').slice(0, 64);
         const photoKey = name && taken ? `${name}|${taken}` : null;
         const sha = await sha256(bytes);
         const r = await q.put(sha, name, ctype, bytes, photoKey);
+        await q.logAttempt(r.status, r.status === 'busy' ? 503 : r.status === 'queued' ? 201 : 200, ctype, bytes.byteLength, via);
         if (r.status === 'busy') return json({ ...r, message: 'inbox is full right now; send again later (already-sent ones are skipped)' }, 503);
         return json(r, r.status === 'queued' ? 201 : 200);
       }
@@ -188,6 +226,7 @@ export default {
         m = path.match(/^\/queue\/([0-9a-f]{64})\/done$/);
         if (m && req.method === 'POST') return json(await q.done(m[1]));
         if (path === '/reviews' && req.method === 'GET') return json(await q.reviews());
+        if (path === '/queue-attempts' && req.method === 'GET') return json(await q.attempts(Number(url.searchParams.get('limit')) || 50));
         if (path === '/reviews/ack' && req.method === 'POST') {
           const b = await req.json();
           return json(await q.ackReviews(Array.isArray(b?.ids) ? b.ids.map(String) : []));

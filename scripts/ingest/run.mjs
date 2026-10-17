@@ -461,7 +461,8 @@ if (flag('--qa-posters')) {
 
 /* --art-hunt: deeper cover-art search for Inbox items that still have no art (adult stays hidden). */
 if (flag('--art-hunt')) {
-  const targets = items.filter((it) => it.status === 'inbox' && !it.adult && !(it.poster && existsSync(join(ROOT, it.poster))));
+  // every item still missing art, public or Inbox; adult ones get art but stay hidden in the Inbox
+  const targets = items.filter((it) => !(it.poster && existsSync(join(ROOT, it.poster))));
   let usd = 0; const found = [], missed = [];
   let next = 0;
   await Promise.all(Array.from({ length: 3 }, async () => {
@@ -475,7 +476,7 @@ if (flag('--art-hunt')) {
         Object.assign(it, { poster, adult: true, art_via: h.found.source });
         missed.push(`${it.title} [${it.type}] — art found but ${h.found.source} marks it adult, kept hidden`);
       } else if (poster) {
-        Object.assign(it, { poster, status: 'todo', art_via: h.found.source });
+        Object.assign(it, { poster, status: it.adult ? 'inbox' : 'todo', art_via: h.found.source });
         if (!it.link) it.link = h.found.link;
         if (h.found.tmdb_id && !it.tmdb_id) it.tmdb_id = h.found.tmdb_id;
         if (!it.year && h.found.year) it.year = h.found.year;
@@ -575,6 +576,20 @@ console.log(`${shots.length} screenshot(s) to process`);
 const index = buildIndex(items);
 const dismissed = new Set(ledger.dismissed);
 const taken = new Set(items.map((i) => i.id));
+/* Second dedupe pass after enrichment: the same work can arrive under another name
+   (e.g. "Final Fantasy Tactics" -> Steam's "FINAL FANTASY TACTICS - The Ivalice Chronicles"),
+   so also match on store/database identity and on the enriched title. */
+const workKeys = (it) => {
+  const k = [];
+  const link = String(it.link || '').replace(/[?#].*$/, '').replace(/\/+$/, '').toLowerCase();
+  if (/store\.steampowered\.com\/app\/\d+|themoviedb\.org\/(movie|tv)\/\d+|openlibrary\.org\/works\/|apps\.apple\.com\/.*\/id\d+|anilist\.co\/|myanimelist\.net\//.test(link)) k.push(`link:${link.replace(/^https?:\/\/(www\.)?/, '')}`);
+  if (it.tmdb_id) k.push(`tmdb:${it.type === 'show' ? 'tv' : 'movie'}:${it.tmdb_id}`);
+  if (it.steam_appid) k.push(`steam:${it.steam_appid}`);
+  if (it.title) k.push(`${family(it.type)}:${titleKey(it.title)}`);
+  return k;
+};
+const workIndex = new Map();
+for (const it of items) for (const k of workKeys(it)) if (!workIndex.has(k)) workIndex.set(k, it.id);
 let runUsd = 0;
 const report = [];
 
@@ -616,7 +631,7 @@ async function processShot(s) {
         taken.add(id);   // claim the id before the poster download await
         let poster = e ? await savePoster([e.posterUrl, e.posterFallback], id) : '';
         let art = null;
-        if (!poster && !cand.adult) {   // deeper hunt: AniList/MAL/alt titles, book & web-novel sites, itch, official sites
+        if (!poster) {   // deeper hunt (adult titles too: the art is stored, but they stay hidden in the Inbox): AniList/MAL/alt titles, book & web-novel sites, itch, official sites
           const h = await huntArt({ ...cand, tags: cand.genres }, openai);
           entry.usd += h.cost;
           if (h.found) { poster = await savePoster([h.found.image, h.found.image2, h.found.image3], id); if (poster) art = h.found; }
@@ -658,7 +673,15 @@ async function processShot(s) {
             else if (q.verdict === 'ok' && q.pick && !item.tmdb_id) item.tmdb_id = q.pick.id;
           } catch (err) { console.warn('qa failed', title, String(err).slice(0, 100)); }
         }
+        const dup2 = workKeys(item).map((k) => workIndex.get(k)).find((v) => v && v !== id);
+        if (dup2) {
+          if (item.poster && existsSync(join(ROOT, item.poster)) && !DRY) unlinkSync(join(ROOT, item.poster));
+          index.set(famKey, dup2); entry.ids.push(dup2);
+          report.push({ name: s.name, title, outcome: `duplicate of ${dup2} (same work after lookup)` });
+          continue;
+        }
         items.push(item); taken.add(id); index.set(famKey, id); changed = true;
+        for (const k of workKeys(item)) if (!workIndex.has(k)) workIndex.set(k, id);
         entry.ids.push(id);
         ledger.totals[item.status === 'todo' ? 'added' : 'inbox']++;
         report.push({ name: s.name, title, type: item.type, year: item.year, outcome: item.status + (item.qa ? ` (qa ${item.qa})` : ''), conf: item.ai_confidence, via: item.enriched_via || 'none', poster: !!poster, context: ctx });

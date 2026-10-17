@@ -6,14 +6,14 @@
   <title>Watchlist — Games</title>
   <meta name="description" content="A personal games list." />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='26' font-size='28'%3E%F0%9F%8E%9E%EF%B8%8F%3C/text%3E%3C/svg%3E" />
-  <link rel="manifest" href="/watchlist/manifest.webmanifest" />
+  <link rel="manifest" href="/manifest.webmanifest" />
   <meta name="theme-color" content="#0d0b10" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="Watchlist" />
-  <link rel="apple-touch-icon" href="/watchlist/assets/icons/apple-touch-icon.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/watchlist/assets/icons/favicon-32.png" />
+  <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -26,14 +26,14 @@
       <h1>Watchlist</h1>
       <span class="brand-sub">a private marquee</span>
       <nav class="pagenav" aria-label="Lists">
-        <a href="/watchlist/">All</a>
-        <a href="/watchlist/movies/">Movies</a>
-        <a href="/watchlist/shows/">Shows</a>
-        <a href="/watchlist/games/">Games</a>
-        <a href="/watchlist/books/">Books</a>
-        <a href="/watchlist/software/">Software</a>
-        <a href="/watchlist/recommended/">★ Friends</a>
-        <a href="/watchlist/inbox/" class="owner-only">📥 Inbox</a>
+        <a href="/">All</a>
+        <a href="/movies/">Movies</a>
+        <a href="/shows/">Shows</a>
+        <a href="/games/">Games</a>
+        <a href="/books/">Books</a>
+        <a href="/software/">Software</a>
+        <a href="/recommended/">★ Friends</a>
+        <a href="/inbox/" class="owner-only">📥 Inbox</a>
       </nav>
     </div>
     <div class="controls" role="toolbar" aria-label="Filters and actions">
@@ -89,7 +89,7 @@
       <p class="intro-p">Everything I'm watching, playing, and reading, gathered in one place. As a guest you can:</p>
       <ul class="intro-list">
         <li><strong>Browse &amp; filter</strong> — search by title or tag, or narrow by type and status.</li>
-        <li><strong>👍 / 👎 a title</strong> — what guests love rises into <a href="/watchlist/recommended/">★ Recommended by Friends</a>.</li>
+        <li><strong>👍 / 👎 a title</strong> — what guests love rises into <a href="/recommended/">★ Recommended by Friends</a>.</li>
         <li><strong>+ Suggest</strong> — spotted something I should add? Send it over.</li>
       </ul>
       <p class="intro-note">Rating and editing are owner-only — but your votes and suggestions are always welcome.</p>
@@ -191,7 +191,7 @@
   </footer>
 
   <script>window.WL_TYPE='game';window.WL_DATA="../data.json";window.WL_BASE="../";</script>
-  <script type="module" src="../assets/app.js?v=25"></script>
-  <script>if("serviceWorker" in navigator)addEventListener("load",()=>navigator.serviceWorker.register("/watchlist/sw.js",{scope:"/watchlist/"}));</script>
+  <script type="module" src="../assets/app.js?v=26"></script>
+  <script>if("serviceWorker" in navigator)addEventListener("load",()=>navigator.serviceWorker.register("/sw.js",{scope:"/"}));</script>
 </body>
 </html>

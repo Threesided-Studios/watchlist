@@ -12,6 +12,7 @@ const cors = (o) => ({
   'Access-Control-Allow-Methods': 'GET,POST,OPTIONS',
   'Access-Control-Allow-Headers': 'Content-Type',
   'Access-Control-Max-Age': '86400',
+  Vary: 'Origin',
 });
 const json = (obj, status, o) =>
   new Response(JSON.stringify(obj), { status, headers: { 'Content-Type': 'application/json', ...cors(o) } });
@@ -60,7 +61,10 @@ async function backup(env) {
 export default {
   async fetch(req, env) {
     const url = new URL(req.url);
-    const o = env.ALLOW_ORIGIN || '*';
+    // ALLOW_ORIGIN may list several origins, comma-separated (custom domain + the old github.io host).
+    const allowed = String(env.ALLOW_ORIGIN || '*').split(',').map((x) => x.trim()).filter(Boolean);
+    const reqO = req.headers.get('Origin');
+    const o = allowed.includes('*') ? '*' : (allowed.includes(reqO) ? reqO : allowed[0]);
     if (req.method === 'OPTIONS') return new Response(null, { headers: cors(o) });
     try {
       if (url.pathname === '/tallies' && req.method === 'GET') return json(await tallies(env), 200, o);
