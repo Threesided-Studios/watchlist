@@ -3140,6 +3140,644 @@
     "this-gun-for-hire"
    ],
    "usd": 0.009126
+  },
+  "cb85166aa298dff4b277f919711648003327bb8d3472d136bf5bad39986f401a": {
+   "at": "2026-10-17T09:04:54.922Z",
+   "outcome": "parsed",
+   "ids": [
+    "vandal-hearts-ii"
+   ],
+   "usd": 0.001842
+  },
+  "9cd5ec7ea95bdfa06c276cda7b42d1b7f93d477d2c7ebf39e12b1ee305ca0236": {
+   "at": "2026-10-17T09:04:54.626Z",
+   "outcome": "parsed",
+   "ids": [
+    "growlanser-4-wayfarer-of-time"
+   ],
+   "usd": 0.001871
+  },
+  "f1f438a9f284388e545045637b89d59c99cf74844df308c68a0094ed7d16e8da": {
+   "at": "2026-10-17T09:04:59.461Z",
+   "outcome": "parsed",
+   "ids": [],
+   "usd": 0.001835
+  },
+  "276a52c882e49d42d3844bac75f340d9343a69bd37bbbb707c612f41a1b3fae6": {
+   "at": "2026-10-17T09:04:58.074Z",
+   "outcome": "parsed",
+   "ids": [
+    "onimusha-tactics"
+   ],
+   "usd": 0.001842
+  },
+  "53b94e375ffb59b67ad4a8f006aa7eb6d423b8b34567f7ffa96baf29d642e9ab": {
+   "at": "2026-10-17T09:05:01.913Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "178d0402279f4f7d8cab7f510929ae6257e9c5e8499712251e97742518ea495a": {
+   "at": "2026-10-17T09:04:54.942Z",
+   "outcome": "parsed",
+   "ids": [
+    "god-wars-the-complete-legend",
+    "god-wars-future-past"
+   ],
+   "usd": 0.004209
+  },
+  "4a053cd6724c8dfea282ebe2cd1ecbb7605661984cc4e8bae9165746051a6a61": {
+   "at": "2026-10-17T09:05:02.149Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "0e10cdba24d9b29cb11b9dc660910d430368a98ada691e5c66b1a6c073cc2b69": {
+   "at": "2026-10-17T09:05:02.632Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000051
+  },
+  "513e316624cf549b3771ac6d3cf29bc5398718a426f91d20823855429024f298": {
+   "at": "2026-10-17T09:04:54.602Z",
+   "outcome": "parsed",
+   "ids": [
+    "vanguard-bandits",
+    "final-fantasy-tactics",
+    "breath-of-fire-3",
+    "star-ocean-the-second-story",
+    "parasite-eve",
+    "pokemon-red-and-blue"
+   ],
+   "usd": 0.002423
+  },
+  "121cd8103dd0379f7d406d648c5929aa2c26ed4695691cf661746f2849a2f422": {
+   "at": "2026-10-17T09:05:02.910Z",
+   "outcome": "parsed",
+   "ids": [],
+   "usd": 0.001888
+  },
+  "2c995112e201a12d0e2b7450c23ed471bb1f24dfe084213c0dee846c1a015ff4": {
+   "at": "2026-10-17T09:05:04.745Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "def31457783dc890436fc770171846c71e5533ec41d45524723f4b398bcbaf29": {
+   "at": "2026-10-17T09:05:03.294Z",
+   "outcome": "parsed",
+   "ids": [],
+   "usd": 0.001893
+  },
+  "8450adedde3f2d94ce37e0a1527cef71d9f837af48acf235746a7f6772814810": {
+   "at": "2026-10-17T09:05:03.391Z",
+   "outcome": "parsed",
+   "ids": [],
+   "usd": 0.001856
+  },
+  "eb7b42dca7adc557615aa748722f4e9601d7808bab9c8089c48aa1ba6e4feccf": {
+   "at": "2026-10-17T09:05:05.540Z",
+   "outcome": "parsed",
+   "ids": [
+    "me-a-genius-i-was-reborn-into-another-world-and-i-think-they-ve-got-the-wrong-idea"
+   ],
+   "usd": 0.001883
+  },
+  "9ba33233a04bbbd70dc6e4996387696cc33d6395cb1438196f201095ea235188": {
+   "at": "2026-10-17T09:05:06.176Z",
+   "outcome": "parsed",
+   "ids": [
+    "i-was-told-to-relinquish-my-fiance-to-my-little-sister-and-the-greatest-dragon-took-a-liking-to-me-and-unbelievably-took-over-the-kingdom"
+   ],
+   "usd": 0.001909
+  },
+  "24340cb585c98a3bf7a249e7c3f53597ef0a65193cf3dafa311b4a37fd7d7982": {
+   "at": "2026-10-17T09:05:08.537Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "bd48f430246363556c38268e52403c1b7839cea6e02208437ccc3892968f9d97": {
+   "at": "2026-10-17T09:05:05.668Z",
+   "outcome": "parsed",
+   "ids": [
+    "i-may-be-a-guild-receptionist-but-i-ll-solo-to-clock-out-on-time-2024"
+   ],
+   "usd": 0.003901
+  },
+  "812751c4cd2b462e074f9058a2004cbe7b9404920090c4146590468f4ba39ba0": {
+   "at": "2026-10-17T09:05:09.262Z",
+   "outcome": "parsed",
+   "ids": [
+    "mad-monster-party",
+    "rudolph-the-red-nosed-reindeer"
+   ],
+   "usd": 0.002051
+  },
+  "edf6f38e7c3f009e05471f4591c7994b1c0cd3bb9e92281d3e83352b713929fd": {
+   "at": "2026-10-17T09:05:10.006Z",
+   "outcome": "parsed",
+   "ids": [
+    "brick",
+    "the-big-lebowski",
+    "dark-city",
+    "the-thirteenth-floor",
+    "the-matrix",
+    "dead-men-don-t-wear-plaid",
+    "l-a-confidential",
+    "constantine",
+    "the-last-boy-scout",
+    "kiss-kiss-bang-bang",
+    "the-nice-guys",
+    "the-long-kiss-goodnight",
+    "cowboy-bebop",
+    "under-the-silver-lake",
+    "body-heat",
+    "basic-instinct",
+    "bound",
+    "fatal-attraction",
+    "the-last-seduction",
+    "body-double",
+    "dressed-to-kill",
+    "suspiria",
+    "sin-city",
+    "nightmare-alley",
+    "inherent-vice",
+    "fargo",
+    "minority-report",
+    "strange-days",
+    "blue-velvet",
+    "nightcrawler",
+    "ex-machina"
+   ],
+   "usd": 0.004469
+  },
+  "dd3016d59c305c5cd9bbb95abba26783b2f293bd7b4b52faee272ce1548702c3": {
+   "at": "2026-10-17T09:05:22.807Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "6ed72d5ae01b8f6e5798fb505f43a89404ac0c8bd1cea8d9f46424de6b80064e": {
+   "at": "2026-10-17T09:05:23.525Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "be54caea6c88e9ce9cc0bd7a04a8ba7e35ee67a32b260681469ce2fd213ecf50": {
+   "at": "2026-10-17T09:05:24.174Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "0846d225d448350cdcafc5da99fae0595ac1b21814c2e0bc6f9b8bded97d86cd": {
+   "at": "2026-10-17T09:05:24.815Z",
+   "outcome": "parsed",
+   "ids": [
+    "queen-s-blade",
+    "the-familiar-of-zero",
+    "keijo",
+    "prison-school"
+   ],
+   "usd": 0.00289
+  },
+  "2200d0d59332fd0bdc7909d1aab5ea56242eb02ca1241f492e4386f9aae4e9c0": {
+   "at": "2026-10-17T09:05:31.445Z",
+   "outcome": "parsed",
+   "ids": [
+    "freezing"
+   ],
+   "usd": 0.001863
+  },
+  "bd87e0296c082aa8f98c7fcb42a5599286b42e8aaf0df09f7254eb4418d397b0": {
+   "at": "2026-10-17T09:05:33.902Z",
+   "outcome": "parsed",
+   "ids": [
+    "world-war-blue"
+   ],
+   "usd": 0.001856
+  },
+  "9627518689afe6a46f798005f97855836fcd1d846b726724fc02abd49d6db21d": {
+   "at": "2026-10-17T09:05:36.160Z",
+   "outcome": "parsed",
+   "ids": [
+    "triage-x"
+   ],
+   "usd": 0.001855
+  },
+  "9dd616cf622aaa2a150d6f4ae9ff0b5bbeab383be50e4679854870d20f78d861": {
+   "at": "2026-10-17T09:05:11.999Z",
+   "outcome": "parsed",
+   "ids": [
+    "blue-velvet",
+    "ex-machina",
+    "angel-heart",
+    "memento",
+    "ad-astra",
+    "the-black-dahlia",
+    "drive",
+    "enter-the-void",
+    "the-long-goodbye",
+    "batman-mask-of-the-phantasm",
+    "out-of-the-past",
+    "taxi-driver",
+    "collateral",
+    "the-fourth-man",
+    "they-cloned-tyrone",
+    "the-man-who-wasn-t-there",
+    "blade-runner",
+    "roger-rabbit",
+    "chinatown",
+    "honey-don-t",
+    "mulholland-drive",
+    "red-rooms",
+    "gone-girl",
+    "the-blue-iguana",
+    "radioactive-dreams",
+    "payback",
+    "bunraku",
+    "world-on-a-wire",
+    "pursued",
+    "chip-and-dale-rescue-rangers",
+    "diabolique",
+    "wolfen",
+    "this-gun-for-hire"
+   ],
+   "usd": 0.009129
+  },
+  "03aa454a2e8b02c5f63bcea61c54ee1290dfa84a6d3d41271af95a26c2cec892": {
+   "at": "2026-10-17T09:05:38.568Z",
+   "outcome": "parsed",
+   "ids": [
+    "berserk-of-gluttony"
+   ],
+   "usd": 0.001861
+  },
+  "49d782e0705a227c709b2fb279f96f43ff93bb8657c463a4010262e0b940c242": {
+   "at": "2026-10-17T09:05:39.047Z",
+   "outcome": "parsed",
+   "ids": [
+    "skyrim-nolvus",
+    "lorerim"
+   ],
+   "usd": 0.001981
+  },
+  "7897bcc7764e6292520fc908b2185b3171e901c89738d162538125b598a3d9e2": {
+   "at": "2026-10-17T09:05:41.029Z",
+   "outcome": "parsed",
+   "ids": [
+    "solo-leveling"
+   ],
+   "usd": 0.001853
+  },
+  "a05782a6dcc30dd34fef18c4a0596d51db153f08c4e4539427539002ac6bd452": {
+   "at": "2026-10-17T09:05:41.949Z",
+   "outcome": "parsed",
+   "ids": [
+    "my-gift-lvl-9999-unlimited-gacha"
+   ],
+   "usd": 0.001869
+  },
+  "24841ac61220a02ab68890f4757193bf4f41dd53c325c1fbf14756527afb6cd5": {
+   "at": "2026-10-17T09:05:43.250Z",
+   "outcome": "parsed",
+   "ids": [
+    "i-got-a-cheat-skill-in-another-world"
+   ],
+   "usd": 0.001866
+  },
+  "657fbee0bf330fcd2f019ff8532cb8ee7b2699b98168db719fefb5e7acc48a86": {
+   "at": "2026-10-17T09:05:44.608Z",
+   "outcome": "parsed",
+   "ids": [
+    "the-exiled-heavy-knight-knows-how-to-game-the-system"
+   ],
+   "usd": 0.001869
+  },
+  "870239cdbbfc1f35c7d3c4d39764cf190e368bc81ecdb38d1adda2b06cbb7ddb": {
+   "at": "2026-10-17T09:05:45.476Z",
+   "outcome": "parsed",
+   "ids": [
+    "i-m-the-evil-lord-of-an-intergalactic-empire"
+   ],
+   "usd": 0.001874
+  },
+  "7cf1ea9bf6dba338e7b6b611371c1ee1ccb6c397e940613f99ca1d89969e84d4": {
+   "at": "2026-10-17T09:05:07.733Z",
+   "outcome": "parsed",
+   "ids": [
+    "sushi-pants-waterfall"
+   ],
+   "usd": 0.003769
+  },
+  "896679d63e65afff7f565a3ab42e7d8738c6b0c1512b1e59ba47cd8616997026": {
+   "at": "2026-10-17T09:05:47.021Z",
+   "outcome": "parsed",
+   "ids": [
+    "arata-the-legend"
+   ],
+   "usd": 0.001858
+  },
+  "650980f6735bdccb4660aeb989c847bbaed62683c5609fa929206705d079b3ea": {
+   "at": "2026-10-17T09:05:47.662Z",
+   "outcome": "parsed",
+   "ids": [
+    "tokyo-ghoul"
+   ],
+   "usd": 0.001856
+  },
+  "512ebdb6541c954868a9c7e8c40e610fe5d366a5bf7bc537a30b5345eefd1e78": {
+   "at": "2026-10-17T09:05:48.237Z",
+   "outcome": "parsed",
+   "ids": [
+    "full-dive-rpg"
+   ],
+   "usd": 0.001856
+  },
+  "ebcb6678dcba31c90168b984af5b31c35310046db1df709ca76fd134d2c9dd9f": {
+   "at": "2026-10-17T09:05:50.053Z",
+   "outcome": "parsed",
+   "ids": [
+    "viral-hit"
+   ],
+   "usd": 0.001853
+  },
+  "16fab76dac3a1292f1a7bdb78dc33620bee17c17805676e368cb47209ad9bb5f": {
+   "at": "2026-10-17T09:05:50.167Z",
+   "outcome": "parsed",
+   "ids": [
+    "from-overshadowed-to-overpowered"
+   ],
+   "usd": 0.001864
+  },
+  "f107d947dac226eca6fdba998cb9b56ef21c10082e7eafb658f5c0b6559bd56f": {
+   "at": "2026-10-17T09:05:50.444Z",
+   "outcome": "parsed",
+   "ids": [
+    "super-cube"
+   ],
+   "usd": 0.001853
+  },
+  "357dcdc9a11bebd1c03d9d5529e6ab726f04a40da606d01a74dda5b5ef5fc34f": {
+   "at": "2026-10-17T09:05:52.139Z",
+   "outcome": "parsed",
+   "ids": [
+    "witch-craft-works"
+   ],
+   "usd": 0.001856
+  },
+  "1f483eca43ef651e54b7555a022bf12041c76d6a9ce7de502a0a8cec3cbf8171": {
+   "at": "2026-10-17T09:05:52.417Z",
+   "outcome": "parsed",
+   "ids": [
+    "redo-of-healer"
+   ],
+   "usd": 0.001861
+  },
+  "b1801afeacb00e91f471627f4d183dc8d25150ba617226b4f1ce84d83b150726": {
+   "at": "2026-10-17T09:05:52.645Z",
+   "outcome": "parsed",
+   "ids": [
+    "the-rising-of-the-shield-hero"
+   ],
+   "usd": 0.001861
+  },
+  "1689944e5bc3d53d539798e6d4992f44dce365cd7f79211056354e1336a0f04c": {
+   "at": "2026-10-17T09:05:55.014Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "b6ae0207ebbdb70a9762f512bde48182f3fff1fd1c5d085d4833126be72db4ae": {
+   "at": "2026-10-17T09:05:55.657Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "d321c03c540fbab40bceb7dfab42d7e542f966f3bf8ee8b9af978838ce8fe7ae": {
+   "at": "2026-10-17T09:05:54.444Z",
+   "outcome": "parsed",
+   "ids": [
+    "tomb-raider-king"
+   ],
+   "usd": 0.001856
+  },
+  "376202ebb6d7a830e8c504b2cf00d1087eba15295b88c36b7078eb3f9c1924fb": {
+   "at": "2026-10-17T09:05:56.296Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "7bc96e28ad1fa4d916566cd6d2ed517fae3e816e302bd23dd0bb30a28ee429e9": {
+   "at": "2026-10-17T09:05:54.640Z",
+   "outcome": "parsed",
+   "ids": [
+    "griffin-ai"
+   ],
+   "usd": 0.001851
+  },
+  "60c0a77a6b0eba7d9647c3e7a44f1722e7c476ac0a2d6fee68bc058d41bf34e2": {
+   "at": "2026-10-17T09:05:56.740Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "9314769bac70e73e3f0a5922f7b08403ae347ab8add1c29781af1902e1c56978": {
+   "at": "2026-10-17T09:05:57.012Z",
+   "outcome": "parsed",
+   "ids": [],
+   "usd": 0.001845
+  },
+  "8e36fe45025ae28f2f3055c0a6c403f91580726ab4f0fa66f5fea4d786fa169e": {
+   "at": "2026-10-17T09:05:57.163Z",
+   "outcome": "parsed",
+   "ids": [
+    "haibara-s-teenage-new-game"
+   ],
+   "usd": 0.001887
+  },
+  "6deee8ecb5bf73423b9d9c06d18438ba47dac785fdcdfc64d1c36403e0b3cfb0": {
+   "at": "2026-10-17T09:05:57.486Z",
+   "outcome": "parsed",
+   "ids": [
+    "no-longer-allowed-in-another-world"
+   ],
+   "usd": 0.001845
+  },
+  "c16a6ab7465907ba7d9b2e977d982b0dc364c85d013cea55eaa1f3ba859f0458": {
+   "at": "2026-10-17T09:05:59.810Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "9ce69b1d74833ed9dce93dab5d44f64a2f30c0c3a807c567af2142be3b7432a9": {
+   "at": "2026-10-17T09:06:00.398Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000039
+  },
+  "125cc2d6244a242bf60205790ef75601969e761be9c00d4b6c7b0aadee0d299c": {
+   "at": "2026-10-17T09:06:00.992Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "3734a589217dbdf3d18b7c645816238b28f8313754fd6f2dbd5107bb5eb212d6": {
+   "at": "2026-10-17T09:05:59.289Z",
+   "outcome": "parsed",
+   "ids": [
+    "hell-mode-the-hardcore-gamer-reincarnates-to-another-world"
+   ],
+   "usd": 0.001875
+  },
+  "c7a28fc4fce7dbb4f22f13b9928b5d7900e618295deeedb800a083128e037b3b": {
+   "at": "2026-10-17T09:05:59.667Z",
+   "outcome": "parsed",
+   "ids": [
+    "alterium-shift"
+   ],
+   "usd": 0.001839
+  },
+  "85bff1f84654332c3a49d07692a13f63b626bee78bf629770a91bfa4528d028e": {
+   "at": "2026-10-17T09:06:01.567Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "230c494fc34ae5f3aa4cebf3c6509e691de70c6d741126bde5a88a15151b80ce": {
+   "at": "2026-10-17T09:06:01.707Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "6f67468307a4df077a271a30f12453019633b45e0a174e1eb706739368709988": {
+   "at": "2026-10-17T09:06:01.844Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000095
+  },
+  "7d6a745c9b4126861a6a017cb067df8791d4eab97719cd299a5ae0514b342db0": {
+   "at": "2026-10-17T09:06:02.245Z",
+   "outcome": "parsed",
+   "ids": [
+    "the-monarch-money-killer"
+   ],
+   "usd": 0.005547
+  },
+  "752589f007b741725db5e051aabdbb5e2db6cd6350ae1d553ad45accf04971b9": {
+   "at": "2026-10-17T09:06:02.503Z",
+   "outcome": "parsed",
+   "ids": [
+    "the-after-effects-killer"
+   ],
+   "usd": 0.004677
+  },
+  "7b93da4795efd0d98fbea20431363e4b1d5d5a94f2871e75270a99c05ef4be7b": {
+   "at": "2026-10-17T09:06:02.559Z",
+   "outcome": "parsed",
+   "ids": [
+    "my-new-stepsister-is-the-most-popular-girl-in-school"
+   ],
+   "usd": 0.001864
+  },
+  "bf188ad4852f5bd809ed87c196c1237f0229b84d5b255b038a35eb7390d1717c": {
+   "at": "2026-10-17T09:06:09.532Z",
+   "outcome": "parsed",
+   "ids": [
+    "ghost-in-the-shell",
+    "they-live",
+    "total-recall",
+    "starship-troopers",
+    "contact",
+    "arrival",
+    "close-encounters-of-the-third-kind",
+    "the-matrix",
+    "a-i-artificial-intelligence",
+    "minority-report",
+    "war-of-the-worlds",
+    "moon",
+    "source-code",
+    "planet-of-the-apes",
+    "oblivion",
+    "ex-machina",
+    "interstellar",
+    "star-wars-the-last-jedi",
+    "barbarella",
+    "inception"
+   ],
+   "usd": 0.00666
+  },
+  "bc330ec446f079a5e1945b60fb890783f4e281bd57e26b52ba1418e86c89b6d6": {
+   "at": "2026-10-17T09:06:11.534Z",
+   "outcome": "parsed",
+   "ids": [
+    "the-two-week-curse",
+    "cold-iron",
+    "this-gilded-abyss",
+    "the-last-contract-of-isako",
+    "the-dragon-of-deepwood",
+    "the-gutter-prayer",
+    "wolf",
+    "(pending)"
+   ],
+   "usd": 0.00446
+  },
+  "baf182d0ec2fb0112b86f160bd3db14992450d01405400bad2330d8aa6ede473": {
+   "at": "2026-10-17T09:05:05.281Z",
+   "outcome": "parsed",
+   "ids": [
+    "my-birthday-party-was-cancelled-so-now-i-will-murder-all-my-friends-who-did-not-attend-even-though-they-couldn-t-have-because-it-was-cancelled",
+    "i-m-just-a-b-tch-that-way"
+   ],
+   "usd": 0.004185
+  },
+  "5ac1338ced61955a985f3fa2a28a822eabc70faba61b029169a271e9883d87b4": {
+   "at": "2026-10-17T09:06:53.746Z",
+   "outcome": "parsed",
+   "ids": [
+    "return-of-the-runebound-professor"
+   ],
+   "usd": 0.001835
+  },
+  "1108f363af0e61f16155cc2ae0af78967c9ae698bae78389f0024dfce4b1538c": {
+   "at": "2026-10-17T09:06:55.856Z",
+   "outcome": "parsed",
+   "ids": [
+    "jake-s-magical-market"
+   ],
+   "usd": 0.00184
+  },
+  "b689bdb05a932e2bd785d6fd276553925c67b23454e14bb914cbbb43277650de": {
+   "at": "2026-10-17T09:06:56.525Z",
+   "outcome": "parsed",
+   "ids": [
+    "age-of-stone"
+   ],
+   "usd": 0.001837
+  },
+  "0f12ecba50ce96cb1802702c066d6faa258a513b90baca2c8d6a9dd9b020c549": {
+   "at": "2026-10-17T09:06:10.582Z",
+   "outcome": "parsed",
+   "ids": [
+    "battle-mage-farmer",
+    "(pending)",
+    "this-gilded-abyss",
+    "the-last-contract-of-isako",
+    "thrice-fold"
+   ],
+   "usd": 0.006047
+  },
+  "97c45cf49725b4e66b4262bcc060e921ad036c959f6741d9415700061666aa77": {
+   "at": "2026-10-17T09:06:30.380Z",
+   "outcome": "parsed",
+   "ids": [
+    "don-t-die-dave",
+    "cold-iron",
+    "this-gilded-abyss",
+    "the-last-contract-of-isako",
+    "thrice-forged"
+   ],
+   "usd": 0.003969
   }
  },
  "dismissed": [
@@ -3186,10 +3824,10 @@
   "software:artflow"
  ],
  "totals": {
-  "shots": 425,
-  "media": 184,
-  "added": 214,
-  "inbox": 129,
-  "usd": 0.827466
+  "shots": 497,
+  "media": 238,
+  "added": 245,
+  "inbox": 141,
+  "usd": 0.97012
  }
 }
