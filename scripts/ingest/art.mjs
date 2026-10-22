@@ -1,3 +1,4 @@
+import { ART_VERIFY_MODEL } from './models.mjs';
 /* Deeper cover-art hunt, used when the normal enrichment chain found no poster/icon.
  * Gathers candidates from several free sources, then one LLM call picks the candidate
  * that is the same work (title incl. alt/romaji/native names + type + year/author agree), or none.
@@ -229,7 +230,7 @@ For software, when the product's own company has an App Store / Mac App Store en
 If the item title is short or partial and several candidates could fit it (e.g. multiple different series whose titles contain "Reincarnated as an Aristocrat"), return -1 unless the context singles one out.
 Return -1 when unsure, when the item looks like a joke/parody/made-up title, an AI model name, or a generic phrase rather than a real work, or when no candidate fits.`;
 
-export async function huntArt(c, openai, model = process.env.ART_VERIFY_MODEL || 'gpt-4.1') {
+export async function huntArt(c, openai, model = ART_VERIFY_MODEL) {
   const cands = await gather(c);
   if (!cands.length) return { found: null, cost: 0, reason: 'no candidates in any source', tried: 0 };
   const item = { title: c.title, type: c.type, year: c.year || null, author: c.author || c.creator || null, tags: c.tags || [], context: (c.context || '').slice(0, 200) };

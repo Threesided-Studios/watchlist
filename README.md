@@ -10,8 +10,8 @@ Live at **https://watch.threesided.com** (GitHub Pages custom domain; the old th
 iPhone Shortcut (daily automation / share sheet)
    └─ POST image ─▶ watchlist-ingest Worker (ingest-worker/, Durable Object queue, keyed by SHA-256)
                         └─ hourly GitHub Action (.github/workflows/screenshot-ingest.yml → scripts/ingest/run.mjs)
-                             1. gpt-4.1-nano on a 384px thumbnail: "any movie/show/anime/book/game here?"  (~$0.0001)
-                             2. gpt-4.1-mini on a 1024px image: titles, type, year, source context, who recommended, confidence (~$0.002)
+                             1. gpt-6-luna on a 384px thumbnail: "any movie/show/anime/book/game here?"
+                             2. gpt-6-luna on a 1024px image: titles, type, year, source context, who recommended, confidence
                              3. enrich: TMDB (if TMDB_API_KEY secret is set) → Wikipedia; Steam for games; Open Library for books
                              4. dedupe against data.json; confident + matched → list, otherwise status "inbox"
                              5. commit data.json + posters/ + scripts/ingest/ledger.json, then ack (image deleted from the queue)
