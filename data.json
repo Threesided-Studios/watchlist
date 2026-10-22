@@ -58388,7 +58388,7 @@
     "summary": "Sex and Zen is a 1991 Hong Kong erotic sex comedy film directed by Michael Mak, and starring Amy Yip and Lawrence Ng. The film is loosely based on The Carnal Prayer Mat, a Chinese erotic novel by seventeenth-century author and playwright Li Yu.",
     "poster": "posters/sex-and-zen.jpg",
     "link": "https://en.wikipedia.org/wiki/Sex_and_Zen",
-    "status": "inbox",
+    "status": "todo",
     "tags": [
       "Erotic",
       "Comedy",
@@ -59268,7 +59268,7 @@
     "summary": "Peter Grill and the Philosopher's Time  is a Japanese fantasy manga series by Daisuke Hiyama. It was serialized in Futabasha's seinen manga magazine Monthly Action from August 2017 to February 2024 before being transferred to the Web Action manga website, where it finished serialization in August 2024. It has been collected in fifteen tankōbon volumes. The manga is licensed in North America by Seven Seas Entertainment. An anime television series adaptation by Wolfsbane aired from July to September 2020. A second season by Wolfsbane and Seven aired from October to December 2022.",
     "poster": "posters/peter-grill-and-the-philosopher-s-time.jpg",
     "link": "https://en.wikipedia.org/wiki/Peter_Grill_and_the_Philosopher's_Time",
-    "status": "inbox",
+    "status": "todo",
     "tags": [
       "Anime",
       "ecchi",
@@ -59298,7 +59298,7 @@
     "summary": "",
     "poster": "posters/sono-bisque-doll-wa-koi-wo-suru.jpg",
     "link": "https://anilist.co/anime/132405",
-    "status": "inbox",
+    "status": "todo",
     "tags": [
       "Anime",
       "ecchi",
@@ -59327,7 +59327,7 @@
     "summary": "",
     "poster": "posters/the-gigolo-dochinpira.jpg",
     "link": "https://anilist.co/anime/4693",
-    "status": "inbox",
+    "status": "todo",
     "tags": [
       "Anime",
       "anime",
@@ -59814,33 +59814,6 @@
     "tmdb_id": 1198899
   },
   {
-    "id": "whoa-adventure",
-    "title": "Whoa Adventure",
-    "type": "game",
-    "year": 2026,
-    "blurb": "",
-    "summary": "",
-    "poster": "posters/whoa-adventure.jpg",
-    "link": "https://apps.apple.com/us/app/whoa-adventure/id6772872703",
-    "status": "todo",
-    "tags": [
-      "MMORPG",
-      "fantasy",
-      "adventure"
-    ],
-    "rating": null,
-    "notes": "",
-    "added": "2026-10-10",
-    "source": "screenshot",
-    "source_context": "Facebook ad — advertised as most anticipated MMORPG of 2026",
-    "recommended_by": "",
-    "ai_confidence": 1,
-    "enriched_via": "",
-    "match_ok": false,
-    "screenshot": "a31dea980d70",
-    "art_via": "App Store"
-  },
-  {
     "id": "renoise-ai",
     "title": "Renoise AI",
     "type": "software",
@@ -60084,7 +60057,7 @@
     "summary": "",
     "poster": "posters/ebiten-ebisugawa-s-public-high-school-tenmonbu.jpg",
     "link": "https://kitsu.app/anime/7077",
-    "status": "inbox",
+    "status": "todo",
     "tags": [
       "Anime",
       "Comedy",
@@ -61473,7 +61446,7 @@
     "summary": "",
     "poster": "posters/super-dramon-quest.jpg",
     "link": "https://www.dlsite.com/maniax/work/=/product_id/RJ134376.html",
-    "status": "inbox",
+    "status": "todo",
     "tags": [
       "RPG"
     ],
@@ -62614,7 +62587,7 @@
     "summary": "Jade is a 1995 American erotic thriller film written by Joe Eszterhas, produced by Robert Evans, directed by William Friedkin, and starring David Caruso, Linda Fiorentino, Chazz Palminteri, Richard Crenna, and Michael Biehn. The original music score was composed by James Horner based on a song composed by Loreena McKennitt.",
     "poster": "posters/jade.jpg",
     "link": "https://en.wikipedia.org/wiki/Jade_(1995_film)",
-    "status": "inbox",
+    "status": "todo",
     "tags": [],
     "rating": null,
     "notes": "",
@@ -62665,7 +62638,7 @@
     "summary": "Never Talk to Strangers is a 1995 psychological erotic thriller film directed by Peter Hall and starring Antonio Banderas and Rebecca De Mornay.",
     "poster": "posters/never-talk-to-strangers.jpg",
     "link": "https://en.wikipedia.org/wiki/Never_Talk_to_Strangers",
-    "status": "inbox",
+    "status": "todo",
     "tags": [],
     "rating": null,
     "notes": "",
@@ -62980,7 +62953,7 @@
     "summary": "Singapore Sling: The Man Who Loved a Corpse is a 1990 Greek black and white horror underground art film directed by Nikos Nikolaidis and regarded as his magnum opus. Considered a difficult film to label while still managing to develop something of a cult following throughout the years nonetheless, it was shot in a bizarre manner somewhat resembling film noir or neo-noir and black comedy as well as the exploitation, thriller, and crime genres mixed with some elements of eroticism and horror with sex being used as a power game. It received a theatrical release in Greece on 6 December 1990.",
     "poster": "posters/singapore-sling.jpg",
     "link": "https://en.wikipedia.org/wiki/Singapore_Sling_(1990_film)",
-    "status": "inbox",
+    "status": "todo",
     "tags": [],
     "rating": null,
     "notes": "",
@@ -65111,33 +65084,6 @@
     "match_ok": true,
     "screenshot": "bf188ad4852f",
     "tmdb_id": 644
-  },
-  {
-    "id": "war-of-the-worlds",
-    "title": "War of the Worlds",
-    "type": "movie",
-    "year": 2025,
-    "blurb": "Will Radford is a top analyst for Homeland Security who tracks potential threats through a mass surveillance program, until one day an attack by an unknown entity leads him to question whether the government is hiding something from him...",
-    "summary": "Will Radford is a top analyst for Homeland Security who tracks potential threats through a mass surveillance program, until one day an attack by an unknown entity leads him to question whether the government is hiding something from him... and from the rest of the world.",
-    "poster": "posters/war-of-the-worlds.jpg",
-    "link": "https://www.themoviedb.org/movie/755898",
-    "status": "inbox",
-    "tags": [
-      "Sci-Fi",
-      "Thriller"
-    ],
-    "rating": null,
-    "notes": "Poster QA: picked the 2025 film (Ice Cube). The other titles from that r/MovieSuggestions screenshot are Spielberg/classic sci-fi, so it may be the 2005 Spielberg film (TMDB 74). Confirm which one.",
-    "added": "2026-10-17",
-    "source": "screenshot",
-    "source_context": "r/MovieSuggestions",
-    "recommended_by": "",
-    "ai_confidence": 0.9,
-    "enriched_via": "TMDB",
-    "match_ok": true,
-    "screenshot": "bf188ad4852f",
-    "tmdb_id": 755898,
-    "same_title_works": 8
   },
   {
     "id": "source-code",

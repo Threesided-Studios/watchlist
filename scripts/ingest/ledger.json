@@ -3821,7 +3821,9 @@
   "book:time-to-play",
   "screen:wedding-day",
   "software:higgsfield",
-  "software:artflow"
+  "software:artflow",
+  "game:whoa-adventure",
+  "screen:war-of-the-worlds"
  ],
  "totals": {
   "shots": 497,
