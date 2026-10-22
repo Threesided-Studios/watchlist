@@ -1,8 +1,9 @@
+import { QA_MODEL } from './models.mjs';
 /* Poster QA for movies/shows: make sure the poster belongs to the right work when several
  * works share the title (remake vs original, same-name films, movie-vs-series mislabels).
  *   1. TMDB search (movie + tv) for the title / aka; keep exact-title hits.
  *   2. One exact hit -> fine (record tmdb_id if missing and the year agrees).
- *   3. Several exact hits (a "collision") -> gpt-4.1-mini picks one from the item's evidence
+ *   3. Several exact hits (a "collision") -> gpt-6-luna picks one from the item's evidence
  *      (year, screenshot text/context, blurb, Wikipedia link, language/cast hints).
  *      If the current poster's source is unknown (no tmdb_id), a cheap low-detail vision call
  *      tells which candidate the current poster shows.
@@ -72,7 +73,7 @@ export async function qaScreen(item, { openai, token, posterBytes = null, extra 
   /* collision (or a lone candidate that disagrees): let the evidence decide */
   const list = cands.map((c, i) => ({ i, kind: c.kind === 'tv' ? 'TV series' : 'movie', title: c.title, original_title: c.original, year: c.year, language: c.lang, overview: c.overview, tmdb_votes: c.votes }));
   const sys = 'Several films/series share this title. Pick the candidate the watchlist item refers to, using all evidence: the year, the screenshot text and context (cast, director, platform, language, era), the blurb/summary and the Wikipedia link (e.g. "_(2008_film)"). Listed type can be wrong (movie vs series). If the item has no distinguishing evidence at all, prefer the clearly most notable work only with confidence "medium". Use -1 if none fits. confidence high = the evidence clearly singles one out.';
-  const { out, cost: c1 } = await openai('gpt-4.1-mini', [{ role: 'system', content: sys }, { role: 'user', content: JSON.stringify({ item: evidence(item, extra), candidates: list }) }], PICK, 200);
+  const { out, cost: c1 } = await openai(QA_MODEL, [{ role: 'system', content: sys }, { role: 'user', content: JSON.stringify({ item: evidence(item, extra), candidates: list }) }], PICK, 200);
   cost += c1;
   const pick = out.index >= 0 && out.index < cands.length ? cands[out.index] : null;
   /* which work does the current poster show? */
@@ -82,7 +83,7 @@ export async function qaScreen(item, { openai, token, posterBytes = null, extra 
       const content = [{ type: 'text', text: 'Image 0 is a poster on a watchlist. Images 1..N are official posters of different works with the same title. Which numbered official poster shows the SAME work as image 0 (same artwork, cast or design; language variants count)? Answer the number only when the artwork clearly matches; answer -1 if none matches or you are unsure.' },
         { type: 'image_url', image_url: { url: `data:image/jpeg;base64,${posterBytes.toString('base64')}`, detail: 'low' } }];
       for (const c of cands) content.push({ type: 'image_url', image_url: { url: `https://image.tmdb.org/t/p/w185${c.poster_path}`, detail: 'low' } });
-      const { out: v, cost: c2 } = await openai('gpt-4.1-mini', [{ role: 'user', content }], SEE, 20);
+      const { out: v, cost: c2 } = await openai(QA_MODEL, [{ role: 'user', content }], SEE, 20);
       cost += c2;
       if (v.index >= 1 && v.index <= cands.length) current = cands[v.index - 1];
     } catch { /* vision is best-effort */ }

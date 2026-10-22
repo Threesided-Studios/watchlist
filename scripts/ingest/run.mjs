@@ -9,13 +9,15 @@
  *   flags: --limit N  --dry-run
  *
  * env: OPENAI_API_KEY, WATCHLIST_QUEUE_URL, WATCHLIST_QUEUE_KEY, [TMDB_API_KEY],
- *      [CLASSIFY_MODEL=gpt-4.1-nano] [PARSE_MODEL=gpt-4.1-mini] [MAX_RUN_USD=2]
+ *      [CLASSIFY_MODEL=gpt-6-luna] [PARSE_MODEL=gpt-6-luna] [MAX_RUN_USD=2]
  */
 import { readFileSync, writeFileSync, existsSync, readdirSync, unlinkSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import sharp from 'sharp';
+import { CLASSIFY_MODEL, PARSE_MODEL } from './models.mjs';
+import { completionBody } from './openai-request.mjs';
 import { titleKey, family, buildIndex, findDuplicate, uniqueId, costOf, decideStatus } from './lib.mjs';
 import { huntArt } from './art.mjs';
 import { qaScreen, tmdbPosterUrl } from './qa.mjs';
@@ -38,8 +40,6 @@ const QURL = (process.env.WATCHLIST_QUEUE_URL || 'https://watchlist-ingest.three
 const QKEY = process.env.WATCHLIST_QUEUE_KEY || '';
 const OPENAI = process.env.OPENAI_API_KEY || '';
 const TMDB = process.env.TMDB_API_KEY || '';
-const CLASSIFY_MODEL = process.env.CLASSIFY_MODEL || 'gpt-4.1-nano';
-const PARSE_MODEL = process.env.PARSE_MODEL || 'gpt-4.1-mini';
 const MAX_RUN_USD = Number(process.env.MAX_RUN_USD || 2);
 const UA = { 'user-agent': 'watchlist-ingest/1.0 (+https://github.com/Threesided-Studios/watchlist)' };
 const today = () => new Date().toISOString().slice(0, 10);
@@ -75,10 +75,7 @@ async function openai(model, messages, schema, maxTokens = 900) {
     const r = await fetch('https://api.openai.com/v1/chat/completions', {
       method: 'POST',
       headers: { Authorization: `Bearer ${OPENAI}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        model, messages, temperature: 0, max_tokens: maxTokens,
-        response_format: { type: 'json_schema', json_schema: { name: 'out', strict: true, schema } },
-      }),
+      body: JSON.stringify(completionBody(model, messages, schema, maxTokens)),
     });
     if (r.status === 429 || r.status >= 500) { await new Promise((s) => setTimeout(s, 2000 * (attempt + 1))); continue; }
     const j = await r.json();

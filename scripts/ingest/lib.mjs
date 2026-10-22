@@ -41,8 +41,10 @@ export function uniqueId(base, taken, year) {
   return `${id}-${n}`;
 }
 
-/* USD per 1M tokens (input, output). Override via env if prices change. */
+/* Standard USD per 1M tokens (input, output); verified 2026-10-22. */
 export const PRICES = {
+  'gpt-6-luna': [0.10, 0.50],
+  'gpt-6-sol': [2.00, 10.00],
   'gpt-4.1-nano': [0.10, 0.40],
   'gpt-4.1-mini': [0.40, 1.60],
   'gpt-4.1': [2.00, 8.00],
