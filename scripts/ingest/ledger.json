@@ -3778,6 +3778,332 @@
     "thrice-forged"
    ],
    "usd": 0.003969
+  },
+  "9d10e09a5980c80b4bdd204b62d66ec5d2fed6ddbc37b79b9ac47796c7b9ec88": {
+   "at": "2026-10-28T14:27:59.250Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000034
+  },
+  "61873f6eb5f7f290df4d7af64ff647538ad8f2ee6804fd150d579a5bbc4be421": {
+   "at": "2026-10-28T14:28:02.285Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000034
+  },
+  "dc0d19d474245e2dd95ce3ec438612f8f3979526388710a85e8be3e432b71663": {
+   "at": "2026-10-28T14:28:03.669Z",
+   "outcome": "parsed",
+   "ids": [
+    "claude"
+   ],
+   "usd": 0.000439
+  },
+  "9750fd94be107c1a178ec1ec2c09b60c454b28ef460cbf3ecf5f1fc157cf158e": {
+   "at": "2026-10-28T14:28:08.378Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000034
+  },
+  "061d21db5eb41f45069267359700782689d8627f8af289586ae2591e2f156306": {
+   "at": "2026-10-28T14:28:10.789Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000034
+  },
+  "b13e170281a22c12534bbd0293561b3539117ad1e8f272cd1bcaef6019e49b45": {
+   "at": "2026-10-28T14:28:12.452Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000034
+  },
+  "1a151cbaa5551799a6ffa6623f025292e0101ddc596493393390c360077c8697": {
+   "at": "2026-10-28T14:28:13.500Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000034
+  },
+  "491fb0285104aa4ffa0fecef5ec4610c8a03eda430e5d2c93c4094b9287a50dc": {
+   "at": "2026-10-28T14:27:59.229Z",
+   "outcome": "parsed",
+   "ids": [
+    "welcome-to-harem-island"
+   ],
+   "usd": 0.002822
+  },
+  "5fd638819c98d1d9cd00b3d6fe64e170b84171b134c4f2030800d60ee4173e8f": {
+   "at": "2026-10-28T14:28:14.967Z",
+   "outcome": "parsed",
+   "ids": [
+    "foreman",
+    "thruwire"
+   ],
+   "usd": 0.006686
+  },
+  "4cd095356c88eae0308335a5c3ec38cf56258dcc83a62aff945a7a691bd27208": {
+   "at": "2026-10-28T14:28:58.039Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000034
+  },
+  "82848a7d29f76440cd7ff191c03ad398555c23361fc85c5abb2f1e039edaa8d6": {
+   "at": "2026-10-28T14:29:00.957Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000034
+  },
+  "cde41724fb75e266f229c2b94fd8a4d0755f77650599f104014b03d7ca0abbd2": {
+   "at": "2026-10-28T14:27:59.030Z",
+   "outcome": "parsed",
+   "ids": [
+    "magic-repo-man-dumped-by-my-party-i-ll-cash-in-with-a-cute-support-fairy-to-become-the-strongest"
+   ],
+   "usd": 0.000457
+  },
+  "b8d5b87762437b025c4095061f873f4a91b57a9545c6ce172020e2426c876e09": {
+   "at": "2026-10-28T14:29:04.929Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000034
+  },
+  "2dea97936ea462d0a1e69ea11bd363ca9dc58aab0dcff64cae5b02193b3af820": {
+   "at": "2026-10-28T14:29:08.082Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000034
+  },
+  "edac162e6670c889674428c1ce64b2afd5b0090843b2d0d9cb994c663f14c5dc": {
+   "at": "2026-10-28T14:28:33.658Z",
+   "outcome": "parsed",
+   "ids": [
+    "openrig",
+    "claude-code",
+    "codex",
+    "pi"
+   ],
+   "usd": 0.011747
+  },
+  "b9d0cceea4e8102a0cf39bab26b0d42697c415fa88a259a0fdd9ae25cd1a7b28": {
+   "at": "2026-10-28T14:29:12.136Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000034
+  },
+  "97fcb59a78318db31bd25a86bdb9ba7d3e97f3eadd8b871568c97ae718808fb1": {
+   "at": "2026-10-28T14:29:15.040Z",
+   "outcome": "parsed",
+   "ids": [],
+   "usd": 0.000443
+  },
+  "83b37cf219cc39a11ef0fffddbdd7bd23ed367f601e345c12386b65966b0ab1c": {
+   "at": "2026-10-28T14:29:12.811Z",
+   "outcome": "parsed",
+   "ids": [
+    "so-what-s-wrong-with-getting-reborn-as-a-goblin"
+   ],
+   "usd": 0.000445
+  },
+  "0866bd0ec16fba97dd5f330538ba3349ce2d5a49aa628d18e7cd1d97b2d63af4": {
+   "at": "2026-10-28T14:29:25.638Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000034
+  },
+  "884ccb74ae60aa27cf10c48153168d92a90bb12e5f2b83282bab46b319994b99": {
+   "at": "2026-10-28T14:29:26.626Z",
+   "outcome": "parsed",
+   "ids": [],
+   "usd": 0.000528
+  },
+  "18bb172558a4b8c7945d7a26ba080907e57f212458f37dc3aa745ebfe60a287e": {
+   "at": "2026-10-28T14:29:34.769Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000034
+  },
+  "05353908a7d79be31cc631a4e5586ad3c590e9bd458382943c3c64d4450684d1": {
+   "at": "2026-10-28T14:29:29.073Z",
+   "outcome": "parsed",
+   "ids": [],
+   "usd": 0.000563
+  },
+  "72d1f2edd9cd8d15fef66ab7db927ee19abbe88209420562f04694a2a833dffe": {
+   "at": "2026-10-28T14:29:37.860Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000034
+  },
+  "61ffd4a7aafc2e7d02b1779dd3900a2a5fbebadb40b40ddadce389138b3abf65": {
+   "at": "2026-10-28T14:29:03.711Z",
+   "outcome": "parsed",
+   "ids": [
+    "wan2gp"
+   ],
+   "usd": 0.004228
+  },
+  "fd37be542035da5d78a2af2613cb7cf09bf959bd169ef4207d58712cac1cdb6a": {
+   "at": "2026-10-28T14:29:39.822Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000034
+  },
+  "83d4d69ba4ffd6ef2c235673f7b979265066974c8b0b1a2ecedf0699a27067e8": {
+   "at": "2026-10-28T14:29:40.798Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000034
+  },
+  "3cff08555531c53109f04cd46b46601f6ad78111fd9210a6413e5c678f734619": {
+   "at": "2026-10-28T14:27:59.263Z",
+   "outcome": "parsed",
+   "ids": [
+    "perplexity",
+    "gpt",
+    "claude",
+    "gemini"
+   ],
+   "usd": 0.01195
+  },
+  "22bd6c74df25e0daa6663aee015b3fed4bcb4eb0e00d90aaf2adbe71daf6652e": {
+   "at": "2026-10-28T14:29:42.436Z",
+   "outcome": "parsed",
+   "ids": [
+    "dragon-academy",
+    "dragon-academy-ace",
+    "dragon-academy-3",
+    "dragon-quest-vii-reimagined",
+    "dragon-quest-viii-journey-of-the-cursed-king",
+    "dragon-quest-xi-echoes-of-an-elusive-age",
+    "(pending)",
+    "sengoku-rance",
+    "rance-vi-the-collapse-of-zeth"
+   ],
+   "usd": 0.00854
+  },
+  "4a3ba87e86bf42fba661e20ce1d5b3c38145952616fc50e61af1cd3ae378ccbf": {
+   "at": "2026-10-28T14:30:15.172Z",
+   "outcome": "parsed",
+   "ids": [
+    "magical-girl-celesphonia",
+    "enishia-and-the-binding-brand",
+    "unlimited-saga",
+    "romancing-saga-3",
+    "the-last-remnant",
+    "persona-5-royal"
+   ],
+   "usd": 0.000646
+  },
+  "710cdfb3170e0a51758bfdc9bef0b6d53511fc825dad97b94989f53978c58e45": {
+   "at": "2026-10-28T14:30:28.823Z",
+   "outcome": "parsed",
+   "ids": [
+    "lelie-navigation",
+    "into-the-nightmare",
+    "phantasy-star-iv",
+    "magical-girl-celesphonia",
+    "and-the-hero-was-never-seen-again"
+   ],
+   "usd": 0.000595
+  },
+  "94f126f6c32596bd1b3db94468e598c95e987bdc872f7c2151b4c0dd847e8af7": {
+   "at": "2026-10-28T14:29:43.547Z",
+   "outcome": "parsed",
+   "ids": [
+    "dragon-quest-vii-reimagined",
+    "chrono-trigger",
+    "xenoblade-chronicles",
+    "the-last-sovereign",
+    "(pending)",
+    "black-souls",
+    "monster-girl-quest-paradox",
+    "borderlands-the-pre-sequel"
+   ],
+   "usd": 0.000773
+  },
+  "287af73d1e6f441d2bafbff27bf6e69bd7bdb056120de952f15793620ee38c69": {
+   "at": "2026-10-28T14:29:44.579Z",
+   "outcome": "parsed",
+   "ids": [
+    "evenicle",
+    "the-last-sovereign",
+    "sengoku-rance",
+    "demon-s-roots",
+    "black-souls",
+    "kamidori-alchemy-meister",
+    "wayblazer-dammerung"
+   ],
+   "usd": 0.002862
+  },
+  "0924faa11072f7abfa5f36fe17559330395037e92fa9a65ba4ef0dbe2488dd0e": {
+   "at": "2026-10-28T14:29:49.991Z",
+   "outcome": "parsed",
+   "ids": [
+    "sengoku-rance",
+    "dohna-dohna",
+    "wonderful-everyday",
+    "muv-luv",
+    "muv-luv-alternative",
+    "karryn-s-prison",
+    "sakura-gozen",
+    "sol-rui",
+    "dragon-conqueror",
+    "unholy-maiden",
+    "war-demon-kirsten",
+    "monster-girl-quest"
+   ],
+   "usd": 0.004217
+  },
+  "44b37018a500c0f0bdedf769e2482dba01bc27b897ff902d1fa0c08d246fc7f9": {
+   "at": "2026-10-28T14:31:02.417Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000034
+  },
+  "ac52f69a0db784f2e6de004e2fe36040db76d5ad90e36fd29fa0ef9c00ecae13": {
+   "at": "2026-10-28T14:31:06.579Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000034
+  },
+  "0f97c8721b5ca9a97a587ef8f1b41f83fdcb05034c489d667c679c44357223b1": {
+   "at": "2026-10-28T14:31:06.805Z",
+   "outcome": "no-titles",
+   "ids": [],
+   "usd": 0.00041
+  },
+  "f7de11ef09dd65bed769a59331bfd9066aeb399ecf2ebca1aff5e5712c239360": {
+   "at": "2026-10-28T14:31:10.128Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000034
+  },
+  "847c87a6b046530f19164bf858407083dac667b4584d13fecc56a36b484d3c3a": {
+   "at": "2026-10-28T14:31:12.411Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000034
+  },
+  "44870a74899671cd88d63195c47d45eeb9435bb24f2c392443a7458e4ca4fe4d": {
+   "at": "2026-10-28T14:31:03.445Z",
+   "outcome": "parsed",
+   "ids": [
+    "fallout-4",
+    "command-override"
+   ],
+   "usd": 0.000482
+  },
+  "0a1d001b424a2406f2d529c1eb89c1d0c61642f65a4b9157b903e47948949f4f": {
+   "at": "2026-10-28T14:30:46.623Z",
+   "outcome": "parsed",
+   "ids": [
+    "yes-my-lord",
+    "once-ever-after",
+    "false-myth",
+    "price-for-the-freedom",
+    "senran-kagura-estival-versus",
+    "do-disciplinary-committee-members-dream-of-succubi"
+   ],
+   "usd": 0.002889
   }
  },
  "dismissed": [
@@ -3835,10 +4161,10 @@
   "screen:top-mecha-girl-assassin"
  ],
  "totals": {
-  "shots": 497,
-  "media": 238,
-  "added": 245,
-  "inbox": 141,
-  "usd": 0.97012
+  "shots": 537,
+  "media": 258,
+  "added": 261,
+  "inbox": 172,
+  "usd": 1.032522
  }
 }
