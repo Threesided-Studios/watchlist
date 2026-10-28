@@ -183,6 +183,7 @@ body {
 
 .actions {
   display: flex;
+  flex-wrap: wrap;
   gap: 8px;
   margin-left: auto;
   align-items: stretch;
@@ -203,6 +204,8 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  min-width: 0;
+  white-space: nowrap;
   transition: background .2s var(--ease), border-color .2s var(--ease), transform .15s var(--ease), color .2s var(--ease);
 }
 .btn:hover { background: var(--surface-2); border-color: var(--muted); }
@@ -267,6 +270,7 @@ body {
   position: relative;
   display: flex;
   flex-direction: column;
+  min-width: 0;
   background: transparent;
   transition: transform .35s var(--ease);
   isolation: isolate;
@@ -423,6 +427,7 @@ body[data-owner="true"] .card:active { cursor: grabbing; }
   font-variation-settings: "opsz" 60, "SOFT" 50;
   font-size: 15px;
   color: rgba(255,255,255,0.75);
+  overflow-wrap: anywhere;
   text-align: center;
   padding: 0 16px;
   line-height: 1.25;
@@ -604,6 +609,7 @@ body[data-owner="false"][data-voting="on"] .gvote {
   outline: none;
   flex: 1;
   min-width: 0;
+  overflow-wrap: anywhere;
 }
 .title:focus { color: var(--accent); }
 .year {
@@ -865,6 +871,8 @@ body[data-owner="false"][data-voting="on"] .gvote {
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-hover);
   width: min(440px, 100%);
+  max-height: calc(100dvh - 40px);
+  overflow-y: auto;
   padding: 24px;
   display: flex; flex-direction: column; gap: 12px;
 }
@@ -893,7 +901,8 @@ body[data-owner="false"][data-voting="on"] .gvote {
   text-transform: uppercase;
   color: var(--muted);
   display: flex;
-  gap: 12px;
+  flex-wrap: wrap;
+  gap: 6px 12px;
   align-items: center;
 }
 .count { color: var(--text); }
@@ -1070,7 +1079,7 @@ body[data-owner="false"][data-voting="on"] .gvote {
 body[data-owner="true"] .inbox-unlock { display: none; }
 body[data-view="inbox"] .gvote, body[data-view="inbox"] .verdict { display: none !important; }
 .review-actions { display: flex; gap: 10px; }
-.review-actions .btn { flex: 1; min-height: 48px; font-size: 1rem; letter-spacing: 0.04em; }
+.review-actions .btn { flex: 1 1 0; min-height: 48px; padding: 0 10px; justify-content: center; font-size: 0.95rem; letter-spacing: 0.04em; }
 @media (max-width: 600px) {
   .review-actions .btn { min-height: 52px; }
   .inbox-banner { margin: 0 0 20px; }
@@ -1089,4 +1098,138 @@ body {
 }
 @media (display-mode: standalone) {
   html, body { overscroll-behavior-y: none; }
+}
+
+/* ================================================================
+   PHONE LAYOUT (360-430px first; applies up to 600px)
+   Causes fixed here, not masked:
+   - owner action row (Surprise/Add/Export/Import/Owner) was one
+     non-wrapping 517px row -> now a 3-up button grid
+   - inbox Keep/Dismiss buttons were wider than a 2-up card -> inbox
+     is a one-column list with a thumbnail and full-width buttons
+   - collapsed sections used margin-left:-18px with a 16px gutter
+   - 14px inputs made iOS Safari zoom on focus, which then let the
+     page pan sideways -> 16px inputs
+   - the sticky header took ~half the screen -> scrolls away on phones
+   ================================================================ */
+@media (max-width: 600px) {
+  .topbar {
+    position: relative;
+    gap: 14px;
+    padding-top: calc(18px + env(safe-area-inset-top, 0px));
+    padding-bottom: 16px;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
+  .brand { gap: 10px 10px; align-items: center; }
+  .brand h1 { font-size: 34px; }
+  .brand-mark { transform: none; }
+
+  /* list tabs: a 4-up grid of real tap targets, never wider than the screen */
+  .pagenav {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 6px;
+    margin-left: 0;
+    width: 100%;
+  }
+  .pagenav a {
+    display: flex; align-items: center; justify-content: center;
+    min-height: 40px; min-width: 0;
+    padding: 0 4px;
+    font-size: 10px; letter-spacing: 0.06em;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    text-align: center;
+  }
+  .pagenav a .nav-badge { margin-left: 3px; padding: 0 4px; }
+
+  /* filters: search full width, the selects share one row */
+  .controls { gap: 8px; }
+  .field { padding: 6px 10px; min-width: 0; }
+  .field-search { flex: 1 1 100%; min-width: 0; }
+  .controls > .field:not(.field-search) { flex: 1 1 0; }
+  .field input, .field select { font-size: 16px; }   /* no iOS focus zoom */
+  .field select { text-overflow: ellipsis; }
+
+  .actions {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    width: 100%;
+    margin-left: 0;
+  }
+  .actions .btn {
+    justify-content: center;
+    padding: 0 8px;
+    letter-spacing: 0.08em;
+    overflow: hidden;
+  }
+  .modal-card input, .modal-card textarea { font-size: 16px; }
+
+  /* cover grid: two even columns, a little tighter 3D so nothing pokes out */
+  .grid { padding: 20px 16px 56px; gap: 26px; }
+  .section-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 26px 16px;
+  }
+  .card { contain-intrinsic-size: 160px 400px; }
+  .obj { transform: rotateY(-16deg); }
+  .card { --thick: 18px; }
+  .card[data-type="movie"] { --thick: 24px; }
+  .card[data-type="show"]  { --thick: 28px; }
+  .card[data-type="game"]  { --thick: 30px; }
+  .card[data-type="book"]  { --thick: 34px; }
+  .meta { padding: 12px 2px 2px; }
+  .meta-head { flex-wrap: wrap; gap: 2px 8px; }
+  .card .status { font-size: 10px; min-height: 36px; }
+  .meta-link { width: 36px; height: 36px; font-size: 14px; }
+  .chip { padding: 5px 9px; }
+  .summary > summary { padding: 6px 0; }
+
+  /* section accents: stay inside the gutter */
+  .type-section[data-seen="loved"],
+  .type-section[data-seen="played"],
+  .type-section[data-seen="rec"] { margin-left: -10px; padding-left: 8px; }
+  .section-head { flex-wrap: wrap; }
+
+  .intro { margin-top: 18px; padding: 0 16px; }
+  .intro-body { padding: 16px 44px 16px 16px; }
+  .intro-list { flex-direction: column; }
+
+  /* inbox: one card per row, cover thumbnail beside the details */
+  .type-section[data-seen="inbox"] .section-grid { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+  .type-section[data-seen="inbox"] .card {
+    display: grid;
+    grid-template-columns: 104px minmax(0, 1fr);
+    gap: 0 14px;
+    align-items: start;
+    padding: 12px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+  }
+  .type-section[data-seen="inbox"] .obj { transform: none; }
+  .type-section[data-seen="inbox"] .stage::after,
+  .type-section[data-seen="inbox"] .spine,
+  .type-section[data-seen="inbox"] .edge-top { display: none; }
+  .type-section[data-seen="inbox"] .poster { transform: none; }
+  .type-section[data-seen="inbox"] .meta { padding: 0; }
+  .type-section[data-seen="inbox"] .placeholder-glyph { font-size: 28px; }
+  .type-section[data-seen="inbox"] .placeholder-title { font-size: 12px; padding: 0 6px; }
+  .type-section[data-seen="inbox"] .review-bar { grid-column: 1 / -1; }
+  .inbox-intro { margin-bottom: 20px; }
+  .inbox-upload { width: 100%; justify-content: center; }
+
+  .modal { padding: 12px; align-items: flex-end; }
+  .modal-card { padding: 18px; max-height: calc(100dvh - 24px); }
+  .modal-actions .btn { flex: 1 1 0; justify-content: center; }
+  .surprise-pick img { width: 96px; }
+  .surprise-title { font-size: 19px; }
+
+  .footer { padding-left: 16px; padding-right: 16px; }
+}
+@media (max-width: 370px) {
+  .pagenav a { font-size: 9px; letter-spacing: 0.02em; }
+  .actions .btn { letter-spacing: 0.04em; font-size: 10px; }
+  .section-grid { gap: 22px 12px; }
 }

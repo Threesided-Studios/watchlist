@@ -366,7 +366,7 @@ function renderInbox(q) {
     const sec = buildSection('Needs a look', pending, { seen: 'inbox', glyph: '🔎' });
     for (const node of sec.querySelectorAll('.card')) {
       const it = items.find(x => x.id === node.dataset.id);
-      if (it) $('.meta', node)?.appendChild(reviewBar(it, node)) || node.appendChild(reviewBar(it, node));
+      if (it) node.appendChild(reviewBar(it, node));
     }
     grid.appendChild(sec);
   }
