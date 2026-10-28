@@ -4104,6 +4104,109 @@
     "do-disciplinary-committee-members-dream-of-succubi"
    ],
    "usd": 0.002889
+  },
+  "575d0a3a3300078181b490e776dc927a49170ecbdcbdc827a5128fc417d4e2d5": {
+   "at": "2026-10-28T19:51:05.140Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000034
+  },
+  "42e1dc546802ec58b3d718a5ed2ad7b47986b026f8c781e9f85935c70f8cb1ff": {
+   "at": "2026-10-28T19:51:04.841Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000034
+  },
+  "b6df19973c7ff7e49a59d2c59de9f297791e85cbeaf21ad19ed51df1a528fe4d": {
+   "at": "2026-10-28T19:51:07.625Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000034
+  },
+  "f56806895ce9c54379d1976e380b605c76529cc1ac2739452acf43ffc25624e8": {
+   "at": "2026-10-28T19:51:04.815Z",
+   "outcome": "parsed",
+   "ids": [
+    "into-the-blue",
+    "sicario",
+    "beyond-the-reach",
+    "crossing-point",
+    "fear-the-night",
+    "deception",
+    "operation-endgame",
+    "the-bourne-identity",
+    "the-bourne-supremacy",
+    "the-bourne-ultimatum",
+    "the-bourne-legacy",
+    "jason-bourne",
+    "the-last-samurai",
+    "warhorse-one",
+    "warfare",
+    "the-covenant",
+    "wind-river",
+    "sisu",
+    "sisu-2",
+    "apex",
+    "land-of-bad",
+    "the-jackal",
+    "last-seen-alive",
+    "killer-elite",
+    "max"
+   ],
+   "usd": 0.002385
+  },
+  "1c7413f375479d8d870dd946d2e32aa95b7962f3d3b694e65542dad1bdf27a14": {
+   "at": "2026-10-28T19:51:04.780Z",
+   "outcome": "parsed",
+   "ids": [
+    "john-wick",
+    "death-sentence",
+    "death-wish",
+    "die-hard",
+    "gladiator",
+    "apocalypto",
+    "taken",
+    "the-punisher",
+    "the-beekeeper",
+    "parker",
+    "homefront",
+    "six-bullets",
+    "the-marksman",
+    "acts-of-violence",
+    "the-prince",
+    "i-am-wrath",
+    "nobody",
+    "four-brothers",
+    "the-cold-light-of-day",
+    "hard-target",
+    "in-a-valley-of-violence",
+    "frantic",
+    "the-fugitive",
+    "the-rundown",
+    "walking-tall"
+   ],
+   "usd": 0.003962
+  },
+  "28c0ec945ade516495525dfec0f92694b7811d38f3cb8cad3fb7ad518cea5a1f": {
+   "at": "2026-10-28T19:51:07.770Z",
+   "outcome": "parsed",
+   "ids": [
+    "final-fantasy-resonance",
+    "brave-exvius",
+    "demons-night-fever",
+    "every-day-we-fight",
+    "the-killing-stone",
+    "back-to-the-dawn",
+    "warrior-cats-clans-of-the-forest",
+    "ward-off-evil",
+    "dungeon-inn",
+    "billy-the-hero",
+    "fear-tall-grass",
+    "dandelion-void",
+    "hammer-of-the-gods-classic",
+    "tactical-squad"
+   ],
+   "usd": 0.000929
   }
  },
  "dismissed": [
@@ -4161,10 +4264,10 @@
   "screen:top-mecha-girl-assassin"
  ],
  "totals": {
-  "shots": 537,
-  "media": 258,
-  "added": 261,
+  "shots": 543,
+  "media": 261,
+  "added": 318,
   "inbox": 172,
-  "usd": 1.032522
+  "usd": 1.0399
  }
 }
