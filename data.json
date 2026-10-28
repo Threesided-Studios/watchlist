@@ -2332,7 +2332,8 @@
     "rating": null,
     "notes": "",
     "added": "2026-06-04",
-    "summary": "Discworld Noir drops hard-boiled detective Lewton into Terry Pratchett's flat-earth fantasy universe, investigating a mysterious femme fatale while navigating gods, golems, and organised crime. A loving fusion of Pratchett's satirical world-building with classic noir adventure game conventions."
+    "summary": "Discworld Noir drops hard-boiled detective Lewton into Terry Pratchett's flat-earth fantasy universe, investigating a mysterious femme fatale while navigating gods, golems, and organised crime. A loving fusion of Pratchett's satirical world-building with classic noir adventure game conventions.",
+    "art_via": "Wikipedia"
   },
   {
     "id": "radioactive-dreams",
@@ -15023,7 +15024,7 @@
     "year": 1995,
     "blurb": "Classic point-and-click adventure based on Terry Pratchett's Discworld novels, starring the Grim Reaper and Rincewind.",
     "poster": "posters/discworld-2.jpg",
-    "link": "",
+    "link": "https://en.wikipedia.org/wiki/Discworld_(video_game)",
     "source_screenshot": "IMG_0722.PNG",
     "ocr_excerpt": "",
     "confidence": 3,
@@ -15039,7 +15040,8 @@
     "added": "2026-06-04",
     "recovered": true,
     "source": "reddit",
-    "summary": "The second point-and-click adventure based on Terry Pratchett's Discworld novels, following the hapless wizard Rincewind as he is tasked with persuading Death to return to work after the Grim Reaper inexplicably goes on holiday. Eric Idle provides Rincewind's voice in a game crammed with Pratchett's wit, satirical invention, and aggressively obtuse puzzle design. It is a faithful extension of the Discworld universe's comedic sensibility."
+    "summary": "The second point-and-click adventure based on Terry Pratchett's Discworld novels, following the hapless wizard Rincewind as he is tasked with persuading Death to return to work after the Grim Reaper inexplicably goes on holiday. Eric Idle provides Rincewind's voice in a game crammed with Pratchett's wit, satirical invention, and aggressively obtuse puzzle design. It is a faithful extension of the Discworld universe's comedic sensibility.",
+    "art_via": "Wikipedia"
   },
   {
     "id": "deliver-us-from-evil",
@@ -56665,7 +56667,8 @@
     "ai_confidence": 0.9,
     "enriched_via": "Homebrew",
     "screenshot": "95b682278c97",
-    "match_ok": true
+    "match_ok": true,
+    "art_via": "App Store"
   },
   {
     "id": "obsidian",
@@ -57592,7 +57595,8 @@
     "ai_confidence": 0.9,
     "enriched_via": "Homebrew",
     "screenshot": "9b86ef5cad1a",
-    "match_ok": true
+    "match_ok": true,
+    "art_via": "official site"
   },
   {
     "id": "betterdisplay",
@@ -57616,7 +57620,8 @@
     "ai_confidence": 0.9,
     "enriched_via": "Homebrew",
     "screenshot": "9b86ef5cad1a",
-    "match_ok": true
+    "match_ok": true,
+    "art_via": "official site"
   },
   {
     "id": "updatest",
@@ -57640,7 +57645,8 @@
     "ai_confidence": 0.8,
     "enriched_via": "Homebrew",
     "screenshot": "9b86ef5cad1a",
-    "match_ok": true
+    "match_ok": true,
+    "art_via": "official site"
   },
   {
     "id": "codexbar",
@@ -58833,7 +58839,7 @@
     "enriched_via": "",
     "screenshot": "bfb4e5e8334b",
     "match_ok": false,
-    "art_via": "official site"
+    "art_via": "App Store"
   },
   {
     "id": "fishaudio",
@@ -58859,7 +58865,7 @@
     "enriched_via": "",
     "screenshot": "bfb4e5e8334b",
     "match_ok": false,
-    "art_via": "official site"
+    "art_via": "App Store"
   },
   {
     "id": "toxic-a-fairy-tale-for-grown-ups",
@@ -58875,37 +58881,13 @@
       "action"
     ],
     "rating": null,
-    "notes": "",
+    "notes": "\"Ladies & Ladies\" promo teaser screenshot merged here.",
     "added": "2026-10-10",
     "source": "screenshot",
     "source_context": "Google image search results — Mentioned as the Indian action movie with the scene shown",
     "recommended_by": "",
     "ai_confidence": 0.9,
     "enriched_via": "Wikipedia",
-    "screenshot": "680cb8ea8b2a",
-    "match_ok": false
-  },
-  {
-    "id": "ladies-and-ladies",
-    "title": "Ladies & Ladies",
-    "type": "movie",
-    "year": null,
-    "blurb": "",
-    "summary": "",
-    "poster": "",
-    "link": "",
-    "status": "inbox",
-    "tags": [
-      "action"
-    ],
-    "rating": null,
-    "notes": "",
-    "added": "2026-10-10",
-    "source": "screenshot",
-    "source_context": "Google image search results — Mentioned as the controversial advance scene in the movie",
-    "recommended_by": "",
-    "ai_confidence": 0.8,
-    "enriched_via": "",
     "screenshot": "680cb8ea8b2a",
     "match_ok": false
   },
@@ -59376,32 +59358,6 @@
     "tmdb_id": 253811
   },
   {
-    "id": "this-ordinary-monk-turns-out-to-be-a-kung-fu-master",
-    "title": "This Ordinary Monk Turns Out to Be a Kung Fu Master!",
-    "type": "movie",
-    "year": null,
-    "blurb": "",
-    "summary": "",
-    "poster": "",
-    "link": "",
-    "status": "inbox",
-    "tags": [
-      "action",
-      "drama",
-      "martial arts"
-    ],
-    "rating": null,
-    "notes": "",
-    "added": "2026-10-10",
-    "source": "screenshot",
-    "source_context": "social media post by 古风甜偶录 — FULL MOVIE post with hashtags indicating Chinese drama",
-    "recommended_by": "古风甜偶录",
-    "ai_confidence": 0.9,
-    "enriched_via": "",
-    "screenshot": "63fbf5b84a54",
-    "match_ok": false
-  },
-  {
     "id": "false-memory",
     "title": "False memory",
     "type": "show",
@@ -59456,32 +59412,6 @@
     "tmdb_id": 872614
   },
   {
-    "id": "powerless-beggar-is-actually-a-supreme-master-no-one-in-the-martial-world-can-defeat-him",
-    "title": "Powerless Beggar Is Actually a Supreme Master—No One in the Martial World Can Defeat Him!",
-    "type": "movie",
-    "year": null,
-    "blurb": "",
-    "summary": "",
-    "poster": "",
-    "link": "",
-    "status": "inbox",
-    "tags": [
-      "martial arts",
-      "action",
-      "drama"
-    ],
-    "rating": null,
-    "notes": "",
-    "added": "2026-10-10",
-    "source": "screenshot",
-    "source_context": "InDrama TikTok post — Full movie shared in post",
-    "recommended_by": "InDrama",
-    "ai_confidence": 0.9,
-    "enriched_via": "",
-    "screenshot": "3b1ab268cd7c",
-    "match_ok": false
-  },
-  {
     "id": "the-young-swordsman",
     "title": "The Young Swordsman",
     "type": "movie",
@@ -59507,32 +59437,6 @@
     "screenshot": "3b1ab268cd7c",
     "match_ok": true,
     "tmdb_id": 761196
-  },
-  {
-    "id": "top-mecha-girl-assassin",
-    "title": "Top Mecha Girl Assassin",
-    "type": "movie",
-    "year": null,
-    "blurb": "",
-    "summary": "",
-    "poster": "",
-    "link": "",
-    "status": "inbox",
-    "tags": [
-      "action",
-      "drama",
-      "sci-fi"
-    ],
-    "rating": null,
-    "notes": "",
-    "added": "2026-10-10",
-    "source": "screenshot",
-    "source_context": "TikTok video post — FULL MOVIE in post text",
-    "recommended_by": "",
-    "ai_confidence": 0.9,
-    "enriched_via": "",
-    "match_ok": false,
-    "screenshot": "d316d4ba59a3"
   },
   {
     "id": "i-was-reincarnated-as-the-7th-prince-so-i-can-take-my-time-perfecting-my-magical-ability",
@@ -60452,7 +60356,7 @@
       "adventure"
     ],
     "rating": null,
-    "notes": "",
+    "notes": "\"Dungeon Century\" (in-story game) screenshot merged here. \"Grave Buster\" (in-story game) screenshot merged here.",
     "added": "2026-10-10",
     "source": "screenshot",
     "source_context": "Instagram post by shunchronovoid — Anime summary and details",
@@ -60490,31 +60394,6 @@
     "match_ok": true,
     "screenshot": "4a28b42df022",
     "tmdb_id": 18
-  },
-  {
-    "id": "dungeon-century",
-    "title": "Dungeon Century",
-    "type": "game",
-    "year": null,
-    "blurb": "",
-    "summary": "",
-    "poster": "",
-    "link": "",
-    "status": "inbox",
-    "tags": [
-      "game",
-      "MMORPG"
-    ],
-    "rating": null,
-    "notes": "",
-    "added": "2026-10-10",
-    "source": "screenshot",
-    "source_context": "Instagram post by shunchronovoid — Mentioned as Suigin's favorite MMORPG",
-    "recommended_by": "shunchronovoid",
-    "ai_confidence": 0.8,
-    "enriched_via": "",
-    "match_ok": false,
-    "screenshot": "553a3f49003b"
   },
   {
     "id": "cyberpunk",
@@ -60568,31 +60447,6 @@
     "match_ok": true,
     "screenshot": "4a28b42df022",
     "tmdb_id": 9886
-  },
-  {
-    "id": "grave-buster",
-    "title": "Grave Buster",
-    "type": "game",
-    "year": null,
-    "blurb": "",
-    "summary": "",
-    "poster": "",
-    "link": "",
-    "status": "inbox",
-    "tags": [
-      "game",
-      "adventure"
-    ],
-    "rating": null,
-    "notes": "",
-    "added": "2026-10-10",
-    "source": "screenshot",
-    "source_context": "Instagram post by shunchronovoid — Mentioned as a mysterious tomb-raiding game in the story",
-    "recommended_by": "shunchronovoid",
-    "ai_confidence": 0.9,
-    "enriched_via": "",
-    "match_ok": false,
-    "screenshot": "553a3f49003b"
   },
   {
     "id": "tetsuo-the-iron-man",
@@ -64716,56 +64570,6 @@
     "same_title_works": 2
   },
   {
-    "id": "my-birthday-party-was-cancelled-so-now-i-will-murder-all-my-friends-who-did-not-attend-even-though-they-couldn-t-have-because-it-was-cancelled",
-    "title": "My Birthday Party Was Cancelled So Now I Will Murder All My Friends Who Did Not Attend, Even Though They Couldn't Have, Because It Was Cancelled",
-    "type": "book",
-    "year": null,
-    "blurb": "",
-    "summary": "",
-    "poster": "",
-    "link": "",
-    "status": "inbox",
-    "tags": [
-      "dark comedy",
-      "thriller"
-    ],
-    "rating": null,
-    "notes": "",
-    "added": "2026-10-17",
-    "source": "screenshot",
-    "source_context": "Instagram post by itstheheyman — main text on image, likely a book or story title",
-    "recommended_by": "itstheheyman",
-    "ai_confidence": 0.9,
-    "enriched_via": "",
-    "match_ok": false,
-    "screenshot": "baf182d0ec2f"
-  },
-  {
-    "id": "sushi-pants-waterfall",
-    "title": "Sushi Pants Waterfall",
-    "type": "book",
-    "year": null,
-    "blurb": "",
-    "summary": "",
-    "poster": "",
-    "link": "",
-    "status": "inbox",
-    "tags": [
-      "humor",
-      "comic"
-    ],
-    "rating": null,
-    "notes": "",
-    "added": "2026-10-17",
-    "source": "screenshot",
-    "source_context": "Instagram post by itstheheyman — featured in the image text",
-    "recommended_by": "itstheheyman",
-    "ai_confidence": 0.8,
-    "enriched_via": "",
-    "match_ok": false,
-    "screenshot": "7cf1ea9bf6db"
-  },
-  {
     "id": "the-monarch-money-killer",
     "title": "The Monarch Money killer.",
     "type": "software",
@@ -64819,29 +64623,31 @@
   },
   {
     "id": "my-new-stepsister-is-the-most-popular-girl-in-school",
-    "title": "My New Stepsister is the Most Popular Girl in School!",
+    "title": "Days with My Stepsister",
     "type": "show",
-    "year": null,
+    "year": 2024,
     "blurb": "",
     "summary": "",
-    "poster": "",
-    "link": "",
-    "status": "inbox",
+    "poster": "posters/my-new-stepsister-is-the-most-popular-girl-in-school.jpg",
+    "link": "https://anilist.co/anime/152681",
+    "status": "todo",
     "tags": [
       "Anime",
-      "romance",
-      "slice of life"
+      "Romance",
+      "Slice of Life"
     ],
     "rating": null,
-    "notes": "No art found on AniList, Kitsu, MAL or Open Library under this title. It may be an English fan title. Needs the official name.",
+    "notes": "Matched fan title to AniList 152681 / MAL 52481 (TV, 12 eps, 2024).",
     "added": "2026-10-17",
     "source": "screenshot",
     "source_context": "TikTok post by missanime0227 — described in post text",
     "recommended_by": "missanime0227",
     "ai_confidence": 0.95,
     "enriched_via": "",
-    "match_ok": false,
-    "screenshot": "7b93da4795ef"
+    "match_ok": true,
+    "screenshot": "7b93da4795ef",
+    "aka": "Gimai Seikatsu (義妹生活); My New Stepsister is the Most Popular Girl in School!",
+    "art_via": "AniList"
   },
   {
     "id": "cold-iron",
@@ -65325,30 +65131,6 @@
     "match_ok": false,
     "screenshot": "bc330ec446f0",
     "author": "Hilary Mantel"
-  },
-  {
-    "id": "i-m-just-a-b-tch-that-way",
-    "title": "I'm Just a B*tch That Way!",
-    "type": "book",
-    "year": null,
-    "blurb": "",
-    "summary": "",
-    "poster": "",
-    "link": "",
-    "status": "inbox",
-    "tags": [
-      "dark comedy"
-    ],
-    "rating": null,
-    "notes": "",
-    "added": "2026-10-17",
-    "source": "screenshot",
-    "source_context": "Instagram post by itstheheyman — subtitle or tagline on image",
-    "recommended_by": "itstheheyman",
-    "ai_confidence": 0.8,
-    "enriched_via": "",
-    "match_ok": false,
-    "screenshot": "baf182d0ec2f"
   },
   {
     "id": "return-of-the-runebound-professor",
