@@ -4213,6 +4213,46 @@
    "outcome": "not-media",
    "ids": [],
    "usd": 0.000034
+  },
+  "a0acafb720fc8e3a3cb7db9f9c73742c1edbd3546793a75e87c81614b233489c": {
+   "at": "2026-10-29T13:40:44.717Z",
+   "outcome": "parsed",
+   "ids": [
+    "berserk-of-gluttony"
+   ],
+   "usd": 0.000445
+  },
+  "22c2c578db5154f369ca10fb00b305cc9c8e9265e452403fb9ec424f39d77665": {
+   "at": "2026-10-29T13:40:44.632Z",
+   "outcome": "parsed",
+   "ids": [
+    "i-left-my-a-rank-party-to-help-my-former-students-reach-the-dungeon-depths"
+   ],
+   "usd": 0.000453
+  },
+  "f68eba5a1b4bac979ed08e041180f821f20b7744e0828ef81152e44318bd8f10": {
+   "at": "2026-10-29T13:40:44.595Z",
+   "outcome": "parsed",
+   "ids": [
+    "hunter-x-hunter"
+   ],
+   "usd": 0.000525
+  },
+  "3a380c34554fdad0d55cfc2be469a0122e1215cee82b52dd54e0d32c48303843": {
+   "at": "2026-10-29T13:40:52.730Z",
+   "outcome": "parsed",
+   "ids": [
+    "tsukimichi-moonlit-fantasy"
+   ],
+   "usd": 0.000443
+  },
+  "754f4fcc356cf6d72804025bf7c077963cc766006d9e4d3d0ab8a79966d3e369": {
+   "at": "2026-10-29T13:40:44.447Z",
+   "outcome": "parsed",
+   "ids": [
+    "creatly"
+   ],
+   "usd": 0.003893
   }
  },
  "dismissed": [
@@ -4270,10 +4310,10 @@
   "screen:top-mecha-girl-assassin"
  ],
  "totals": {
-  "shots": 544,
-  "media": 261,
-  "added": 318,
-  "inbox": 172,
-  "usd": 1.039934
+  "shots": 549,
+  "media": 266,
+  "added": 319,
+  "inbox": 173,
+  "usd": 1.045693
  }
 }
