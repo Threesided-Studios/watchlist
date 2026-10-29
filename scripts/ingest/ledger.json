@@ -4207,6 +4207,12 @@
     "tactical-squad"
    ],
    "usd": 0.000929
+  },
+  "e1646d70a5d4a32878e724e3a09e671e47662b46897781a96cd33dc4983b0686": {
+   "at": "2026-10-29T00:22:11.374Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000034
   }
  },
  "dismissed": [
@@ -4264,10 +4270,10 @@
   "screen:top-mecha-girl-assassin"
  ],
  "totals": {
-  "shots": 543,
+  "shots": 544,
   "media": 261,
   "added": 318,
   "inbox": 172,
-  "usd": 1.0399
+  "usd": 1.039934
  }
 }
