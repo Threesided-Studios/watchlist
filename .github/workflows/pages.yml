@@ -1,0 +1,86 @@
+name: Deploy site
+
+# Replaces GitHub's built-in "pages build and deployment", which uploaded the
+# whole repo (~215 MB) as a github-pages artifact on every push and filled the
+# org's Actions artifact storage. This uploads only the files the site serves,
+# keeps the artifact for 1 day, and deletes it as soon as the deploy finishes.
+on:
+  push:
+    branches: [main]
+  # Bot commits pushed with GITHUB_TOKEN don't fire `push`, so also deploy
+  # after the jobs that commit new titles.
+  workflow_run:
+    workflows: ["Screenshot ingest", "Airtable pull (2-way)"]
+    types: [completed]
+    branches: [main]
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+  actions: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      changed: ${{ steps.check.outputs.changed }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Skip if the triggering run committed nothing
+        id: check
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_run" ] && \
+             [ "$(git rev-parse HEAD)" = "${{ github.event.workflow_run.head_sha }}" ]; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No new commit on main; nothing to deploy."
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Stage site files only
+        if: steps.check.outputs.changed == 'true'
+        run: |
+          mkdir -p _site
+          rsync -a ./ _site/ \
+            --exclude '.git' --exclude '.github' --exclude '_site' \
+            --exclude 'scripts' --exclude 'pipeline' --exclude 'docs' \
+            --exclude 'worker' --exclude 'ingest-worker' \
+            --exclude 'node_modules' --exclude 'README.md' --exclude '.gitignore'
+          touch _site/.nojekyll
+          du -sh _site
+      - uses: actions/upload-pages-artifact@v3
+        if: steps.check.outputs.changed == 'true'
+        with:
+          path: _site
+          retention-days: 1
+
+  deploy:
+    needs: build
+    if: needs.build.outputs.changed == 'true'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
+
+  cleanup:
+    needs: [build, deploy]
+    if: needs.deploy.result == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Delete this run's github-pages artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          for id in $(gh api "repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts" -q '.artifacts[].id'); do
+            gh api -X DELETE "repos/${{ github.repository }}/actions/artifacts/$id" && echo "deleted artifact $id"
+          done
