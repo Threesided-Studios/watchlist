@@ -4293,6 +4293,65 @@
     "purple-forbidden-onekobou"
    ],
    "usd": 0.002337
+  },
+  "a85a44481d3cad27ab0a02eaddfe8e323a38f624cc5d18e10e6003a9b89cc4d8": {
+   "at": "2026-10-30T10:26:14.858Z",
+   "outcome": "parsed",
+   "ids": [
+    "darling-in-the-franxx"
+   ],
+   "usd": 0.000444
+  },
+  "e02c145176585403a484c5c488eaf23e0cd6dc574826c6e449e038a2f397d183": {
+   "at": "2026-10-30T10:26:14.816Z",
+   "outcome": "parsed",
+   "ids": [
+    "2-5-dimensional-seduction"
+   ],
+   "usd": 0.000448
+  },
+  "2b2e5fb8b77d9ff2451d8eff97999af82be552eb37d6aaccecad149948a8274f": {
+   "at": "2026-10-30T10:26:14.836Z",
+   "outcome": "parsed",
+   "ids": [
+    "outbreak-company"
+   ],
+   "usd": 0.000443
+  },
+  "b7fb2a5fcc9e54e4fc0a87e77fa856623b1aab43590b5eeeac28287d1a007a3c": {
+   "at": "2026-10-30T10:26:14.875Z",
+   "outcome": "parsed",
+   "ids": [
+    "the-world-s-strongest-witch"
+   ],
+   "usd": 0.000451
+  },
+  "f0aa13fef2e22bbe3a7c88faf4db4f1356985e9eff760c7056bf8e65e6afb7f3": {
+   "at": "2026-10-30T10:26:19.930Z",
+   "outcome": "parsed",
+   "ids": [
+    "summoned-to-another-world-for-a-second-time"
+   ],
+   "usd": 0.000451
+  },
+  "d26e5ac34a4deb964815980b0d6d3c1a9cb80f5596f4ac9cdef29b03f5244f54": {
+   "at": "2026-10-30T10:26:20.076Z",
+   "outcome": "parsed",
+   "ids": [
+    "zetman",
+    "parasyte",
+    "tokyo-ghoul"
+   ],
+   "usd": 0.000523
+  },
+  "590ffa6561cdc6b86f632e91881af50f9601a6495122b3a5f634a853073a7c30": {
+   "at": "2026-10-30T10:26:20.277Z",
+   "outcome": "parsed",
+   "ids": [
+    "the-strongest-magician-in-the-demon-lord-s-army-was-a-human",
+    "the-strongest-magician-in-the-demon-lord-s-army-was-a-human-2016"
+   ],
+   "usd": 0.000493
   }
  },
  "dismissed": [
@@ -4347,13 +4406,15 @@
   "book:i-m-just-a-b-tch-that-way",
   "screen:this-ordinary-monk-turns-out-to-be-a-kung-fu-master",
   "screen:powerless-beggar-is-actually-a-supreme-master-no-one-in-the-martial-world-can-defeat-him",
-  "screen:top-mecha-girl-assassin"
+  "screen:top-mecha-girl-assassin",
+  "software:gpt",
+  "software:gemini"
  ],
  "totals": {
-  "shots": 555,
-  "media": 268,
-  "added": 319,
+  "shots": 562,
+  "media": 275,
+  "added": 328,
   "inbox": 174,
-  "usd": 1.048624
+  "usd": 1.051877
  }
 }
