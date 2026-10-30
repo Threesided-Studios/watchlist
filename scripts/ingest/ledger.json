@@ -4352,6 +4352,48 @@
     "the-strongest-magician-in-the-demon-lord-s-army-was-a-human-2016"
    ],
    "usd": 0.000493
+  },
+  "c4db19bc5f937cc77a06725e7aa3bdeb2c9ac1f6c18fc23dd898301de5eb67bb": {
+   "at": "2026-10-30T21:41:12.949Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000034
+  },
+  "04f125a7943edfba5e5d4b88080eb08e1f9a4b8026165c9e5a7fe600440ab4f9": {
+   "at": "2026-10-30T21:41:12.925Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000034
+  },
+  "e37240900ace9861f525ec621fa000978bc250f08f23a41944f995460e9c511b": {
+   "at": "2026-10-30T21:41:12.976Z",
+   "outcome": "no-titles",
+   "ids": [],
+   "usd": 0.000407
+  },
+  "cf1a4e33b5da3632a6d399749887229c46790b5a7fb09d1a87ab23c9bc414930": {
+   "at": "2026-10-30T21:41:13.088Z",
+   "outcome": "parsed",
+   "ids": [
+    "a-galaxy-next-door"
+   ],
+   "usd": 0.000517
+  },
+  "1207d4078d2dac9f99996bdcb65d66bdb113bbc468bf33a026653c963ab978ee": {
+   "at": "2026-10-30T21:41:16.873Z",
+   "outcome": "parsed",
+   "ids": [
+    "the-daily-life-of-the-immortal-king"
+   ],
+   "usd": 0.000446
+  },
+  "2d7aedd7d808ad7a1e1f2262dd65dd744e7d53e231d54ba01263431b8ba5a46c": {
+   "at": "2026-10-30T21:41:17.051Z",
+   "outcome": "parsed",
+   "ids": [
+    "reawaken-man-the-red"
+   ],
+   "usd": 0.002039
   }
  },
  "dismissed": [
@@ -4411,10 +4453,10 @@
   "software:gemini"
  ],
  "totals": {
-  "shots": 562,
-  "media": 275,
-  "added": 328,
-  "inbox": 174,
-  "usd": 1.051877
+  "shots": 568,
+  "media": 279,
+  "added": 329,
+  "inbox": 175,
+  "usd": 1.055354
  }
 }
