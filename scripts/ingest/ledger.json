@@ -4566,6 +4566,114 @@
     "in-your-eyes"
    ],
    "usd": 0.000561
+  },
+  "2c7381dba5263e64e805521f10308e73e38c395c3e2376792e44d3741550a687": {
+   "at": "2026-10-31T22:47:36.810Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000034
+  },
+  "a37ff40b35228d5bba60b5cdfb05554f8bf43933419eb3f0a17474a5c4714170": {
+   "at": "2026-10-31T22:47:36.821Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000034
+  },
+  "5593ebafcff86bbcedae89456122dab22c955d45b3de880bad902d7b77bb4943": {
+   "at": "2026-10-31T22:47:36.835Z",
+   "outcome": "parsed",
+   "ids": [
+    "(pending)"
+   ],
+   "usd": 0.000226
+  },
+  "b0d731f87263fec629aac9dab11bae33ef2689f710045552299430f71d849cc7": {
+   "at": "2026-10-31T22:47:37.049Z",
+   "outcome": "parsed",
+   "ids": [
+    "witchbrook"
+   ],
+   "usd": 0.000229
+  },
+  "896c8605205bc80c47f7019e947da3fd576435e1ca6e251ed83d57ba218b1e43": {
+   "at": "2026-10-31T22:47:38.882Z",
+   "outcome": "parsed",
+   "ids": [
+    "witchbrook"
+   ],
+   "usd": 0.000226
+  },
+  "b85f6749728cec36ee2f50eb5c6d6c992663eaa5655dfa29a588270a6d5d63d4": {
+   "at": "2026-10-31T22:47:39.011Z",
+   "outcome": "parsed",
+   "ids": [
+    "everything-is-crab"
+   ],
+   "usd": 0.000222
+  },
+  "da3dfb16bd6cb5d91ba9353e041b37f391d2d5813be697f2be9d200bbdf180ef": {
+   "at": "2026-10-31T22:47:40.847Z",
+   "outcome": "parsed",
+   "ids": [
+    "kitori-academy"
+   ],
+   "usd": 0.000224
+  },
+  "4fe1a9dd5d5edb22e345702f6012a1cc7f1b8a8cae64d4ed446fb1c302ba7e7a": {
+   "at": "2026-10-31T22:47:42.057Z",
+   "outcome": "parsed",
+   "ids": [
+    "hela-of-mice-and-magic"
+   ],
+   "usd": 0.000229
+  },
+  "ad70ae0a3aa3a8c60e52834173b2ca1ec475060de955c6fda98449da42ff0f7a": {
+   "at": "2026-10-31T22:47:41.715Z",
+   "outcome": "parsed",
+   "ids": [
+    "lost-and-found-co"
+   ],
+   "usd": 0.000226
+  },
+  "92a32163114772c31cc92c42ca222bae88c25b62646bcf46a9916a8341b4e233": {
+   "at": "2026-10-31T22:47:42.903Z",
+   "outcome": "parsed",
+   "ids": [
+    "hotel-galactic"
+   ],
+   "usd": 0.000227
+  },
+  "55f9c1e27fbc1f05460bd2f939faf143dacd35e25a5b8c23786bc86cbee385f6": {
+   "at": "2026-10-31T22:47:44.339Z",
+   "outcome": "parsed",
+   "ids": [
+    "loftia"
+   ],
+   "usd": 0.000224
+  },
+  "9b2053c18cf45bc736457a26f589511a4ce0895b6d089871f8a066c08e5b5da1": {
+   "at": "2026-10-31T22:47:45.442Z",
+   "outcome": "parsed",
+   "ids": [
+    "(pending)"
+   ],
+   "usd": 0.000224
+  },
+  "bee9031dec467b67d62c18d511994a98c0c9dd0820d0f35e558e628507c888e2": {
+   "at": "2026-10-31T22:47:46.241Z",
+   "outcome": "parsed",
+   "ids": [
+    "(pending)"
+   ],
+   "usd": 0.000222
+  },
+  "6789ee3dff0ac74bdcbe857f4eca43cbfd80920fe178e0b46284ab012686ca3b": {
+   "at": "2026-10-31T22:47:45.364Z",
+   "outcome": "parsed",
+   "ids": [
+    "cat-cafe-manager-2-big-city-bliss"
+   ],
+   "usd": 0.000225
   }
  },
  "dismissed": [
@@ -4625,10 +4733,10 @@
   "software:gemini"
  ],
  "totals": {
-  "shots": 592,
-  "media": 292,
-  "added": 338,
+  "shots": 606,
+  "media": 304,
+  "added": 346,
   "inbox": 177,
-  "usd": 1.071279
+  "usd": 1.074051
  }
 }
