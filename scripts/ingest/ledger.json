@@ -4558,6 +4558,14 @@
     "she-s-a-little-crazy"
    ],
    "usd": 0.002555
+  },
+  "2adb521f6cf1c650231ff9a08bb11be35438185d8462389943d13f457a07223a": {
+   "at": "2026-10-31T18:44:09.429Z",
+   "outcome": "parsed",
+   "ids": [
+    "in-your-eyes"
+   ],
+   "usd": 0.000561
   }
  },
  "dismissed": [
@@ -4617,10 +4625,10 @@
   "software:gemini"
  ],
  "totals": {
-  "shots": 591,
-  "media": 291,
-  "added": 337,
+  "shots": 592,
+  "media": 292,
+  "added": 338,
   "inbox": 177,
-  "usd": 1.070718
+  "usd": 1.071279
  }
 }

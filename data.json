@@ -68509,5 +68509,33 @@
     "match_ok": false,
     "screenshot": "10e8a0280a07",
     "author": "Zhu Yi"
+  },
+  {
+    "id": "in-your-eyes",
+    "title": "In Your Eyes",
+    "type": "movie",
+    "year": 2014,
+    "blurb": "Two seemingly unconnected souls from different corners of the United States make a telepathic bond that allows them to see, hear, and feel the other's experiences, creating a connection that cannot be broken.",
+    "summary": "Two seemingly unconnected souls from different corners of the United States make a telepathic bond that allows them to see, hear, and feel the other's experiences, creating a connection that cannot be broken.",
+    "poster": "posters/in-your-eyes.jpg",
+    "link": "https://www.themoviedb.org/movie/226448",
+    "status": "todo",
+    "tags": [
+      "Drama",
+      "Romance",
+      "Sci-Fi"
+    ],
+    "rating": null,
+    "notes": "",
+    "added": "2026-10-31",
+    "source": "screenshot",
+    "source_context": "Facebook post comments discussing a movie — Comment identifies it as the movie's name.",
+    "recommended_by": "Shelly",
+    "ai_confidence": 0.99,
+    "enriched_via": "TMDB",
+    "match_ok": true,
+    "screenshot": "2adb521f6cf1",
+    "tmdb_id": 226448,
+    "same_title_works": 8
   }
 ]
