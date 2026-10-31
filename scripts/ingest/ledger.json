@@ -4394,6 +4394,170 @@
     "reawaken-man-the-red"
    ],
    "usd": 0.002039
+  },
+  "b5fd3bdcd3093e1718e0396937b2d819ee86c13b7ab5f44331048c29435cf607": {
+   "at": "2026-10-31T13:50:57.303Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000034
+  },
+  "3f50e442eff469ac53d792cdf2b4215e66d307b486d7eadd9d8518b1f13b3c3c": {
+   "at": "2026-10-31T13:50:57.245Z",
+   "outcome": "parsed",
+   "ids": [
+    "nia-liston-the-merciless-maiden"
+   ],
+   "usd": 0.000452
+  },
+  "dee8fe9b89bd0f75e2b7205d392316d0b8e000b74cdf2b14a9efb22f6e2c590f": {
+   "at": "2026-10-31T13:50:57.300Z",
+   "outcome": "parsed",
+   "ids": [
+    "maoyu-archenemy-and-hero"
+   ],
+   "usd": 0.000444
+  },
+  "8c6f79188295c2d88e596d8a0d1afc507848399c6b8698d39582c65fd02b6f70": {
+   "at": "2026-10-31T13:50:59.484Z",
+   "outcome": "parsed",
+   "ids": [
+    "the-kingdoms-of-ruin"
+   ],
+   "usd": 0.000442
+  },
+  "fedf25f01426c8bb9ba5c1aaa883f144a273cc7ca16887a7548ea7f3464042d0": {
+   "at": "2026-10-31T13:50:57.270Z",
+   "outcome": "parsed",
+   "ids": [
+    "amagami-san-chi-no-enmusubi"
+   ],
+   "usd": 0.002426
+  },
+  "c90e698c96da438761eccf3760234f88673a0e3742226ff7ad36dcbd98410416": {
+   "at": "2026-10-31T13:51:02.627Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000034
+  },
+  "6c6f8de9ef6ed4d1fef772aa2544243a1443f25ff4243ab97f8f90ed15e06483": {
+   "at": "2026-10-31T13:51:02.811Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000034
+  },
+  "581826cd86b821a8b2274d065243d5ea2487cfaf48479ae2601de92f6f347d0e": {
+   "at": "2026-10-31T13:51:03.672Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000034
+  },
+  "be3a0aaa068d1159a7b7313558261519056961a6786e3350b42b28ab6a728063": {
+   "at": "2026-10-31T13:51:04.115Z",
+   "outcome": "parsed",
+   "ids": [
+    "(pending)"
+   ],
+   "usd": 0.000473
+  },
+  "70cf18c7a674bc51f453d423d184faf0f19d217ccb7bf9384d830b1744bcc30a": {
+   "at": "2026-10-31T13:51:04.884Z",
+   "outcome": "parsed",
+   "ids": [
+    "(pending)"
+   ],
+   "usd": 0.000441
+  },
+  "5b06e21310b01890493f43fbbfb80577db011aac0ef7e6d9476a1817b9990a92": {
+   "at": "2026-10-31T13:51:08.104Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000034
+  },
+  "105fddf06a87f0c4d825643f12e218c49f3b079a5c61021b0b2e3b91b733bedd": {
+   "at": "2026-10-31T13:51:03.469Z",
+   "outcome": "parsed",
+   "ids": [
+    "stranger-things"
+   ],
+   "usd": 0.000555
+  },
+  "c41e921325c49142f90b2e8af7b5c042d3038d476929815cfee8aac21b6c5d29": {
+   "at": "2026-10-31T13:51:07.968Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000034
+  },
+  "811fedd2159f266743809ad7d054e8557c75c415376793718c2174c61a93ff29": {
+   "at": "2026-10-31T13:51:08.943Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000034
+  },
+  "90656c64487b61b7d013fa5b98c2a63f7af7ccf1b2285cd20629312360e745fa": {
+   "at": "2026-10-31T13:51:09.025Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000034
+  },
+  "04a38f361037de290a13bccff76a03432bea8e9b43dc51e409ab66ba4a6b5bef": {
+   "at": "2026-10-31T13:51:09.851Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000034
+  },
+  "e225dabc5b17fa900f59dbc9aee721e8d890aa0decedd8492c389a268d8413a9": {
+   "at": "2026-10-31T13:51:10.348Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000034
+  },
+  "f35431376c6a30c4d3ccbc5b2884a237e89cac745c9a41fe9c76272725ef0706": {
+   "at": "2026-10-31T13:51:11.396Z",
+   "outcome": "parsed",
+   "ids": [
+    "devils-crest"
+   ],
+   "usd": 0.000449
+  },
+  "1db185dcb86f24fc816c22a02d7fe563f39f6d43e13124063b132d7e2362151d": {
+   "at": "2026-10-31T13:51:08.889Z",
+   "outcome": "parsed",
+   "ids": [
+    "ntr-kishi"
+   ],
+   "usd": 0.002022
+  },
+  "5e7d13f50780f3b37b691af20e23ee945b92da1f2f1d491693f3a68c37771393": {
+   "at": "2026-10-31T13:51:15.317Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000034
+  },
+  "7b602d22f3f3bec09c5ad04372fc451edd786f2048b1f8569b421c52bd0f0490": {
+   "at": "2026-10-31T13:51:02.728Z",
+   "outcome": "parsed",
+   "ids": [
+    "chatgpt",
+    "stranger-things"
+   ],
+   "usd": 0.004282
+  },
+  "2f0d12409b65ef95a2e06536f7950a0d58d0868ff7117403112b5905c7ab9b0d": {
+   "at": "2026-10-31T13:51:14.898Z",
+   "outcome": "parsed",
+   "ids": [
+    "maoyu-archenemy-and-hero"
+   ],
+   "usd": 0.000449
+  },
+  "10e8a0280a0773f595ca4da37fb564c8a8e644f4f759f15ad947aed08f5fc95a": {
+   "at": "2026-10-31T13:51:10.725Z",
+   "outcome": "parsed",
+   "ids": [
+    "when-i-fly-towards-you",
+    "she-s-a-little-crazy"
+   ],
+   "usd": 0.002555
   }
  },
  "dismissed": [
@@ -4453,10 +4617,10 @@
   "software:gemini"
  ],
  "totals": {
-  "shots": 568,
-  "media": 279,
-  "added": 329,
-  "inbox": 175,
-  "usd": 1.055354
+  "shots": 591,
+  "media": 291,
+  "added": 337,
+  "inbox": 177,
+  "usd": 1.070718
  }
 }
