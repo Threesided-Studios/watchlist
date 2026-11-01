@@ -4674,6 +4674,32 @@
     "cat-cafe-manager-2-big-city-bliss"
    ],
    "usd": 0.000225
+  },
+  "bb2244aa9fafa4a7218ef1255ad682f94924a11a19b81b47fe3f0a399d9bee43": {
+   "at": "2026-11-01T09:40:54.157Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000034
+  },
+  "fac9f0b501336b04729221c27cbd152f971401f5eead08f19404e67e974f4c44": {
+   "at": "2026-11-01T09:40:54.425Z",
+   "outcome": "parsed",
+   "ids": [
+    "radiant-historia-perfect-chronology"
+   ],
+   "usd": 0.002399
+  },
+  "f5fdef3a3bbac212a35f970673b010e96876571cb37597d3f470c7baadd18aa2": {
+   "at": "2026-11-01T09:40:54.448Z",
+   "outcome": "parsed",
+   "ids": [
+    "obelisk",
+    "rocket-league",
+    "helldivers-2",
+    "dead-by-daylight",
+    "portal-2"
+   ],
+   "usd": 0.003588
   }
  },
  "dismissed": [
@@ -4733,10 +4759,10 @@
   "software:gemini"
  ],
  "totals": {
-  "shots": 606,
-  "media": 304,
-  "added": 346,
-  "inbox": 177,
-  "usd": 1.074051
+  "shots": 609,
+  "media": 306,
+  "added": 347,
+  "inbox": 179,
+  "usd": 1.080072
  }
 }
