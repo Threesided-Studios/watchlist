@@ -4724,6 +4724,14 @@
    "outcome": "no-titles",
    "ids": [],
    "usd": 0.000407
+  },
+  "81c8a01824edd8478a240ee77f924eb9bdab40f1aa8e3d5f29fd5666bf3a4b0f": {
+   "at": "2026-11-03T01:46:28.065Z",
+   "outcome": "parsed",
+   "ids": [
+    "the-quest"
+   ],
+   "usd": 0.000571
   }
  },
  "dismissed": [
@@ -4783,10 +4791,10 @@
   "software:gemini"
  ],
  "totals": {
-  "shots": 613,
-  "media": 307,
-  "added": 347,
+  "shots": 614,
+  "media": 308,
+  "added": 348,
   "inbox": 179,
-  "usd": 1.080581
+  "usd": 1.081152
  }
 }

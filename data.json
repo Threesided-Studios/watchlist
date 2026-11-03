@@ -68804,5 +68804,31 @@
     "match_ok": true,
     "screenshot": "f5fdef3a3bba",
     "steam_appid": 381210
+  },
+  {
+    "id": "the-quest",
+    "title": "The Quest",
+    "type": "show",
+    "year": 1976,
+    "blurb": "The Quest is an American Western series which aired on NBC from September to December 1976.",
+    "summary": "The Quest is an American Western series which aired on NBC from September to December 1976. The series stars Kurt Russell and Tim Matheson.\n\nThe Quest's pilot episode aired as a television film on May 13, 1976.",
+    "poster": "posters/the-quest.jpg",
+    "link": "https://www.themoviedb.org/tv/8024",
+    "status": "todo",
+    "tags": [
+      "Western"
+    ],
+    "rating": null,
+    "notes": "",
+    "added": "2026-11-03",
+    "source": "screenshot",
+    "source_context": "Social media post by The HBO 80s Database — Caption says it first aired on HBO in 1988.",
+    "recommended_by": "",
+    "ai_confidence": 0.98,
+    "enriched_via": "TMDB",
+    "match_ok": true,
+    "screenshot": "81c8a01824ed",
+    "tmdb_id": 8024,
+    "same_title_works": 8
   }
 ]
