@@ -4732,6 +4732,113 @@
     "the-quest"
    ],
    "usd": 0.000571
+  },
+  "c5386b634a2d7ec217db3c0a8f2a698ca37a56b9857d5fd8a269644681d26008": {
+   "at": "2026-11-04T03:14:36.050Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000034
+  },
+  "a6739dc60e743348aa6907e5151f38ccb4f0b7fb8c638cca34acf7eb89c035ac": {
+   "at": "2026-11-04T03:14:36.311Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000034
+  },
+  "5ba6331eb19f72db191316e88fa6d7a7dd00e14cd62be63d77bfc0d07e76f8f3": {
+   "at": "2026-11-04T03:14:38.560Z",
+   "outcome": "parsed",
+   "ids": [
+    "dororo"
+   ],
+   "usd": 0.000525
+  },
+  "9f4d5cde0e9f104dfc0641f70b9a4c6a32962b36539a4cee4e64d942f028ed36": {
+   "at": "2026-11-04T03:14:36.014Z",
+   "outcome": "parsed",
+   "ids": [
+    "darwin-s-game"
+   ],
+   "usd": 0.000522
+  },
+  "8cb1e48f7a16b8aed4522c99797b0272d36504fcfd3cd0707b45e09e8ba5da4e": {
+   "at": "2026-11-04T03:14:38.679Z",
+   "outcome": "parsed",
+   "ids": [
+    "samurai-champloo"
+   ],
+   "usd": 0.000447
+  },
+  "5b47a9b125516b29fc2fad37fd5de71c2f49e62f345c7f654bf359468ed4c7e8": {
+   "at": "2026-11-04T03:14:43.059Z",
+   "outcome": "parsed",
+   "ids": [
+    "pluto"
+   ],
+   "usd": 0.000444
+  },
+  "c877f46ebd1f93ba3c940e0bf3e0933718a73107f03425530a25128ca6717857": {
+   "at": "2026-11-04T03:14:36.071Z",
+   "outcome": "parsed",
+   "ids": [
+    "grimgar-ashes-and-illusions"
+   ],
+   "usd": 0.003354
+  },
+  "d89bfdc82c2ba8c9bdad6c868c674eb7119b6c3e8ca4396ca60e87bda32be45a": {
+   "at": "2026-11-04T03:14:43.716Z",
+   "outcome": "parsed",
+   "ids": [
+    "blue-eye-samurai"
+   ],
+   "usd": 0.000444
+  },
+  "87e292c966291e7470635c220e371fd0d935d21d385a103a51ee39fce9f40622": {
+   "at": "2026-11-04T03:14:43.041Z",
+   "outcome": "parsed",
+   "ids": [
+    "attack-on-titan"
+   ],
+   "usd": 0.00054
+  },
+  "e28f254d30647623343998d28fd361e4188687ff7ed1cc40f6cbd50c034d90d4": {
+   "at": "2026-11-04T03:14:47.843Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000034
+  },
+  "687022b237b7e1266092ccdbc9a454e92990ad805c6abd4c77294f3107214b0c": {
+   "at": "2026-11-04T03:14:46.324Z",
+   "outcome": "parsed",
+   "ids": [
+    "golden-kamuy"
+   ],
+   "usd": 0.000445
+  },
+  "de000e6862686c3510ffb3e3641b052cfad64424c85ba1b82a16c6110aeab502": {
+   "at": "2026-11-04T03:14:47.121Z",
+   "outcome": "parsed",
+   "ids": [
+    "world-trigger"
+   ],
+   "usd": 0.000441
+  },
+  "cf4c57d6820408be3380e87fa65f94e2058172706ddc565d2be73bebe4266b6d": {
+   "at": "2026-11-04T03:14:47.497Z",
+   "outcome": "parsed",
+   "ids": [
+    "kaiba"
+   ],
+   "usd": 0.000441
+  },
+  "4e45598529d732896dacac7cb5958fb05da0b83f42b330865facc7e98be52a4c": {
+   "at": "2026-11-04T03:14:49.072Z",
+   "outcome": "parsed",
+   "ids": [
+    "orbitals",
+    "neon-genesis-evangelion"
+   ],
+   "usd": 0.000487
   }
  },
  "dismissed": [
@@ -4791,10 +4898,10 @@
   "software:gemini"
  ],
  "totals": {
-  "shots": 614,
-  "media": 308,
-  "added": 348,
+  "shots": 628,
+  "media": 319,
+  "added": 357,
   "inbox": 179,
-  "usd": 1.081152
+  "usd": 1.089344
  }
 }
