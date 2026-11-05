@@ -57998,7 +57998,7 @@
     "summary": "",
     "poster": "",
     "link": "",
-    "status": "inbox",
+    "status": "todo",
     "tags": [
       "Anime",
       "action",
@@ -59775,7 +59775,7 @@
     "summary": "",
     "poster": "",
     "link": "",
-    "status": "inbox",
+    "status": "todo",
     "tags": [],
     "rating": null,
     "notes": "",
@@ -64578,7 +64578,7 @@
     "summary": "",
     "poster": "",
     "link": "https://apps.apple.com/us/app/mm-tweaks-for-monarch-money/id6753774259?uo=4",
-    "status": "inbox",
+    "status": "todo",
     "tags": [
       "personal finance",
       "AI advisor"
@@ -64604,7 +64604,7 @@
     "summary": "",
     "poster": "",
     "link": "",
-    "status": "inbox",
+    "status": "todo",
     "tags": [
       "software",
       "video editing",
@@ -65108,31 +65108,6 @@
     "author": "Gareth Hanrahan"
   },
   {
-    "id": "wolf",
-    "title": "Wolf",
-    "type": "book",
-    "year": 2009,
-    "blurb": "",
-    "summary": "",
-    "poster": "",
-    "link": "https://openlibrary.org/works/OL464512W",
-    "status": "inbox",
-    "tags": [
-      "fantasy"
-    ],
-    "rating": null,
-    "notes": "Art check: Open Library matched \"Wolf\" by Hilary Mantel (2009), but the screenshot is a fantasy author's TikTok bookshelf. Probably a different book. Needs the author.",
-    "added": "2026-10-17",
-    "source": "screenshot",
-    "source_context": "TikTok video by Andy Peloquin",
-    "recommended_by": "",
-    "ai_confidence": 0.8,
-    "enriched_via": "OpenLibrary",
-    "match_ok": false,
-    "screenshot": "bc330ec446f0",
-    "author": "Hilary Mantel"
-  },
-  {
     "id": "return-of-the-runebound-professor",
     "title": "Return of the Runebound Professor",
     "type": "book",
@@ -65217,7 +65192,7 @@
     "summary": "",
     "poster": "",
     "link": "",
-    "status": "inbox",
+    "status": "todo",
     "tags": [
       "fantasy"
     ],
@@ -65434,7 +65409,7 @@
     "summary": "",
     "poster": "",
     "link": "",
-    "status": "inbox",
+    "status": "todo",
     "tags": [],
     "rating": null,
     "notes": "",
@@ -65483,7 +65458,7 @@
     "summary": "",
     "poster": "",
     "link": "",
-    "status": "inbox",
+    "status": "todo",
     "tags": [],
     "rating": null,
     "notes": "",
@@ -65505,7 +65480,7 @@
     "summary": "",
     "poster": "",
     "link": "",
-    "status": "inbox",
+    "status": "todo",
     "tags": [
       "role-playing",
       "dungeon crawler"
@@ -65531,7 +65506,7 @@
     "summary": "",
     "poster": "",
     "link": "",
-    "status": "inbox",
+    "status": "todo",
     "tags": [
       "role-playing",
       "dungeon crawler"
@@ -65557,7 +65532,7 @@
     "summary": "",
     "poster": "",
     "link": "",
-    "status": "inbox",
+    "status": "todo",
     "tags": [
       "role-playing",
       "dungeon crawler"
@@ -65610,7 +65585,7 @@
     "summary": "",
     "poster": "",
     "link": "",
-    "status": "inbox",
+    "status": "todo",
     "tags": [
       "role-playing",
       "dungeon crawler"
@@ -66114,7 +66089,7 @@
     "summary": "",
     "poster": "",
     "link": "",
-    "status": "inbox",
+    "status": "todo",
     "tags": [
       "role-playing"
     ],
@@ -66139,7 +66114,7 @@
     "summary": "",
     "poster": "",
     "link": "",
-    "status": "inbox",
+    "status": "todo",
     "tags": [
       "role-playing game"
     ],
@@ -66164,7 +66139,7 @@
     "summary": "",
     "poster": "",
     "link": "",
-    "status": "inbox",
+    "status": "todo",
     "tags": [],
     "rating": null,
     "notes": "",
@@ -66212,7 +66187,7 @@
     "summary": "",
     "poster": "",
     "link": "",
-    "status": "inbox",
+    "status": "todo",
     "tags": [],
     "rating": null,
     "notes": "",
@@ -66307,7 +66282,7 @@
     "summary": "",
     "poster": "",
     "link": "",
-    "status": "inbox",
+    "status": "todo",
     "tags": [],
     "rating": null,
     "notes": "",
@@ -69077,5 +69052,87 @@
     "match_ok": true,
     "screenshot": "4e45598529d7",
     "tmdb_id": 890
+  },
+  {
+    "id": "the-laid-off-cheat-granting-mage-enjoys-a-second-lease-on-life",
+    "title": "The Laid-Off Cheat-Granting Mage Enjoys a Second Lease on Life",
+    "type": "show",
+    "year": 2026,
+    "blurb": "Rein spent years enhancing his guildmates’ gear with magic, only to be expelled the moment he enchanted everything.",
+    "summary": "Rein spent years enhancing his guildmates’ gear with magic, only to be expelled the moment he enchanted everything. Unfazed, Rein steals back his magic, pours it into his own sword, and makes the best of his newfound freedom as he sets off as an adventurer. Along the way, Rein gathers a band of fellow outcasts and together they fight monsters and carve out their place in an enchanted world.",
+    "poster": "posters/the-laid-off-cheat-granting-mage-enjoys-a-second-lease-on-life.jpg",
+    "link": "https://www.themoviedb.org/tv/313346",
+    "status": "todo",
+    "tags": [
+      "Anime",
+      "Animation",
+      "Comedy",
+      "Action & Adventure"
+    ],
+    "rating": null,
+    "notes": "",
+    "added": "2026-11-05",
+    "source": "screenshot",
+    "source_context": "Instagram post by ig.animangavault — Named in the post caption; season and episode details are shown.",
+    "recommended_by": "",
+    "ai_confidence": 0.99,
+    "enriched_via": "TMDB",
+    "match_ok": true,
+    "screenshot": "4a8edd242af5",
+    "tmdb_id": 313346
+  },
+  {
+    "id": "nukitashi-the-animation",
+    "title": "Nukitashi: The Animation",
+    "type": "show",
+    "year": 2025,
+    "blurb": "On Seiran Island, secret society NLNS is united by Junnosuke Tachibana, who is determined to crush a law.",
+    "summary": "On Seiran Island, secret society NLNS is united by Junnosuke Tachibana, who is determined to crush a law. They have found a benefactor, an unknown rich man, who offers them a secret base and cash. Their mission is to locate a mysterious girl and stop the law, keeping the SHO off their trail.",
+    "poster": "posters/nukitashi-the-animation.jpg",
+    "link": "https://www.themoviedb.org/tv/244808",
+    "status": "inbox",
+    "tags": [
+      "Anime",
+      "Animation",
+      "Comedy",
+      "Drama"
+    ],
+    "rating": null,
+    "notes": "",
+    "added": "2026-11-05",
+    "source": "screenshot",
+    "source_context": "Reddit r/Animedubs post sharing a dubbed anime clip — Post identifies the clip as this anime and recommends watching the dub.",
+    "recommended_by": "AltruisticEngine287",
+    "ai_confidence": 0.99,
+    "enriched_via": "TMDB",
+    "match_ok": true,
+    "screenshot": "e6cadefdd62b",
+    "adult": true,
+    "tmdb_id": 244808
+  },
+  {
+    "id": "ecsaf-orm",
+    "title": "Ecsaf orm",
+    "type": "game",
+    "year": null,
+    "blurb": "",
+    "summary": "",
+    "poster": "",
+    "link": "",
+    "status": "inbox",
+    "tags": [
+      "role-playing",
+      "tactical"
+    ],
+    "rating": null,
+    "notes": "",
+    "added": "2026-11-05",
+    "source": "screenshot",
+    "source_context": "Translated game review discussing a tactical RPG — The game being reviewed; the text names it as a T-RPG.",
+    "recommended_by": "",
+    "ai_confidence": 0.72,
+    "enriched_via": "",
+    "match_ok": false,
+    "screenshot": "7f213ff2bdcb"
   }
 ]

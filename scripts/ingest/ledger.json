@@ -4845,6 +4845,48 @@
    "outcome": "not-media",
    "ids": [],
    "usd": 0.000034
+  },
+  "4ef8f6d2e2e612ad0482c92821ff93b0685190b35314ce169f0a0eb19d25c69f": {
+   "at": "2026-11-05T15:46:56.351Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000028
+  },
+  "4a8edd242af5c1f749a361fcf889e2f6f74a2c9d093ad7d35543e6085dfcd18e": {
+   "at": "2026-11-05T15:46:56.637Z",
+   "outcome": "parsed",
+   "ids": [
+    "the-laid-off-cheat-granting-mage-enjoys-a-second-lease-on-life"
+   ],
+   "usd": 0.000451
+  },
+  "d842f049bfd2311a1ff85a8152ceb3bd8cc1ace8131f03ecdc1186bd623a76ed": {
+   "at": "2026-11-05T15:46:56.376Z",
+   "outcome": "parsed",
+   "ids": [
+    "lost-and-found-co"
+   ],
+   "usd": 0.000257
+  },
+  "e6cadefdd62b7c018254e2116c2eff735d142085bb0caad8db31d26976bab2a2": {
+   "at": "2026-11-05T15:46:59.160Z",
+   "outcome": "parsed",
+   "ids": [
+    "nukitashi-the-animation"
+   ],
+   "usd": 0.000451
+  },
+  "7f213ff2bdcb93ed4f2f7b76bab60cf604b003322ff5cad8766d4db15ee31064": {
+   "at": "2026-11-05T15:46:56.362Z",
+   "outcome": "parsed",
+   "ids": [
+    "ecsaf-orm",
+    "final-fantasy-tactics-the-ivalice-chronicles",
+    "shadowrun-returns",
+    "assassin-s-creed-syndicate",
+    "escaflowne"
+   ],
+   "usd": 0.000591
   }
  },
  "dismissed": [
@@ -4901,13 +4943,14 @@
   "screen:powerless-beggar-is-actually-a-supreme-master-no-one-in-the-martial-world-can-defeat-him",
   "screen:top-mecha-girl-assassin",
   "software:gpt",
-  "software:gemini"
+  "software:gemini",
+  "book:wolf"
  ],
  "totals": {
-  "shots": 629,
-  "media": 319,
-  "added": 357,
-  "inbox": 179,
-  "usd": 1.089378
+  "shots": 634,
+  "media": 323,
+  "added": 358,
+  "inbox": 181,
+  "usd": 1.091156
  }
 }
