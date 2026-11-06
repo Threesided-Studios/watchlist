@@ -4887,6 +4887,14 @@
     "escaflowne"
    ],
    "usd": 0.000591
+  },
+  "c9784c4f00a818b0803f8254a18a468f6b4f9840d51af7764c280be96633bba2": {
+   "at": "2026-11-06T23:29:36.565Z",
+   "outcome": "parsed",
+   "ids": [
+    "the-ossan-newbie-adventurer-trained-to-death-by-the-most-powerful-party-became-invincible"
+   ],
+   "usd": 0.000457
   }
  },
  "dismissed": [
@@ -4947,10 +4955,10 @@
   "book:wolf"
  ],
  "totals": {
-  "shots": 634,
-  "media": 323,
-  "added": 358,
+  "shots": 635,
+  "media": 324,
+  "added": 359,
   "inbox": 181,
-  "usd": 1.091156
+  "usd": 1.091613
  }
 }
