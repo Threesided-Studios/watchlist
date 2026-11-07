@@ -4895,6 +4895,14 @@
     "the-ossan-newbie-adventurer-trained-to-death-by-the-most-powerful-party-became-invincible"
    ],
    "usd": 0.000457
+  },
+  "730d5952d104b837159e9373311768401002c9fcfa6691af72f3358e72142b11": {
+   "at": "2026-11-07T10:39:22.840Z",
+   "outcome": "parsed",
+   "ids": [
+    "the-gate"
+   ],
+   "usd": 0.000355
   }
  },
  "dismissed": [
@@ -4955,10 +4963,10 @@
   "book:wolf"
  ],
  "totals": {
-  "shots": 635,
-  "media": 324,
+  "shots": 636,
+  "media": 325,
   "added": 359,
   "inbox": 181,
-  "usd": 1.091613
+  "usd": 1.091968
  }
 }
