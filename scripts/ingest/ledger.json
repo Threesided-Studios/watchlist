@@ -4903,6 +4903,18 @@
     "the-gate"
    ],
    "usd": 0.000355
+  },
+  "e9014cf43e73506b129f1d1fbc2ec83227b5e68db91ce4b313db84353335cce2": {
+   "at": "2026-11-08T06:39:45.540Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.00004
+  },
+  "52d6e38cd1432c07f87d401776171712b1a57a89bf6ac76a12571096825ed8d9": {
+   "at": "2026-11-08T06:39:45.575Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.00004
   }
  },
  "dismissed": [
@@ -4963,10 +4975,10 @@
   "book:wolf"
  ],
  "totals": {
-  "shots": 636,
+  "shots": 638,
   "media": 325,
   "added": 359,
   "inbox": 181,
-  "usd": 1.091968
+  "usd": 1.092048
  }
 }
