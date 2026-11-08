@@ -4915,6 +4915,92 @@
    "outcome": "not-media",
    "ids": [],
    "usd": 0.00004
+  },
+  "3353738bd97e244030c22c7bfef5308e314bcb59317a4b84685c3aae3165bb4a": {
+   "at": "2026-11-08T13:51:34.532Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000042
+  },
+  "6f17021583f261fafb31ce5e4f0dff59c43a5228d3e15e20f4ebfa577847c84d": {
+   "at": "2026-11-08T13:51:34.507Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000042
+  },
+  "6d7299111ca2aecf8d931efe0892c3fe056b80de45e0781c1ac2944278191af4": {
+   "at": "2026-11-08T13:51:37.042Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000042
+  },
+  "c3d6ba4865579146f1cc39910edc7e274784af60fa1849d2dabb179629062bf1": {
+   "at": "2026-11-08T13:51:34.690Z",
+   "outcome": "parsed",
+   "ids": [
+    "a-nightmare-before-christmas",
+    "how-the-grinch-stole-christmas",
+    "elf"
+   ],
+   "usd": 0.000627
+  },
+  "fc5f6ba1e56d2153a2b873340e3d6fa72b7f66b97880f16f3d448c74f3a17738": {
+   "at": "2026-11-08T13:51:44.244Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000042
+  },
+  "aeec025910ab3a0e4838b06f94c438de4b6f9452d34653557e54d80403d3a103": {
+   "at": "2026-11-08T13:51:38.467Z",
+   "outcome": "parsed",
+   "ids": [
+    "effekseer"
+   ],
+   "usd": 0.000361
+  },
+  "262cebaaef319d260caac4e62ccade6d67f5becf27acfb43e1f108240f2e4114": {
+   "at": "2026-11-08T13:51:34.517Z",
+   "outcome": "parsed",
+   "ids": [
+    "opentoonz"
+   ],
+   "usd": 0.004179
+  },
+  "40d788eb63a1efe57b233e64111b1bbbcad938f4ad565deb85256a768e926fa3": {
+   "at": "2026-11-08T13:51:48.648Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000042
+  },
+  "bc9a46145d61dc369396c839c99f9bb69b1bbab3bfe559a4f01c01388bb4d16b": {
+   "at": "2026-11-08T13:51:45.454Z",
+   "outcome": "parsed",
+   "ids": [
+    "pencil2d"
+   ],
+   "usd": 0.000363
+  },
+  "05e2d8ab85dfe56df1de09b4a355160158e87b89af11c0af9281d62b8fa3d3fe": {
+   "at": "2026-11-08T13:51:45.859Z",
+   "outcome": "parsed",
+   "ids": [
+    "openvdb"
+   ],
+   "usd": 0.000361
+  },
+  "fae31948e9a25e848b43a80957757051a64a08853eb6c06f21e8e2752119051b": {
+   "at": "2026-11-08T13:51:37.127Z",
+   "outcome": "parsed",
+   "ids": [
+    "synfig-studio"
+   ],
+   "usd": 0.003292
+  },
+  "f5f68fd038afd4f02a03e30b02706c0da79fc35aab094ea1ef4eb77b237d7c1b": {
+   "at": "2026-11-08T13:51:50.485Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000042
   }
  },
  "dismissed": [
@@ -4975,10 +5061,10 @@
   "book:wolf"
  ],
  "totals": {
-  "shots": 638,
-  "media": 325,
-  "added": 359,
+  "shots": 650,
+  "media": 331,
+  "added": 366,
   "inbox": 181,
-  "usd": 1.092048
+  "usd": 1.101483
  }
 }
