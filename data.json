@@ -69381,5 +69381,27 @@
     "enriched_via": "",
     "match_ok": false,
     "screenshot": "07f3befe066c"
+  },
+  {
+    "id": "screatures",
+    "title": "Screatures",
+    "type": "game",
+    "year": null,
+    "blurb": "",
+    "summary": "",
+    "poster": "",
+    "link": "",
+    "status": "inbox",
+    "tags": [],
+    "rating": null,
+    "notes": "",
+    "added": "2026-11-13",
+    "source": "screenshot",
+    "source_context": "Browser page on sscreatures.com, showing gameplay — Gameplay is shown on the page.",
+    "recommended_by": "",
+    "ai_confidence": 0.91,
+    "enriched_via": "",
+    "match_ok": false,
+    "screenshot": "ca5df87c8fa4"
   }
 ]

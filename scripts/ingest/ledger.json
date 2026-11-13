@@ -5095,6 +5095,20 @@
     "unreal-engine"
    ],
    "usd": 0.004032
+  },
+  "845031af60ed4858167ef53bac79b388d1fd769dc7639e9985c28a18622d06c8": {
+   "at": "2026-11-13T23:51:04.650Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.00004
+  },
+  "ca5df87c8fa4e99b1936eea44a8c5602e0d492eada9afe5c61153346a4d89321": {
+   "at": "2026-11-13T23:51:05.024Z",
+   "outcome": "parsed",
+   "ids": [
+    "screatures"
+   ],
+   "usd": 0.000357
   }
  },
  "dismissed": [
@@ -5155,10 +5169,10 @@
   "book:wolf"
  ],
  "totals": {
-  "shots": 665,
-  "media": 334,
+  "shots": 667,
+  "media": 335,
   "added": 367,
-  "inbox": 182,
-  "usd": 1.106687
+  "inbox": 183,
+  "usd": 1.107084
  }
 }
