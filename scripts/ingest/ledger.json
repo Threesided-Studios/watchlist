@@ -5115,6 +5115,41 @@
    "outcome": "not-media",
    "ids": [],
    "usd": 0.00004
+  },
+  "3477f43ae8f256fe3c671de564ed8e34d5dcd22392f368a9de94bca9add06421": {
+   "at": "2026-11-14T14:28:17.057Z",
+   "outcome": "parsed",
+   "ids": [
+    "aura-2-lust-of-the-gods"
+   ],
+   "usd": 0.000368
+  },
+  "0b9eb5a203b02d26a0574348868186c7f67c806750e8c9f0412a6ffe5e869664": {
+   "at": "2026-11-14T14:28:16.881Z",
+   "outcome": "parsed",
+   "ids": [
+    "steel-ball-run",
+    "ao-ashi",
+    "black-clover",
+    "blue-box",
+    "a-wild-last-boss-appeared",
+    "the-cheat-grating-mage-second-rate-life",
+    "reincarnated-as-a-sword",
+    "tougen-anki",
+    "the-detective-is-already-dead",
+    "dragon-ball-daima",
+    "the-color-of-the-end-the-only-one-left-in-this-world",
+    "the-banished-former-hero-lives-as-he-pleases",
+    "ranma-1-2",
+    "fx-fighter-kurumi-chan",
+    "tokyo-revengers",
+    "chillin-in-another-world-with-level-2-super-cheat-powers",
+    "firefly-wedding",
+    "the-apothecary-diaries",
+    "overgeared",
+    "the-exiled-heavy-knight-knows-how-to-game-the-system"
+   ],
+   "usd": 0.008196
   }
  },
  "dismissed": [
@@ -5175,10 +5210,10 @@
   "book:wolf"
  ],
  "totals": {
-  "shots": 668,
-  "media": 335,
-  "added": 367,
-  "inbox": 183,
-  "usd": 1.107124
+  "shots": 670,
+  "media": 337,
+  "added": 380,
+  "inbox": 185,
+  "usd": 1.115688
  }
 }
