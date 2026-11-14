@@ -5109,6 +5109,12 @@
     "screatures"
    ],
    "usd": 0.000357
+  },
+  "2e9813cf52ee71892185f5ef0f26a9bab57f0cae1e94aef20cd99f914964faed": {
+   "at": "2026-11-14T06:58:46.302Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.00004
   }
  },
  "dismissed": [
@@ -5169,10 +5175,10 @@
   "book:wolf"
  ],
  "totals": {
-  "shots": 667,
+  "shots": 668,
   "media": 335,
   "added": 367,
   "inbox": 183,
-  "usd": 1.107084
+  "usd": 1.107124
  }
 }
