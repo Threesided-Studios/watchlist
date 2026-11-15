@@ -5150,6 +5150,40 @@
     "the-exiled-heavy-knight-knows-how-to-game-the-system"
    ],
    "usd": 0.008196
+  },
+  "683a5ca0931627835a093a48ad865855980c036ac631dc745a75cdf530e146e5": {
+   "at": "2026-11-15T11:27:28.113Z",
+   "outcome": "parsed",
+   "ids": [
+    "the-two-week-curse"
+   ],
+   "usd": 0.00036
+  },
+  "a5b70964a481517f9d0779b8bdd4174c5f652147df85bcb92b2a92e5404f63b9": {
+   "at": "2026-11-15T11:27:28.196Z",
+   "outcome": "parsed",
+   "ids": [
+    "the-completionist-chronicles",
+    "ritualist"
+   ],
+   "usd": 0.000405
+  },
+  "1bc0ed7e6864b9259599438802ef6289065e0585520f00368b46a0422756dd80": {
+   "at": "2026-11-15T11:27:28.206Z",
+   "outcome": "parsed",
+   "ids": [
+    "disgardium-unbound"
+   ],
+   "usd": 0.000367
+  },
+  "6c2c5431c9afa3845146cf009e387b7fba276b00f14bac2e22e2b3eacbcc51a5": {
+   "at": "2026-11-15T11:27:27.982Z",
+   "outcome": "parsed",
+   "ids": [
+    "pit-fighter-victor-of-tucson-book-one",
+    "victor-of-tucson"
+   ],
+   "usd": 0.004374
   }
  },
  "dismissed": [
@@ -5210,10 +5244,10 @@
   "book:wolf"
  ],
  "totals": {
-  "shots": 670,
-  "media": 337,
-  "added": 380,
-  "inbox": 185,
-  "usd": 1.115688
+  "shots": 674,
+  "media": 341,
+  "added": 382,
+  "inbox": 188,
+  "usd": 1.121194
  }
 }
