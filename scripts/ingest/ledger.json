@@ -5184,6 +5184,134 @@
     "victor-of-tucson"
    ],
    "usd": 0.004374
+  },
+  "e5b56bef5f051704da92c73dc44e4caca7e4af62b965e339c3ab2159999397a4": {
+   "at": "2026-11-15T17:57:51.490Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.00004
+  },
+  "49200eb62421e950ba5ca15115a62bc37f68c7982e6de8f798adb9c4844c0282": {
+   "at": "2026-11-15T17:57:51.254Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.00004
+  },
+  "176208ec122ccf5a67e13b26bcc8b42fac3260544f42c8665716e4be38ef6926": {
+   "at": "2026-11-15T17:57:53.592Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.00004
+  },
+  "5896ea7bdc5759393208b56d66ebaf82645530fd841155f6815b86c7bc5745a6": {
+   "at": "2026-11-15T17:57:53.725Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.00004
+  },
+  "9b07853c7dbe5d4877ff097e94fa50da0a042307767535e46064d52b6c68dc3d": {
+   "at": "2026-11-15T17:57:51.213Z",
+   "outcome": "parsed",
+   "ids": [
+    "prison-school",
+    "the-qwaser-of-stigmata"
+   ],
+   "usd": 0.000399
+  },
+  "3f924100cf6b51f5f37b69b61af3421ea7bbd81d39757741507399c10c26f10c": {
+   "at": "2026-11-15T17:57:55.105Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.00004
+  },
+  "e03a1ad4e8ad54cfee3730e6d2cdbd4fc44201090f10915881fc75837a61c7f4": {
+   "at": "2026-11-15T17:57:55.991Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.00004
+  },
+  "919b3bc345b286f5c7d98ab349d7437e0ffa21b9be633fefa3b9020f64e5bf7f": {
+   "at": "2026-11-15T17:57:56.597Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.00004
+  },
+  "068469a9f10e7c69c7aba45febef0b29ebfa2e497c71451c27c84707542a993e": {
+   "at": "2026-11-15T17:57:51.191Z",
+   "outcome": "parsed",
+   "ids": [
+    "nekomonogatari-black",
+    "my-life-as-inukai-san-s-dog"
+   ],
+   "usd": 0.002384
+  },
+  "ab695c8be4b283c15d2970ca8bc0304948d4cee8ef77bb3b2e6cd044a3a2113a": {
+   "at": "2026-11-15T17:57:58.163Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.00004
+  },
+  "b74b0e36f64b513251bf827c3c6a4aa05441d38e54a357a37357613769c07c7f": {
+   "at": "2026-11-15T17:57:58.294Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.00004
+  },
+  "973b91f64f947f898eca035374767cea34ea1707ec5a30d2019445a32fa0107b": {
+   "at": "2026-11-15T17:57:59.021Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.00004
+  },
+  "d8225d917f7952acf5de061fb03e2d932fe947e19d09b6bbbcabe03f8ba3e4d2": {
+   "at": "2026-11-15T17:57:59.662Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.00004
+  },
+  "b09140c0f3bb32791389b697e69397978d925de1d29d5529cee51c3ac94809ca": {
+   "at": "2026-11-15T17:58:00.089Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.00004
+  },
+  "fdad877953806a8153a1342cb70602d81a95995aa8e50eb23c91d98ab12649a3": {
+   "at": "2026-11-15T17:57:59.575Z",
+   "outcome": "parsed",
+   "ids": [
+    "amagi-brilliant-park"
+   ],
+   "usd": 0.000359
+  },
+  "77d2b22bc205e6c27ed40b2e071cdbb6a73383692375b85e4fd43e9b28a8fd2e": {
+   "at": "2026-11-15T17:58:01.448Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.00004
+  },
+  "05d932640fbd5df79c3d8182ddf8497aaf083b9117d67b71b60b3f3edbfc0f0a": {
+   "at": "2026-11-15T17:58:02.444Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000034
+  },
+  "5f9814404ef378f27b59423bed66b86507974fc603d0a20b10f9a9588ebcbca8": {
+   "at": "2026-11-15T17:58:00.565Z",
+   "outcome": "parsed",
+   "ids": [
+    "a-nightmare-before-christmas",
+    "how-the-grinch-stole-christmas",
+    "elf"
+   ],
+   "usd": 0.000442
+  },
+  "886352e38ee9bb2f7e6c5edea69738084b372d8f4ba3fc7e3c08bf6a9768e102": {
+   "at": "2026-11-15T17:57:57.106Z",
+   "outcome": "parsed",
+   "ids": [
+    "wham"
+   ],
+   "usd": 0.000362
   }
  },
  "dismissed": [
@@ -5244,10 +5372,10 @@
   "book:wolf"
  ],
  "totals": {
-  "shots": 674,
-  "media": 341,
-  "added": 382,
-  "inbox": 188,
-  "usd": 1.121194
+  "shots": 693,
+  "media": 346,
+  "added": 384,
+  "inbox": 189,
+  "usd": 1.125694
  }
 }
