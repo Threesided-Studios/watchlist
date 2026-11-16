@@ -53797,7 +53797,9 @@
     "enriched_via": "Homebrew",
     "screenshot": "95b682278c97",
     "match_ok": true,
-    "art_via": "App Store"
+    "art_via": "App Store",
+    "verdict": "love",
+    "updated": "2026-11-16"
   },
   {
     "id": "obsidian",
@@ -53822,7 +53824,9 @@
     "ai_confidence": 0.9,
     "enriched_via": "Homebrew",
     "screenshot": "95b682278c97",
-    "match_ok": true
+    "match_ok": true,
+    "verdict": "love",
+    "updated": "2026-11-16"
   },
   {
     "id": "black-lagoon",
@@ -54320,7 +54324,9 @@
     "providers": [
       "Netflix"
     ],
-    "runtime": 94
+    "runtime": 94,
+    "verdict": "love",
+    "updated": "2026-11-16"
   },
   {
     "id": "samurai-priest-vampire-hunter",
@@ -56137,7 +56143,9 @@
     "enriched_via": "",
     "screenshot": "bfb4e5e8334b",
     "match_ok": false,
-    "art_via": "App Store"
+    "art_via": "App Store",
+    "verdict": "love",
+    "updated": "2026-11-16"
   },
   {
     "id": "fishaudio",
@@ -62512,7 +62520,7 @@
   },
   {
     "id": "my-new-stepsister-is-the-most-popular-girl-in-school",
-    "title": "Days with My Stepsister",
+    "title": "My New Stepsister is the Most Popular Girl in School!",
     "type": "anime",
     "year": 2024,
     "blurb": "",
@@ -62536,7 +62544,8 @@
     "screenshot": "7b93da4795ef",
     "aka": "Gimai Seikatsu (義妹生活); My New Stepsister is the Most Popular Girl in School!",
     "art_via": "AniList",
-    "format": "series"
+    "format": "series",
+    "updated": "2026-11-16"
   },
   {
     "id": "cold-iron",
@@ -62644,7 +62653,9 @@
     "providers": [
       "Amazon Prime Video"
     ],
-    "runtime": 93
+    "runtime": 93,
+    "verdict": "up",
+    "updated": "2026-11-16"
   },
   {
     "id": "total-recall",
@@ -62680,7 +62691,9 @@
       "AMC Plus",
       "Paramount+"
     ],
-    "runtime": 113
+    "runtime": 113,
+    "verdict": "love",
+    "updated": "2026-11-16"
   },
   {
     "id": "starship-troopers",
@@ -62714,7 +62727,9 @@
       "Philo",
       "YouTube TV"
     ],
-    "runtime": 129
+    "runtime": 129,
+    "verdict": "love",
+    "updated": "2026-11-16"
   },
   {
     "id": "arrival",
@@ -62750,7 +62765,9 @@
       "Paramount+",
       "Paramount+ Roku Premium Channel"
     ],
-    "runtime": 116
+    "runtime": 116,
+    "verdict": "love",
+    "updated": "2026-11-16"
   },
   {
     "id": "close-encounters-of-the-third-kind",
@@ -62777,7 +62794,9 @@
     "match_ok": true,
     "screenshot": "bf188ad4852f",
     "tmdb_id": 840,
-    "runtime": 137
+    "runtime": 137,
+    "verdict": "love",
+    "updated": "2026-11-16"
   },
   {
     "id": "a-i-artificial-intelligence",
@@ -62812,7 +62831,9 @@
       "Philo",
       "MGM Plus"
     ],
-    "runtime": 146
+    "runtime": 146,
+    "verdict": "love",
+    "updated": "2026-11-16"
   },
   {
     "id": "source-code",
@@ -62843,7 +62864,9 @@
     "providers": [
       "MovieSphere+"
     ],
-    "runtime": 93
+    "runtime": 93,
+    "verdict": "love",
+    "updated": "2026-11-16"
   },
   {
     "id": "oblivion",
@@ -62878,7 +62901,9 @@
       "Starz",
       "Starz Roku Premium Channel"
     ],
-    "runtime": 124
+    "runtime": 124,
+    "verdict": "love",
+    "updated": "2026-11-16"
   },
   {
     "id": "star-wars-the-last-jedi",
@@ -62909,7 +62934,9 @@
     "providers": [
       "Disney Plus"
     ],
-    "runtime": 152
+    "runtime": 152,
+    "verdict": "up",
+    "updated": "2026-11-16"
   },
   {
     "id": "barbarella",
@@ -62938,7 +62965,9 @@
     "screenshot": "bf188ad4852f",
     "tmdb_id": 8069,
     "same_title_works": 2,
-    "runtime": 98
+    "runtime": 98,
+    "verdict": "up",
+    "updated": "2026-11-16"
   },
   {
     "id": "inception",
@@ -62966,7 +62995,9 @@
     "match_ok": true,
     "screenshot": "bf188ad4852f",
     "tmdb_id": 27205,
-    "runtime": 148
+    "runtime": 148,
+    "verdict": "love",
+    "updated": "2026-11-16"
   },
   {
     "id": "battle-mage-farmer",
