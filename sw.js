@@ -1,15 +1,13 @@
-/* Watchlist service worker. Bump VERSION to roll caches. */
-const VERSION = 'v3';
+/* Watchlist service worker. scripts/build-site.mjs stamps the asset version
+   and the shell URL list, so the shell cache rolls whenever code changes.
+   Data and poster caches keep fixed names: new titles must not evict posters. */
+const VERSION = '__ASSET_VERSION__';
 const SHELL = `wl-shell-${VERSION}`;
-const DATA = `wl-data-${VERSION}`;
-const POSTERS = `wl-posters-${VERSION}`;
+const DATA = 'wl-data-v3';
+const POSTERS = 'wl-posters-v3';
 const KEEP = [SHELL, DATA, POSTERS];
 const B = '/';
-const SHELL_URLS = [
-  B, B + 'movies/', B + 'shows/', B + 'games/', B + 'books/', B + 'software/', B + 'recommended/', B + 'inbox/',
-  B + 'assets/styles.css?v=29', B + 'assets/app.js?v=27', B + 'manifest.webmanifest',
-  B + 'assets/icons/icon-192.png', B + 'assets/icons/apple-touch-icon.png',
-];
+const SHELL_URLS = /*__SHELL_URLS__*/ ['/'];
 
 self.addEventListener('install', (e) => {
   e.waitUntil(caches.open(SHELL).then((c) => Promise.all(SHELL_URLS.map((u) => c.add(u).catch(() => {})))).then(() => self.skipWaiting()));
@@ -60,7 +58,8 @@ self.addEventListener('fetch', (e) => {
   if (url.origin !== location.origin || !url.pathname.startsWith(B)) return; // APIs pass through
 
   const p = url.pathname;
-  if (p.endsWith('/data.json')) { e.respondWith(networkFirst(req, DATA)); return; }
+  if (p.endsWith('/data.json') || p.endsWith('/data.min.json')) { e.respondWith(networkFirst(req, DATA)); return; }
+  if (p.endsWith('/version.json')) return;   // always from the network
   if (p.startsWith(B + 'posters/')) { e.respondWith(cacheFirst(req, POSTERS)); return; }
   if (req.mode === 'navigate') { e.respondWith(networkFirst(req, SHELL).catch(() => caches.match(B))); return; }
   if (p.endsWith('/sw.js')) return;

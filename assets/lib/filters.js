@@ -5,7 +5,7 @@ export function applyFilters(items, { q = '', type = '', status = '' } = {}) {
     if (status && it.status !== status) return false;
     if (needle) {
       const tags = Array.isArray(it.tags) ? it.tags.join(' ') : '';
-      const hay = `${it.title} ${it.blurb} ${(it.summary||'')} ${tags} ${(it.notes||'')}`.toLowerCase();
+      const hay = [it.title, it.blurb, it.summary, tags, it.notes, it.author, it.recommended_by].filter(Boolean).join(' ').toLowerCase();
       if (!hay.includes(needle)) return false;
     }
     return true;

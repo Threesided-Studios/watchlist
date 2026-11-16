@@ -9,7 +9,7 @@ import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import sharp from 'sharp';
-import { titleKey } from './lib.mjs';
+import { titleKey, family, tmdbKind } from './lib.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
 const DRY = process.argv.includes('--dry-run');
@@ -38,7 +38,7 @@ async function needs(it) {
 }
 
 const out = { checked: 0, replaced: 0, noMatch: 0, ambiguous: 0, reasons: {} , samples: [] };
-const targets = items.filter((it) => (it.type === 'movie' || it.type === 'show') && it.status !== 'dismissed');
+const targets = items.filter((it) => family(it.type) === 'screen' && it.status !== 'dismissed');
 let next = 0;
 await Promise.all(Array.from({ length: 6 }, async () => {
   while (next < targets.length) {
@@ -47,7 +47,7 @@ await Promise.all(Array.from({ length: 6 }, async () => {
     const why = await needs(it);
     if (!why) continue;
     out.checked++;
-    const kind = it.type === 'show' ? 'tv' : 'movie';
+    const kind = tmdbKind(it);
     const title = String(it.title).replace(/\s*\((19|20)\d{2}\)\s*$/, '');
     const yearInTitle = Number((String(it.title).match(/\(((19|20)\d{2})\)\s*$/) || [])[1]) || null;
     const year = it.year || yearInTitle;

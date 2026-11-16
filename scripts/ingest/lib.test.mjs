@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { titleKey, buildIndex, findDuplicate, uniqueId, decideStatus, costOf } from './lib.mjs';
+import { titleKey, buildIndex, findDuplicate, uniqueId, decideStatus, costOf, lookupType, setScreenKind, tmdbKind } from './lib.mjs';
 
 test('titleKey normalises articles, years and punctuation', () => {
   assert.equal(titleKey('The Killing'), 'killing');
@@ -13,6 +13,27 @@ test('dedupe treats movie/show as one family, books separately', () => {
   assert.equal(findDuplicate(idx, { title: 'shrinking', type: 'movie' }), 'x');
   assert.equal(findDuplicate(idx, { title: 'Dune', type: 'movie' }), null);
   assert.equal(findDuplicate(idx, { title: 'Dune', type: 'book' }), 'y');
+});
+
+test('anime dedupes against show/movie, and repo against software', () => {
+  const idx = buildIndex([{ id: 'a', title: 'Frieren', type: 'anime', format: 'series' }, { id: 'r', title: 'Ice', type: 'repo' }]);
+  assert.equal(findDuplicate(idx, { title: 'Frieren', type: 'show' }), 'a');
+  assert.equal(findDuplicate(idx, { title: 'Frieren', type: 'movie' }), 'a');
+  assert.equal(findDuplicate(idx, { title: 'Ice', type: 'software' }), 'r');
+  assert.equal(findDuplicate(idx, { title: 'Ice', type: 'game' }), null);
+});
+
+test('anime keeps its type when a TMDB kind is recorded', () => {
+  const film = { type: 'anime', format: 'series' };
+  setScreenKind(film, 'movie');
+  assert.deepEqual(film, { type: 'anime', format: 'film' });
+  assert.equal(tmdbKind(film), 'movie');
+  assert.equal(lookupType(film), 'movie');
+  assert.equal(lookupType({ type: 'anime' }), 'show');
+  assert.equal(lookupType({ type: 'repo' }), 'software');
+  const show = { type: 'movie' };
+  setScreenKind(show, 'tv');
+  assert.equal(show.type, 'show');
 });
 
 test('dismissed items do not block nor match', () => {

@@ -1,5 +1,11 @@
-import { applyFilters } from './lib/filters.js?v=18';
-import { isVotingEnabled, myVote, castVote, fetchTallies } from './votes.js?v=18';
+import { applyFilters } from './lib/filters.js';
+import { isVotingEnabled, myVote, castVote, fetchTallies } from './votes.js';
+import { CATEGORIES, category, canonicalType } from '../shared/taxonomy.js';
+
+/* Which page this is ({view, type}) is stamped into the HTML by the site build. */
+const PAGE = window.WL_PAGE || {};
+window.WL_TYPE = PAGE.type || '';
+window.WL_VIEW = PAGE.view === 'inbox' || PAGE.view === 'recommended' ? PAGE.view : '';
 
 let tallies = {};   // { item_id: {up,down,net} } from Airtable
 
@@ -72,27 +78,10 @@ async function toggleOwner() {
 /* ---------- VERDICTS (non-destructive ratings) ---------- */
 const VERDICTS = { love: 'loved', up: 'liked', down: 'disliked', played: 'played', skip: 'not interested' };
 
-/* section order + plural labels for the grouped view */
-const TYPE_ORDER = ['movie','show','game','book','software','music','recipe','venue','purchase','project','other'];
-const TYPE_LABEL = {
-  movie:'Movies', show:'Shows', game:'Games', book:'Books', software:'Software', music:'Music',
-  recipe:'Recipes', venue:'Venues', purchase:'Purchases', project:'Projects', other:'Other',
-};
-
-/* ---------- TYPE METADATA ---------- */
-const TYPE_META = {
-  movie:    { glyph: '🎬', grad: ['#2a1f5e','#4a2d8c'] },
-  show:     { glyph: '📺', grad: ['#0f3040','#1b6b7a'] },
-  game:     { glyph: '🎮', grad: ['#3d1608','#7a3518'] },
-  book:     { glyph: '📖', grad: ['#2d2010','#5c4020'] },
-  software: { glyph: '💻', grad: ['#0c2a2a','#16524f'] },
-  music:    { glyph: '🎵', grad: ['#3a0a25','#7a1850'] },
-  recipe:   { glyph: '🍽️', grad: ['#0f2d14','#1f5e2a'] },
-  venue:    { glyph: '📍', grad: ['#0a1e35','#14406e'] },
-  purchase: { glyph: '🛍️', grad: ['#28103d','#562080'] },
-  project:  { glyph: '⚙️', grad: ['#1e1a08','#4a3e10'] },
-  other:    { glyph: '◈',  grad: ['#1a1520','#302540'] },
-};
+/* Section order, labels, glyphs and placeholder colours all come from shared/taxonomy.js. */
+const TYPE_ORDER = CATEGORIES.map(c => c.key);
+const TYPE_LABEL = Object.fromEntries(CATEGORIES.map(c => [c.key, c.label]));
+const TYPE_META  = Object.fromEntries(CATEGORIES.map(c => [c.key, c]));
 
 /* ---------- LOAD / PERSIST ---------- */
 async function load() {
@@ -102,8 +91,9 @@ async function load() {
      behaviour that hid new data.json items from returning visitors. */
   let canonical = [];
   try {
-    const r = await fetch(window.WL_DATA || 'data.json', { cache: 'no-store' });
+    const r = await fetch('/data.min.json', { cache: 'no-store' });
     canonical = r.ok ? await r.json() : [];
+    for (const it of canonical) it.type = canonicalType(it.type);
   } catch { canonical = []; }
 
   if (!canonical.length) {              /* offline / fetch failed — use cache */
@@ -412,7 +402,7 @@ function buildSection(label, list, opts = {}) {
 /* ---------- CARD ---------- */
 function card(it) {
   const node = tpl.content.firstElementChild.cloneNode(true);
-  const type = it.type || 'other';
+  const type = canonicalType(it.type);
   const hasPoster = !!(it.poster);
   const hasLink   = !!(it.link);
 
@@ -426,7 +416,7 @@ function card(it) {
   /* poster or placeholder */
   const img = $('.poster img', node);
   if (hasPoster) {
-    img.src = (window.WL_BASE || '') + it.poster;
+    img.src = '/' + it.poster;
     img.alt = it.title;
   } else {
     img.removeAttribute('src');
@@ -435,7 +425,7 @@ function card(it) {
   }
 
   /* type badge */
-  $('.type', node).textContent = type;
+  $('.type', node).textContent = category(type).singular;
 
   /* 3D spine label */
   const spineT = $('.spine-title', node);
@@ -554,8 +544,7 @@ function card(it) {
 
 /* ---------- PLACEHOLDER ---------- */
 function applyPlaceholder(posterEl, placeholderEl, it) {
-  const type = it.type || 'other';
-  const meta = TYPE_META[type] || TYPE_META.other;
+  const meta = category(it.type);
   const [c1, c2] = meta.grad;
 
   /* gradient background on the poster element itself */
@@ -658,11 +647,12 @@ async function sendSuggest() {
 /* ---------- SURPRISE ME (random backlog game) ---------- */
 const surpriseModal = $('#surprise-modal');
 function rollSurprise() {
-  const pool = items.filter(it => (it.type || '') === 'game' && !it.verdict && it.status !== 'done' && !HIDDEN_STATUSES.has(it.status) && (isOwner || !it.adult));
+  const want = window.WL_TYPE || 'game';   /* on a category page, pick from that category */
+  const pool = items.filter(it => it.type === want && !it.verdict && it.status !== 'done' && !HIDDEN_STATUSES.has(it.status) && (isOwner || !it.adult));
   if (!pool.length) return;
   const it = pool[Math.floor(Math.random() * pool.length)];
   const img = $('#surprise-poster');
-  if (it.poster) { img.src = (window.WL_BASE || '') + it.poster; img.style.display = ''; }
+  if (it.poster) { img.src = '/' + it.poster; img.style.display = ''; }
   else img.style.display = 'none';
   $('.surprise-title', surpriseModal).textContent = it.title;
   $('.surprise-year', surpriseModal).textContent = it.year || '';
@@ -701,7 +691,7 @@ function populateTypeFilter() {
   sel.appendChild(all);
   for (const t of ordered) {
     const o = document.createElement('option');
-    o.value = t; o.textContent = t;
+    o.value = t; o.textContent = (TYPE_LABEL[t] || t).toLowerCase();
     sel.appendChild(o);
   }
   if (present.has(current)) sel.value = current; else sel.value = '';

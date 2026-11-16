@@ -1,7 +1,7 @@
 /* Guest voting via the Cloudflare Worker (token never reaches the browser).
  * One vote per browser per item, tracked in localStorage with the Airtable
  * record id so a change PATCHes and a retract DELETEs — keeping tallies clean. */
-import { AIRTABLE } from './airtable-config.js?v=18';
+import { AIRTABLE } from './airtable-config.js';
 
 const LSV = 'watchlist.votes';
 const api = () => (AIRTABLE.WORKER_URL || '').replace(/\/$/, '');

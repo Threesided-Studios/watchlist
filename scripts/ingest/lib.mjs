@@ -1,4 +1,23 @@
 /* Pure helpers for the screenshot ingest (unit-tested in lib.test.mjs). */
+import { family, canonicalType, tmdbKind } from '../../shared/taxonomy.js';
+
+/* Which types may collide on the same title is decided in shared/taxonomy.js:
+   movie/show/anime are one family (people mislabel them), as are software/repo. */
+export { family, tmdbKind };
+
+/* The enrichment and cover-art code predates the anime and repo types and only
+   knows movie/show/book/game/software. This maps an item back to those. */
+export function lookupType(item) {
+  const t = canonicalType(item?.type);
+  if (t === 'anime') return item.format === 'film' ? 'movie' : 'show';
+  if (t === 'repo') return 'software';
+  return t;
+}
+/* Record a TMDB kind ('tv' | 'movie') on an item without turning anime back into show/movie. */
+export function setScreenKind(item, kind) {
+  if (canonicalType(item.type) === 'anime') { item.format = kind === 'tv' ? 'series' : 'film'; return; }
+  item.type = kind === 'tv' ? 'show' : 'movie';
+}
 
 export function slugify(s) {
   return String(s || '').toLowerCase()
@@ -14,10 +33,6 @@ export function titleKey(title) {
   t = t.replace(/^\s*(the|a|an)\s+/i, '');
   return slugify(t);
 }
-
-/* Families that may collide: an anime "show" is still a show; movies and shows
-   share a family because people mislabel them; books/games are distinct. */
-export const family = (type) => (type === 'movie' || type === 'show') ? 'screen' : (type || 'other');
 
 export function buildIndex(items) {
   const idx = new Map();

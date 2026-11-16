@@ -1,4 +1,5 @@
 import { QA_MODEL } from './models.mjs';
+import { tmdbKind } from './lib.mjs';
 /* Poster QA for movies/shows: make sure the poster belongs to the right work when several
  * works share the title (remake vs original, same-name films, movie-vs-series mislabels).
  *   1. TMDB search (movie + tv) for the title / aka; keep exact-title hits.
@@ -59,7 +60,7 @@ export async function qaScreen(item, { openai, token, posterBytes = null, extra 
   let cost = 0;
   const cands = await screenCandidates(item, token);
   if (!cands.length) return { verdict: 'nomatch', cands, cost, reason: 'no exact-title work on TMDB' };
-  const wantKind = item.type === 'show' ? 'tv' : 'movie';
+  const wantKind = tmdbKind(item);
   const byId = item.tmdb_id ? cands.find((c) => c.id === item.tmdb_id && c.kind === wantKind) || cands.find((c) => c.id === item.tmdb_id) : null;
   if (cands.length === 1 && cands[0].kind === wantKind && (!item.tmdb_id || byId)) {
     /* the only work with this title and the right type: fine even if the listed year is the source manga/novel year */

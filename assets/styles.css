@@ -127,6 +127,7 @@ body {
   transition: color .18s var(--ease), border-color .18s var(--ease), background .18s var(--ease);
 }
 .pagenav a:hover { color: var(--text); border-color: var(--accent); background: var(--surface); }
+.pagenav a[aria-current="page"] { color: var(--text); border-color: var(--accent); background: var(--surface); }
 @media (max-width: 600px) { .pagenav { margin-left: 0; width: 100%; } }
 
 /* ---------- CONTROLS ---------- */
@@ -287,6 +288,8 @@ body[data-owner="true"] .card:active { cursor: grabbing; }
 .card[data-type="show"]  { --thick: 46px; --spine-a: #1b7d77; --spine-b: #0c423f; } /* DVD keepcase */
 .card[data-type="game"]  { --thick: 50px; --spine-a: #8a3d1c; --spine-b: #3d1608; } /* game box */
 .card[data-type="book"]  { --thick: 58px; --spine-a: #6a4a26; --spine-b: #2d2010; } /* book */
+.card[data-type="anime"] { --thick: 42px; --spine-a: #a03a78; --spine-b: #4a1838; } /* anime keepcase */
+.card[data-type="manga"] { --thick: 30px; --spine-a: #8a4034; --spine-b: #3a1814; } /* tankobon */
 
 .stage {
   position: relative;
@@ -478,6 +481,14 @@ body[data-owner="true"] .card:active { cursor: grabbing; }
 .card[data-type="venue"]    .type { border-color: rgba(106,176,232,0.45); color: #94ccf0; }
 .card[data-type="purchase"] .type { border-color: rgba(184,125,224,0.45); color: #d0a8f0; }
 .card[data-type="project"]  .type { border-color: rgba(232,173,64,0.45); color: #f0c868; }
+.card[data-type="anime"]    .type { border-color: rgba(255,130,180,0.45); color: #ff9ec4; }
+.card[data-type="manga"]    .type { border-color: rgba(240,150,130,0.45); color: #f0b0a0; }
+.card[data-type="software"] .type { border-color: rgba(90,200,190,0.45); color: #7fd6cf; }
+.card[data-type="repo"]     .type { border-color: rgba(130,170,225,0.45); color: #9fc0e8; }
+.card[data-type="podcast"]  .type { border-color: rgba(184,140,235,0.45); color: #c8a8f0; }
+.card[data-type="video"]    .type { border-color: rgba(235,120,120,0.45); color: #f09090; }
+.card[data-type="place"]    .type { border-color: rgba(106,176,232,0.45); color: #94ccf0; }
+.card[data-type="product"]  .type { border-color: rgba(184,125,224,0.45); color: #d0a8f0; }
 
 
 /* verdict cluster (non-destructive rating) — owner only, appears on hover */
@@ -1065,6 +1076,8 @@ body[data-owner="false"][data-voting="on"] .gvote {
 /* ---------- Software: app icons / repo cards on a tinted tile ---------- */
 .card[data-type="software"] .poster { background: radial-gradient(120% 90% at 50% 30%, #1d4a47 0%, #0c2a2a 70%); }
 .card[data-type="software"] .poster img { object-fit: contain; padding: 22% 16%; filter: drop-shadow(0 10px 22px rgba(0,0,0,0.45)); }
+.card[data-type="repo"] .poster { background: radial-gradient(120% 90% at 50% 30%, #24406a 0%, #101c2c 70%); }
+.card[data-type="repo"] .poster img { object-fit: contain; padding: 14% 8%; filter: drop-shadow(0 10px 22px rgba(0,0,0,0.45)); }
 
 /* ---------- Review flow: obvious on phones ---------- */
 .nav-badge { display: inline-block; min-width: 1.5em; padding: 0 6px; margin-left: 4px; border-radius: 999px; background: var(--accent); color: #1a0d08; font-weight: 700; font-size: 0.75em; line-height: 1.5; text-align: center; }

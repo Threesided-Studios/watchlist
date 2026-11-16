@@ -30,17 +30,14 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: main
-      - name: Stage site files only
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      # Pages from templates/page.html, minified data, hashed asset URLs and
+      # version.json (the commit that is live; the ingest job reads it).
+      - name: Build site
         run: |
-          mkdir -p _site
-          rsync -a ./ _site/ \
-            --exclude '.git' --exclude '.github' --exclude '_site' \
-            --exclude 'scripts' --exclude 'pipeline' --exclude 'docs' \
-            --exclude 'worker' --exclude 'ingest-worker' \
-            --exclude 'node_modules' --exclude 'README.md' --exclude '.gitignore'
-          touch _site/.nojekyll
-          # Which commit is live. The ingest job reads this to notice a stale site.
-          printf '{"sha":"%s","deployed_at":"%s"}\n' "$(git rev-parse HEAD)" "$(date -u +%FT%TZ)" > _site/version.json
+          node scripts/build-site.mjs --out _site
           du -sh _site
       - uses: actions/upload-pages-artifact@v3
         with:

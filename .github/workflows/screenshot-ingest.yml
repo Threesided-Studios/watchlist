@@ -58,10 +58,13 @@ jobs:
           INGEST_CONCURRENCY: "4"
           INGEST_MAX_MINUTES: "20"
         run: node run.mjs
+      # Idempotent: keeps every item in the current data shape (shared/normalize.js).
+      - name: Normalise data
+        run: node scripts/normalize.mjs
       - name: Commit
-        if: steps.peek.outputs.work != '0'
         run: |
           git add data.json posters scripts/ingest/ledger.json
+          if [ -d data ]; then git add data; fi
           if git diff --cached --quiet; then
             echo "Nothing new."
           else
