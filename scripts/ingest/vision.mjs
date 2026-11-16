@@ -86,6 +86,7 @@ export const PARSE_SYSTEM = [
   'Pick the type from context: "on Netflix", "season", "episodes" => show; "read", "author", "novel" => book; "play", "Steam", "Switch" => game; "listen", "episode", "hosted by" => podcast; a GitHub page, an owner/name slug or stars/forks => repo; an App Store page or "download the app" => software; a map pin, address, hours or star rating with a neighbourhood => place.',
   'Japanese animation is type anime (set format film or series), never show or movie. Manga, manhwa, comics and light novels are type manga, not book.',
   'A game must be a video game you play, not an app used for work. A tool you clone or self-host is a repo; one you install from a store or sign up for is software.',
+  'A tagline or description is not a name: "The After Effects killer", "the best budgeting app" or "a Notion alternative" are not things (is_thing=false) unless the real product name is also on screen, in which case list that name. For AI models and tools named in a benchmark or comparison chart, list each product once by its base name ("Kling", "Kimi"), not once per version or tier, and use confidence below 0.8 unless the screenshot is clearly recommending it.',
   'People, usernames, game-lobby player names, companies and brands with no specific product, and words that merely match a title are not things: set is_thing=false.',
   'Use low confidence and evidence=ambiguous when unsure.',
 ].join(' ');

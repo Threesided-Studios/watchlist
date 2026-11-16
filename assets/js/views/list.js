@@ -2,6 +2,7 @@
  * Filters live in the URL so any view can be bookmarked or shared. */
 import { CATEGORIES, category } from '../../../shared/taxonomy.js';
 import { applyFilters, applySort, facetCounts } from '../../lib/filters.js';
+import { parseQuery, matchesParsed } from '../../lib/smart.js';
 import { state, visibleItems, stage, netVotes } from '../store.js';
 import { el, card, row, emptyState, stackCard } from '../card.js';
 
@@ -36,7 +37,12 @@ export function renderList(root, page) {
   function draw() {
     observer?.disconnect();
     const p = readParams();
-    const type = fixedType || p.type;
+    /* the search box understands plain phrases ("short anime on crunchyroll i haven't watched"):
+       the parts that are really filters are lifted out, the rest is matched as text */
+    const allProviders = facetCounts(visibleItems(), (it) => it.providers || []).map(([name]) => name);
+    const smart = parseQuery(p.q, { providers: allProviders });
+    const type = fixedType || p.type || smart.type || '';
+    const stageWanted = p.stage || smart.stage || '';
     let base = visibleItems();
     if (page.view === 'recommended') base = base.filter((it) => netVotes(it) > 0);
     if (type) base = base.filter((it) => it.type === type);
@@ -55,8 +61,9 @@ export function renderList(root, page) {
     ];
     const set = (patch) => { writeParams({ ...readParams(), ...patch }); draw(); };
 
-    const scoped = base.filter((it) => (p.stage ? stage(it) === p.stage : state.owner || stage(it) !== 'skipped'));
-    const filtered = applyFilters(scoped, { q: p.q, tag: p.tag, verdict: p.verdict, source: p.source, decade: p.decade, on: p.on, series: p.series });
+    const scoped = base.filter((it) => (stageWanted ? stage(it) === stageWanted : state.owner || stage(it) !== 'skipped'));
+    const filtered = applyFilters(scoped, { q: smart.text, tag: p.tag, verdict: p.verdict || smart.verdict || '', source: p.source, decade: p.decade, on: p.on || smart.on || '', series: p.series })
+      .filter((it) => matchesParsed(it, smart));
     const sortKey = p.sort || (p.series ? 'series' : page.view === 'recommended' ? 'votes' : 'added-desc');
     const sorted = sortKey === 'votes' ? [...filtered].sort((a, b) => netVotes(b) - netVotes(a)) : applySort(filtered, sortKey);
 
@@ -73,7 +80,7 @@ export function renderList(root, page) {
         page.view === 'recommended' ? '★ Recommended by friends' : cat ? `${cat.glyph} ${cat.label}` : 'Everything',
         el('span', { class: 'pill', text: String(sorted.length) })),
       el('div', { class: 'tabs', role: 'tablist' }, tabs.map(([k, label, n]) =>
-        el('button', { type: 'button', role: 'tab', class: 'tab', 'aria-selected': String(p.stage === k), onclick: () => set({ stage: k }) },
+        el('button', { type: 'button', role: 'tab', class: 'tab', 'aria-selected': String(stageWanted === k), onclick: () => set({ stage: k }) },
           label, el('span', { class: 'tab-n', text: String(n) })))),
     );
 
@@ -97,6 +104,7 @@ export function renderList(root, page) {
         el('button', { type: 'button', 'aria-pressed': String(layout === 'rows'), title: 'Compact list', text: '☰', onclick: () => { localStorage.setItem(LS_LAYOUT, 'rows'); draw(); } })),
     );
 
+    const understood = smart.notes.length ? el('p', { class: 'understood' }, el('span', { text: 'understood as' }), smart.notes.map((n) => el('b', { text: n })), smart.text && el('span', { text: `matching “${smart.text}”` })) : null;
     const chips = el('div', { class: 'chips', 'aria-label': 'Genres' },
       tagFacets.map(([t, n]) => el('button', { type: 'button', class: 'chip', 'aria-pressed': String(p.tag.toLowerCase() === t.toLowerCase()), onclick: () => set({ tag: p.tag.toLowerCase() === t.toLowerCase() ? '' : t }) },
         t, el('span', { class: 'chip-n', text: String(n) }))),
@@ -130,7 +138,7 @@ export function renderList(root, page) {
       if (shown >= entries.length) { observer?.disconnect(); sentinel.remove(); }
     };
 
-    root.replaceChildren(head, facets, chips, grid, sentinel);
+    root.replaceChildren(...[head, facets, understood, chips, grid, sentinel].filter(Boolean));
     if (!sorted.length) {
       grid.replaceWith(emptyState(active.length || p.stage ? '🔍' : '🎞️', active.length || p.stage ? 'Nothing matches those filters.' : 'Nothing here yet.',
         active.length || p.stage ? 'Try clearing a filter or the search.' : 'New finds land here as they are added.'));

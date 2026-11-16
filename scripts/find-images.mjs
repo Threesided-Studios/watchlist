@@ -182,21 +182,22 @@ if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.ur
       }
       if (!KEY) { console.log(` - ${it.title} (no OPENAI_API_KEY to check candidates)`); continue; }
       const cands = await candidatesFor(it);
-      const usable = [], thumbs = [];
+      const usable = [], thumbs = [], raws = [];
       for (const c of cands) {
         const raw = await get(c.thumb || c.image, { as: 'buffer' }) || (c.thumb ? await get(c.image, { as: 'buffer' }) : null);
         if (!raw) continue;
         try {
           const meta = await sharp(raw).metadata();
           if ((meta.width || 0) < 120 || (meta.height || 0) < 120) continue;
-          thumbs.push(await sharp(raw).rotate().resize({ width: 256, height: 256, fit: 'inside' }).jpeg({ quality: 70 }).toBuffer()); usable.push(c);
+          thumbs.push(await sharp(raw).rotate().resize({ width: 256, height: 256, fit: 'inside' }).jpeg({ quality: 70 }).toBuffer()); usable.push(c); raws.push(raw);
         } catch { /* not an image */ }
       }
       if (!usable.length) { console.log(` - ${it.title} [${it.type}] (no candidates)`); continue; }
       const pick = await choose(it, usable, thumbs);
       const hit = pick.index >= 0 && pick.index < usable.length ? usable[pick.index] : null;
       if (!hit) { console.log(` - ${it.title} [${it.type}] (${usable.length} candidates, none accepted: ${String(pick.reason).slice(0, 70)})`); continue; }
-      const full = await get(hit.image, { as: 'buffer' });
+      /* some hosts refuse the full-size download; the thumbnail the model approved is good enough then */
+      const full = await get(hit.image, { as: 'buffer' }) || raws[pick.index];
       if (!full) { console.log(` - ${it.title} (download failed)`); continue; }
       await save(it, full, hit.source); found++;
       if (hit.link && !it.link) it.link = hit.link;

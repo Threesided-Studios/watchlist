@@ -1,0 +1,35 @@
+name: Weekly digest
+
+# Posts a weekly summary (what was added, what is coming up, what is waiting
+# in the inbox, one pick from the backlog) as a GitHub issue. GitHub emails
+# new issues to anyone watching the repository, so no mail service is needed.
+# The previous digest issue is closed when a new one opens.
+on:
+  schedule:
+    - cron: "37 15 * * 1"     # Mondays
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  digest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Post digest
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          node scripts/digest.mjs > digest.md
+          title=$(head -1 digest.md | sed 's/^# //')
+          gh label create digest --color 00d9ff --description "Weekly Watchlist digest" --repo "${{ github.repository }}" 2>/dev/null || true
+          for n in $(gh issue list --repo "${{ github.repository }}" --label digest --state open --json number -q '.[].number'); do
+            gh issue close "$n" --repo "${{ github.repository }}" >/dev/null
+          done
+          tail -n +2 digest.md | gh issue create --repo "${{ github.repository }}" --title "$title" --label digest --body-file -
