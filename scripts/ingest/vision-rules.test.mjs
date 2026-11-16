@@ -4,10 +4,11 @@ import { decideStatusV2, KEPT_ROLES, PARSE_SCHEMA } from './vision.mjs';
 import { pickForReprocess } from './reprocess.mjs';
 import { repoSlug, pageUrl, fallbackLink } from './enrich-extra.mjs';
 
-test('status: art puts media on the list; adult and articles always wait', () => {
+test('status: art puts media on the list, adult included; articles always wait', () => {
   assert.equal(decideStatusV2({ type: 'movie', confidence: 0.9 }, { poster: 'p.jpg' }), 'todo');
   assert.equal(decideStatusV2({ type: 'movie', confidence: 0.99 }, {}), 'inbox');
-  assert.equal(decideStatusV2({ type: 'movie', adult: true }, { poster: 'p.jpg' }), 'inbox');
+  assert.equal(decideStatusV2({ type: 'movie', adult: true }, { poster: 'p.jpg' }), 'todo');
+  assert.equal(decideStatusV2({ type: 'anime', adult: true, confidence: 0.99 }, {}), 'inbox', 'no art yet: same rule as any title');
   assert.equal(decideStatusV2({ type: 'article', confidence: 0.99 }, { poster: 'p.jpg' }), 'inbox');
 });
 

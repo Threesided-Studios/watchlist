@@ -113,7 +113,8 @@ export async function viaGitHubRepo(c) {
 
 /* ---------- AniList (manga, light novels) ---------- */
 export async function viaAniListManga(c) {
-  const query = 'query($s:String){Page(perPage:5){media(search:$s,type:MANGA,isAdult:false){id title{romaji english native} format startDate{year} description(asHtml:false) genres siteUrl coverImage{extraLarge} staff(perPage:1){nodes{name{full}}}}}}';
+  /* adult titles are only searched when the screenshot flagged the item as adult */
+  const query = `query($s:String){Page(perPage:5){media(search:$s,type:MANGA${c.adult ? '' : ',isAdult:false'}){` + 'id title{romaji english native} format startDate{year} description(asHtml:false) genres siteUrl coverImage{extraLarge} staff(perPage:1){nodes{name{full}}}}}}';
   try {
     const r = await fetch('https://graphql.anilist.co', { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json', ...UA }, body: JSON.stringify({ query, variables: { s: c.title } }), signal: AbortSignal.timeout(10000) });
     if (!r.ok) return null;

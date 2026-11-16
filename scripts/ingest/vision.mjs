@@ -97,11 +97,10 @@ export const KEPT_ROLES = new Set(['subject', 'recommended']);
 /* Types that are worth keeping without cover art: there is often none to find. */
 export const ARTLESS_OK = new Set(['place', 'recipe', 'product', 'article', 'video', 'podcast', 'music', 'repo']);
 
-/* Straight onto the list, or wait in the inbox for a look? Adult items always wait:
-   the list is public. Otherwise art is the bar for media; for types that rarely
-   have art, a confident, unambiguous read is enough. */
+/* Straight onto the list, or wait in the inbox for a look? Art is the bar for media; for
+   types that rarely have art, a confident, unambiguous read is enough. Adult titles follow
+   the same rules as everything else (the `adult` flag only hides them from guests on the site). */
 export function decideStatusV2(cand, { poster = '', matched = false } = {}) {
-  if (cand.adult) return 'inbox';
   /* almost any screenshot of a post or thread can be read as "an article": always ask */
   if (cand.type === 'article') return 'inbox';
   if (poster) return 'todo';
