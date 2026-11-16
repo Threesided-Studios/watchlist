@@ -59,6 +59,10 @@ export function listPages(items = loadItems()) {
   }
   pages.push({ path: 'recommended/', view: 'recommended', title: 'Watchlist — Recommended by Friends', subtitle: 'recommended by friends',
     description: 'What friends recommend from the list.' });
+  pages.push({ path: 'how-it-works/', view: 'how', title: 'Watchlist — How it works', subtitle: 'how it works',
+    description: 'How a screenshot becomes an entry on the list, and what you can do here.' });
+  pages.push({ path: 'pipeline/', view: 'pipeline', title: 'Watchlist — Under the hood', subtitle: 'under the hood',
+    description: 'The phone shortcut, queue, vision model and static site behind the Watchlist.', facts: pipelineFacts() });
   pages.push({ path: 'stats/', view: 'stats', title: 'Watchlist — Stats', subtitle: 'stats', description: 'The list in numbers.' });
   pages.push({ path: 'inbox/', view: 'inbox', title: 'Watchlist — Screenshot inbox', subtitle: 'screenshot inbox',
     description: 'Screenshot finds awaiting review.', noindex: true });
@@ -67,21 +71,41 @@ export function listPages(items = loadItems()) {
 
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
 
-/* Nav lists only categories that have something in them, so new ones appear as they fill up. */
+/* Totals from the ingest ledger, shown on /pipeline/. */
+function pipelineFacts() {
+  try {
+    const t = JSON.parse(read('scripts/ingest/ledger.json')).totals || {};
+    return { shots: t.shots || 0, media: t.media || 0, usd: Math.round((t.usd || 0) * 100) / 100 };
+  } catch { return {}; }
+}
+
+const navLink = (current) => (href, label, cls = '') =>
+  `        <a href="${href}"${cls ? ` class="${cls}"` : ''}${href === `/${current.path}` ? ' aria-current="page"' : ''}>${label}</a>`;
+
+/* Primary nav: the pages. Categories live in their own collapsible strip (catNavHtml). */
 function navHtml(pages, current) {
-  const link = (href, label, cls = '') => `        <a href="${href}"${cls ? ` class="${cls}"` : ''}${href === `/${current.path}` ? ' aria-current="page"' : ''}>${label}</a>`;
-  const out = [link('/', 'Home'), link('/all/', 'Everything')];
-  for (const p of pages) if (p.view === 'type' && (p.count > 0 || p === current)) out.push(link(`/${p.path}`, esc(p.label)));
-  out.push(link('/recommended/', '★ Friends'), link('/inbox/', '📥 Inbox', 'owner-only'));
-  return out.join('\n');
+  const link = navLink(current);
+  const onCategory = current.view === 'type';
+  return [
+    link('/', 'Home'), link('/all/', 'Browse'),
+    `        <button type="button" id="cat-toggle" class="nav-toggle" aria-expanded="${onCategory}" aria-controls="catnav"${onCategory ? ' data-current' : ''}>Categories <span aria-hidden="true">▾</span></button>`,
+    link('/recommended/', '★ Friends'), link('/how-it-works/', 'How it works'), link('/pipeline/', 'Under the hood'), link('/stats/', 'Stats'),
+    link('/inbox/', '📥 Inbox', 'owner-only'),
+  ].join('\n');
+}
+
+/* Only categories that have something in them, so new ones appear as they fill up. */
+function catNavHtml(pages, current) {
+  const link = navLink(current);
+  return pages.filter((p) => p.view === 'type' && (p.count > 0 || p === current)).map((p) => link(`/${p.path}`, `${esc(p.label)} <span class="nav-n">${p.count}</span>`)).join('\n');
 }
 
 export function renderPage(page, pages, version, template = read('templates/page.html')) {
   const slots = {
     TITLE: esc(page.title), DESCRIPTION: esc(page.description), SUBTITLE: esc(page.subtitle),
     ROBOTS: page.noindex ? '\n  <meta name="robots" content="noindex" />' : '',
-    NAV: navHtml(pages, page), V: version,
-    PAGE: JSON.stringify({ view: page.view, ...(page.type ? { type: page.type } : {}) }),
+    NAV: navHtml(pages, page), CATNAV: catNavHtml(pages, page), CATNAV_HIDDEN: page.view === 'type' ? '' : ' hidden', V: version,
+    PAGE: JSON.stringify({ view: page.view, ...(page.type ? { type: page.type } : {}), ...(page.facts ? { facts: page.facts } : {}) }),
   };
   return template.replace(/\{\{(\w+)\}\}/g, (m, k) => (k in slots ? slots[k] : m));
 }
