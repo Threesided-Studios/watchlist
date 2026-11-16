@@ -9,6 +9,8 @@ import { renderInbox } from './js/views/inbox.js';
 import { renderStats } from './js/views/stats.js';
 import { initDetail } from './js/views/detail.js';
 import { renderHow, renderPipeline } from './js/views/about.js';
+import { renderMap } from './js/views/map.js';
+import { renderYear } from './js/views/year.js';
 import { initFx, enliven, burst } from './js/fx.js';
 
 const PAGE = window.WL_PAGE || { view: 'home' };
@@ -28,6 +30,8 @@ function render() {
   else if (PAGE.view === 'stats') renderStats(app);
   else if (PAGE.view === 'how') renderHow(app, { openAdd });
   else if (PAGE.view === 'pipeline') renderPipeline(app, PAGE.facts);
+  else if (PAGE.view === 'map') renderMap(app);
+  else if (PAGE.view === 'year') renderYear(app);
   else if (PAGE.view === 'home' && !searching) renderHome(app);
   /* searching from home searches everything */
   else redrawList = renderList(app, PAGE.view === 'home' ? { view: 'all' } : PAGE);
@@ -192,7 +196,7 @@ function openSurprise() {
 let typing;
 q.value = readParams().q;
 /* pages with no list of their own: searching from them goes to Browse */
-const STATIC_VIEWS = new Set(['how', 'pipeline', 'stats', 'inbox']);
+const STATIC_VIEWS = new Set(['how', 'pipeline', 'stats', 'inbox', 'map', 'year']);
 q.addEventListener('keydown', (e) => {
   if (e.key === 'Enter' && STATIC_VIEWS.has(PAGE.view) && q.value.trim()) location.href = `/all/?q=${encodeURIComponent(q.value.trim())}`;
 });

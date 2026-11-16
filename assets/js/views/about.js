@@ -77,23 +77,21 @@ export function renderHow(root, { openAdd }) {
 
 export function renderPipeline(root, facts = {}) {
   const items = visibleItems();
-  const perShot = facts.shots ? (facts.usd / facts.shots) : 0;
 
   root.replaceChildren(
     hero('under the hood', ['A screenshot goes in. ', el('span', { class: 'grad', text: 'A list comes out.' })],
-      'The whole thing runs on free tiers and a few cents of AI. Here is each piece and what it does.',
+      'A phone shortcut, a small queue, a vision model and a static site. Here is each piece and what it does.',
       [el('a', { class: 'btn btn-primary', href: 'https://github.com/Threesided-Studios/watchlist', target: '_blank', rel: 'noopener noreferrer', text: 'Source on GitHub ↗' }), el('a', { class: 'btn', href: '/how-it-works/', text: 'The short version' })]),
 
     el('section', { class: 'tiles' },
       stat(n(facts.shots), 'screenshots read'), stat(n(facts.media), 'had something worth saving'),
-      stat(n(items.length), 'items on the list'), stat(facts.usd ? `$${facts.usd.toFixed(2)}` : '—', 'total AI cost'),
-      stat(perShot ? `${(perShot * 100).toFixed(2)}¢` : '—', 'per screenshot')),
+      stat(n(items.length), 'items on the list')),
 
     section('the path', 'Five hops, no hands',
       steps([
         ['Phone', 'An iOS Shortcut runs on a schedule, finds recent screenshots and uploads them. Nothing to tap.'],
         ['Queue', 'A Cloudflare Worker receives each image and holds it in a Durable Object, keyed by its hash so the same screenshot is never read twice.'],
-        ['Reader', 'A GitHub Action wakes up minutes later. A cheap vision pass asks “is anything here worth saving?”, then a closer pass extracts every title with its type, year, source and a confidence score.'],
+        ['Reader', 'A GitHub Action wakes up minutes later. A quick vision pass asks “is anything here worth saving?”, then a closer pass extracts every title with its type, year, source and a confidence score.'],
         ['Matcher', 'Each title is checked against the database for its kind and deduplicated against the list. Same-name collisions (a remake, a film versus a series) get a second look before the art is trusted.'],
         ['Site', 'The result is committed to the repository as plain JSON and the static site rebuilds. Screenshots are deleted after 30 days.'],
       ])),
@@ -102,7 +100,7 @@ export function renderPipeline(root, facts = {}) {
       cards([
         ['📱', 'Capture', 'iOS Shortcuts automation, plus a drag-and-drop uploader in the inbox for anything from a desktop.'],
         ['☁️', 'Queue and sync', 'One Cloudflare Worker with a SQLite-backed Durable Object. It also receives my edits and tells GitHub when there is work to do.'],
-        ['👁', 'Reading', 'OpenAI vision models with strict JSON schemas, a per-run spend cap, and a ledger so no image is paid for twice.'],
+        ['👁', 'Reading', 'OpenAI vision models with strict JSON schemas and a ledger so no image is read twice.'],
         ['🗂', 'Matching', 'TMDB for film and TV, AniList for anime and manga, Steam for games, Open Library for books, the App Store, Homebrew and GitHub for software, Wikipedia as a fallback.'],
         ['🧱', 'Storage', 'A single data.json in git. Every change is a commit, so the full history of the list is the repository history.'],
         ['⚡', 'Site', 'Hand-written HTML, CSS and JavaScript modules on GitHub Pages. No framework, installable as an app, works offline.'],
@@ -113,7 +111,7 @@ export function renderPipeline(root, facts = {}) {
         ['✓', 'Art or inbox', 'A find only goes straight onto the public list when it has a verified match and cover art. Everything else waits for review.'],
         ['🔒', 'Private by default', 'Full names from personal messages are reduced to first names, adult titles stay owner-only, and screenshots never enter the public repository.'],
         ['↺', 'Self-healing', 'Each run checks that the live site matches the repository and redeploys if it has fallen behind.'],
-        ['¢', 'Cheap on purpose', 'A low-resolution triage pass filters out the half of screenshots that have nothing to save before the closer read is paid for.'],
+        ['⏱', 'Two looks, not one', 'A quick first pass sets aside the screenshots that have nothing worth saving, so the careful read is spent only where it matters.'],
       ])),
 
     el('section', { class: 'cta' },

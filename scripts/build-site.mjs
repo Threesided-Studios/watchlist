@@ -84,6 +84,8 @@ export function listPages(items = loadItems()) {
   pages.push({ path: 'pipeline/', view: 'pipeline', title: 'Watchlist — Under the hood', subtitle: 'under the hood',
     description: 'The phone shortcut, queue, vision model and static site behind the Watchlist.', facts: pipelineFacts() });
   pages.push({ path: 'stats/', view: 'stats', title: 'Watchlist — Stats', subtitle: 'stats', description: 'The list in numbers.' });
+  pages.push({ path: 'year/', view: 'year', title: 'Watchlist — Year in review', subtitle: 'year in review', description: 'What was added and finished, year by year.' });
+  pages.push({ path: 'map/', view: 'map', title: 'Watchlist — Map', subtitle: 'map', description: 'Saved places on a map.', count: items.filter((it) => it.type === 'place' && !HIDDEN.has(it.status)).length });
   pages.push({ path: 'inbox/', view: 'inbox', title: 'Watchlist — Screenshot inbox', subtitle: 'screenshot inbox',
     description: 'Screenshot finds awaiting review.', noindex: true });
   return pages;
@@ -105,7 +107,7 @@ export function recentShots(limit = 40) {
 function pipelineFacts() {
   try {
     const t = JSON.parse(read('scripts/ingest/ledger.json')).totals || {};
-    return { shots: t.shots || 0, media: t.media || 0, usd: Math.round((t.usd || 0) * 100) / 100 };
+    return { shots: t.shots || 0, media: t.media || 0 };   // counts only: no cost figures go to the public site
   } catch { return {}; }
 }
 
@@ -119,7 +121,8 @@ function navHtml(pages, current) {
   return [
     link('/', 'Home'), link('/all/', 'Browse'),
     `        <button type="button" id="cat-toggle" class="nav-toggle" aria-expanded="${onCategory}" aria-controls="catnav"${onCategory ? ' data-current' : ''}>Categories <span aria-hidden="true">▾</span></button>`,
-    link('/recommended/', '★ Friends'), link('/how-it-works/', 'How it works'), link('/pipeline/', 'Under the hood'), link('/stats/', 'Stats'),
+    link('/recommended/', '★ Friends'), link('/how-it-works/', 'How it works'), link('/pipeline/', 'Under the hood'), link('/stats/', 'Stats'), link('/year/', 'Year'),
+    ...(pages.some((p) => p.view === 'map' && p.count > 0) ? [link('/map/', '📍 Map')] : []),
     link('/inbox/', '📥 Inbox', 'owner-only'),
   ].join('\n');
 }
