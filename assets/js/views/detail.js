@@ -135,7 +135,9 @@ function facts(it) {
   add('runtime', it.runtime && `${it.runtime} min`);
   add('episode', it.season_episode);
   add('price', it.price);
-  add('where', it.location);
+  add('address', it.address);
+  if (!it.address) add('where', it.location);
+  add('kind', it.place_kind);
   if (it.type === 'repo') {
     add('stars', it.stars && `★ ${compact(it.stars)}`);
     add('language', it.language);
@@ -161,7 +163,7 @@ function draw(it) {
   ].filter(Boolean);
   const body = it.summary && it.summary !== it.blurb ? it.summary : it.blurb;
   const more = similar(it);
-  const primary = [...(it.link ? [[hostLabel(it.link), it.link, true]] : []), ...(it.repo_url && it.repo_url !== it.link ? [['Repository', it.repo_url, true]] : [])];
+  const primary = [...(it.map_url ? [['Map', it.map_url, true]] : []), ...(it.website && it.website !== it.link ? [['Website', it.website, true]] : []), ...(it.link && !(it.map_url && /google\.com\/maps/.test(it.link)) ? [[hostLabel(it.link), it.link, true]] : []), ...(it.repo_url && it.repo_url !== it.link ? [['Repository', it.repo_url, true]] : [])];
   /* no "Steam" search next to a direct Steam link */
   const links = [...primary, ...lookups(it).filter(([label]) => !primary.some(([l]) => l === label))];
 
