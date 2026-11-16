@@ -643,6 +643,8 @@ async function processShot(s) {
         const cand = { ...t, title: clean(t.title), type: canonicalType(t.type) };
         if (cand.title.length < 2 || (cand.confidence ?? 0) < 0.3) continue;   // model itself says "not a title"
         if (cand.type !== 'anime') cand.format = null;
+        /* a repo read as "owner/name": the name is the title, the slug is how to find it */
+        if (cand.type === 'repo' && cand.title.split('/').length === 2 && !cand.title.includes(' ')) { cand.url = cand.url || cand.title; cand.title = cand.title.split('/').pop(); }
         const famKey = `${family(cand.type)}:${titleKey(cand.title)}`;
         if (dismissed.has(famKey)) { report.push({ name: s.name, title: cand.title, outcome: 'previously-dismissed' }); continue; }
         const dup = findDuplicate(index, cand);
