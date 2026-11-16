@@ -10,7 +10,36 @@
 import { CATEGORIES } from '../../shared/taxonomy.js';
 
 export const TRIAGE_WIDTH = 512;
-export const PARSE_WIDTH = 1536;
+export const PARSE_WIDTH = 1280;
+
+/* Which model reads a screenshot. The cheap model is confidently wrong often enough that its
+   own confidence cannot be the only signal, so the rules below do not rely on it alone.
+
+   1. Text-dense screenshots (threads, lists, chats, articles) go straight to the strong model:
+      small text and many names are exactly where the cheap one misses things.
+   2. Everything else is read by the cheap model first, and re-read by the strong one when
+        - it kept nothing, although triage said there was something to save, or
+        - it is unsure of something it would keep (low confidence, or marked ambiguous). */
+export const DENSE_KINDS = new Set(['recommendation_thread', 'list_or_ranking', 'private_chat', 'article_or_post']);
+export const strongFirst = (triageKind) => DENSE_KINDS.has(triageKind);
+export const ESCALATE_BELOW = 0.75;
+
+const nameKey = (s) => String(s || '').toLowerCase().replace(/[^a-z0-9]+/g, '');
+/* The cheap model sometimes lists the site a screenshot is from as the thing to save
+   ("Goodreads" on a Goodreads book page). Drop an item that is just the app's own name,
+   unless the page really is about that app (a store or repo page for it). */
+export function dropSelfNamed(out) {
+  const app = nameKey(out?.app);
+  if (!app || !Array.isArray(out?.items)) return out;
+  const aboutTheApp = out.kind === 'software_or_repo' || out.kind === 'store_or_product_page';
+  return { ...out, items: out.items.filter((t) => !(nameKey(t.title) === app && !(aboutTheApp && out.items.length === 1))) };
+}
+export const keptItems = (out) => (out?.items || []).filter((t) => t.is_thing && KEPT_ROLES.has(t.role));
+export function needsSecondRead(out) {
+  const kept = keptItems(out);
+  if (!kept.length) return true;
+  return kept.some((t) => (t.confidence ?? 0) < ESCALATE_BELOW || t.evidence === 'ambiguous');
+}
 
 export const SHOT_KINDS = ['media_page_or_poster', 'recommendation_thread', 'list_or_ranking', 'store_or_product_page', 'software_or_repo', 'audio', 'video',
   'place_or_map', 'food_or_recipe', 'article_or_post', 'private_chat', 'receipt_or_finance', 'personal_photo', 'meme_or_joke', 'system_or_app_ui', 'other'];
@@ -84,6 +113,7 @@ export const PARSE_SYSTEM = [
   'Give every item a role. A page about one thing (an album, a podcast, a show, a book, one place on a map) has ONE subject: its tracks, episodes, trailers, chapters and editions are part_of_subject, and other labels on the map or in a related rail are incidental. In a list, ranking or thread recommending several things, each of those is recommended. Ads, sponsored banners and promoted posts are advertisement even when they name a real title.',
   'Only list what is actually on screen. Never invent a title, year, creator, price or location that is not visible or certain.',
   'Pick the type from context: "on Netflix", "season", "episodes" => show; "read", "author", "novel" => book; "play", "Steam", "Switch" => game; "listen", "episode", "hosted by" => podcast; a GitHub page, an owner/name slug or stars/forks => repo; an App Store page or "download the app" => software; a map pin, address, hours or star rating with a neighbourhood => place.',
+  'For anime and manga, use the official English title when one exists ("Attack on Titan", not "Shingeki no Kyojin"); for a repository, the title is the repository name without the owner, and the owner/name slug goes in url.',
   'Japanese animation is type anime (set format film or series), never show or movie. Manga, manhwa, comics and light novels are type manga, not book.',
   'A game must be a video game you play, not an app used for work. A tool you clone or self-host is a repo; one you install from a store or sign up for is software.',
   'A tagline or description is not a name: "The After Effects killer", "the best budgeting app" or "a Notion alternative" are not things (is_thing=false) unless the real product name is also on screen, in which case list that name. For AI models and tools named in a benchmark or comparison chart, list each product once by its base name ("Kling", "Kimi"), not once per version or tier, and use confidence below 0.8 unless the screenshot is clearly recommending it.',

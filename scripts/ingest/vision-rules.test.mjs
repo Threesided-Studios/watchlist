@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { decideStatusV2, KEPT_ROLES, PARSE_SCHEMA } from './vision.mjs';
+import { decideStatusV2, KEPT_ROLES, PARSE_SCHEMA, needsSecondRead, strongFirst, dropSelfNamed } from './vision.mjs';
 import { pickForReprocess } from './reprocess.mjs';
 import { repoSlug, pageUrl, fallbackLink } from './enrich-extra.mjs';
 
@@ -18,6 +18,30 @@ test('status: artless types need a confident, unambiguous read', () => {
   assert.equal(decideStatusV2({ type: 'recipe', confidence: 0.95, evidence: 'ambiguous' }, {}), 'inbox');
   assert.equal(decideStatusV2({ type: 'repo', confidence: 0.95 }, {}), 'inbox', 'an unmatched repo with no URL is a guess');
   assert.equal(decideStatusV2({ type: 'repo', confidence: 0.95 }, { matched: true }), 'todo');
+});
+
+test('a second, stronger read happens only when the first is unsure about something it would keep', () => {
+  const item = (o) => ({ is_thing: true, role: 'subject', confidence: 0.95, evidence: 'poster_or_cover', ...o });
+  assert.equal(needsSecondRead({ items: [item()] }), false);
+  assert.equal(needsSecondRead({ items: [] }), true, 'triage said there was something; a blank read is not trusted');
+  assert.equal(needsSecondRead({ items: [item({ confidence: 0.6 })] }), true);
+  assert.equal(needsSecondRead({ items: [item({ evidence: 'ambiguous' })] }), true);
+  assert.equal(needsSecondRead({ items: [item(), item({ confidence: 0.2, role: 'advertisement' })] }), false, 'unsure only about something it would not keep');
+});
+
+test('text-dense screenshots skip the cheap read', () => {
+  assert.equal(strongFirst('recommendation_thread'), true);
+  assert.equal(strongFirst('list_or_ranking'), true);
+  assert.equal(strongFirst('media_page_or_poster'), false);
+  assert.equal(strongFirst(''), false);
+});
+
+test('the site a screenshot is from is not the thing to save', () => {
+  const page = { app: 'Goodreads', kind: 'media_page_or_poster', items: [{ title: 'Goodreads' }, { title: 'Dune' }] };
+  assert.deepEqual(dropSelfNamed(page).items.map((t) => t.title), ['Dune']);
+  const store = { app: 'Ice', kind: 'software_or_repo', items: [{ title: 'Ice' }] };
+  assert.deepEqual(dropSelfNamed(store).items.map((t) => t.title), ['Ice'], 'a page about the app itself keeps it');
+  assert.deepEqual(dropSelfNamed({ app: '', items: [{ title: 'X' }] }).items.length, 1);
 });
 
 test('only subjects and recommendations are kept', () => {

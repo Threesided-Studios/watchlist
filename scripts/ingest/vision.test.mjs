@@ -27,19 +27,20 @@ test('offline screenshot reaches classification and strict JSON parsing without 
       globalThis.fetch = async (url, init) => {
         assert.equal(url, 'https://api.openai.com/v1/chat/completions');
         const b = JSON.parse(init.body);
-        assert.equal(b.model, calls === 0 ? 'gpt-6-luna' : 'gpt-6-sol');
+        // triage and the first close read use the cheap model; a blank first read is re-read by the strong one
+        assert.equal(b.model, calls < 2 ? 'gpt-6-luna' : 'gpt-6-sol');
         assert.equal(b.reasoning_effort, 'none');
         assert.equal(b.response_format.json_schema.strict, true);
         assert.equal(b.response_format.json_schema.schema.additionalProperties, false);
         const image = b.messages[1].content.find(x => x.type === 'image_url').image_url;
         const meta = await sharp(Buffer.from(image.url.split(',')[1], 'base64')).metadata();
-        assert.equal(meta.width, calls === 0 ? 512 : 1200);   // parse asks for 1536 but never enlarges
+        assert.equal(meta.width, calls === 0 ? 512 : 1200);   // the close read asks for 1280 but never enlarges
         assert.equal(image.detail, calls === 0 ? 'low' : 'high');
         calls++;
         const out = calls === 1 ? {worth_saving: true, kind: 'other', note: 'synthetic'} : {kind:'other', app:'', description:'synthetic', source_context:'synthetic', intent:'unclear', items:[]};
         return Response.json({choices:[{finish_reason:'stop',message:{content:JSON.stringify(out)}}],usage:{prompt_tokens:100,completion_tokens:10}});
       };
-      process.on('exit', () => assert.equal(calls, 2));
+      process.on('exit', () => assert.equal(calls, 3));
     `);
     const result = spawnSync(process.execPath, ['--import', pathToFileURL(join(dir, 'mock.mjs')).href, join(dir, 'run.mjs'), '--local', join(root, 'shots'), '--dry-run'], {
       encoding: 'utf8', env: { PATH: process.env.PATH, SystemRoot: process.env.SystemRoot, OPENAI_API_KEY: 'offline-test-only' },

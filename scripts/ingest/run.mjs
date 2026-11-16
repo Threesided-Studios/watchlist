@@ -16,12 +16,12 @@ import { createHash } from 'node:crypto';
 import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import sharp from 'sharp';
-import { CLASSIFY_MODEL, PARSE_MODEL } from './models.mjs';
+import { CLASSIFY_MODEL, PARSE_MODEL, PARSE_STRONG_MODEL } from './models.mjs';
 import { completionBody } from './openai-request.mjs';
 import { titleKey, family, tmdbKind, lookupType, setScreenKind, placeKey, buildIndex, findDuplicate, uniqueId, costOf, decideStatus } from './lib.mjs';
 import { normalizeItem } from '../../shared/normalize.js';
 import { canonicalType } from '../../shared/taxonomy.js';
-import { TRIAGE_WIDTH, PARSE_WIDTH, TRIAGE_SCHEMA, TRIAGE_SYSTEM, TRIAGE_PROMPT, PARSE_SCHEMA, PARSE_SYSTEM, PARSE_PROMPT, KEPT_ROLES, decideStatusV2 } from './vision.mjs';
+import { TRIAGE_WIDTH, PARSE_WIDTH, TRIAGE_SCHEMA, TRIAGE_SYSTEM, TRIAGE_PROMPT, PARSE_SCHEMA, PARSE_SYSTEM, PARSE_PROMPT, KEPT_ROLES, decideStatusV2, needsSecondRead, strongFirst, dropSelfNamed } from './vision.mjs';
 import { EXTRA_CHAINS, EXTRA_FIELDS, pageUrl, fallbackLink } from './enrich-extra.mjs';
 import { geocode } from '../geocode-places.mjs';
 
@@ -119,16 +119,33 @@ async function triageShot(img) {
   return { ...out, cost };
 }
 
+const stats = { parsed: 0, strongFirst: 0, escalated: 0 };   // how often the strong model was needed, and why
 /* Pass 2: everything the screenshot names, typed against the taxonomy. */
-async function parseShot(img) {
+async function parseShot(img, triageKind = '') {
   const big = await sharp(img).rotate().resize({ width: PARSE_WIDTH, withoutEnlargement: true }).jpeg({ quality: 82 }).toBuffer();
-  const res = await openai(PARSE_MODEL, [
+  const ask = (model) => openai(model, [
     { role: 'system', content: PARSE_SYSTEM },
     { role: 'user', content: [
       { type: 'text', text: PARSE_PROMPT },
       { type: 'image_url', image_url: { url: dataUrl(big), detail: 'high' } },
     ] },
   ], PARSE_SCHEMA, 2400);
+  /* which model reads what: see vision.mjs (strongFirst, needsSecondRead) */
+  const twoModels = PARSE_STRONG_MODEL && PARSE_STRONG_MODEL !== PARSE_MODEL;
+  let res;
+  if (twoModels && strongFirst(triageKind)) {
+    res = await ask(PARSE_STRONG_MODEL); stats.strongFirst++;
+  } else {
+    res = await ask(PARSE_MODEL);
+    res.out = dropSelfNamed(res.out);
+    if (twoModels && needsSecondRead(res.out)) {
+      const second = await ask(PARSE_STRONG_MODEL);
+      res = { ...second, cost: res.cost + second.cost };
+      stats.escalated++;
+    }
+  }
+  res.out = dropSelfNamed(res.out);
+  stats.parsed++;
   /* the kept copy is smaller than what the model read: it only has to be legible to a person */
   const keep = await sharp(img).rotate().resize({ width: 1024, withoutEnlargement: true }).jpeg({ quality: 78 }).toBuffer();
   return { ...res, image: keep };
@@ -614,7 +631,7 @@ async function processShot(s) {
     entry.kind = tri.kind;
     const note = LOCAL ? clean(tri.note).slice(0, 140) : '';
     if (tri.worth_saving) {
-      const p = await parseShot(bytes);
+      const p = await parseShot(bytes, tri.kind);
       entry.usd += p.cost;
       const shot = p.out;
       const named = (shot.items || []).filter((t) => t.is_thing);
@@ -626,6 +643,8 @@ async function processShot(s) {
         const cand = { ...t, title: clean(t.title), type: canonicalType(t.type) };
         if (cand.title.length < 2 || (cand.confidence ?? 0) < 0.3) continue;   // model itself says "not a title"
         if (cand.type !== 'anime') cand.format = null;
+        /* a repo read as "owner/name": the name is the title, the slug is how to find it */
+        if (cand.type === 'repo' && cand.title.split('/').length === 2 && !cand.title.includes(' ')) { cand.url = cand.url || cand.title; cand.title = cand.title.split('/').pop(); }
         const famKey = `${family(cand.type)}:${titleKey(cand.title)}`;
         if (dismissed.has(famKey)) { report.push({ name: s.name, title: cand.title, outcome: 'previously-dismissed' }); continue; }
         const dup = findDuplicate(index, cand);
@@ -755,5 +774,5 @@ if (!DRY) {
 }
 writeFileSync(join(HERE, '.last-report.json'), JSON.stringify({ runUsd, report }, null, 2));
 const n = shots.length || 1;
-console.log(JSON.stringify({ processed: shots.length, runUsd: Math.round(runUsd * 1e5) / 1e5, perShotUsd: Math.round((runUsd / n) * 1e5) / 1e5 }));
+console.log(JSON.stringify({ processed: shots.length, runUsd: Math.round(runUsd * 1e5) / 1e5, perShotUsd: Math.round((runUsd / n) * 1e5) / 1e5, closeReads: stats.parsed, strongDirect: stats.strongFirst, strongSecondRead: stats.escalated }));
 for (const r of report) console.log(' -', r.outcome.padEnd(18), r.title ? `${r.title} (${r.type || ''} ${r.year || ''}) conf=${r.conf ?? ''} via=${r.via ?? ''}` : `${r.name || ''}${r.kind ? `  [${r.kind}] ${r.note || ''}` : ''}`);
