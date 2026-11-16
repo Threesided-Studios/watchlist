@@ -63373,7 +63373,7 @@
     "year": null,
     "blurb": "",
     "summary": "",
-    "poster": "",
+    "poster": "posters/perplexity.jpg",
     "link": "",
     "status": "done",
     "tags": [],
@@ -63389,7 +63389,8 @@
     "screenshot": "3cff08555531",
     "updated": "2026-11-16",
     "verdict": "up",
-    "finished": "2026-11-16"
+    "finished": "2026-11-16",
+    "art_via": "DuckDuckGo Images"
   },
   {
     "id": "pi",
@@ -63398,7 +63399,7 @@
     "year": null,
     "blurb": "",
     "summary": "",
-    "poster": "",
+    "poster": "posters/pi.jpg",
     "link": "",
     "status": "todo",
     "tags": [],
@@ -63411,7 +63412,8 @@
     "ai_confidence": 0.78,
     "enriched_via": "",
     "match_ok": false,
-    "screenshot": "edac162e6670"
+    "screenshot": "edac162e6670",
+    "art_via": "DuckDuckGo Images"
   },
   {
     "id": "so-what-s-wrong-with-getting-reborn-as-a-goblin",
@@ -63454,7 +63456,7 @@
     "year": null,
     "blurb": "",
     "summary": "",
-    "poster": "",
+    "poster": "posters/wan2gp.jpg",
     "link": "",
     "status": "todo",
     "tags": [],
@@ -63467,7 +63469,8 @@
     "ai_confidence": 0.99,
     "enriched_via": "",
     "match_ok": false,
-    "screenshot": "61ffd4a7aafc"
+    "screenshot": "61ffd4a7aafc",
+    "art_via": "DuckDuckGo Images"
   },
   {
     "id": "dragon-academy",
@@ -63502,7 +63505,7 @@
     "year": null,
     "blurb": "",
     "summary": "",
-    "poster": "",
+    "poster": "posters/dragon-academy-ace.jpg",
     "link": "",
     "status": "todo",
     "tags": [
@@ -63519,7 +63522,8 @@
     "enriched_via": "",
     "match_ok": false,
     "screenshot": "22bd6c74df25",
-    "adult": true
+    "adult": true,
+    "art_via": "DuckDuckGo Images"
   },
   {
     "id": "dragon-academy-3",
@@ -66746,7 +66750,7 @@
     "year": null,
     "blurb": "",
     "summary": "",
-    "poster": "",
+    "poster": "posters/she-s-a-little-crazy.jpg",
     "link": "",
     "status": "todo",
     "tags": [],
@@ -66760,7 +66764,8 @@
     "enriched_via": "",
     "match_ok": false,
     "screenshot": "10e8a0280a07",
-    "author": "Zhu Yi"
+    "author": "Zhu Yi",
+    "art_via": "DuckDuckGo Images"
   },
   {
     "id": "in-your-eyes",
@@ -67021,7 +67026,7 @@
     "year": null,
     "blurb": "",
     "summary": "",
-    "poster": "",
+    "poster": "posters/obelisk.jpg",
     "link": "",
     "status": "todo",
     "tags": [],
@@ -67034,7 +67039,8 @@
     "ai_confidence": 0.99,
     "enriched_via": "",
     "match_ok": false,
-    "screenshot": "f5fdef3a3bba"
+    "screenshot": "f5fdef3a3bba",
+    "art_via": "DuckDuckGo Images"
   },
   {
     "id": "dead-by-daylight",
