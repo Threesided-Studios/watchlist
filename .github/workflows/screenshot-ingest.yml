@@ -110,6 +110,18 @@ jobs:
           else
             echo "Live site is current."
           fi
+      # A run reads a capped batch. If more is waiting (a backfill), start the
+      # next run now instead of leaving it for the schedule.
+      - name: Continue if the queue is not empty
+        if: success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          left=$(curl -fsS https://watchlist-ingest.threesided.workers.dev/status | python3 -c 'import json,sys;print(json.load(sys.stdin)["queued"])' || echo 0)
+          echo "still queued: $left"
+          if [ "$left" -gt 0 ] && [ "${{ steps.peek.outputs.work }}" != "0" ]; then
+            gh workflow run screenshot-ingest.yml --repo "${{ github.repository }}" --ref main
+          fi
       - name: Keepalive (GitHub disables idle schedules after 60 days)
         if: always()
         env:
