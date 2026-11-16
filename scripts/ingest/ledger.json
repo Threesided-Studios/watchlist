@@ -4952,6 +4952,359 @@
     "wham"
    ],
    "usd": 0.000362
+  },
+  "6c6f8de9ef6ed4d1fef772aa2544243a1443f25ff4243ab97f8f90ed15e06483": {
+   "at": "2026-11-16T11:15:07.737Z",
+   "outcome": "no-titles",
+   "ids": [],
+   "usd": 0.009508,
+   "kind": "article_or_post"
+  },
+  "581826cd86b821a8b2274d065243d5ea2487cfaf48479ae2601de92f6f347d0e": {
+   "at": "2026-11-16T11:15:07.623Z",
+   "outcome": "no-titles",
+   "ids": [],
+   "usd": 0.009489,
+   "kind": "article_or_post"
+  },
+  "c90e698c96da438761eccf3760234f88673a0e3742226ff7ad36dcbd98410416": {
+   "at": "2026-11-16T11:15:07.577Z",
+   "outcome": "parsed",
+   "ids": [
+    "claude"
+   ],
+   "usd": 0.01422,
+   "kind": "article_or_post"
+  },
+  "5b06e21310b01890493f43fbbfb80577db011aac0ef7e6d9476a1817b9990a92": {
+   "at": "2026-11-16T11:15:12.915Z",
+   "outcome": "parsed",
+   "ids": [
+    "the-30-day-instagram-growth-plan"
+   ],
+   "usd": 0.010779,
+   "kind": "article_or_post"
+  },
+  "c41e921325c49142f90b2e8af7b5c042d3038d476929815cfee8aac21b6c5d29": {
+   "at": "2026-11-16T11:15:12.785Z",
+   "outcome": "no-titles",
+   "ids": [],
+   "usd": 0.009469,
+   "kind": "article_or_post"
+  },
+  "b5fd3bdcd3093e1718e0396937b2d819ee86c13b7ab5f44331048c29435cf607": {
+   "at": "2026-11-16T11:15:07.866Z",
+   "outcome": "parsed",
+   "ids": [
+    "kimi-k3-1-pro"
+   ],
+   "usd": 0.019763,
+   "kind": "article_or_post"
+  },
+  "04a38f361037de290a13bccff76a03432bea8e9b43dc51e409ab66ba4a6b5bef": {
+   "at": "2026-11-16T11:15:17.627Z",
+   "outcome": "parsed",
+   "ids": [
+    "kling-4-0"
+   ],
+   "usd": 0.014746,
+   "kind": "software_or_repo"
+  },
+  "811fedd2159f266743809ad7d054e8557c75c415376793718c2174c61a93ff29": {
+   "at": "2026-11-16T11:15:16.055Z",
+   "outcome": "parsed",
+   "ids": [
+    "griffin"
+   ],
+   "usd": 0.014448,
+   "kind": "article_or_post"
+  },
+  "5e7d13f50780f3b37b691af20e23ee945b92da1f2f1d491693f3a68c37771393": {
+   "at": "2026-11-16T11:15:55.596Z",
+   "outcome": "parsed",
+   "ids": [
+    "creative-testing-benchmarks"
+   ],
+   "usd": 0.010389,
+   "kind": "list_or_ranking"
+  },
+  "2c7381dba5263e64e805521f10308e73e38c395c3e2376792e44d3741550a687": {
+   "at": "2026-11-16T11:15:57.477Z",
+   "outcome": "no-titles",
+   "ids": [],
+   "usd": 0.009409,
+   "kind": "system_or_app_ui"
+  },
+  "a37ff40b35228d5bba60b5cdfb05554f8bf43933419eb3f0a17474a5c4714170": {
+   "at": "2026-11-16T11:16:00.863Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000067,
+   "kind": "private_chat"
+  },
+  "e225dabc5b17fa900f59dbc9aee721e8d890aa0decedd8492c389a268d8413a9": {
+   "at": "2026-11-16T11:15:26.571Z",
+   "outcome": "parsed",
+   "ids": [
+    "dessa"
+   ],
+   "usd": 0.014031,
+   "kind": "article_or_post"
+  },
+  "bb2244aa9fafa4a7218ef1255ad682f94924a11a19b81b47fe3f0a399d9bee43": {
+   "at": "2026-11-16T11:16:02.940Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000067,
+   "kind": "private_chat"
+  },
+  "4ef8f6d2e2e612ad0482c92821ff93b0685190b35314ce169f0a0eb19d25c69f": {
+   "at": "2026-11-16T11:16:01.189Z",
+   "outcome": "parsed",
+   "ids": [
+    "lost-and-found-co"
+   ],
+   "usd": 0.007495,
+   "kind": "video"
+  },
+  "90656c64487b61b7d013fa5b98c2a63f7af7ccf1b2285cd20629312360e745fa": {
+   "at": "2026-11-16T11:15:17.655Z",
+   "outcome": "parsed",
+   "ids": [
+    "kimi-k3-1",
+    "gpt-6-astra",
+    "blender-mcp",
+    "claude-code"
+   ],
+   "usd": 0.022887,
+   "kind": "article_or_post"
+  },
+  "c5dc02177c27d1cdc6e7831cee39621bb5c2ca23a43a169987e52ca340a8f483": {
+   "at": "2026-11-16T11:16:03.184Z",
+   "outcome": "parsed",
+   "ids": [
+    "snack-n-screen"
+   ],
+   "usd": 0.01162,
+   "kind": "video"
+  },
+  "c6509e02445595ba5fe02c25270f8fbd6a673f10e8770609fe117fdd22b70257": {
+   "at": "2026-11-16T11:16:06.117Z",
+   "outcome": "no-titles",
+   "ids": [],
+   "usd": 0.010822,
+   "kind": "article_or_post"
+  },
+  "824277ee4b3577276029d3426e1a358bb73c44ae67c89d74d79f518804b0e6d6": {
+   "at": "2026-11-16T11:16:04.467Z",
+   "outcome": "parsed",
+   "ids": [
+    "fat-boys",
+    "with-love-always",
+    "dispensary-lounge"
+   ],
+   "usd": 0.012749,
+   "kind": "recommendation_thread"
+  },
+  "c5386b634a2d7ec217db3c0a8f2a698ca37a56b9857d5fd8a269644681d26008": {
+   "at": "2026-11-16T11:16:09.482Z",
+   "outcome": "parsed",
+   "ids": [
+    "plaza-hotel-and-casino"
+   ],
+   "usd": 0.01079,
+   "kind": "video"
+  },
+  "4cc4ffa86179d1bc01e113be3ab8ef7f5326687ab2fdc8085aca325f35d1c901": {
+   "at": "2026-11-16T11:16:05.618Z",
+   "outcome": "parsed",
+   "ids": [
+    "r-burger",
+    "the-hat",
+    "freddy-s-frozen-custard-and-steakburgers",
+    "aztec",
+    "the-habit-burger-grill",
+    "in-n-out-burger",
+    "black-label-burgers"
+   ],
+   "usd": 0.016399,
+   "kind": "recommendation_thread"
+  },
+  "a6739dc60e743348aa6907e5151f38ccb4f0b7fb8c638cca34acf7eb89c035ac": {
+   "at": "2026-11-16T11:16:11.132Z",
+   "outcome": "parsed",
+   "ids": [
+    "the-most-popular-sandwich-in-the-worl"
+   ],
+   "usd": 0.011538,
+   "kind": "video"
+  },
+  "e28f254d30647623343998d28fd361e4188687ff7ed1cc40f6cbd50c034d90d4": {
+   "at": "2026-11-16T11:16:11.984Z",
+   "outcome": "parsed",
+   "ids": [
+    "chill-bar-and-grill"
+   ],
+   "usd": 0.010609,
+   "kind": "video"
+  },
+  "e9014cf43e73506b129f1d1fbc2ec83227b5e68db91ce4b313db84353335cce2": {
+   "at": "2026-11-16T11:16:16.822Z",
+   "outcome": "parsed",
+   "ids": [
+    "(pending)"
+   ],
+   "usd": 0.010927,
+   "kind": "video"
+  },
+  "52d6e38cd1432c07f87d401776171712b1a57a89bf6ac76a12571096825ed8d9": {
+   "at": "2026-11-16T11:16:15.843Z",
+   "outcome": "parsed",
+   "ids": [
+    "candy-cane-house"
+   ],
+   "usd": 0.011707,
+   "kind": "video"
+  },
+  "21a2b40ae7d0596183d625e56318f5aee2d2d1528b2ae833ae8457349cf9b0bd": {
+   "at": "2026-11-16T11:16:14.585Z",
+   "outcome": "parsed",
+   "ids": [
+    "excuse-my-blank"
+   ],
+   "usd": 0.01233,
+   "kind": "store_or_product_page"
+  },
+  "3353738bd97e244030c22c7bfef5308e314bcb59317a4b84685c3aae3165bb4a": {
+   "at": "2026-11-16T11:16:17.298Z",
+   "outcome": "parsed",
+   "ids": [
+    "boulder-city-s-famous-christmas"
+   ],
+   "usd": 0.010721,
+   "kind": "place_or_map"
+  },
+  "6f17021583f261fafb31ce5e4f0dff59c43a5228d3e15e20f4ebfa577847c84d": {
+   "at": "2026-11-16T11:16:21.589Z",
+   "outcome": "no-titles",
+   "ids": [],
+   "usd": 0.01083,
+   "kind": "software_or_repo"
+  },
+  "6d7299111ca2aecf8d931efe0892c3fe056b80de45e0781c1ac2944278191af4": {
+   "at": "2026-11-16T11:16:21.992Z",
+   "outcome": "parsed",
+   "ids": [
+    "freemocap"
+   ],
+   "usd": 0.01093,
+   "kind": "software_or_repo"
+  },
+  "fc5f6ba1e56d2153a2b873340e3d6fa72b7f66b97880f16f3d448c74f3a17738": {
+   "at": "2026-11-16T11:16:22.818Z",
+   "outcome": "no-titles",
+   "ids": [],
+   "usd": 0.011,
+   "kind": "software_or_repo"
+  },
+  "40d788eb63a1efe57b233e64111b1bbbcad938f4ad565deb85256a768e926fa3": {
+   "at": "2026-11-16T11:16:22.806Z",
+   "outcome": "parsed",
+   "ids": [
+    "svg-js"
+   ],
+   "usd": 0.010899,
+   "kind": "software_or_repo"
+  },
+  "f5f68fd038afd4f02a03e30b02706c0da79fc35aab094ea1ef4eb77b237d7c1b": {
+   "at": "2026-11-16T11:16:26.098Z",
+   "outcome": "parsed",
+   "ids": [
+    "natron"
+   ],
+   "usd": 0.01096,
+   "kind": "software_or_repo"
+  },
+  "40f9cbd7e1e8c02a81ea0fb55fd3ae047f512088c1b231b0c5dddc0928f350f1": {
+   "at": "2026-11-16T11:16:27.653Z",
+   "outcome": "parsed",
+   "ids": [
+    "black-label-burger-company"
+   ],
+   "usd": 0.010797,
+   "kind": "video"
+  },
+  "bc9e08304979cc4da341f3a0bb7a21052672d4267c6796531fac3d7c2ee8fc64": {
+   "at": "2026-11-16T11:16:28.469Z",
+   "outcome": "parsed",
+   "ids": [
+    "ton-shou"
+   ],
+   "usd": 0.010939,
+   "kind": "video"
+  },
+  "c152381d04cc9e3d675c3082111fafadc02ea2ae7415435261c9bf833b4f403f": {
+   "at": "2026-11-16T11:16:28.060Z",
+   "outcome": "parsed",
+   "ids": [
+    "diamond-spur-butcher-shop"
+   ],
+   "usd": 0.011808,
+   "kind": "video"
+  },
+  "88d5584c45a2adf4227e7f35de465caa9b5aae9430872bae5d382b97b0060aa5": {
+   "at": "2026-11-16T11:16:31.542Z",
+   "outcome": "parsed",
+   "ids": [
+    "awakening"
+   ],
+   "usd": 0.010886,
+   "kind": "video"
+  },
+  "e6a1e60ed5e07f60bca9a1b7063c3f20b011f4e46c60210c77b670f794e2c2ab": {
+   "at": "2026-11-16T11:16:32.807Z",
+   "outcome": "parsed",
+   "ids": [
+    "the-olive-mediterranean-grill-and-lounge"
+   ],
+   "usd": 0.010927,
+   "kind": "video"
+  },
+  "f49657908bf0378db659c3f8afa151202a7e5adba5aa0828ff2c41d9acf7cf3e": {
+   "at": "2026-11-16T11:16:34.084Z",
+   "outcome": "parsed",
+   "ids": [
+    "wigglin-out-indoor-playground"
+   ],
+   "usd": 0.010736,
+   "kind": "video"
+  },
+  "62ca716c7ee5b86972964125e09618f3ced536ebeade7ed058adee3286e2ff6f": {
+   "at": "2026-11-16T11:16:34.142Z",
+   "outcome": "parsed",
+   "ids": [
+    "tailscale-oauth-apps-user-identity-device-provisioning"
+   ],
+   "usd": 0.012079,
+   "kind": "article_or_post"
+  },
+  "77d2b22bc205e6c27ed40b2e071cdbb6a73383692375b85e4fd43e9b28a8fd2e": {
+   "at": "2026-11-16T11:16:36.808Z",
+   "outcome": "parsed",
+   "ids": [
+    "wigglin-out"
+   ],
+   "usd": 0.010838,
+   "kind": "place_or_map"
+  },
+  "f1fcbff38899cdcbe807196a815e76a2424205667880ae26177b0dbbe7a7c7eb": {
+   "at": "2026-11-16T11:16:37.653Z",
+   "outcome": "parsed",
+   "ids": [
+    "simulon"
+   ],
+   "usd": 0.010908,
+   "kind": "article_or_post"
   }
  },
  "dismissed": [
@@ -5012,10 +5365,10 @@
   "book:wolf"
  ],
  "totals": {
-  "shots": 633,
-  "media": 346,
-  "added": 384,
-  "inbox": 189,
-  "usd": 1.125694
+  "shots": 673,
+  "media": 384,
+  "added": 409,
+  "inbox": 202,
+  "usd": 1.57721
  }
 }
