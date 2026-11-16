@@ -7,12 +7,10 @@ name: Deploy site
 on:
   push:
     branches: [main]
-  # Bot commits pushed with GITHUB_TOKEN don't fire `push`, so also deploy
-  # after the jobs that commit new titles.
-  workflow_run:
-    workflows: ["Screenshot ingest", "Airtable pull (2-way)"]
-    types: [completed]
-    branches: [main]
+  # Bot commits pushed with GITHUB_TOKEN don't fire `push`, so the jobs that
+  # commit new titles start this workflow themselves (`gh workflow run
+  # pages.yml`, which GITHUB_TOKEN is allowed to do). The earlier `workflow_run`
+  # trigger never fired, which left the live site frozen while data.json grew.
   workflow_dispatch: {}
 
 permissions:
@@ -28,24 +26,11 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    outputs:
-      changed: ${{ steps.check.outputs.changed }}
     steps:
       - uses: actions/checkout@v4
         with:
           ref: main
-      - name: Skip if the triggering run committed nothing
-        id: check
-        run: |
-          if [ "${{ github.event_name }}" = "workflow_run" ] && \
-             [ "$(git rev-parse HEAD)" = "${{ github.event.workflow_run.head_sha }}" ]; then
-            echo "changed=false" >> "$GITHUB_OUTPUT"
-            echo "No new commit on main; nothing to deploy."
-          else
-            echo "changed=true" >> "$GITHUB_OUTPUT"
-          fi
       - name: Stage site files only
-        if: steps.check.outputs.changed == 'true'
         run: |
           mkdir -p _site
           rsync -a ./ _site/ \
@@ -54,16 +39,16 @@ jobs:
             --exclude 'worker' --exclude 'ingest-worker' \
             --exclude 'node_modules' --exclude 'README.md' --exclude '.gitignore'
           touch _site/.nojekyll
+          # Which commit is live. The ingest job reads this to notice a stale site.
+          printf '{"sha":"%s","deployed_at":"%s"}\n' "$(git rev-parse HEAD)" "$(date -u +%FT%TZ)" > _site/version.json
           du -sh _site
       - uses: actions/upload-pages-artifact@v3
-        if: steps.check.outputs.changed == 'true'
         with:
           path: _site
           retention-days: 1
 
   deploy:
     needs: build
-    if: needs.build.outputs.changed == 'true'
     runs-on: ubuntu-latest
     environment:
       name: github-pages
