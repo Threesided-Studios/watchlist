@@ -23,6 +23,7 @@ import { normalizeItem } from '../../shared/normalize.js';
 import { canonicalType } from '../../shared/taxonomy.js';
 import { TRIAGE_WIDTH, PARSE_WIDTH, TRIAGE_SCHEMA, TRIAGE_SYSTEM, TRIAGE_PROMPT, PARSE_SCHEMA, PARSE_SYSTEM, PARSE_PROMPT, KEPT_ROLES, decideStatusV2 } from './vision.mjs';
 import { EXTRA_CHAINS, EXTRA_FIELDS, pageUrl, fallbackLink } from './enrich-extra.mjs';
+import { geocode } from '../geocode-places.mjs';
 
 /* types the original enrichment chain (TMDB / Steam / Open Library / app stores) handles */
 const LEGACY_TYPES = new Set(['movie', 'show', 'book', 'game', 'software']);
@@ -676,6 +677,8 @@ async function processShot(s) {
           ...(shot.intent && shot.intent !== 'unclear' ? { intent: shot.intent } : {}),
           ...extra,
         }).item;   // current data shape: one spelling per tag
+        /* places: street address and coordinates when they can be pinned down (scripts/geocode-places.mjs) */
+        if (item.type === 'place' && !item.lat) { try { const g = await geocode(item); if (g) Object.assign(item, g); } catch { /* stays name-only */ } }
         /* poster QA: same-title collisions (remake vs original, same-name films, movie vs series).
            The screenshot's year/context decides; unclear cases wait in the Inbox. */
         if (family(item.type) === 'screen' && process.env.TMDB_READ_TOKEN) {

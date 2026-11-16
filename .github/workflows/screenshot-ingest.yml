@@ -63,6 +63,7 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}   # GitHub repo search for software matches
           SPOTIFY_CLIENT_ID: ${{ secrets.SPOTIFY_CLIENT_ID }}        # music and podcast matches
           SPOTIFY_CLIENT_SECRET: ${{ secrets.SPOTIFY_CLIENT_SECRET }}
+          GOOGLE_PLACES_KEY: ${{ secrets.GOOGLE_PLACES_KEY }}           # optional: addresses for places
           WATCHLIST_QUEUE_KEY: ${{ secrets.WATCHLIST_QUEUE_KEY }}
           # Normal caps (backfill of 2026-10-10 finished; raise temporarily for big imports).
           INGEST_LIMIT: ${{ inputs.limit || '40' }}

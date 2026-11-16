@@ -15,7 +15,8 @@ test('offline screenshot reaches classification and strict JSON parsing without 
     mkdirSync(join(root, 'shots'));
     symlinkSync(fileURLToPath(new URL('./node_modules', import.meta.url)), join(dir, 'node_modules'), 'junction');
     for (const file of ['run.mjs', 'lib.mjs', 'art.mjs', 'qa.mjs', 'openai-request.mjs', 'models.mjs', 'vision.mjs', 'enrich-extra.mjs']) copyFileSync(new URL(file, import.meta.url), join(dir, file));
-    cpSync(fileURLToPath(new URL('../../shared', import.meta.url)), join(root, 'shared'), { recursive: true });   // taxonomy + normaliser
+    cpSync(fileURLToPath(new URL('../../shared', import.meta.url)), join(root, 'shared'), { recursive: true });
+    copyFileSync(new URL('../geocode-places.mjs', import.meta.url), join(root, 'scripts', 'geocode-places.mjs'));   // taxonomy + normaliser
     writeFileSync(join(root, 'data.json'), '[]');
     await sharp({ create: { width: 1200, height: 1800, channels: 3, background: 'white' } }).png().toFile(join(root, 'shots', 'synthetic.png'));
     // All network calls are intercepted. No real key or production endpoint is used.
