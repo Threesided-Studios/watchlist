@@ -50,7 +50,7 @@ export function listPages(items = loadItems()) {
     const t = canonicalType(it.type);
     counts[t] = (counts[t] || 0) + 1;
   }
-  const pages = [{ path: '', view: 'home', title: 'Watchlist — a private marquee', subtitle: 'a private marquee',
+  const pages = [{ path: '', view: 'home', title: 'Watchlist — threesided', subtitle: 'a threesided list',
     description: 'A personal watchlist. Movies, shows, games, books and more, kept in one place.' },
   { path: 'all/', view: 'all', title: 'Watchlist — Everything', subtitle: 'everything', description: 'Every item on the list, searchable and filterable.' }];
   for (const c of CATEGORIES) {

@@ -34,7 +34,7 @@ export function renderHome(root) {
   if (!state.owner && localStorage.getItem(LS_INTRO) !== '1') {
     const intro = el('aside', { class: 'intro' },
       el('div', {},
-        el('h2', { text: 'A private marquee — browse freely.' }),
+        el('h2', { text: 'Everything on my radar. Browse freely.' }),
         el('p', {}, 'Everything I’m watching, playing, reading and trying, in one place. Vote 👍 on anything you’d recommend and it rises into ', el('a', { href: '/recommended/', text: 'Friends’ picks' }), ', or use ', el('strong', { text: '+ Suggest' }), ' to send me something new.')),
       el('button', { type: 'button', class: 'btn btn-ghost', 'aria-label': 'Dismiss', text: '✕', onclick: () => { localStorage.setItem(LS_INTRO, '1'); intro.remove(); } }));
     parts.push(intro);
