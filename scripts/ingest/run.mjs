@@ -28,6 +28,7 @@ const ROOT = resolve(HERE, '../..');
 const DATA = join(ROOT, 'data.json');
 const LEDGER = join(HERE, 'ledger.json');
 const PENDING = join(HERE, '.pending-acks.json');
+const PENDING_EDITS = join(HERE, '.pending-edits.json');   // written by apply-edits.mjs
 const POSTERS = join(ROOT, 'posters');
 const PROVENANCE = join(ROOT, 'data', 'provenance.json');
 
@@ -50,6 +51,11 @@ const qfetch = (p, init = {}) => fetch(`${QURL}${p}`, { ...init, headers: { 'X-Q
 
 /* ---------------- ack mode ---------------- */
 if (flag('--ack')) {
+  if (existsSync(PENDING_EDITS)) {
+    const { upto } = JSON.parse(readFileSync(PENDING_EDITS, 'utf8'));
+    const r = await qfetch('/edits/ack', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ upto }) });
+    if (r.ok) { unlinkSync(PENDING_EDITS); console.log(`acked edits up to ${upto}`); } else console.warn('edit ack failed', r.status);
+  }
   if (!existsSync(PENDING)) { console.log('nothing to ack'); process.exit(0); }
   const p = JSON.parse(readFileSync(PENDING, 'utf8'));
   for (const sha of p.shots || []) {
@@ -142,7 +148,7 @@ const PARSE_SCHEMA = {
 
 async function parseShot(img) {
   const big = await sharp(img).rotate().resize({ width: 1024, withoutEnlargement: true }).jpeg({ quality: 80 }).toBuffer();
-  return openai(PARSE_MODEL, [
+  const res = await openai(PARSE_MODEL, [
     { role: 'system', content: [
       'You extract media titles from iPhone screenshots for a personal watch/read/play list.',
       'Only list titles that are explicitly named or clearly shown (poster/cover/title card) AS a movie, TV show, anime, book, or video game. Never invent titles that are not on screen.',
@@ -156,6 +162,16 @@ async function parseShot(img) {
       { type: 'image_url', image_url: { url: dataUrl(big), detail: 'high' } },
     ] },
   ], PARSE_SCHEMA, 1800);
+  return { ...res, image: big };
+}
+
+/* Keep the downsized screenshot at the Worker for 30 days (owner-only) so an item can show where it came from. */
+async function keepShot(sha, jpeg) {
+  if (LOCAL || DRY) return;
+  try {
+    const r = await qfetch(`/shots/${sha}`, { method: 'PUT', headers: { 'Content-Type': 'image/jpeg' }, body: jpeg });
+    if (!r.ok && r.status !== 404) console.warn('keep screenshot failed', sha.slice(0, 12), r.status);   // 404: Worker not updated yet
+  } catch (e) { console.warn('keep screenshot failed', sha.slice(0, 12), String(e).slice(0, 80)); }
 }
 
 /* ---------------- enrichment ---------------- */
@@ -687,6 +703,7 @@ async function processShot(s) {
         report.push({ name: s.name, title, type: item.type, year: item.year, outcome: item.status + (item.qa ? ` (qa ${item.qa})` : ''), conf: item.ai_confidence, via: item.enriched_via || 'none', poster: !!poster, context: ctx });
       }
       ledger.totals.media++;
+      if (entry.ids.length) await keepShot(s.sha, p.image);
     } else {
       report.push({ name: s.name, outcome: 'not-media' });
     }

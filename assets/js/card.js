@@ -33,8 +33,8 @@ export function cover(it, { eager = false } = {}) {
   const box = el('div', { class: `cover cover-${cat.cover}`, dataset: { type: it.type } });
   box.style.setProperty('--g1', cat.grad[0]);
   box.style.setProperty('--g2', cat.grad[1]);
-  if (it.poster) {
-    const img = el('img', { src: `/${it.poster}`, alt: '', loading: eager ? 'eager' : 'lazy', decoding: 'async' });
+  if (it.poster || it.poster_url) {
+    const img = el('img', { src: it.poster ? `/${it.poster}` : it.poster_url, referrerpolicy: 'no-referrer', alt: '', loading: eager ? 'eager' : 'lazy', decoding: 'async' });
     img.addEventListener('error', () => { img.remove(); box.append(placeholder(it, cat)); }, { once: true });
     box.append(img);
   } else {

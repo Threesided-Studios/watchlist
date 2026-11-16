@@ -87,7 +87,7 @@ export function renderInbox(root, { requestUnlock }) {
     if (!state.owner) { requestUnlock(); return; }
     node.classList.add('is-busy');
     if (await sendReview(it, action)) {
-      update(it.id, { status: action === 'approve' ? 'todo' : 'dismissed' });
+      update(it.id, { status: action === 'approve' ? 'todo' : 'dismissed' }, { sync: false });   // /review already told the Worker
       selected.delete(it.id); rows.delete(it.id);
       node.remove(); refreshBulk(); focusRow(cursor);
       toast(action === 'approve' ? `Kept “${it.title}”` : `Dismissed “${it.title}”`);

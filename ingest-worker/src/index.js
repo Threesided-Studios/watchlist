@@ -5,6 +5,9 @@
  *   POST /ingest                    same, auth via X-Ingest-Key or X-Owner-Pass (web upload)
  *   GET  /status                    public counts {queued, queued_mb, processed, reviews, received_last_hour}
  *   POST /review                    owner review decision {id, action: approve|dismiss, title, pass}
+ *   POST /edit                      owner edits {edits: [{id, op: set|add|delete, fields}]}  (X-Owner-Pass)
+ *   GET  /shots/<sha or 12+ prefix> the kept copy of a screenshot (X-Owner-Pass); kept 30 days
+ *   GET  /lookup?type=&q=           title search for the Add form (X-Owner-Pass)
  *
  *   -- GitHub Action only (X-Queue-Key) --
  *   GET  /queue                     list queued screenshots
@@ -13,6 +16,14 @@
  *   GET  /reviews                   pending review decisions
  *   GET  /queue-attempts            recent upload attempts (accepted / duplicate / rejected)
  *   POST /reviews/ack               {ids:[...]} clear applied decisions
+ *   GET  /edits                     pending owner edits, oldest first
+ *   POST /edits/ack                 {upto: seq} clear applied edits
+ *   PUT  /shots/<sha>               store the downsized screenshot the parser read
+ *
+ * When a screenshot, review or edit arrives the Durable Object sets a short
+ * alarm; when it fires, the Worker asks GitHub to run the ingest workflow
+ * (repository_dispatch) so changes land in minutes instead of waiting for the
+ * cron. That needs the GH_DISPATCH_TOKEN secret; without it the cron still runs.
  *
  * Every image is keyed by its SHA-256, so re-sending the same screenshot (the
  * Shortcut looks back a little over a day each run) is a cheap no-op.
@@ -22,6 +33,12 @@ import { DurableObject } from 'cloudflare:workers';
 const CHUNK = 1_500_000;          // DO SQLite rows max out at 2 MB
 const MAX_BYTES = 20_000_000;
 const QUEUE_SOFT_CAP = 3_500_000_000;   // free-plan DO storage is 5 GB; above this, ask the phone to retry later
+const KEEP_SHOT_MS = 30 * 86400_000;    // processed screenshots stay viewable (owner only) this long
+const MAX_KEPT_BYTES = 1_800_000;       // one SQLite row
+const DISPATCH_DELAY_MS = 120_000;      // let a burst of uploads or edits finish before starting a run
+const MAX_EDIT_BYTES = 20_000;
+/* What an owner edit may carry. A superset of EDITABLE in assets/js/store.js (adds bring a few more fields). */
+const EDIT_FIELDS = ['title', 'blurb', 'summary', 'notes', 'status', 'verdict', 'type', 'tags', 'pinned', 'year', 'link', 'author', 'format', 'poster_url', 'added', 'source', 'tmdb_id', 'steam_appid'];
 
 const hex = (buf) => [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, '0')).join('');
 const sha256 = async (data) => hex(await crypto.subtle.digest('SHA-256', data));
@@ -49,6 +66,65 @@ export class ShotQueue extends DurableObject {
     // Every upload attempt (accepted, duplicate or rejected), so "my screenshots never showed up"
     // can be told apart from "the Shortcut never ran". Trimmed to the newest 2000 rows.
     this.sql.exec(`CREATE TABLE IF NOT EXISTS attempts (at TEXT, result TEXT, code INTEGER, ctype TEXT, size INTEGER, via TEXT)`);
+    this.sql.exec(`CREATE TABLE IF NOT EXISTS edits (seq INTEGER PRIMARY KEY AUTOINCREMENT, id TEXT, op TEXT, fields TEXT, at TEXT)`);
+    this.sql.exec(`CREATE TABLE IF NOT EXISTS kept (sha TEXT PRIMARY KEY, ctype TEXT, data BLOB, at TEXT)`);
+    this.sql.exec(`CREATE TABLE IF NOT EXISTS meta (k TEXT PRIMARY KEY, v TEXT)`);
+  }
+
+  meta(k) { return this.sql.exec('SELECT v FROM meta WHERE k = ?', k).toArray()[0]?.v ?? null; }
+  setMeta(k, v) { this.sql.exec('INSERT INTO meta (k, v) VALUES (?, ?) ON CONFLICT(k) DO UPDATE SET v = excluded.v', k, String(v)); }
+
+  /* Something arrived that the ingest workflow should pick up: run it soon. */
+  async wake() {
+    this.setMeta('dispatch_wanted', '1');
+    const at = Date.now() + DISPATCH_DELAY_MS;
+    const cur = await this.ctx.storage.getAlarm();
+    if (cur == null || cur > at) await this.ctx.storage.setAlarm(at);
+  }
+
+  async alarm() {
+    if (this.meta('dispatch_wanted') === '1') {
+      this.setMeta('dispatch_wanted', '0');
+      let result = 'no GH_DISPATCH_TOKEN';
+      if (this.env.GH_DISPATCH_TOKEN && this.env.GH_REPO) {
+        try {
+          const r = await fetch(`https://api.github.com/repos/${this.env.GH_REPO}/dispatches`, {
+            method: 'POST',
+            headers: { Authorization: `Bearer ${this.env.GH_DISPATCH_TOKEN}`, Accept: 'application/vnd.github+json', 'User-Agent': 'watchlist-ingest-worker', 'Content-Type': 'application/json' },
+            body: JSON.stringify({ event_type: 'watchlist-ingest' }),
+          });
+          result = `github ${r.status}`;
+        } catch (e) { result = `error ${String(e?.message || e).slice(0, 80)}`; }
+      }
+      this.setMeta('last_dispatch', `${new Date().toISOString()} ${result}`);
+    }
+    this.sql.exec('DELETE FROM kept WHERE at < ?', new Date(Date.now() - KEEP_SHOT_MS).toISOString());
+    if (this.sql.exec('SELECT COUNT(*) AS n FROM kept').toArray()[0].n) await this.ctx.storage.setAlarm(Date.now() + 86400_000);
+  }
+
+  /* ---- owner edits ---- */
+  async addEdits(edits) {
+    let n = 0;
+    const at = new Date().toISOString();
+    for (const e of edits) { this.sql.exec('INSERT INTO edits (id, op, fields, at) VALUES (?, ?, ?, ?)', e.id, e.op, JSON.stringify(e.fields || {}), at); n++; }
+    if (n) await this.wake();
+    return { ok: true, queued: n };
+  }
+  edits(limit = 500) {
+    return this.sql.exec('SELECT seq, id, op, fields, at FROM edits ORDER BY seq LIMIT ?', limit).toArray().map((r) => ({ ...r, fields: JSON.parse(r.fields || '{}') }));
+  }
+  ackEdits(upto) { this.sql.exec('DELETE FROM edits WHERE seq <= ?', upto); return { ok: true }; }
+
+  /* ---- kept screenshots ---- */
+  async keep(sha, ctype, bytes) {
+    this.sql.exec('INSERT OR REPLACE INTO kept (sha, ctype, data, at) VALUES (?, ?, ?, ?)', sha, ctype, new Uint8Array(bytes), new Date().toISOString());
+    if ((await this.ctx.storage.getAlarm()) == null) await this.ctx.storage.setAlarm(Date.now() + 86400_000);
+    return { ok: true };
+  }
+  /* sha may be a prefix (items store the first 12 hex chars); 'g' sorts after every hex digit */
+  kept(prefix) {
+    const r = this.sql.exec('SELECT ctype, data FROM kept WHERE sha >= ? AND sha < ? ORDER BY sha LIMIT 1', prefix, `${prefix}g`).toArray()[0];
+    return r ? { ctype: r.ctype, bytes: r.data } : null;
   }
 
   logAttempt(result, code, ctype, size, via) {
@@ -62,7 +138,7 @@ export class ShotQueue extends DurableObject {
     return this.sql.exec('SELECT at, result, code, ctype, size, via FROM attempts ORDER BY at DESC LIMIT ?', limit).toArray();
   }
 
-  put(sha, name, ctype, bytes, key) {
+  async put(sha, name, ctype, bytes, key) {
     if (key && this.sql.exec('SELECT 1 FROM seen_keys WHERE k = ?', key).toArray().length) return { status: 'duplicate', sha };
     const seen = this.sql.exec('SELECT status FROM shots WHERE sha = ?', sha).toArray();
     if (seen.length) {
@@ -79,6 +155,7 @@ export class ShotQueue extends DurableObject {
     this.sql.exec('INSERT INTO shots (sha, name, ctype, size, parts, received) VALUES (?, ?, ?, ?, ?, ?)',
       sha, name, ctype, u8.byteLength, parts, new Date().toISOString());
     if (key) this.sql.exec('INSERT OR IGNORE INTO seen_keys (k, sha) VALUES (?, ?)', key, sha);
+    await this.wake();
     return { status: 'queued', sha };
   }
 
@@ -114,6 +191,9 @@ export class ShotQueue extends DurableObject {
       last_received: this.sql.exec('SELECT MAX(received) AS m FROM shots').toArray()[0].m,
       processed: c(`SELECT COUNT(*) AS n FROM shots WHERE status = 'done'`),
       reviews: c('SELECT COUNT(*) AS n FROM reviews'),
+      edits: c('SELECT COUNT(*) AS n FROM edits'),
+      kept_screenshots: c('SELECT COUNT(*) AS n FROM kept'),
+      last_dispatch: this.meta('last_dispatch'),
       attempts_last_day: this.sql.exec('SELECT result, COUNT(*) AS n FROM attempts WHERE at > ? GROUP BY result', new Date(Date.now() - 86400_000).toISOString())
         .toArray().reduce((o, r) => ({ ...o, [r.result]: r.n }), {}),
       last_attempt: this.sql.exec('SELECT at, result, code FROM attempts ORDER BY at DESC LIMIT 1').toArray()[0] || null,
@@ -121,9 +201,10 @@ export class ShotQueue extends DurableObject {
     };
   }
 
-  review(id, action, title) {
+  async review(id, action, title) {
     this.sql.exec(`INSERT INTO reviews (id, action, title, at) VALUES (?, ?, ?, ?)
       ON CONFLICT(id) DO UPDATE SET action = excluded.action, at = excluded.at`, id, action, title, new Date().toISOString());
+    await this.wake();
     return { ok: true };
   }
 
@@ -135,6 +216,43 @@ export class ShotQueue extends DurableObject {
   }
 }
 
+/* Title search for the Add form. Every source is keyless except TMDB (optional TMDB_READ_TOKEN secret). */
+async function lookup(env, type, q) {
+  if (q.trim().length < 2) return [];
+  const get = async (u, headers = {}) => {
+    try { const r = await fetch(u, { headers: { 'User-Agent': 'watchlist-ingest-worker', ...headers }, signal: AbortSignal.timeout(6000) }); return r.ok ? await r.json() : null; } catch { return null; }
+  };
+  const e = encodeURIComponent(q);
+  const first = (s) => String(s || '').split(/(?<=[.!?])\s/)[0].slice(0, 240);
+  if (['movie', 'show', 'anime'].includes(type) && env.TMDB_READ_TOKEN) {
+    const j = await get(`https://api.themoviedb.org/3/search/multi?query=${e}&include_adult=false`, { Authorization: `Bearer ${env.TMDB_READ_TOKEN}` });
+    return (j?.results || []).filter((h) => h.media_type === 'movie' || h.media_type === 'tv').slice(0, 6).map((h) => ({
+      title: h.title || h.name, year: Number((h.release_date || h.first_air_date || '').slice(0, 4)) || null, blurb: first(h.overview), summary: h.overview || '',
+      link: `https://www.themoviedb.org/${h.media_type}/${h.id}`, tmdb_id: h.id, format: type === 'anime' ? (h.media_type === 'tv' ? 'series' : 'film') : undefined,
+      poster_url: h.poster_path ? `https://image.tmdb.org/t/p/w500${h.poster_path}` : '',
+    }));
+  }
+  if (type === 'book' || type === 'manga') {
+    const j = await get(`https://openlibrary.org/search.json?title=${e}&limit=6&fields=key,title,author_name,first_publish_year,cover_i`);
+    return (j?.docs || []).map((d) => ({ title: d.title, year: d.first_publish_year || null, author: d.author_name?.[0] || '', link: `https://openlibrary.org${d.key}`,
+      poster_url: d.cover_i ? `https://covers.openlibrary.org/b/id/${d.cover_i}-L.jpg` : '' }));
+  }
+  if (type === 'game') {
+    const j = await get(`https://store.steampowered.com/api/storesearch/?term=${e}&cc=us&l=en`);
+    return (j?.items || []).filter((i) => i.type === 'app').slice(0, 6).map((i) => ({ title: i.name, year: null, link: `https://store.steampowered.com/app/${i.id}/`, steam_appid: i.id,
+      poster_url: `https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/${i.id}/library_600x900_2x.jpg` }));
+  }
+  if (type === 'repo') {
+    const j = await get(`https://api.github.com/search/repositories?q=${e}+in:name&sort=stars&per_page=6`, { Accept: 'application/vnd.github+json' });
+    return (j?.items || []).map((r) => ({ title: r.name, year: Number((r.created_at || '').slice(0, 4)) || null, author: r.owner?.login || '', blurb: first(r.description), link: r.html_url,
+      poster_url: `https://opengraph.githubassets.com/1/${r.full_name}` }));
+  }
+  /* everything else: Wikipedia gives a title, a one-line description and usually an image */
+  const j = await get(`https://en.wikipedia.org/w/rest.php/v1/search/title?q=${e}&limit=6`);
+  return (j?.pages || []).map((p) => ({ title: p.title, year: null, blurb: p.description || '', link: `https://en.wikipedia.org/wiki/${encodeURIComponent(p.key)}`,
+    poster_url: p.thumbnail?.url ? `https:${p.thumbnail.url}`.replace(/\/\d+px-/, '/500px-') : '' }));
+}
+
 export default {
   async fetch(req, env) {
     const url = new URL(req.url);
@@ -144,7 +262,7 @@ export default {
     const allow = allowed.includes('*') ? '*' : (allowed.includes(origin) ? origin : allowed[0]);
     const cors = {
       'Access-Control-Allow-Origin': allow,
-      'Access-Control-Allow-Methods': 'GET,POST,OPTIONS',
+      'Access-Control-Allow-Methods': 'GET,POST,PUT,OPTIONS',
       'Access-Control-Allow-Headers': 'Content-Type,X-Ingest-Key,X-Owner-Pass,X-Queue-Key,X-File-Name',
       'Access-Control-Max-Age': '86400',
       Vary: 'Origin',
@@ -213,8 +331,46 @@ export default {
       }
       if (path === '/owner-check' && req.method === 'POST') return json({ ok: await ownerOk() }, 200);
 
+      /* ---- owner edits (browser) ---- */
+      if (path === '/edit' && req.method === 'POST') {
+        if (!(await ownerOk())) return json({ error: 'forbidden' }, 403);
+        const b = await req.json().catch(() => null);
+        const list = Array.isArray(b?.edits) ? b.edits.slice(0, 200) : null;
+        if (!list) return json({ error: 'bad request' }, 400);
+        const clean = [];
+        for (const e of list) {
+          if (!e || typeof e.id !== 'string' || !e.id || e.id.length > 200 || !['set', 'add', 'delete'].includes(e.op)) return json({ error: 'bad edit' }, 400);
+          const fields = {};
+          for (const k of EDIT_FIELDS) if (e.fields && k in e.fields) fields[k] = e.fields[k];
+          if (JSON.stringify(fields).length > MAX_EDIT_BYTES) return json({ error: 'edit too large' }, 413);
+          clean.push({ id: e.id, op: e.op, fields });
+        }
+        return json(await q.addEdits(clean));
+      }
+
+      /* ---- kept screenshot: read is owner only, write is the GitHub Action ---- */
+      const sm = path.match(/^\/shots\/([0-9a-f]{12,64})$/);
+      if (sm && req.method === 'GET') {
+        if (!(await ownerOk())) return json({ error: 'forbidden' }, 403);
+        const r = await q.kept(sm[1]);
+        if (!r) return json({ error: 'not kept (screenshots are deleted after 30 days)' }, 404);
+        return new Response(r.bytes, { headers: { 'Content-Type': r.ctype || 'image/jpeg', 'Cache-Control': 'private, max-age=86400', ...cors } });
+      }
+      if (sm && req.method === 'PUT') {
+        if (!queueOk()) return json({ error: 'forbidden' }, 403);
+        const bytes = await req.arrayBuffer();
+        if (!bytes.byteLength || bytes.byteLength > MAX_KEPT_BYTES) return json({ error: 'empty or too large' }, 413);
+        return json(await q.keep(sm[1], (req.headers.get('Content-Type') || 'image/jpeg').split(';')[0], bytes));
+      }
+
+      /* ---- title lookup for the Add form, owner only ---- */
+      if (path === '/lookup' && req.method === 'GET') {
+        if (!(await ownerOk())) return json({ error: 'forbidden' }, 403);
+        return json(await lookup(env, url.searchParams.get('type') || '', (url.searchParams.get('q') || '').slice(0, 120)));
+      }
+
       /* ---- GitHub Action ---- */
-      if (path.startsWith('/queue') || path.startsWith('/reviews')) {
+      if (path.startsWith('/queue') || path.startsWith('/reviews') || path.startsWith('/edits')) {
         if (!queueOk()) return json({ error: 'forbidden' }, 403);
         if (path === '/queue' && req.method === 'GET') return json(await q.list(Number(url.searchParams.get('limit')) || 100));
         let m = path.match(/^\/queue\/([0-9a-f]{64})$/);
@@ -227,6 +383,11 @@ export default {
         if (m && req.method === 'POST') return json(await q.done(m[1]));
         if (path === '/reviews' && req.method === 'GET') return json(await q.reviews());
         if (path === '/queue-attempts' && req.method === 'GET') return json(await q.attempts(Number(url.searchParams.get('limit')) || 50));
+        if (path === '/edits' && req.method === 'GET') return json(await q.edits());
+        if (path === '/edits/ack' && req.method === 'POST') {
+          const b = await req.json();
+          return json(await q.ackEdits(Number(b?.upto) || 0));
+        }
         if (path === '/reviews/ack' && req.method === 'POST') {
           const b = await req.json();
           return json(await q.ackReviews(Array.isArray(b?.ids) ? b.ids.map(String) : []));
