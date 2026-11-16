@@ -4,7 +4,6 @@ import { applySort } from '../../lib/filters.js';
 import { state, visibleItems, inboxItems, stage, netVotes } from '../store.js';
 import { el, card } from '../card.js';
 
-const LS_INTRO = 'watchlist.introSeen';
 const SHELF = 14;
 
 function shelf(title, items, { href, total, context = false, showType = true, note } = {}) {
@@ -31,13 +30,21 @@ export function renderHome(root) {
 
   const parts = [];
 
-  if (!state.owner && localStorage.getItem(LS_INTRO) !== '1') {
-    const intro = el('aside', { class: 'intro' },
-      el('div', {},
-        el('h2', { text: 'Everything on my radar. Browse freely.' }),
-        el('p', {}, 'Everything I’m watching, playing, reading and trying, in one place. Vote 👍 on anything you’d recommend and it rises into ', el('a', { href: '/recommended/', text: 'Friends’ picks' }), ', or use ', el('strong', { text: '+ Suggest' }), ' to send me something new.')),
-      el('button', { type: 'button', class: 'btn btn-ghost', 'aria-label': 'Dismiss', text: '✕', onclick: () => { localStorage.setItem(LS_INTRO, '1'); intro.remove(); } }));
-    parts.push(intro);
+  const glitch = 'on my radar.';
+  parts.push(el('header', { class: 'hero hero-home' },
+    el('p', { class: 'kicker', text: state.owner ? 'welcome back' : 'a threesided list' }),
+    el('h1', { class: 'hero-title' }, 'Everything ', el('span', { class: 'grad glitch', dataset: { text: glitch }, text: glitch })),
+    el('p', { class: 'hero-lede', text: 'What I’m watching, playing, reading and trying. Most of it gets here from a screenshot, with no typing at all.' }),
+    el('div', { class: 'hero-actions' },
+      el('a', { class: 'btn btn-primary', href: '/all/', text: 'Browse everything' }),
+      el('button', { type: 'button', class: 'btn', text: '🎲 Surprise me', onclick: () => document.getElementById('surprise').click() }),
+      el('a', { class: 'btn btn-ghost', href: '/how-it-works/', text: 'How it works →' }))));
+
+  /* a moving strip of what arrived most recently */
+  const fresh = applySort(items.filter((it) => it.source !== 'steam' && it.source !== 'kindle'), 'added-desc').slice(0, 18);
+  if (fresh.length > 6) {
+    const run = () => el('div', { class: 'ticker-run', 'aria-hidden': 'true' }, fresh.map((it) => el('span', { class: 'ticker-item' }, el('i', { text: '▲' }), it.title)));
+    parts.push(el('div', { class: 'ticker', role: 'presentation', title: 'Recently added' }, el('span', { class: 'ticker-label', text: 'just in' }), el('div', { class: 'ticker-track' }, run(), run())));
   }
 
   if (state.owner && pending) {
