@@ -63375,7 +63375,7 @@
     "summary": "",
     "poster": "",
     "link": "",
-    "status": "todo",
+    "status": "done",
     "tags": [],
     "rating": null,
     "notes": "",
@@ -63386,7 +63386,10 @@
     "ai_confidence": 0.99,
     "enriched_via": "",
     "match_ok": false,
-    "screenshot": "3cff08555531"
+    "screenshot": "3cff08555531",
+    "updated": "2026-11-16",
+    "verdict": "up",
+    "finished": "2026-11-16"
   },
   {
     "id": "pi",
@@ -66719,7 +66722,7 @@
     "summary": "",
     "poster": "posters/chatgpt.jpg",
     "link": "https://apps.apple.com/us/app/chatgpt/id6448311069?uo=4",
-    "status": "todo",
+    "status": "done",
     "tags": [],
     "rating": null,
     "notes": "",
@@ -66731,7 +66734,10 @@
     "enriched_via": "",
     "match_ok": false,
     "screenshot": "7b602d22f3f3",
-    "art_via": "App Store"
+    "art_via": "App Store",
+    "finished": "2026-11-16",
+    "updated": "2026-11-16",
+    "verdict": "love"
   },
   {
     "id": "she-s-a-little-crazy",
@@ -71412,7 +71418,9 @@
     "match_ok": false,
     "screenshot": "b5fd3bdcd309",
     "quote": "Kimi K3.1 Pro has 2.8T total parameters, a 1M-token context window and works directly with Blender, Unreal, Godot and CAD.",
-    "intent": "reference"
+    "intent": "reference",
+    "verdict": "skip",
+    "updated": "2026-11-16"
   },
   {
     "id": "kling-4-0",
@@ -71861,7 +71869,9 @@
     "screenshot": "a6739dc60e74",
     "author": "Unlokt",
     "availability": "Facebook",
-    "intent": "reference"
+    "intent": "reference",
+    "verdict": "skip",
+    "updated": "2026-11-16"
   },
   {
     "id": "chill-bar-and-grill",
@@ -72410,7 +72420,7 @@
     "summary": "Discover Snoboll™ premium stuffed animals — ultra-soft material, timeless companions. Shop teddy bears, bunnies, dog & more.",
     "poster": "posters/blue-elephant-plush-toy.jpg",
     "link": "https://snoboll.shop/",
-    "status": "todo",
+    "status": "done",
     "tags": [],
     "rating": null,
     "notes": "",
@@ -72424,7 +72434,10 @@
     "screenshot": "2e9813cf52ee",
     "author": "Snoboll",
     "availability": "snoboll.shop",
-    "intent": "wishlist"
+    "intent": "wishlist",
+    "updated": "2026-11-16",
+    "verdict": "skip",
+    "finished": "2026-11-16"
   },
   {
     "id": "mediapipe",
