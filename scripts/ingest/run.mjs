@@ -21,8 +21,8 @@ import { completionBody } from './openai-request.mjs';
 import { titleKey, family, tmdbKind, lookupType, setScreenKind, buildIndex, findDuplicate, uniqueId, costOf, decideStatus } from './lib.mjs';
 import { normalizeItem } from '../../shared/normalize.js';
 import { canonicalType } from '../../shared/taxonomy.js';
-import { TRIAGE_WIDTH, PARSE_WIDTH, TRIAGE_SCHEMA, TRIAGE_SYSTEM, TRIAGE_PROMPT, PARSE_SCHEMA, PARSE_SYSTEM, PARSE_PROMPT, decideStatusV2 } from './vision.mjs';
-import { EXTRA_CHAINS, EXTRA_FIELDS, pageUrl } from './enrich-extra.mjs';
+import { TRIAGE_WIDTH, PARSE_WIDTH, TRIAGE_SCHEMA, TRIAGE_SYSTEM, TRIAGE_PROMPT, PARSE_SCHEMA, PARSE_SYSTEM, PARSE_PROMPT, KEPT_ROLES, decideStatusV2 } from './vision.mjs';
+import { EXTRA_CHAINS, EXTRA_FIELDS, pageUrl, fallbackLink } from './enrich-extra.mjs';
 
 /* types the original enrichment chain (TMDB / Steam / Open Library / app stores) handles */
 const LEGACY_TYPES = new Set(['movie', 'show', 'book', 'game', 'software']);
@@ -613,7 +613,9 @@ async function processShot(s) {
       const p = await parseShot(bytes);
       entry.usd += p.cost;
       const shot = p.out;
-      const found = (shot.items || []).filter((t) => t.is_thing);
+      const named = (shot.items || []).filter((t) => t.is_thing);
+      const found = named.filter((t) => KEPT_ROLES.has(t.role));
+      for (const t of named) if (!KEPT_ROLES.has(t.role)) report.push({ name: s.name, title: clean(t.title), outcome: `skipped (${t.role})` });
       entry.outcome = found.length ? 'parsed' : 'no-titles';
       entry.kind = shot.kind; entry.note = clean(shot.description).slice(0, 140);
       for (const t of found) {
@@ -648,7 +650,7 @@ async function processShot(s) {
         for (const k of EXTRA_FIELDS) if (e && e[k] !== undefined && e[k] !== '' && e[k] !== null && e[k] !== false) extra[k] = e[k];
         const item = normalizeItem({
           id, title, type: cand.type, year: e?.year || cand.year || null,
-          blurb: e?.blurb || '', summary: e?.summary || '', poster, link: e?.link || pageUrl(cand) || '',
+          blurb: e?.blurb || '', summary: e?.summary || '', poster, link: e?.link || pageUrl(cand) || fallbackLink(cand, shot.app),
           status, tags, rating: null, notes: '', added: today(),
           source: 'screenshot', source_context: ctx, recommended_by: who,
           ai_confidence: Math.round((cand.confidence || 0) * 100) / 100,

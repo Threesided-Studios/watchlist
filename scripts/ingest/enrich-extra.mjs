@@ -26,6 +26,18 @@ async function get(url, headers = {}, as = 'json', timeoutMs = 10000) {
   } catch { return null; }
 }
 
+/* When nothing matched and no URL was on screen, a search that will find it beats no link at all. */
+export function fallbackLink(c, app = '') {
+  const q = encodeURIComponent([c.title, c.creator].filter(Boolean).join(' '));
+  if (c.type === 'video') return `https://www.youtube.com/results?search_query=${q}`;
+  if (c.type === 'music' || c.type === 'podcast') return `https://open.spotify.com/search/${q}`;
+  if (c.type === 'place') return `https://www.google.com/maps/search/${encodeURIComponent([c.title, c.location].filter(Boolean).join(', '))}`;
+  if (['article', 'recipe', 'product'].includes(c.type)) return `https://duckduckgo.com/?q=${encodeURIComponent([c.title, c.creator, app].filter(Boolean).join(' '))}`;
+  return '';
+}
+/* exact after normalising; the looser prefix match is wrong for short song and show names */
+const exactName = (a, b) => !!titleKey(a) && titleKey(a) === titleKey(b);
+
 /* ---------- Spotify ---------- */
 let spotifyToken = null;
 async function spotifyAuth() {
@@ -55,7 +67,8 @@ export async function viaSpotify(c) {
   if (!j) return null;
   const img = (x) => x?.images?.[0]?.url || x?.album?.images?.[0]?.url || null;
   for (const kind of kinds) {
-    const hit = (j[`${kind}s`]?.items || []).filter(Boolean).find((h) => sameTitle(h.name, c.title));
+    const hit = (j[`${kind}s`]?.items || []).filter(Boolean).find((h) => exactName(h.name, c.title)
+      && (!c.creator || kind === 'show' || kind === 'artist' || (h.artists || []).some((a) => exactName(a.name, c.creator) || titleKey(c.creator).includes(titleKey(a.name)))));
     if (!hit) continue;
     const by = kind === 'show' ? hit.publisher : (hit.artists || []).map((a) => a.name).join(', ');
     return {

@@ -50,17 +50,18 @@ export const PARSE_SCHEMA = {
       type: 'array',
       items: {
         type: 'object', additionalProperties: false,
-        required: ['title', 'type', 'is_thing', 'format', 'year', 'creator', 'recommended_by', 'why', 'quote', 'genres', 'season_episode', 'availability', 'price', 'location', 'url', 'evidence', 'adult', 'confidence'],
+        required: ['title', 'type', 'is_thing', 'role', 'format', 'year', 'creator', 'recommended_by', 'why', 'quote', 'genres', 'season_episode', 'availability', 'price', 'location', 'url', 'evidence', 'adult', 'confidence'],
         properties: {
           title: str('Canonical name as listed on its main database or store, properly capitalised, no year. Expand obvious abbreviations ("TLOU" => "The Last of Us").'),
           type: { type: 'string', enum: TYPE_KEYS, description: 'movie | show | anime (Japanese animation, film or series) | manga (manga, manhwa, comics, light novels) | book | game (video game) | boardgame | software (apps, utilities, AI tools you install or sign up for) | repo (source repositories, libraries, CLIs, self-hosted projects) | podcast | music (album, artist or song) | video (YouTube/online video or channel) | place (restaurant, bar, shop, venue, park, travel spot) | recipe | product (a physical thing to buy) | article (article, essay, blog post, newsletter to read)' },
           is_thing: { type: 'boolean', description: 'true only if this is a specific named thing of that type. false for people, usernames, generic words, brands with no specific product, or anything merely sharing a name.' },
+          role: { type: 'string', enum: ['subject', 'recommended', 'part_of_subject', 'incidental', 'advertisement'], description: 'subject = what the screenshot is about (the page, poster or listing it shows). recommended = one of several things a list, ranking, thread, post or chat recommends or discusses. part_of_subject = a track, episode, trailer, chapter, season, cast member or edition of the subject. incidental = merely visible (a nearby label on a map, a "related" or "you might also like" rail, navigation, another tab). advertisement = an ad, sponsored banner or promoted post.' },
           format: { type: ['string', 'null'], enum: ['film', 'series', null], description: 'For anime only: film or series. null otherwise.' },
           year: { type: ['integer', 'null'] },
           creator: nullable('Author, director, studio, developer, artist, host or brand when visible. null otherwise.'),
           recommended_by: nullable('Who recommends it: an online username, or ONLY the first name of a private person. Never a full name. null if none.'),
           why: str('Very short reason it was mentioned (e.g. "top-voted reply: like Arrival but darker"). Empty if none.'),
-          quote: str('Up to 20 words quoted from the screenshot that best sell or describe it. Empty if none.'),
+          quote: str('Up to 20 words quoted from the screenshot: a sentence of recommendation, review or description of this thing. Not metadata (format, status, dates, counts, ratings, button labels) and not just its title. Empty if there is no such sentence.'),
           genres: { type: 'array', items: { type: 'string' }, description: 'Up to 3 genres or tags.' },
           season_episode: nullable('For shows, anime and podcasts when a specific season or episode is shown, e.g. "S2E5". null otherwise.'),
           availability: nullable('Where it is shown as available, e.g. "Netflix", "Steam", "Game Pass", "in theaters". null if not shown.'),
@@ -79,6 +80,7 @@ export const PARSE_SCHEMA = {
 export const PARSE_SYSTEM = [
   'You extract things worth checking out from iPhone screenshots for one person\'s personal list.',
   'List every distinct, specific, named thing the screenshot presents as something to watch, read, play, listen to, use, visit, cook, buy or read later (max 25), including ones recommended in comments or replies.',
+  'Give every item a role. A page about one thing (an album, a podcast, a show, a book, one place on a map) has ONE subject: its tracks, episodes, trailers, chapters and editions are part_of_subject, and other labels on the map or in a related rail are incidental. In a list, ranking or thread recommending several things, each of those is recommended. Ads, sponsored banners and promoted posts are advertisement even when they name a real title.',
   'Only list what is actually on screen. Never invent a title, year, creator, price or location that is not visible or certain.',
   'Pick the type from context: "on Netflix", "season", "episodes" => show; "read", "author", "novel" => book; "play", "Steam", "Switch" => game; "listen", "episode", "hosted by" => podcast; a GitHub page, an owner/name slug or stars/forks => repo; an App Store page or "download the app" => software; a map pin, address, hours or star rating with a neighbourhood => place.',
   'Japanese animation is type anime (set format film or series), never show or movie. Manga, manhwa, comics and light novels are type manga, not book.',
@@ -87,6 +89,9 @@ export const PARSE_SYSTEM = [
   'Use low confidence and evidence=ambiguous when unsure.',
 ].join(' ');
 export const PARSE_PROMPT = 'Extract everything worth saving from this screenshot.';
+
+/* Only what the screenshot is about, or what it recommends, is kept. */
+export const KEPT_ROLES = new Set(['subject', 'recommended']);
 
 /* Types that are worth keeping without cover art: there is often none to find. */
 export const ARTLESS_OK = new Set(['place', 'recipe', 'product', 'article', 'video', 'podcast', 'music', 'repo']);
