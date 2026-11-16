@@ -143,18 +143,18 @@ body[data-owner="true"] .guest-only { display: none !important; }
   background:
     linear-gradient(rgba(255, 255, 255, .04) 1px, transparent 1px) 0 0 / 100% 14px,
     linear-gradient(160deg, color-mix(in oklab, var(--g2, #302540) 55%, var(--void)), var(--void-deep));
-  clip-path: polygon(var(--cut) 0, 100% 0, 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, 0 100%, 0 var(--cut));
+  border: 1px solid var(--line-soft);
 }
 .cover-poster { aspect-ratio: 2 / 3; }
 .cover-square { aspect-ratio: 1; }
 .cover-wide { aspect-ratio: 16 / 9; }
-.cover img { width: 100%; height: 100%; display: block; object-fit: cover; }
+/* Artwork is never cropped or cut: the whole image always shows, on the tile's tint where the shapes differ. */
+.cover img { width: 100%; height: 100%; display: block; object-fit: contain; }
 /* app icons and repo cards are artwork on a tile, not full-bleed posters */
 .cover[data-type="software"] img, .cover[data-type="repo"] img { object-fit: contain; padding: 14%; filter: drop-shadow(0 8px 18px rgba(0, 0, 0, .5)); }
 .cover[data-type="repo"] img { padding: 6%; }
 /* In grids, shelves, rows and the inbox every tile is the same 2:3 size whatever
-   the category, so rows line up. Square and wide art sits whole inside the tile
-   instead of being cropped; the detail sheet shows it at its natural shape. */
+   the category, so rows line up; the detail sheet shows art at its natural shape. */
 .card .cover, .row-art .cover, .review-art .cover { aspect-ratio: 2 / 3; }
 .card .cover-square img, .card .cover-wide img,
 .review-art .cover-square img, .review-art .cover-wide img,
@@ -194,7 +194,6 @@ body[data-owner="true"] .guest-only { display: none !important; }
 .rows { display: grid; border-top: 1px solid var(--line); }
 .row { display: grid; grid-template-columns: 40px 1fr auto; gap: 14px; align-items: center; padding: 8px 10px; text-decoration: none; border-bottom: 1px solid var(--line-soft); border-left: 2px solid transparent; transition: background .15s var(--ease), border-color .15s var(--ease); }
 .row:hover { background: rgba(0, 217, 255, .05); border-left-color: var(--cyan); }
-.row-art .cover { clip-path: none; }
 .row-art .cover-blank .cover-title { display: none; }
 .row-art .cover-glyph { font-size: 16px; }
 .row-main { display: grid; min-width: 0; }
@@ -347,7 +346,7 @@ dialog::backdrop { background: rgba(4, 3, 12, .8); }
 .matches { display: grid; gap: 2px; max-height: 260px; overflow-y: auto; padding: 4px; background: var(--void-deep); border: 1px solid var(--line); }
 .match { display: grid; grid-template-columns: 34px 1fr; gap: 10px; align-items: center; padding: 6px; text-align: left; background: none; border: 0; cursor: pointer; }
 .match:hover, .match:focus-visible { background: rgba(0, 217, 255, .08); }
-.match img, .match-blank { width: 34px; height: 50px; object-fit: cover; background: var(--panel-2); }
+.match img, .match-blank { width: 34px; height: 50px; object-fit: contain; background: var(--panel-2); }
 .match > span:last-child { display: grid; min-width: 0; }
 .match-sub { color: var(--muted); font: 11px var(--font-mono); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
