@@ -27,11 +27,24 @@ The older Mac-only pipeline below (`pipeline/`, osxphotos + Vision OCR) still wo
 ## Run the site locally
 
 ```bash
-python3 -m http.server 8765
-# open http://localhost:8765
+node scripts/dev-server.mjs        # http://localhost:8765
+```
+
+The dev server renders every page from `templates/page.html` and serves `data.min.json` straight from the working tree, so edits show on reload. To produce exactly what gets deployed:
+
+```bash
+node scripts/build-site.mjs --out _site
 ```
 
 All edits persist in `localStorage`. Use **Export** to download a fresh `data.json` and commit it back to the repo.
+
+## Categories and data shape
+
+`shared/taxonomy.js` is the single definition of what the list tracks (movies, shows, anime, manga, books, games, board games, software, repos, podcasts, music, videos, places, recipes, products, articles). The site, the site build and the ingest all import it, so adding a category there adds its page, nav entry, card styling and dedupe family.
+
+`shared/normalize.js` keeps `data.json` in the current shape (anime and repo types, one spelling per tag). It is idempotent; the ingest workflow runs `node scripts/normalize.mjs` before each commit, and the site build applies it again when writing `data.min.json`.
+
+Tests: `node --test` in `shared/`, `assets/lib/` and `scripts/ingest/`.
 
 ## Run the ingest pipeline (test batch)
 
@@ -61,4 +74,4 @@ Then visit the Pages URL `gh` prints.
 Two independent halves:
 
 1. **Ingest pipeline** (`pipeline/`): `osxphotos` → Swift+Vision OCR → deterministic classifier (optional LLM second opinion) → dedup → Wikipedia enrichment (blurb, year, link, poster) → merged into `data.json`.
-2. **Static site** (root): vanilla HTML/CSS/JS. Reads `data.json`, renders a poster-grid card UI with filter/search/inline-edit/drag-reorder/export/import.
+2. **Static site**: vanilla HTML/CSS/JS in `assets/`, one page template in `templates/page.html`, built by `scripts/build-site.mjs` (run by `.github/workflows/pages.yml`). Reads `data.min.json`, renders a poster-grid card UI with filter/search/inline-edit/drag-reorder/export/import.

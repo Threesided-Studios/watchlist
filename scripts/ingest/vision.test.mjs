@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { mkdtempSync, mkdirSync, copyFileSync, writeFileSync, readFileSync, rmSync, symlinkSync } from 'node:fs';
+import { mkdtempSync, mkdirSync, copyFileSync, cpSync, writeFileSync, readFileSync, rmSync, symlinkSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { spawnSync } from 'node:child_process';
@@ -15,6 +15,7 @@ test('offline screenshot reaches classification and strict JSON parsing without 
     mkdirSync(join(root, 'shots'));
     symlinkSync(fileURLToPath(new URL('./node_modules', import.meta.url)), join(dir, 'node_modules'), 'junction');
     for (const file of ['run.mjs', 'lib.mjs', 'art.mjs', 'qa.mjs', 'openai-request.mjs', 'models.mjs']) copyFileSync(new URL(file, import.meta.url), join(dir, file));
+    cpSync(fileURLToPath(new URL('../../shared', import.meta.url)), join(root, 'shared'), { recursive: true });   // taxonomy + normaliser
     writeFileSync(join(root, 'data.json'), '[]');
     await sharp({ create: { width: 1200, height: 1800, channels: 3, background: 'white' } }).png().toFile(join(root, 'shots', 'synthetic.png'));
     // All network calls are intercepted. No real key or production endpoint is used.

@@ -18,7 +18,8 @@ import { fileURLToPath } from 'node:url';
 import sharp from 'sharp';
 import { CLASSIFY_MODEL, PARSE_MODEL } from './models.mjs';
 import { completionBody } from './openai-request.mjs';
-import { titleKey, family, buildIndex, findDuplicate, uniqueId, costOf, decideStatus } from './lib.mjs';
+import { titleKey, family, tmdbKind, lookupType, setScreenKind, buildIndex, findDuplicate, uniqueId, costOf, decideStatus } from './lib.mjs';
+import { normalizeItem } from '../../shared/normalize.js';
 import { huntArt } from './art.mjs';
 import { qaScreen, tmdbPosterUrl } from './qa.mjs';
 
@@ -28,6 +29,7 @@ const DATA = join(ROOT, 'data.json');
 const LEDGER = join(HERE, 'ledger.json');
 const PENDING = join(HERE, '.pending-acks.json');
 const POSTERS = join(ROOT, 'posters');
+const PROVENANCE = join(ROOT, 'data', 'provenance.json');
 
 const argv = process.argv.slice(2);
 const flag = (n) => argv.includes(n);
@@ -412,7 +414,8 @@ if (flag('--qa-posters')) {
   const TOKEN = process.env.TMDB_READ_TOKEN;
   if (!TOKEN) { console.error('TMDB_READ_TOKEN missing'); process.exit(1); }
   const only = opt('--ids', '') ? new Set(opt('--ids', '').split(',')) : null;
-  const targets = items.filter((it) => (it.type === 'movie' || it.type === 'show') && !it.qa_lock && (!only || only.has(it.id)));   // qa_lock: hand-verified, skip
+  const prov = existsSync(PROVENANCE) ? JSON.parse(readFileSync(PROVENANCE, 'utf8')) : {};   // OCR text from the retired pipeline
+  const targets = items.filter((it) => family(it.type) === 'screen' && !it.qa_lock && (!only || only.has(it.id)));   // qa_lock: hand-verified, skip
   let usd = 0; const res = { ok: 0, okUnverified: 0, nomatch: 0, fixed: [], ambiguous: [], typeFixed: [], idAdded: 0 };
   let next = 0, done = 0;
   await Promise.all(Array.from({ length: 4 }, async () => {
@@ -421,7 +424,7 @@ if (flag('--qa-posters')) {
       try {
         const pth = it.poster && join(ROOT, it.poster);
         const posterBytes = pth && existsSync(pth) ? await sharp(pth).resize({ width: 256, withoutEnlargement: true }).jpeg({ quality: 70 }).toBuffer() : null;
-        const q = await qaScreen(it, { openai, token: TOKEN, posterBytes });
+        const q = await qaScreen(it, { openai, token: TOKEN, posterBytes, extra: { ocr: prov[it.id]?.ocr_excerpt || '' } });
         usd += q.cost;
         const fmt = (c) => c ? `${c.title} (${c.year || '?'}, ${c.kind}${c.lang && c.lang !== 'en' ? `, ${c.lang}` : ''})` : 'unknown';
         if (q.verdict === 'fix') {
@@ -430,8 +433,7 @@ if (flag('--qa-posters')) {
           res.fixed.push(`${it.title}${it.year ? ` [${it.year}]` : ''}: ${fmt(q.current)} -> ${fmt(q.pick)}`);
           it.poster = poster; it.tmdb_id = q.pick.id;
           if (!it.year || Math.abs(it.year - (q.pick.year || it.year)) > 1) it.year = q.pick.year || it.year;
-          const kind = q.pick.kind === 'tv' ? 'show' : 'movie';
-          if (kind !== it.type) { res.typeFixed.push(`${it.title}: ${it.type} -> ${kind}`); it.type = kind; }
+          if (q.pick.kind !== tmdbKind(it)) { res.typeFixed.push(`${it.title}: ${tmdbKind(it)} -> ${q.pick.kind}`); setScreenKind(it, q.pick.kind); }
           it.qa = 'fixed';
         } else if (q.verdict === 'ambiguous') {
           res.ambiguous.push(`${it.title}${it.year ? ` [${it.year}]` : ''}: ${q.cands.length} same-title works (poster shows ${fmt(q.current)}; best guess ${fmt(q.pick)})`);
@@ -465,7 +467,7 @@ if (flag('--art-hunt')) {
   await Promise.all(Array.from({ length: 3 }, async () => {
     while (next < targets.length) {
       const it = targets[next++];
-      const c = { title: it.title, type: it.type, year: it.year, author: it.author, tags: it.tags, is_anime: (it.tags || []).includes('Anime'), context: it.source_context || '' };
+      const c = { title: it.title, type: lookupType(it), year: it.year, author: it.author, tags: it.tags, is_anime: it.type === 'anime', context: it.source_context || '' };
       const h = await huntArt(c, openai);
       usd += h.cost;
       const poster = h.found ? await savePoster([h.found.image, h.found.image2, h.found.image3], it.id) : '';
@@ -524,10 +526,10 @@ if (flag('--audit')) {
       continue;
     }
     let reEnriched = false;
-    if (v.verdict === 'software' || it.type === 'software') {
-      it.type = 'software'; it.tags = (it.tags || []).filter((t) => t !== 'Anime'); reEnriched = true;
+    if (it.type !== 'repo' && (v.verdict === 'software' || it.type === 'software')) {
+      it.type = 'software'; delete it.format; reEnriched = true;
     }
-    const cand = { title: it.title, type: it.type, is_anime: (it.tags || []).includes('Anime'), year: it.year, creator: it.author || null, context: it.source_context || '' };
+    const cand = { title: it.title, type: lookupType(it), is_anime: it.type === 'anime', year: it.year, creator: it.author || null, context: it.source_context || '' };
     const e = await enrich(cand);
     if (reEnriched) {
       if (it.poster && existsSync(join(ROOT, it.poster)) && !DRY) unlinkSync(join(ROOT, it.poster));
@@ -580,7 +582,7 @@ const workKeys = (it) => {
   const k = [];
   const link = String(it.link || '').replace(/[?#].*$/, '').replace(/\/+$/, '').toLowerCase();
   if (/store\.steampowered\.com\/app\/\d+|themoviedb\.org\/(movie|tv)\/\d+|openlibrary\.org\/works\/|apps\.apple\.com\/.*\/id\d+|anilist\.co\/|myanimelist\.net\//.test(link)) k.push(`link:${link.replace(/^https?:\/\/(www\.)?/, '')}`);
-  if (it.tmdb_id) k.push(`tmdb:${it.type === 'show' ? 'tv' : 'movie'}:${it.tmdb_id}`);
+  if (it.tmdb_id) k.push(`tmdb:${tmdbKind(it)}:${it.tmdb_id}`);
   if (it.steam_appid) k.push(`steam:${it.steam_appid}`);
   if (it.title) k.push(`${family(it.type)}:${titleKey(it.title)}`);
   return k;
@@ -639,7 +641,7 @@ async function processShot(s) {
         const status = cand.adult ? 'inbox' : (poster ? 'todo' : 'inbox');
         const tags = [...new Set([...(cand.is_anime ? ['Anime'] : []), ...((e?.genres?.length ? e.genres : cand.genres) || [])])].slice(0, 4);
         const { who, ctx } = privacyScrub(cand, [p.out.source_context, cand.why].filter(Boolean).join(' — '));
-        const item = {
+        const item = normalizeItem({
           id, title, type: cand.type, year: e?.year || cand.year || null,
           blurb: e?.blurb || '', summary: e?.summary || '', poster, link: e?.link || '',
           status, tags, rating: null, notes: '', added: today(),
@@ -651,10 +653,10 @@ async function processShot(s) {
           ...(e?.tmdb_id || art?.tmdb_id ? { tmdb_id: e?.tmdb_id || art.tmdb_id } : {}),
           ...(art ? { art_via: art.source, ...(e?.link ? {} : { link: art.link }) } : {}),
           ...(e?.steam_appid ? { steam_appid: e.steam_appid } : {}),
-        };
+        }).item;   // current data shape: anime/repo types, one spelling per tag
         /* poster QA: same-title collisions (remake vs original, same-name films, movie vs series).
            The screenshot's year/context decides; unclear cases wait in the Inbox. */
-        if ((item.type === 'movie' || item.type === 'show') && process.env.TMDB_READ_TOKEN) {
+        if (family(item.type) === 'screen' && process.env.TMDB_READ_TOKEN) {
           try {
             const q = await qaScreen(item, { openai, token: process.env.TMDB_READ_TOKEN, extra: { context: cand.context } });
             entry.usd += q.cost;
@@ -662,7 +664,8 @@ async function processShot(s) {
             if (q.verdict === 'fix') {
               const p2 = await savePoster([tmdbPosterUrl(q.pick)], id);
               if (p2) {
-                Object.assign(item, { poster: p2, tmdb_id: q.pick.id, type: q.pick.kind === 'tv' ? 'show' : 'movie', qa: 'fixed' });
+                Object.assign(item, { poster: p2, tmdb_id: q.pick.id, qa: 'fixed' });
+                setScreenKind(item, q.pick.kind);
                 if (!item.year || Math.abs(item.year - (q.pick.year || item.year)) > 1) item.year = q.pick.year || item.year;
                 if (!cand.adult) item.status = 'todo';
               }

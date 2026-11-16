@@ -1,10 +1,12 @@
 <!doctype html>
+<!-- Template for every page. scripts/build-site.mjs fills the {{...}} slots;
+     scripts/dev-server.mjs does the same on the fly for local work. -->
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-  <title>Watchlist — Recommended by Friends</title>
-  <meta name="description" content="Titles recommended by friends." />
+  <title>{{TITLE}}</title>
+  <meta name="description" content="{{DESCRIPTION}}" />{{ROBOTS}}
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='26' font-size='28'%3E%F0%9F%8E%9E%EF%B8%8F%3C/text%3E%3C/svg%3E" />
   <link rel="manifest" href="/manifest.webmanifest" />
   <meta name="theme-color" content="#0d0b10" />
@@ -17,23 +19,16 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../assets/styles.css?v=29" />
+  <link rel="stylesheet" href="/assets/styles.css?v={{V}}" />
 </head>
 <body>
   <header class="topbar">
     <div class="brand">
       <span class="brand-mark" aria-hidden="true">◐</span>
       <h1>Watchlist</h1>
-      <span class="brand-sub">a private marquee</span>
+      <span class="brand-sub">{{SUBTITLE}}</span>
       <nav class="pagenav" aria-label="Lists">
-        <a href="/">All</a>
-        <a href="/movies/">Movies</a>
-        <a href="/shows/">Shows</a>
-        <a href="/games/">Games</a>
-        <a href="/books/">Books</a>
-        <a href="/software/">Software</a>
-        <a href="/recommended/">★ Friends</a>
-        <a href="/inbox/" class="owner-only">📥 Inbox</a>
+{{NAV}}
       </nav>
     </div>
     <div class="controls" role="toolbar" aria-label="Filters and actions">
@@ -70,7 +65,7 @@
         </select>
       </label>
       <div class="actions">
-        <button id="surprise" class="btn" type="button" title="Pick a random game from the backlog">🎲 <span class="surprise-label">Surprise</span></button>
+        <button id="surprise" class="btn" type="button" title="Pick something at random from the backlog">🎲 <span class="surprise-label">Surprise</span></button>
         <button id="add" class="btn btn-primary" type="button"><span aria-hidden="true">+</span> <span class="add-label">Add</span></button>
         <button id="export" class="btn owner-only" type="button">Export</button>
         <label class="btn import owner-only">
@@ -167,7 +162,7 @@
 
   <div id="surprise-modal" class="modal" hidden>
     <div class="modal-card surprise-card" role="dialog" aria-modal="true" aria-labelledby="surprise-h">
-      <h3 id="surprise-h">🎲 Tonight, play…</h3>
+      <h3 id="surprise-h">🎲 Tonight…</h3>
       <div class="surprise-pick">
         <img id="surprise-poster" alt="" />
         <div class="surprise-meta">
@@ -190,8 +185,8 @@
     <span class="footer-note">drag to reorder · click title or blurb to edit</span>
   </footer>
 
-  <script>window.WL_VIEW="recommended";window.WL_DATA="../data.json";window.WL_BASE="../";</script>
-  <script type="module" src="../assets/app.js?v=27"></script>
-  <script>if("serviceWorker" in navigator)addEventListener("load",()=>navigator.serviceWorker.register("/sw.js",{scope:"/"}));</script>
+  <script>window.WL_PAGE={{PAGE}};</script>
+  <script type="module" src="/assets/app.js?v={{V}}"></script>
+  <script>if("serviceWorker" in navigator&&!/^(localhost|127\.0\.0\.1)$/.test(location.hostname))addEventListener("load",()=>navigator.serviceWorker.register("/sw.js",{scope:"/"}));</script>
 </body>
 </html>
