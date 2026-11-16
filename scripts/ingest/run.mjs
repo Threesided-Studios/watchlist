@@ -181,11 +181,11 @@ function privacyScrub(cand, ctx) {
 }
 
 const TMDB_GENRES = { 28: 'Action', 12: 'Adventure', 16: 'Animation', 35: 'Comedy', 80: 'Crime', 99: 'Documentary', 18: 'Drama', 10751: 'Family', 14: 'Fantasy', 36: 'History', 27: 'Horror', 10402: 'Music', 9648: 'Mystery', 10749: 'Romance', 878: 'Sci-Fi', 53: 'Thriller', 10752: 'War', 37: 'Western', 10759: 'Action & Adventure', 10762: 'Kids', 10765: 'Sci-Fi & Fantasy', 10768: 'War & Politics' };
-async function tmdbSearch(kind, title, year) {
+async function tmdbSearch(kind, title, year, adult = false) {
   const auth = process.env.TMDB_READ_TOKEN ? { Authorization: `Bearer ${process.env.TMDB_READ_TOKEN}` } : {};
   const keyQ = process.env.TMDB_READ_TOKEN ? '' : `&api_key=${TMDB}`;
   const yq = year ? (kind === 'tv' ? `&first_air_date_year=${year}` : `&year=${year}`) : '';
-  const url = (y) => `https://api.themoviedb.org/3/search/${kind}?query=${encodeURIComponent(title)}&include_adult=false${y}${keyQ}`;
+  const url = (y) => `https://api.themoviedb.org/3/search/${kind}?query=${encodeURIComponent(title)}&include_adult=${adult ? 'true' : 'false'}${y}${keyQ}`;
   let j = await getJSON(url(yq), auth);
   if (yq && !(j?.results || []).length) j = await getJSON(url(''), auth);   // the screenshot's year may be off
   return j?.results || [];
@@ -193,7 +193,7 @@ async function tmdbSearch(kind, title, year) {
 async function viaTMDB(c) {
   if (!TMDB && !process.env.TMDB_READ_TOKEN) return null;
   const kind = c.type === 'show' ? 'tv' : 'movie';
-  const hits = await tmdbSearch(kind, c.title, c.year);
+  const hits = await tmdbSearch(kind, c.title, c.year, !!c.adult);   // adult titles are only searchable when asked for
   const exact = hits.filter((h) => exactTitle(h.title || h.name, c.title) || exactTitle(h.original_title || h.original_name || '', c.title));
   const hit = exact[0] || hits.find((h) => sameTitle(h.title || h.name, c.title));
   if (!hit) return null;
@@ -459,9 +459,9 @@ if (flag('--qa-posters')) {
   process.exit(0);
 }
 
-/* --art-hunt: deeper cover-art search for Inbox items that still have no art (adult stays hidden). */
+/* --art-hunt: deeper cover-art search for items that still have no art. */
 if (flag('--art-hunt')) {
-  // every item still missing art, public or Inbox; adult ones get art but stay hidden in the Inbox
+  // every item still missing art, on the list or in the Inbox
   const targets = items.filter((it) => !(it.poster && existsSync(join(ROOT, it.poster))));
   let usd = 0; const found = [], missed = [];
   let next = 0;
@@ -472,11 +472,8 @@ if (flag('--art-hunt')) {
       const h = await huntArt(c, openai);
       usd += h.cost;
       const poster = h.found ? await savePoster([h.found.image, h.found.image2, h.found.image3], it.id) : '';
-      if (poster && h.found.adult) {   // database flags it 18+: keep hidden in the Inbox
-        Object.assign(it, { poster, adult: true, art_via: h.found.source });
-        missed.push(`${it.title} [${it.type}] — art found but ${h.found.source} marks it adult, kept hidden`);
-      } else if (poster) {
-        Object.assign(it, { poster, status: it.adult ? 'inbox' : 'todo', art_via: h.found.source });
+      if (poster) {
+        Object.assign(it, { poster, status: 'todo', art_via: h.found.source, ...(h.found.adult ? { adult: true } : {}) });   // 18+ per the database: flagged, still listed
         if (!it.link) it.link = h.found.link;
         if (h.found.tmdb_id && !it.tmdb_id) it.tmdb_id = h.found.tmdb_id;
         if (!it.year && h.found.year) it.year = h.found.year;
@@ -543,8 +540,8 @@ if (flag('--audit')) {
     const ok = !!e && e.typeOk && exactTitle(e.title, it.title);
     it.match_ok = ok;
     if (v.adult) { it.adult = true; counts.adult.push(it.title); }
-    if (it.status === 'todo' && (v.adult || v.verdict === 'doubtful' || !ok)) { it.status = 'inbox'; counts.toInbox.push(it.title); }
-    else if (reEnriched && it.status === 'inbox' && ok && !v.adult) { it.status = 'todo'; counts.kept++; }   // software with a real store/GitHub match
+    if (it.status === 'todo' && (v.verdict === 'doubtful' || !ok)) { it.status = 'inbox'; counts.toInbox.push(it.title); }
+    else if (reEnriched && it.status === 'inbox' && ok) { it.status = 'todo'; counts.kept++; }   // software with a real store/GitHub match
     else counts.kept++;
   }
   ledger.dismissed = [...new Set(ledger.dismissed)];
@@ -644,11 +641,11 @@ async function processShot(s) {
         let poster = e ? await savePoster([e.posterUrl, e.posterFallback], id) : '';
         let art = null;
         if (!poster && (LEGACY_TYPES.has(cand.type) || cand.type === 'anime' || cand.type === 'manga')) {
-          /* deeper hunt (adult titles too: the art is stored, but they stay hidden in the Inbox): AniList/MAL/alt titles, book & web-novel sites, itch, official sites */
+          /* deeper hunt: AniList/MAL/alt titles, book & web-novel sites, itch, official sites */
           const h = await huntArt({ ...cand, type: cand.type === 'manga' ? 'book' : lookupType(cand), is_anime: cand.type === 'anime', tags: cand.genres }, openai);
           entry.usd += h.cost;
           if (h.found) { poster = await savePoster([h.found.image, h.found.image2, h.found.image3], id); if (poster) art = h.found; }
-          if (art?.adult) cand.adult = true;   // AniList/MAL 18+ flag: keep hidden
+          if (art?.adult) cand.adult = true;   // AniList/MAL 18+ flag: hidden from guests, still listed
         }
         const status = decideStatusV2(cand, { poster, matched });
         const tags = [...new Set([...((e?.genres?.length ? e.genres : cand.genres) || [])])].slice(0, 4);
@@ -692,7 +689,7 @@ async function processShot(s) {
                 Object.assign(item, { poster: p2, tmdb_id: q.pick.id, qa: 'fixed' });
                 setScreenKind(item, q.pick.kind);
                 if (!item.year || Math.abs(item.year - (q.pick.year || item.year)) > 1) item.year = q.pick.year || item.year;
-                if (!cand.adult) item.status = 'todo';
+                item.status = 'todo';
               }
             } else if (q.verdict === 'ambiguous') { item.status = 'inbox'; item.qa = `ambiguous: ${q.cands.length} same-title works`; }
             else if (q.verdict === 'ok' && q.pick && !item.tmdb_id) item.tmdb_id = q.pick.id;
