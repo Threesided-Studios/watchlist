@@ -62473,7 +62473,7 @@
     "year": null,
     "blurb": "",
     "summary": "",
-    "poster": "",
+    "poster": "posters/the-monarch-money-killer.jpg",
     "link": "https://apps.apple.com/us/app/mm-tweaks-for-monarch-money/id6753774259?uo=4",
     "status": "todo",
     "tags": [
@@ -62490,7 +62490,7 @@
     "enriched_via": "",
     "match_ok": false,
     "screenshot": "7d6a745c9b41",
-    "art_via": "Mac App Store"
+    "art_via": "page preview"
   },
   {
     "id": "the-after-effects-killer",
@@ -63185,7 +63185,7 @@
     "year": null,
     "blurb": "",
     "summary": "",
-    "poster": "",
+    "poster": "posters/welcome-to-harem-island.jpg",
     "link": "",
     "status": "todo",
     "tags": [
@@ -63202,7 +63202,8 @@
     "enriched_via": "",
     "match_ok": false,
     "screenshot": "491fb0285104",
-    "format": "series"
+    "format": "series",
+    "art_via": "DuckDuckGo Images"
   },
   {
     "id": "openrig",
@@ -63577,7 +63578,7 @@
     "year": null,
     "blurb": "",
     "summary": "",
-    "poster": "",
+    "poster": "posters/rance-vi-the-collapse-of-zeth.jpg",
     "link": "",
     "status": "todo",
     "tags": [
@@ -63594,7 +63595,8 @@
     "enriched_via": "",
     "match_ok": false,
     "screenshot": "22bd6c74df25",
-    "adult": true
+    "adult": true,
+    "art_via": "DuckDuckGo Images"
   },
   {
     "id": "dohna-dohna",
@@ -64081,8 +64083,8 @@
     "year": null,
     "blurb": "",
     "summary": "",
-    "poster": "",
-    "link": "",
+    "poster": "posters/monster-girl-quest-paradox.jpg",
+    "link": "https://vndb.org/v17046",
     "status": "todo",
     "tags": [
       "Role-Playing"
@@ -64097,7 +64099,8 @@
     "enriched_via": "",
     "match_ok": false,
     "screenshot": "94f126f6c325",
-    "adult": true
+    "adult": true,
+    "art_via": "VNDB"
   },
   {
     "id": "kamidori-alchemy-meister",
@@ -64106,8 +64109,8 @@
     "year": null,
     "blurb": "",
     "summary": "",
-    "poster": "",
-    "link": "",
+    "poster": "posters/kamidori-alchemy-meister.jpg",
+    "link": "https://vndb.org/v5652",
     "status": "todo",
     "tags": [
       "Role-Playing Game"
@@ -64122,7 +64125,8 @@
     "enriched_via": "",
     "match_ok": false,
     "screenshot": "287af73d1e6f",
-    "adult": true
+    "adult": true,
+    "art_via": "VNDB"
   },
   {
     "id": "war-demon-kirsten",
@@ -64131,7 +64135,7 @@
     "year": null,
     "blurb": "",
     "summary": "",
-    "poster": "",
+    "poster": "posters/war-demon-kirsten.jpg",
     "link": "",
     "status": "todo",
     "tags": [],
@@ -64145,7 +64149,8 @@
     "enriched_via": "",
     "match_ok": false,
     "screenshot": "0924faa11072",
-    "adult": true
+    "adult": true,
+    "art_via": "DuckDuckGo Images"
   },
   {
     "id": "wayblazer-dammerung",
@@ -64179,8 +64184,8 @@
     "year": null,
     "blurb": "",
     "summary": "",
-    "poster": "",
-    "link": "",
+    "poster": "posters/monster-girl-quest.jpg",
+    "link": "https://vndb.org/v5657",
     "status": "todo",
     "tags": [],
     "rating": null,
@@ -64193,7 +64198,8 @@
     "enriched_via": "",
     "match_ok": false,
     "screenshot": "0924faa11072",
-    "adult": true
+    "adult": true,
+    "art_via": "VNDB"
   },
   {
     "id": "yes-my-lord",
@@ -64274,7 +64280,7 @@
     "year": null,
     "blurb": "",
     "summary": "",
-    "poster": "",
+    "poster": "posters/price-for-the-freedom.jpg",
     "link": "",
     "status": "todo",
     "tags": [],
@@ -64287,7 +64293,8 @@
     "ai_confidence": 0.75,
     "enriched_via": "",
     "match_ok": false,
-    "screenshot": "0a1d001b424a"
+    "screenshot": "0a1d001b424a",
+    "art_via": "DuckDuckGo Images"
   },
   {
     "id": "do-disciplinary-committee-members-dream-of-succubi",
@@ -66437,9 +66444,9 @@
     "year": null,
     "blurb": "",
     "summary": "",
-    "poster": "",
+    "poster": "posters/reawaken-man-the-red.jpg",
     "link": "",
-    "status": "inbox",
+    "status": "todo",
     "tags": [],
     "rating": null,
     "notes": "",
@@ -66450,7 +66457,8 @@
     "ai_confidence": 0.91,
     "enriched_via": "",
     "match_ok": false,
-    "screenshot": "2d7aedd7d808"
+    "screenshot": "2d7aedd7d808",
+    "art_via": "DuckDuckGo Images"
   },
   {
     "id": "nia-liston-the-merciless-maiden",
@@ -66981,9 +66989,9 @@
     "year": null,
     "blurb": "",
     "summary": "",
-    "poster": "",
+    "poster": "posters/radiant-historia-perfect-chronology.jpg",
     "link": "",
-    "status": "inbox",
+    "status": "todo",
     "tags": [
       "Role-Playing",
       "Strategy"
@@ -66997,7 +67005,8 @@
     "ai_confidence": 0.99,
     "enriched_via": "",
     "match_ok": false,
-    "screenshot": "fac9f0b50133"
+    "screenshot": "fac9f0b50133",
+    "art_via": "DuckDuckGo Images"
   },
   {
     "id": "obelisk",
@@ -67433,9 +67442,9 @@
     "year": null,
     "blurb": "",
     "summary": "",
-    "poster": "",
+    "poster": "posters/ecsaf-orm.jpg",
     "link": "",
-    "status": "inbox",
+    "status": "todo",
     "tags": [
       "Role-Playing",
       "Tactical"
@@ -67449,7 +67458,8 @@
     "ai_confidence": 0.72,
     "enriched_via": "",
     "match_ok": false,
-    "screenshot": "7f213ff2bdcb"
+    "screenshot": "7f213ff2bdcb",
+    "art_via": "DuckDuckGo Images"
   },
   {
     "id": "the-ossan-newbie-adventurer-trained-to-death-by-the-most-powerful-party-became-invincible",
@@ -68267,9 +68277,9 @@
     "year": null,
     "blurb": "",
     "summary": "",
-    "poster": "",
+    "poster": "posters/disgardium-unbound.jpg",
     "link": "",
-    "status": "inbox",
+    "status": "todo",
     "tags": [
       "Fantasy",
       "LitRPG"
@@ -68284,7 +68294,8 @@
     "enriched_via": "",
     "match_ok": false,
     "screenshot": "1bc0ed7e6864",
-    "author": "Nicoli Gonnella"
+    "author": "Nicoli Gonnella",
+    "art_via": "DuckDuckGo Images"
   },
   {
     "id": "pit-fighter-victor-of-tucson-book-one",
@@ -68293,9 +68304,9 @@
     "year": null,
     "blurb": "",
     "summary": "",
-    "poster": "",
+    "poster": "posters/pit-fighter-victor-of-tucson-book-one.jpg",
     "link": "",
-    "status": "inbox",
+    "status": "todo",
     "tags": [
       "Fantasy"
     ],
@@ -68309,7 +68320,8 @@
     "enriched_via": "",
     "match_ok": false,
     "screenshot": "6c2c5431c9af",
-    "author": "Plum Parrot"
+    "author": "Plum Parrot",
+    "art_via": "DuckDuckGo Images"
   },
   {
     "id": "victor-of-tucson",
@@ -71454,9 +71466,9 @@
     "year": null,
     "blurb": "",
     "summary": "",
-    "poster": "",
+    "poster": "posters/kling-4-0.jpg",
     "link": "",
-    "status": "inbox",
+    "status": "todo",
     "tags": [],
     "rating": null,
     "notes": "",
@@ -71469,7 +71481,8 @@
     "match_ok": false,
     "screenshot": "04a38f361037",
     "quote": "A single prompt generates a complete 30-second scene in one go, keeping uploaded characters, objects, and voices consistent from beginning to end.",
-    "intent": "reference"
+    "intent": "reference",
+    "art_via": "DuckDuckGo Images"
   },
   {
     "id": "griffin",
@@ -71650,7 +71663,7 @@
     "year": null,
     "blurb": "Stewart/Lamb, Las Vegas",
     "summary": "",
-    "poster": "",
+    "poster": "posters/fat-boys.jpg",
     "link": "https://www.google.com/maps/search/Fat%20Boys%2C%20Stewart%2FLamb%2C%20Las%20Vegas",
     "status": "todo",
     "tags": [],
@@ -71671,7 +71684,8 @@
     "address": "4425 #107 East Stewart Avenue, Las Vegas, Nevada, 89110",
     "map_url": "https://www.google.com/maps/search/?api=1&query=Fat%20Boy%20Restaurant%2C%204425%20%23107%20East%20Stewart%20Avenue%2C%20Las%20Vegas%2C%20Nevada%2C%2089110",
     "place_kind": "fast food",
-    "geocoded_via": "photon"
+    "geocoded_via": "photon",
+    "art_via": "map"
   },
   {
     "id": "with-love-always",
@@ -71680,7 +71694,7 @@
     "year": null,
     "blurb": "Las Vegas",
     "summary": "",
-    "poster": "",
+    "poster": "posters/with-love-always.jpg",
     "link": "https://www.google.com/maps/search/With%20Love%2C%20Always%2C%20Las%20Vegas",
     "status": "todo",
     "tags": [],
@@ -71696,7 +71710,8 @@
     "screenshot": "824277ee4b35",
     "quote": "My favorite burger in town!",
     "location": "Las Vegas",
-    "intent": "recommendation"
+    "intent": "recommendation",
+    "art_via": "DuckDuckGo Images"
   },
   {
     "id": "dispensary-lounge",
@@ -71705,7 +71720,7 @@
     "year": null,
     "blurb": "Tropicana and Eastern, Las Vegas",
     "summary": "",
-    "poster": "",
+    "poster": "posters/dispensary-lounge.jpg",
     "link": "https://www.google.com/maps/search/Dispensary%20Lounge%2C%20Tropicana%20and%20Eastern%2C%20Las%20Vegas",
     "status": "todo",
     "tags": [],
@@ -71721,7 +71736,8 @@
     "screenshot": "824277ee4b35",
     "quote": "has a half pound steer burger and it's delicious! Their onion rings and fried zucchini are delicious as well.",
     "location": "Tropicana and Eastern, Las Vegas",
-    "intent": "recommendation"
+    "intent": "recommendation",
+    "art_via": "DuckDuckGo Images"
   },
   {
     "id": "r-burger",
@@ -71730,7 +71746,7 @@
     "year": null,
     "blurb": "",
     "summary": "",
-    "poster": "",
+    "poster": "posters/r-burger.jpg",
     "link": "https://www.google.com/maps/search/R%20Burger%2C%20Las%20Vegas",
     "status": "todo",
     "tags": [],
@@ -71745,7 +71761,8 @@
     "match_ok": false,
     "screenshot": "4cc4ffa86179",
     "location": "Las Vegas area",
-    "intent": "recommendation"
+    "intent": "recommendation",
+    "art_via": "DuckDuckGo Images"
   },
   {
     "id": "the-hat",
@@ -71754,7 +71771,7 @@
     "year": null,
     "blurb": "",
     "summary": "",
-    "poster": "",
+    "poster": "posters/the-hat.jpg",
     "link": "https://www.google.com/maps/search/The%20Hat%2C%20Las%20Vegas",
     "status": "todo",
     "tags": [],
@@ -71769,7 +71786,8 @@
     "match_ok": false,
     "screenshot": "4cc4ffa86179",
     "location": "Las Vegas area",
-    "intent": "recommendation"
+    "intent": "recommendation",
+    "art_via": "DuckDuckGo Images"
   },
   {
     "id": "freddy-s-frozen-custard-and-steakburgers",
@@ -71778,7 +71796,7 @@
     "year": null,
     "blurb": "",
     "summary": "",
-    "poster": "",
+    "poster": "posters/freddy-s-frozen-custard-and-steakburgers.jpg",
     "link": "https://www.google.com/maps/search/Freddy's%20Frozen%20Custard%20%26%20Steakburgers%2C%20Las%20Vegas",
     "status": "todo",
     "tags": [],
@@ -71794,7 +71812,8 @@
     "screenshot": "4cc4ffa86179",
     "quote": "great burgers and custards",
     "location": "Las Vegas area",
-    "intent": "recommendation"
+    "intent": "recommendation",
+    "art_via": "DuckDuckGo Images"
   },
   {
     "id": "plaza-hotel-and-casino",
@@ -71803,7 +71822,7 @@
     "year": null,
     "blurb": "hotel · 1 South Main Street, Downtown Las Vegas, Las Vegas, Nevada",
     "summary": "",
-    "poster": "",
+    "poster": "posters/plaza-hotel-and-casino.jpg",
     "link": "https://www.plazahotelcasino.com/",
     "status": "todo",
     "tags": [],
@@ -71822,7 +71841,8 @@
     "intent": "recommendation",
     "map_url": "https://www.google.com/maps/search/Plaza%20Hotel%20%26%20Casino%2C%20Las%20Vegas",
     "lat": 36.1715877,
-    "lon": -115.1470854
+    "lon": -115.1470854,
+    "art_via": "map"
   },
   {
     "id": "aztec",
@@ -71831,9 +71851,9 @@
     "year": null,
     "blurb": "",
     "summary": "",
-    "poster": "",
+    "poster": "posters/aztec.jpg",
     "link": "https://www.google.com/maps/search/Aztec%2C%20Las%20Vegas",
-    "status": "inbox",
+    "status": "todo",
     "tags": [],
     "rating": null,
     "notes": "",
@@ -71847,7 +71867,8 @@
     "screenshot": "4cc4ffa86179",
     "quote": "Aztec in Henderson was tasty",
     "location": "Las Vegas area",
-    "intent": "recommendation"
+    "intent": "recommendation",
+    "art_via": "DuckDuckGo Images"
   },
   {
     "id": "the-habit-burger-grill",
@@ -71856,7 +71877,7 @@
     "year": null,
     "blurb": "Stephanie",
     "summary": "",
-    "poster": "",
+    "poster": "posters/the-habit-burger-grill.jpg",
     "link": "https://www.google.com/maps/search/The%20Habit%20Burger%20Grill%2C%20Stephanie",
     "status": "todo",
     "tags": [],
@@ -71878,7 +71899,8 @@
     "address": "543 North Stephanie Street, Henderson, Nevada, 89014",
     "map_url": "https://www.google.com/maps/search/?api=1&query=Habit%20Burger%20%26%20Grill%2C%20543%20North%20Stephanie%20Street%2C%20Henderson%2C%20Nevada%2C%2089014",
     "place_kind": "fast food",
-    "geocoded_via": "photon"
+    "geocoded_via": "photon",
+    "art_via": "map"
   },
   {
     "id": "in-n-out-burger",
@@ -71887,7 +71909,7 @@
     "year": null,
     "blurb": "Marks",
     "summary": "",
-    "poster": "",
+    "poster": "posters/in-n-out-burger.jpg",
     "link": "https://www.google.com/maps/search/In-N-Out%20Burger%2C%20Marks",
     "status": "todo",
     "tags": [],
@@ -71903,7 +71925,8 @@
     "screenshot": "4cc4ffa86179",
     "quote": "We prefer Habit Burger (on Stephanie) or In-n-Out (on Marks)",
     "location": "Marks",
-    "intent": "recommendation"
+    "intent": "recommendation",
+    "art_via": "DuckDuckGo Images"
   },
   {
     "id": "black-label-burgers",
@@ -71912,7 +71935,7 @@
     "year": null,
     "blurb": "Cheyenne",
     "summary": "",
-    "poster": "",
+    "poster": "posters/black-label-burgers.jpg",
     "link": "https://www.google.com/maps/search/Black%20Label%20Burgers%2C%20Cheyenne",
     "status": "todo",
     "tags": [],
@@ -71927,7 +71950,8 @@
     "match_ok": false,
     "screenshot": "4cc4ffa86179",
     "location": "Cheyenne",
-    "intent": "recommendation"
+    "intent": "recommendation",
+    "art_via": "DuckDuckGo Images"
   },
   {
     "id": "the-most-popular-sandwich-in-the-worl",
@@ -71961,7 +71985,7 @@
     "year": null,
     "blurb": "7905 W Sahara Ave, Las Vegas, Nevada",
     "summary": "",
-    "poster": "",
+    "poster": "posters/chill-bar-and-grill.jpg",
     "link": "https://www.google.com/maps/search/Chill%20Bar%20%26%20Grill%2C%207905%20W%20Sahara%20Ave%2C%20Las%20Vegas%2C%20Nevada",
     "status": "todo",
     "tags": [],
@@ -71982,7 +72006,8 @@
     "lon": -115.263349,
     "address": "7905 W Sahara Ave, Las Vegas, NV 89117",
     "map_url": "https://www.google.com/maps/search/?api=1&query=Chill%20Bar%20%26%20Grill%2C%207905%20W%20Sahara%20Ave%2C%20Las%20Vegas%2C%20NV%2089117",
-    "geocoded_via": "address"
+    "geocoded_via": "address",
+    "art_via": "map"
   },
   {
     "id": "candy-cane-house",
@@ -71991,7 +72016,7 @@
     "year": null,
     "blurb": "Henderson, NV; 366 Milan St.",
     "summary": "",
-    "poster": "",
+    "poster": "posters/candy-cane-house.jpg",
     "link": "https://www.google.com/maps/search/Candy%20Cane%20House%2C%20Henderson%2C%20NV%3B%20366%20Milan%20St.",
     "status": "todo",
     "tags": [],
@@ -72013,7 +72038,8 @@
     "lon": -114.945327,
     "address": "366 Milan St, Henderson, NV 89015",
     "map_url": "https://www.google.com/maps/search/?api=1&query=Candy%20Cane%20House%2C%20366%20Milan%20St%2C%20Henderson%2C%20NV%2089015",
-    "geocoded_via": "address"
+    "geocoded_via": "address",
+    "art_via": "map"
   },
   {
     "id": "excuse-my-blank",
@@ -72022,9 +72048,9 @@
     "year": null,
     "blurb": "",
     "summary": "",
-    "poster": "",
+    "poster": "posters/excuse-my-blank.jpg",
     "link": "https://excusemyblank.com/",
-    "status": "inbox",
+    "status": "todo",
     "tags": [
       "Party",
       "Comedy"
@@ -72042,7 +72068,8 @@
     "quote": "Super simple. Super funny. Perform the style, riff on the topic.",
     "availability": "Browser",
     "price": "Free",
-    "intent": "reference"
+    "intent": "reference",
+    "art_via": "page preview"
   },
   {
     "id": "boulder-city-s-famous-christmas",
@@ -72051,9 +72078,9 @@
     "year": null,
     "blurb": "1525 5th St., Boulder City, NV",
     "summary": "",
-    "poster": "",
+    "poster": "posters/boulder-city-s-famous-christmas.jpg",
     "link": "https://www.google.com/maps/search/Boulder%20City's%20Famous%20Christmas%2C%201525%205th%20St.%2C%20Boulder%20City%2C%20NV",
-    "status": "inbox",
+    "status": "todo",
     "tags": [],
     "rating": null,
     "notes": "",
@@ -72072,7 +72099,8 @@
     "lon": -114.838939,
     "address": "1525 5th St, Boulder City, NV 89005",
     "map_url": "https://www.google.com/maps/search/?api=1&query=Boulder%20City's%20Famous%20Christmas%2C%201525%205th%20St%2C%20Boulder%20City%2C%20NV%2089005",
-    "geocoded_via": "address"
+    "geocoded_via": "address",
+    "art_via": "map"
   },
   {
     "id": "freemocap",
@@ -72181,7 +72209,7 @@
     "year": null,
     "blurb": "4049 Spring Mountain Rd, Las Vegas, NV",
     "summary": "",
-    "poster": "",
+    "poster": "posters/ton-shou.jpg",
     "link": "https://www.google.com/maps/search/Ton%20Shou%2C%204049%20Spring%20Mountain%20Rd%2C%20Las%20Vegas%2C%20NV",
     "status": "todo",
     "tags": [],
@@ -72202,7 +72230,8 @@
     "lon": -115.193894,
     "address": "4049 Spring Mountain Rd, Las Vegas, NV 89102",
     "map_url": "https://www.google.com/maps/search/?api=1&query=Ton%20Shou%2C%204049%20Spring%20Mountain%20Rd%2C%20Las%20Vegas%2C%20NV%2089102",
-    "geocoded_via": "address"
+    "geocoded_via": "address",
+    "art_via": "map"
   },
   {
     "id": "diamond-spur-butcher-shop",
@@ -72211,7 +72240,7 @@
     "year": null,
     "blurb": "Las Vegas",
     "summary": "",
-    "poster": "",
+    "poster": "posters/diamond-spur-butcher-shop.jpg",
     "link": "https://www.google.com/maps/search/Diamond%20Spur%20Butcher%20Shop%2C%20Las%20Vegas",
     "status": "todo",
     "tags": [],
@@ -72227,7 +72256,8 @@
     "screenshot": "c152381d04cc",
     "quote": "FULL RANCH OWNED butcher shop making unreal dishes.",
     "location": "Las Vegas",
-    "intent": "recommendation"
+    "intent": "recommendation",
+    "art_via": "DuckDuckGo Images"
   },
   {
     "id": "awakening",
@@ -72236,7 +72266,7 @@
     "year": null,
     "blurb": "Wynn Las Vegas, Nevada",
     "summary": "",
-    "poster": "",
+    "poster": "posters/awakening.jpg",
     "link": "https://www.google.com/maps/search/Awakening%2C%20Wynn%20Las%20Vegas%2C%20Nevada",
     "status": "todo",
     "tags": [],
@@ -72252,7 +72282,8 @@
     "screenshot": "88d5584c45a2",
     "quote": "one of the most technically insane live shows I’ve ever seen",
     "location": "Wynn Las Vegas, Nevada",
-    "intent": "recommendation"
+    "intent": "recommendation",
+    "art_via": "DuckDuckGo Images"
   },
   {
     "id": "the-olive-mediterranean-grill-and-lounge",
@@ -72261,7 +72292,7 @@
     "year": null,
     "blurb": "Las Vegas, Nevada",
     "summary": "",
-    "poster": "",
+    "poster": "posters/the-olive-mediterranean-grill-and-lounge.jpg",
     "link": "https://www.google.com/maps/search/The%20Olive%20Mediterranean%20Grill%20%26%20Lounge%2C%20Las%20Vegas%2C%20Nevada",
     "status": "todo",
     "tags": [],
@@ -72277,7 +72308,8 @@
     "screenshot": "e6a1e60ed5e0",
     "quote": "offer live entertainment, dancing, affordable drinks and enough space for groups on a budget.",
     "location": "Las Vegas, Nevada",
-    "intent": "recommendation"
+    "intent": "recommendation",
+    "art_via": "DuckDuckGo Images"
   },
   {
     "id": "wigglin-out-indoor-playground",
@@ -72286,7 +72318,7 @@
     "year": null,
     "blurb": "",
     "summary": "",
-    "poster": "",
+    "poster": "posters/wigglin-out-indoor-playground.jpg",
     "link": "https://www.google.com/maps/search/Wigglin%20Out%20Indoor%20Playground",
     "status": "todo",
     "tags": [],
@@ -72301,7 +72333,8 @@
     "match_ok": false,
     "screenshot": "f49657908bf0",
     "quote": "Toddler Friendly...",
-    "intent": "recommendation"
+    "intent": "recommendation",
+    "art_via": "DuckDuckGo Images"
   },
   {
     "id": "tailscale-oauth-apps-user-identity-device-provisioning",
