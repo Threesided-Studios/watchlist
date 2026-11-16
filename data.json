@@ -16865,9 +16865,6 @@
     "source": "reddit",
     "summary": "A lone astronaut nearing the end of a three-year contract mining helium-3 on the far side of the moon begins to suspect something deeply wrong about his situation after a rover accident. Duncan Jones's debut feature is a quietly devastating examination of identity, corporate ethics, and loneliness, anchored by Sam Rockwell's extraordinary dual performance. It belongs to the tradition of cerebral 1970s science fiction.",
     "tmdb_id": 17431,
-    "providers": [
-      "fuboTV"
-    ],
     "runtime": 97
   },
   {
@@ -55067,7 +55064,7 @@
     "screenshot": "9b86ef5cad1a",
     "match_ok": true,
     "repo_url": "https://github.com/vorssaint/vorssaint-utils",
-    "stars": 34905,
+    "stars": 34909,
     "pushed": "2026-11-13",
     "language": "Swift",
     "release": "v3.4.4"
@@ -63296,7 +63293,7 @@
     "screenshot": "edac162e6670",
     "art_via": "GitHub",
     "repo_url": "https://github.com/openai/codex",
-    "stars": 135487,
+    "stars": 135491,
     "pushed": "2026-11-16",
     "language": "Rust",
     "release": "rust-v0.169.0"
@@ -68414,7 +68411,7 @@
     "added": "2026-11-16",
     "source": "github-stars",
     "author": "Absenti",
-    "stars": 8,
+    "stars": 9,
     "language": "Swift",
     "license": "MIT",
     "pushed": "2026-11-15",
@@ -68518,11 +68515,12 @@
     "added": "2026-11-14",
     "source": "github-stars",
     "author": "FrigadeHQ",
-    "stars": 1748,
+    "stars": 1757,
     "language": "TypeScript",
     "license": "MIT",
     "pushed": "2026-11-16",
-    "release": "v0.3.30"
+    "release": "v0.3.31",
+    "release_at": "2026-11-16"
   },
   {
     "id": "recompdb",
@@ -68569,7 +68567,7 @@
     "added": "2026-11-14",
     "source": "github-stars",
     "author": "Donchitos",
-    "stars": 39678,
+    "stars": 39682,
     "language": "Shell",
     "license": "MIT",
     "pushed": "2026-11-09",
@@ -68656,7 +68654,7 @@
     "added": "2026-11-11",
     "source": "github-stars",
     "author": "shannonbay",
-    "stars": 28,
+    "stars": 29,
     "language": "TypeScript",
     "license": "Apache-2.0",
     "pushed": "2026-11-16"
@@ -68711,7 +68709,7 @@
     "added": "2026-11-10",
     "source": "github-stars",
     "author": "Mastershort",
-    "stars": 1206,
+    "stars": 1207,
     "language": "TypeScript",
     "license": "MIT",
     "pushed": "2026-11-15",
@@ -68792,7 +68790,7 @@
     "added": "2026-11-10",
     "source": "github-stars",
     "author": "FortoGraphy",
-    "stars": 949,
+    "stars": 950,
     "language": "Rust",
     "license": "MIT",
     "pushed": "2026-11-01",
@@ -68844,7 +68842,7 @@
     "added": "2026-11-10",
     "source": "github-stars",
     "author": "GianlucaBave",
-    "stars": 23,
+    "stars": 24,
     "language": "Python",
     "license": "GPL-3.0",
     "pushed": "2026-11-16",
@@ -68873,7 +68871,7 @@
     "added": "2026-11-10",
     "source": "github-stars",
     "author": "Gathin23",
-    "stars": 58446,
+    "stars": 58458,
     "language": "Python",
     "pushed": "2026-11-15",
     "release": "v3.5.0"
@@ -68976,7 +68974,7 @@
     "added": "2026-11-05",
     "source": "github-stars",
     "author": "LNPANDY",
-    "stars": 7354,
+    "stars": 7360,
     "language": "Swift",
     "license": "MIT",
     "pushed": "2026-11-16",
@@ -69005,7 +69003,7 @@
     "added": "2026-11-05",
     "source": "github-stars",
     "author": "crmne",
-    "stars": 4591,
+    "stars": 4592,
     "language": "Rust",
     "license": "MIT",
     "pushed": "2026-11-16",
@@ -69105,7 +69103,7 @@
     "added": "2026-11-03",
     "source": "github-stars",
     "author": "deepseek-ai",
-    "stars": 23426,
+    "stars": 23434,
     "language": "TypeScript",
     "license": "MIT",
     "pushed": "2026-11-03"
@@ -69399,7 +69397,7 @@
     "added": "2026-10-28",
     "source": "github-stars",
     "author": "Nutlope",
-    "stars": 55805,
+    "stars": 55812,
     "language": "CSS",
     "license": "MIT",
     "pushed": "2026-11-11"
@@ -69427,7 +69425,7 @@
     "added": "2026-10-28",
     "source": "github-stars",
     "author": "gitroomhq",
-    "stars": 41724,
+    "stars": 41726,
     "language": "TypeScript",
     "license": "AGPL-3.0",
     "pushed": "2026-11-16",
@@ -69559,7 +69557,7 @@
     "added": "2026-10-25",
     "source": "github-stars",
     "author": "windows-GPU-UNLOCK",
-    "stars": 2241,
+    "stars": 2242,
     "language": "C",
     "license": "GPL-2.0",
     "pushed": "2026-11-15"
@@ -69662,7 +69660,7 @@
     "added": "2026-10-22",
     "source": "github-stars",
     "author": "makeplane",
-    "stars": 62510,
+    "stars": 62512,
     "language": "TypeScript",
     "license": "AGPL-3.0",
     "pushed": "2026-11-16",
@@ -69691,7 +69689,7 @@
     "added": "2026-10-22",
     "source": "github-stars",
     "author": "openfilm",
-    "stars": 7729,
+    "stars": 7739,
     "language": "TypeScript",
     "license": "MIT",
     "pushed": "2026-11-16",
@@ -69814,7 +69812,7 @@
     "added": "2026-10-09",
     "source": "github-stars",
     "author": "anthropics",
-    "stars": 36246,
+    "stars": 36247,
     "language": "Python",
     "license": "Apache-2.0",
     "pushed": "2026-11-13"
@@ -69842,7 +69840,7 @@
     "added": "2026-10-09",
     "source": "github-stars",
     "author": "morluto",
-    "stars": 462985,
+    "stars": 463019,
     "language": "TypeScript",
     "license": "MIT",
     "pushed": "2026-11-16",
@@ -69871,7 +69869,7 @@
     "added": "2026-10-09",
     "source": "github-stars",
     "author": "thedotmack",
-    "stars": 117517,
+    "stars": 117519,
     "language": "TypeScript",
     "license": "Apache-2.0",
     "pushed": "2026-11-16",
@@ -69900,10 +69898,10 @@
     "added": "2026-10-09",
     "source": "github-stars",
     "author": "storytold",
-    "stars": 41187,
+    "stars": 41191,
     "language": "Rust",
     "license": "Apache-2.0",
-    "pushed": "2026-11-12",
+    "pushed": "2026-11-16",
     "release": "artcraft-v0.41.1"
   },
   {
@@ -69980,7 +69978,7 @@
     "added": "2026-10-08",
     "source": "github-stars",
     "author": "OpenMontageInc",
-    "stars": 80841,
+    "stars": 80850,
     "language": "Python",
     "license": "AGPL-3.0",
     "pushed": "2026-11-16"
@@ -70030,7 +70028,7 @@
     "added": "2026-10-04",
     "source": "github-stars",
     "author": "hieunc229",
-    "stars": 6572,
+    "stars": 6574,
     "language": "TypeScript",
     "license": "AGPL-3.0",
     "pushed": "2026-11-16"
@@ -70129,7 +70127,8 @@
     "language": "TypeScript",
     "license": "MIT",
     "pushed": "2026-11-16",
-    "release": "v0.0.21"
+    "release": "v0.0.22",
+    "release_at": "2026-11-16"
   },
   {
     "id": "dungeon-drifters",
@@ -70332,7 +70331,7 @@
     "added": "2026-08-19",
     "source": "github-stars",
     "author": "stackblitz-labs",
-    "stars": 20095,
+    "stars": 20094,
     "language": "TypeScript",
     "license": "MIT",
     "pushed": "2026-11-16",
@@ -70497,7 +70496,7 @@
     "added": "2026-08-06",
     "source": "github-stars",
     "author": "addyosmani",
-    "stars": 118125,
+    "stars": 118131,
     "language": "JavaScript",
     "license": "MIT",
     "pushed": "2026-11-14",
@@ -70521,7 +70520,7 @@
     "added": "2026-08-06",
     "source": "github-stars",
     "author": "cloudflare",
-    "stars": 11806,
+    "stars": 11807,
     "language": "TypeScript",
     "license": "Apache-2.0",
     "pushed": "2026-11-16"
@@ -70573,7 +70572,7 @@
     "added": "2026-07-28",
     "source": "github-stars",
     "author": "Zoo-Code-Org",
-    "stars": 2120,
+    "stars": 2121,
     "language": "TypeScript",
     "license": "Apache-2.0",
     "pushed": "2026-11-16",
@@ -70707,7 +70706,7 @@
     "added": "2026-06-29",
     "source": "github-stars",
     "author": "gamedev-skills",
-    "stars": 9081,
+    "stars": 9088,
     "language": "Python",
     "license": "Apache-2.0",
     "pushed": "2026-11-12",
@@ -70869,7 +70868,7 @@
     "added": "2026-05-29",
     "source": "github-stars",
     "author": "ruvnet",
-    "stars": 104418,
+    "stars": 104422,
     "language": "Rust",
     "license": "MIT",
     "pushed": "2026-11-16",
@@ -71635,7 +71634,13 @@
     "match_ok": false,
     "screenshot": "824277ee4b35",
     "location": "Stewart/Lamb, Las Vegas",
-    "intent": "recommendation"
+    "intent": "recommendation",
+    "lat": 36.167073,
+    "lon": -115.079774,
+    "address": "4425 #107 East Stewart Avenue, Las Vegas, Nevada, 89110",
+    "map_url": "https://www.google.com/maps/search/?api=1&query=Fat%20Boy%20Restaurant%2C%204425%20%23107%20East%20Stewart%20Avenue%2C%20Las%20Vegas%2C%20Nevada%2C%2089110",
+    "place_kind": "fast food",
+    "geocoded_via": "photon"
   },
   {
     "id": "with-love-always",
@@ -71848,7 +71853,13 @@
     "screenshot": "4cc4ffa86179",
     "quote": "We prefer Habit Burger (on Stephanie) or In-n-Out (on Marks)",
     "location": "Stephanie",
-    "intent": "recommendation"
+    "intent": "recommendation",
+    "lat": 36.058733,
+    "lon": -115.046747,
+    "address": "543 North Stephanie Street, Henderson, Nevada, 89014",
+    "map_url": "https://www.google.com/maps/search/?api=1&query=Habit%20Burger%20%26%20Grill%2C%20543%20North%20Stephanie%20Street%2C%20Henderson%2C%20Nevada%2C%2089014",
+    "place_kind": "fast food",
+    "geocoded_via": "photon"
   },
   {
     "id": "in-n-out-burger",
@@ -71947,7 +71958,12 @@
     "screenshot": "e28f254d3064",
     "quote": "New Jamaican restaurant in Las Vegas NV",
     "location": "7905 W Sahara Ave, Las Vegas, Nevada",
-    "intent": "reference"
+    "intent": "reference",
+    "lat": 36.14368,
+    "lon": -115.263349,
+    "address": "7905 W Sahara Ave, Las Vegas, NV 89117",
+    "map_url": "https://www.google.com/maps/search/?api=1&query=Chill%20Bar%20%26%20Grill%2C%207905%20W%20Sahara%20Ave%2C%20Las%20Vegas%2C%20NV%2089117",
+    "geocoded_via": "address"
   },
   {
     "id": "candy-cane-house",
@@ -71973,7 +71989,12 @@
     "quote": "FREE FUN",
     "price": "FREE",
     "location": "Henderson, NV; 366 Milan St.",
-    "intent": "recommendation"
+    "intent": "recommendation",
+    "lat": 36.054353,
+    "lon": -114.945327,
+    "address": "366 Milan St, Henderson, NV 89015",
+    "map_url": "https://www.google.com/maps/search/?api=1&query=Candy%20Cane%20House%2C%20366%20Milan%20St%2C%20Henderson%2C%20NV%2089015",
+    "geocoded_via": "address"
   },
   {
     "id": "excuse-my-blank",
@@ -72027,7 +72048,12 @@
     "screenshot": "3353738bd97e",
     "price": "FREE",
     "location": "1525 5th St., Boulder City, NV",
-    "intent": "recommendation"
+    "intent": "recommendation",
+    "lat": 35.97331,
+    "lon": -114.838939,
+    "address": "1525 5th St, Boulder City, NV 89005",
+    "map_url": "https://www.google.com/maps/search/?api=1&query=Boulder%20City's%20Famous%20Christmas%2C%201525%205th%20St%2C%20Boulder%20City%2C%20NV%2089005",
+    "geocoded_via": "address"
   },
   {
     "id": "freemocap",
@@ -72152,7 +72178,12 @@
     "screenshot": "bc9e08304979",
     "quote": "#31 in the nation... and it’s in VEGAS?!",
     "location": "4049 Spring Mountain Rd, Las Vegas, NV",
-    "intent": "recommendation"
+    "intent": "recommendation",
+    "lat": 36.126361,
+    "lon": -115.193894,
+    "address": "4049 Spring Mountain Rd, Las Vegas, NV 89102",
+    "map_url": "https://www.google.com/maps/search/?api=1&query=Ton%20Shou%2C%204049%20Spring%20Mountain%20Rd%2C%20Las%20Vegas%2C%20NV%2089102",
+    "geocoded_via": "address"
   },
   {
     "id": "diamond-spur-butcher-shop",
@@ -72810,7 +72841,7 @@
     "quote": "A Semrush alternative your agent can use",
     "intent": "recommendation",
     "repo_url": "https://github.com/every-app/open-seo",
-    "stars": 27880,
+    "stars": 27881,
     "language": "TypeScript",
     "license": "MIT",
     "pushed": "2026-11-13",
@@ -72841,7 +72872,7 @@
     "quote": "Magnitude is an open source inference engine that tunes its kernels on your hardware to find the fastest way to run each model.",
     "intent": "recommendation",
     "repo_url": "https://github.com/magnitudedev/magnitude",
-    "stars": 7864,
+    "stars": 7865,
     "language": "Rust",
     "license": "Apache-2.0",
     "pushed": "2026-11-15",
