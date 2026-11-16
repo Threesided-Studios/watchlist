@@ -100,3 +100,15 @@ Open `https://watchlist-ingest.threesided.workers.dev/status`:
   at **Send to Watchlist** (not the Backfill copy). Run the Shortcut once by hand so iOS can ask
   for Photos and network permission.
 - Request Body can be **File** (preferred) or **Form**; both are accepted.
+
+## Re-reading screenshots that produced nothing
+
+Screenshots are deleted from the inbox once read, so a screenshot that was
+skipped can only be read again if the phone sends it again, and normally the
+server refuses anything it has already seen.
+
+1. On GitHub: Actions → **Reprocess skipped screenshots** → Run workflow (default: the last 16 days). This makes the server forget the screenshots that added nothing.
+2. On the phone: run the **Watchlist Backfill** Shortcut with *Date Taken is in the last* `16` *days*.
+
+They are read on the next ingest run, a couple of minutes after the upload. The
+inbox page shows what each one became under **Recent screenshots**.
