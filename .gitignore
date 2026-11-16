@@ -15,4 +15,5 @@ pipeline/skipped.json
 # screenshot ingest scratch
 scripts/ingest/node_modules/
 scripts/ingest/.pending-acks.json
+scripts/ingest/.pending-edits.json
 scripts/ingest/.last-report.json

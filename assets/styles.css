@@ -129,6 +129,14 @@ body[data-owner="true"] .guest-only { display: none !important; }
 /* app icons and repo cards are artwork on a tile, not full-bleed posters */
 .cover[data-type="software"] img, .cover[data-type="repo"] img { object-fit: contain; padding: 14%; filter: drop-shadow(0 8px 18px rgba(0, 0, 0, .45)); }
 .cover[data-type="repo"] img { padding: 6%; }
+/* In grids, shelves, rows and the inbox every tile is the same 2:3 size whatever
+   the category, so rows line up. Square and wide art sits whole inside the tile
+   on the category tint instead of being cropped; the detail sheet shows it at
+   its natural shape. */
+.card .cover, .row-art .cover, .review-art .cover { aspect-ratio: 2 / 3; }
+.card .cover-square img, .card .cover-wide img,
+.review-art .cover-square img, .review-art .cover-wide img,
+.row-art .cover-square img, .row-art .cover-wide img { object-fit: contain; padding: 8%; }
 .cover-blank { position: absolute; inset: 0; display: grid; place-content: center; gap: 8px; padding: 12px; text-align: center; }
 .cover-glyph { font-size: 30px; opacity: .85; }
 .cover-title { font: 500 13px/1.25 var(--font-display); color: rgba(236, 230, 220, .85); display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
@@ -286,6 +294,15 @@ dialog::backdrop { background: rgba(5, 4, 8, .78); }
 .surprise .sheet-title { font-size: 22px; }
 
 .toast { position: fixed; left: 50%; bottom: 88px; transform: translateX(-50%); z-index: 60; padding: 10px 16px; background: var(--surface-2); border: 1px solid var(--line); border-radius: 100px; box-shadow: 0 16px 40px -12px rgba(0, 0, 0, .9); font-size: 14px; max-width: calc(100vw - 32px); }
+
+.matches { display: grid; gap: 4px; max-height: 260px; overflow-y: auto; padding: 4px; background: var(--bg-2); border: 1px solid var(--line); border-radius: var(--radius); }
+.match { display: grid; grid-template-columns: 34px 1fr; gap: 10px; align-items: center; padding: 6px; text-align: left; background: none; border: 0; border-radius: var(--radius); cursor: pointer; }
+.match:hover, .match:focus-visible { background: var(--surface-2); }
+.match img, .match-blank { width: 34px; height: 50px; object-fit: cover; border-radius: 3px; background: var(--surface-2); }
+.match > span:last-child { display: grid; min-width: 0; }
+.match-sub { color: var(--muted); font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.shot img { width: 100%; border-radius: var(--radius-lg); border: 1px solid var(--line); }
+.btn-danger:hover { border-color: #e06060; color: #f09090; }
 
 /* ---------- inbox ---------- */
 .inbox-status { margin: 0; color: var(--muted); font-size: 13px; }

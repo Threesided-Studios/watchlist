@@ -1,6 +1,6 @@
 /* Detail sheet: everything about one item, and (for the owner) every edit. Opened by #item=<id>. */
 import { CATEGORIES, category, STATUSES } from '../../../shared/taxonomy.js';
-import { state, update, netVotes, stage } from '../store.js';
+import { state, update, removeItem, netVotes, stage, ownerPass, INGEST_URL } from '../store.js';
 import { isVotingEnabled, myVote, castVote } from '../../votes.js';
 import { el, cover, VERDICTS, sourceLabel, toast } from '../card.js';
 
@@ -39,6 +39,23 @@ function lookups(it) {
 
 function field(label, control) { return el('label', { class: 'form-field' }, el('span', { class: 'facet-label', text: label }), control); }
 
+/* The screenshot an item was read from. Kept at the Worker for 30 days, owner only. */
+function shotPanel(it) {
+  if (!it.screenshot) return null;
+  const box = el('div', { class: 'shot' });
+  const btn = el('button', { type: 'button', class: 'btn btn-ghost', text: '🖼 View source screenshot', onclick: async () => {
+    btn.disabled = true; btn.textContent = 'Loading…';
+    try {
+      const r = await fetch(`${INGEST_URL}/shots/${it.screenshot}`, { headers: { 'X-Owner-Pass': ownerPass() } });
+      if (r.status === 404) { box.replaceChildren(el('p', { class: 'inbox-status', text: 'No longer kept. Screenshots are deleted 30 days after they are read.' })); return; }
+      if (!r.ok) throw new Error(String(r.status));
+      box.replaceChildren(el('img', { src: URL.createObjectURL(await r.blob()), alt: 'The screenshot this item was found in' }));
+    } catch { btn.disabled = false; btn.textContent = '🖼 View source screenshot'; toast('Could not load the screenshot.'); }
+  } });
+  box.append(btn);
+  return box;
+}
+
 function ownerPanel(it, redraw) {
   const cat = category(it.type);
   const set = (fields, msg) => { update(it.id, fields); if (msg) toast(msg); redraw(); };
@@ -65,7 +82,12 @@ function ownerPanel(it, redraw) {
       el('summary', { text: 'Edit details' }),
       field('title', title),
       field('category', el('select', { onchange: (e) => set({ type: e.target.value }, 'Category changed') }, CATEGORIES.map((c) => el('option', { value: c.key, selected: c.key === it.type, text: c.label })))),
-      field('year', year), field('tags', tags), field('link', link)),
+      field('year', year), field('tags', tags), field('link', link),
+      el('button', { type: 'button', class: 'btn btn-ghost btn-danger', text: 'Remove from the list', onclick: () => {
+        if (!confirm(`Remove “${it.title}” from the list? It will not be re-added from screenshots.`)) return;
+        removeItem(it.id); toast(`Removed “${it.title}”`); close();
+      } })),
+    shotPanel(it),
   );
 }
 

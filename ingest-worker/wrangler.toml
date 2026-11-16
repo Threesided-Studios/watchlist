@@ -8,10 +8,14 @@ compatibility_date = "2025-09-01"
 # until they're processed. Storage is a SQLite-backed Durable Object (free plan).
 #
 # Secrets (wrangler secret put): INGEST_KEY (Shortcut), QUEUE_KEY (GitHub Action)
+# Optional secrets: GH_DISPATCH_TOKEN (fine-grained token for this repo with Contents: read and write,
+#   which is what repository_dispatch requires; starts the ingest workflow when something arrives),
+#   TMDB_READ_TOKEN (movie/show search in the Add form)
 [vars]
 ALLOW_ORIGIN = "https://watch.threesided.com,https://threesided-studios.github.io"
 # sha256 of the owner passphrase (same value as OWNER_HASH in assets/app.js).
 OWNER_HASH = "73ed39e720cb63bd270d9610e8617f8f2fef3ef1ab5deb62832feb9b7ce929b5"
+GH_REPO = "Threesided-Studios/watchlist"
 
 [[durable_objects.bindings]]
 name = "QUEUE"

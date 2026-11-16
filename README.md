@@ -20,7 +20,7 @@ iPhone Shortcut (daily automation / share sheet)
 - Review unsure finds at **/inbox/** (owner mode). ✓ Keep / ✕ Dismiss are applied on the next hourly run.
 - Phone setup: [`docs/iphone-shortcut.md`](docs/iphone-shortcut.md).
 - Local test: `cd scripts/ingest && npm i && OPENAI_API_KEY=… node run.mjs --local ~/some-screenshots --dry-run`.
-- Secrets: repo `OPENAI_API_KEY`, `WATCHLIST_QUEUE_KEY`, optional `TMDB_API_KEY`; Worker `INGEST_KEY`, `QUEUE_KEY`.
+- Secrets: repo `OPENAI_API_KEY`, `WATCHLIST_QUEUE_KEY`, optional `TMDB_API_KEY`; Worker `INGEST_KEY`, `QUEUE_KEY`, optional `GH_DISPATCH_TOKEN`, `TMDB_READ_TOKEN`.
 
 The older Mac-only pipeline below (`pipeline/`, osxphotos + Vision OCR) still works for one-off bulk runs.
 
@@ -36,7 +36,25 @@ The dev server renders every page from `templates/page.html` and serves `data.mi
 node scripts/build-site.mjs --out _site
 ```
 
-All edits persist in `localStorage`. Use **Export** to download a fresh `data.json` and commit it back to the repo.
+## Owner edits sync automatically
+
+Ratings, status, notes, pins, category changes, adds and removals made in owner mode are posted to the ingest Worker (`POST /edit`, passphrase checked server-side) and committed to `data.json` by the next ingest run (`scripts/ingest/apply-edits.mjs`). The edit shows on the device immediately; other devices see it after that run deploys. The footer shows the sync state. **Export** remains as a manual backup.
+
+The Worker starts the ingest workflow itself about two minutes after a screenshot or edit arrives (`repository_dispatch`), so nothing waits for the cron. This needs one Worker secret:
+
+```bash
+cd ingest-worker
+npx wrangler secret put GH_DISPATCH_TOKEN   # fine-grained token, this repo only, Contents: read and write
+npx wrangler deploy
+```
+
+Without the secret everything still works on the scheduled runs. `/status` reports `last_dispatch`.
+
+Optional: `npx wrangler secret put TMDB_READ_TOKEN` enables movie/show search in the Add form (books, games, repos and everything else search without a key).
+
+Screenshots that produced an item are kept at the Worker for 30 days, viewable only in owner mode from the item's detail sheet. Nothing is added to this repo.
+
+Local Worker for development: `npx wrangler dev --local --var INGEST_KEY:test --var QUEUE_KEY:test --var OWNER_HASH:<sha256 of a test phrase>`, then in the browser console on localhost set `localStorage['watchlist.ingestUrl'] = 'http://127.0.0.1:8787'`.
 
 ## Categories and data shape
 

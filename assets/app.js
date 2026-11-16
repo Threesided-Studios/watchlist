@@ -1,7 +1,7 @@
 /* Boot and wiring. Which view this page shows ({view, type}) is stamped into
  * the HTML by scripts/build-site.mjs; the views live in assets/js/views/. */
 import { CATEGORIES, category } from '../shared/taxonomy.js';
-import { state, load, subscribe, unlock, lock, addItem, exportItems, importItems, pendingEdits, visibleItems, inboxItems, stage } from './js/store.js';
+import { state, load, subscribe, unlock, lock, addItem, exportItems, importItems, pendingEdits, visibleItems, inboxItems, stage, sync, unsent, flush, ownerPass, INGEST_URL } from './js/store.js';
 import { el, cover, toast } from './js/card.js';
 import { renderHome } from './js/views/home.js';
 import { renderList, readParams, writeParams } from './js/views/list.js';
@@ -39,8 +39,11 @@ function chrome() {
     a.querySelector('.nav-badge')?.remove();
     if (n && state.owner) a.append(el('span', { class: 'nav-badge', text: String(n) }));
   }
-  const edits = pendingEdits();
-  $('#sync').textContent = edits ? `${edits} local edit${edits === 1 ? '' : 's'} on this device (Export to back up)` : '';
+  const waiting = unsent(), edits = pendingEdits();
+  $('#sync').textContent = sync.state === 'sending' ? 'Syncing…'
+    : waiting ? `${waiting} edit${waiting === 1 ? '' : 's'} not synced yet. ${sync.error}`
+    : edits ? `${edits} edit${edits === 1 ? '' : 's'} synced, waiting for the next list update`
+    : state.owner ? 'All edits synced' : '';
   const tab = PAGE.view === 'type' ? 'all' : PAGE.view;
   for (const a of document.querySelectorAll('.tabbar [data-tab]')) {
     if (a.dataset.tab === tab) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current');
@@ -59,7 +62,7 @@ function requestUnlock() {
   const input = el('input', { type: 'password', placeholder: 'Owner passphrase', autocomplete: 'current-password' });
   const msg = el('p', { class: 'modal-msg', 'aria-live': 'polite' });
   const go = async () => {
-    if (await unlock(input.value)) { closeModal(); toast('Owner mode on'); } else { msg.textContent = 'That passphrase is not right.'; input.select(); }
+    if (await unlock(input.value)) { closeModal(); toast('Owner mode on'); flush(); } else { msg.textContent = 'That passphrase is not right.'; input.select(); }
   };
   openModal(el('form', { class: 'modal-card', onsubmit: (e) => { e.preventDefault(); go(); } },
     el('h3', { text: 'Owner mode' }),
@@ -78,11 +81,36 @@ function openAdd() {
   const note = el('textarea', { rows: '2', placeholder: owner ? 'Note (optional)' : 'Why, or where to find it (optional)' });
   const msg = el('p', { class: 'modal-msg', 'aria-live': 'polite' });
   const submit = el('button', { type: 'submit', class: 'btn btn-primary', text: owner ? 'Add' : 'Send' });
+  /* owner: look the title up as it is typed; picking a match fills in year, link, blurb and cover */
+  const matches = el('div', { class: 'matches', hidden: true });
+  let picked = null, lookupTimer, lookupSeq = 0;
+  const runLookup = async () => {
+    const seq = ++lookupSeq;
+    const term = title.value.trim();
+    if (!owner || term.length < 2) { matches.hidden = true; return; }
+    try {
+      const r = await fetch(`${INGEST_URL}/lookup?type=${encodeURIComponent(type.value)}&q=${encodeURIComponent(term)}`, { headers: { 'X-Owner-Pass': ownerPass() } });
+      const list = r.ok ? await r.json() : [];
+      if (seq !== lookupSeq) return;   // a newer search finished first
+      matches.hidden = !list.length;
+      matches.replaceChildren(...list.map((m) => el('button', { type: 'button', class: 'match', onclick: () => {
+        picked = m; title.value = m.title; year.value = m.year || ''; link.value = m.link || ''; matches.hidden = true;
+        msg.textContent = `Matched: ${m.title}${m.year ? ` (${m.year})` : ''}`;
+      } },
+        m.poster_url ? el('img', { src: m.poster_url, alt: '', loading: 'lazy', referrerpolicy: 'no-referrer' }) : el('span', { class: 'match-blank' }),
+        el('span', {}, el('strong', { text: m.title }), el('span', { class: 'match-sub', text: [m.year, m.author, m.blurb].filter(Boolean).join(' · ') })))));
+    } catch { matches.hidden = true; }
+  };
+  const queueLookup = () => { picked = null; clearTimeout(lookupTimer); lookupTimer = setTimeout(runLookup, 350); };
+  title.addEventListener('input', queueLookup);
+  type.addEventListener('change', queueLookup);
   const go = async () => {
     const t = title.value.trim();
     if (!t) return;
     if (owner) {
-      const it = addItem({ title: t, type: type.value, year: Number(year.value) || null, link: link.value.trim(), notes: note.value.trim() });
+      const extra = picked && picked.title === t ? { blurb: picked.blurb || '', summary: picked.summary || '', author: picked.author || '', poster_url: picked.poster_url || '', tmdb_id: picked.tmdb_id, steam_appid: picked.steam_appid, format: picked.format } : {};
+      for (const k of Object.keys(extra)) if (extra[k] === undefined || extra[k] === '') delete extra[k];
+      const it = addItem({ title: t, type: type.value, year: Number(year.value) || null, link: link.value.trim(), notes: note.value.trim(), ...extra });
       closeModal(); toast(`Added “${t}”`); location.hash = `item=${it.id}`;
       return;
     }
@@ -97,8 +125,8 @@ function openAdd() {
   };
   openModal(el('form', { class: 'modal-card', onsubmit: (e) => { e.preventDefault(); go(); } },
     el('h3', { text: owner ? 'Add to the list' : 'Suggest something' }),
-    el('p', { class: 'modal-sub', text: owner ? 'Saved on this device.' : 'Send a movie, show, book, game, app, place or anything else worth a look.' }),
-    title, type, year, link, note, msg,
+    el('p', { class: 'modal-sub', text: owner ? 'Pick a category, then type a title to look it up.' : 'Send a movie, show, book, game, app, place or anything else worth a look.' }),
+    type, title, matches, year, link, note, msg,
     el('div', { class: 'modal-actions' }, el('button', { type: 'button', class: 'btn btn-ghost', text: 'Cancel', onclick: closeModal }), submit)));
   title.focus();
 }
@@ -163,6 +191,7 @@ $('#import').addEventListener('change', async (e) => {
 let dirty = false;
 subscribe((what) => {
   chrome();
+  if (what === 'sync') return;
   if (what === 'edit' && $('#sheet').open) { dirty = true; return; }
   if (what === 'edit' && PAGE.view === 'inbox') return;   // the inbox removes rows itself
   /* leaving search on the home page goes back to the dashboard, so always re-pick the view */

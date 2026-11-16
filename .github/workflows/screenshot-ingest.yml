@@ -7,6 +7,10 @@ name: Screenshot ingest
 on:
   schedule:
     - cron: "41 * * * *"      # hourly
+  # The Worker sends this a couple of minutes after a screenshot or an owner
+  # edit arrives, so changes land without waiting for the schedule.
+  repository_dispatch:
+    types: [watchlist-ingest]
   workflow_dispatch:
     inputs:
       limit:
@@ -37,12 +41,18 @@ jobs:
         run: |
           s=$(curl -fsS https://watchlist-ingest.threesided.workers.dev/status)
           echo "$s"
-          q=$(echo "$s" | python3 -c 'import json,sys;d=json.load(sys.stdin);print(d["queued"]+d["reviews"])')
+          q=$(echo "$s" | python3 -c 'import json,sys;d=json.load(sys.stdin);print(d["queued"]+d["reviews"]+d.get("edits",0))')
           echo "work=$q" >> "$GITHUB_OUTPUT"
       - name: Install
         if: steps.peek.outputs.work != '0'
         working-directory: scripts/ingest
         run: npm install --no-audit --no-fund
+      - name: Apply owner edits
+        if: steps.peek.outputs.work != '0'
+        working-directory: scripts/ingest
+        env:
+          WATCHLIST_QUEUE_KEY: ${{ secrets.WATCHLIST_QUEUE_KEY }}
+        run: node apply-edits.mjs
       - name: Parse screenshots
         if: steps.peek.outputs.work != '0'
         working-directory: scripts/ingest
@@ -75,7 +85,7 @@ jobs:
             for i in 1 2 3; do if git pull --rebase -q && git push; then ok=1; break; fi; sleep 5; done
             [ "$ok" = 1 ] || { echo "push failed; leaving screenshots queued for the next run"; exit 1; }
           fi
-      - name: Ack processed screenshots
+      - name: Ack processed screenshots and edits
         if: steps.peek.outputs.work != '0'
         working-directory: scripts/ingest
         env:
