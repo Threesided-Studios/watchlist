@@ -102,6 +102,8 @@ export const ARTLESS_OK = new Set(['place', 'recipe', 'product', 'article', 'vid
    have art, a confident, unambiguous read is enough. */
 export function decideStatusV2(cand, { poster = '', matched = false } = {}) {
   if (cand.adult) return 'inbox';
+  /* almost any screenshot of a post or thread can be read as "an article": always ask */
+  if (cand.type === 'article') return 'inbox';
   if (poster) return 'todo';
   if (ARTLESS_OK.has(cand.type) && (cand.confidence ?? 0) >= 0.85 && cand.evidence !== 'ambiguous' && (matched || !!cand.url || cand.type !== 'repo')) return 'todo';
   return 'inbox';
