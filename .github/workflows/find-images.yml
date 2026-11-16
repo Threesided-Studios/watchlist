@@ -1,0 +1,59 @@
+name: Find missing images
+
+# Last-resort image finder for items the normal lookups left without art
+# (scripts/find-images.mjs): street maps for places, VNDB for visual novels,
+# page previews, then a web image search whose results the vision model must
+# accept. Runs weekly and on demand.
+on:
+  schedule:
+    - cron: "9 11 * * 1"      # Mondays, after the refresh
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Report only, change nothing"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: screenshot-ingest
+  cancel-in-progress: false
+
+jobs:
+  images:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install
+        working-directory: scripts/ingest
+        run: npm install --no-audit --no-fund
+      - name: Find, commit and deploy
+        env:
+          GH_TOKEN: ${{ github.token }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          GOOGLE_SEARCH_KEY: ${{ secrets.GOOGLE_SEARCH_KEY }}   # optional: Google image search
+          GOOGLE_SEARCH_CX: ${{ secrets.GOOGLE_SEARCH_CX }}
+        run: |
+          if [ "${{ inputs.dry_run }}" = "true" ]; then node scripts/find-images.mjs --dry-run; exit 0; fi
+          git config user.name "watchlist-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          for attempt in 1 2 3; do
+            git fetch -q origin main && git reset -q --hard origin/main && git clean -fdq posters
+            node scripts/find-images.mjs
+            git add data.json posters
+            if git diff --cached --quiet; then echo "Nothing found."; exit 0; fi
+            git commit -q -m "Find missing images"
+            if git push -q origin HEAD:main; then
+              gh workflow run pages.yml --repo "${{ github.repository }}" --ref main
+              exit 0
+            fi
+            echo "main moved; retrying"; sleep 5
+          done
+          exit 1
