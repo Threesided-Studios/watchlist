@@ -239,7 +239,8 @@ a.tile:hover { border-color: var(--accent); }
 
 /* ---------- detail sheet ---------- */
 dialog { color: var(--text); border: 0; padding: 0; }
-dialog::backdrop { background: rgba(5, 4, 8, .72); backdrop-filter: blur(3px); }
+/* no backdrop-filter here: Chromium then composites the page over the open dialog */
+dialog::backdrop { background: rgba(5, 4, 8, .78); }
 .sheet {
   margin: 0 0 0 auto; height: 100dvh; max-height: 100dvh; width: min(540px, 100vw); max-width: 100vw;
   background: var(--bg-2); border-left: 1px solid var(--line); overflow-y: auto; overscroll-behavior: contain;
