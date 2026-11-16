@@ -32,7 +32,9 @@ const norm = (s) => String(s || '').toLowerCase().normalize('NFKD').replace(/[̀
 
 /* Same place? Their name keys are equal, or every word of the shorter one appears in the longer. */
 export function sameName(ours, theirs) {
-  const a = placeKey(ours) || norm(ours).replace(/ /g, '-'), b = placeKey(theirs) || norm(theirs).replace(/ /g, '-');
+  /* placeKey refuses very short names; fall back to the plain words minus a leading article */
+  const plain = (t) => norm(t).replace(/^(the|a|an) /, '').replace(/ /g, '-');
+  const a = placeKey(ours) || plain(ours), b = placeKey(theirs) || plain(theirs);
   if (!a || !b) return false;
   if (a === b) return true;
   const [s, l] = a.length <= b.length ? [a.split('-'), new Set(b.split('-'))] : [b.split('-'), new Set(a.split('-'))];
