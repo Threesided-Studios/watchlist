@@ -152,6 +152,8 @@ export async function viaNominatim(c) {
   if (!hit) return { typeOk: false, title: c.title, year: null, blurb: c.location || '', summary: '', link: maps, posterUrl: null };
   const a = hit.address || {};
   const where = [a.road && [a.house_number, a.road].filter(Boolean).join(' '), a.neighbourhood || a.suburb, a.city || a.town || a.village, a.state].filter(Boolean).join(', ');
+  /* a name alone matches a place somewhere in the world; only trust the address when the screenshot said where */
+  if (!clean(c.location)) return { typeOk: false, title: c.title, year: null, blurb: String(hit.type || '').replace(/_/g, ' '), summary: '', link: maps, posterUrl: null };
   return { typeOk: true, title: hit.name, year: null, blurb: [String(hit.type || '').replace(/_/g, ' '), where].filter(Boolean).join(' · '), summary: '',
     link: hit.extratags?.website || maps, map_url: maps, lat: Number(hit.lat), lon: Number(hit.lon), location: where || c.location || '', posterUrl: null };
 }

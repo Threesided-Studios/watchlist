@@ -34,6 +34,17 @@ export function titleKey(title) {
   return slugify(t);
 }
 
+/* Places get named loosely ("Black Label Burgers" / "Black Label Burger Company",
+   "Wigglin Out Indoor Playground" / "Wigglin' Out"). This key drops the generic words
+   and plurals so those meet. Null when too little is left to be a safe match. */
+const PLACE_NOISE = new Set(['the', 'a', 'and', 'company', 'co', 'inc', 'llc', 'restaurant', 'cafe', 'grill', 'bar', 'lounge', 'kitchen', 'eatery', 'indoor', 'playground', 'shop', 'store']);
+export function placeKey(title) {
+  const words = String(title || '').toLowerCase().normalize('NFKD').replace(/[̀-ͯ]/g, '').replace(/['’`]/g, '').replace(/[^a-z0-9]+/g, ' ').trim().split(' ')
+    .filter((w) => w && !PLACE_NOISE.has(w)).map((w) => (w.length > 3 && w.endsWith('s') && !w.endsWith('ss') ? w.slice(0, -1) : w));
+  const key = words.join('-');
+  return words.length >= 2 || key.length >= 6 ? key : null;
+}
+
 export function buildIndex(items) {
   const idx = new Map();
   for (const it of items) {
