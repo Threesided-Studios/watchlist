@@ -5305,6 +5305,182 @@
    ],
    "usd": 0.010908,
    "kind": "article_or_post"
+  },
+  "57e3bb1c3346c6d36a9c272a4828a3bf8cd9a68ba9220d82ab3f10a3fd6d8f55": {
+   "at": "2026-11-16T11:17:20.021Z",
+   "outcome": "parsed",
+   "ids": [
+    "vox-director"
+   ],
+   "usd": 0.010898,
+   "kind": "software_or_repo"
+  },
+  "4f9f3514b6e0b3259e283b323b714a473896add99809257a1c8df53dc7886bda": {
+   "at": "2026-11-16T11:17:20.002Z",
+   "outcome": "parsed",
+   "ids": [
+    "bang-motion"
+   ],
+   "usd": 0.010876,
+   "kind": "software_or_repo"
+  },
+  "a0c99666cabff27ec2bc0b7b3751db611d3da77cf4b119685f3b24c46f541d9c": {
+   "at": "2026-11-16T11:17:19.969Z",
+   "outcome": "parsed",
+   "ids": [
+    "motionbricks"
+   ],
+   "usd": 0.010828,
+   "kind": "article_or_post"
+  },
+  "231d28526740e9308eb2b5aecc805c4a6171cb73cb36c21579c9705f466f5d63": {
+   "at": "2026-11-16T11:17:19.986Z",
+   "outcome": "parsed",
+   "ids": [
+    "deepseek-creator-mode"
+   ],
+   "usd": 0.014962,
+   "kind": "article_or_post"
+  },
+  "845031af60ed4858167ef53bac79b388d1fd769dc7639e9985c28a18622d06c8": {
+   "at": "2026-11-16T11:17:25.836Z",
+   "outcome": "parsed",
+   "ids": [
+    "your-companions"
+   ],
+   "usd": 0.010716,
+   "kind": "article_or_post"
+  },
+  "8ef4a8453e4b57b609004ba7bcf9bf3e94e39a0419e2964dc9902dc11fb08541": {
+   "at": "2026-11-16T11:17:25.789Z",
+   "outcome": "parsed",
+   "ids": [
+    "huashu-art-motion"
+   ],
+   "usd": 0.011027,
+   "kind": "software_or_repo"
+  },
+  "2e9813cf52ee71892185f5ef0f26a9bab57f0cae1e94aef20cd99f914964faed": {
+   "at": "2026-11-16T11:17:26.434Z",
+   "outcome": "parsed",
+   "ids": [
+    "blue-elephant-plush-toy"
+   ],
+   "usd": 0.010668,
+   "kind": "store_or_product_page"
+  },
+  "05d932640fbd5df79c3d8182ddf8497aaf083b9117d67b71b60b3f3edbfc0f0a": {
+   "at": "2026-11-16T11:17:31.424Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000068,
+   "kind": "system_or_app_ui"
+  },
+  "e5b56bef5f051704da92c73dc44e4caca7e4af62b965e339c3ab2159999397a4": {
+   "at": "2026-11-16T11:17:31.618Z",
+   "outcome": "no-titles",
+   "ids": [],
+   "usd": 0.010847,
+   "kind": "article_or_post"
+  },
+  "49200eb62421e950ba5ca15115a62bc37f68c7982e6de8f798adb9c4844c0282": {
+   "at": "2026-11-16T11:17:31.420Z",
+   "outcome": "parsed",
+   "ids": [
+    "mediapipe"
+   ],
+   "usd": 0.010978,
+   "kind": "software_or_repo"
+  },
+  "176208ec122ccf5a67e13b26bcc8b42fac3260544f42c8665716e4be38ef6926": {
+   "at": "2026-11-16T11:17:31.976Z",
+   "outcome": "parsed",
+   "ids": [
+    "openpose"
+   ],
+   "usd": 0.011257,
+   "kind": "software_or_repo"
+  },
+  "5896ea7bdc5759393208b56d66ebaf82645530fd841155f6815b86c7bc5745a6": {
+   "at": "2026-11-16T11:17:33.122Z",
+   "outcome": "parsed",
+   "ids": [
+    "mmpose"
+   ],
+   "usd": 0.011177,
+   "kind": "software_or_repo"
+  },
+  "3f924100cf6b51f5f37b69b61af3421ea7bbd81d39757741507399c10c26f10c": {
+   "at": "2026-11-16T11:17:35.888Z",
+   "outcome": "parsed",
+   "ids": [
+    "mmpose"
+   ],
+   "usd": 0.011008,
+   "kind": "software_or_repo"
+  },
+  "e03a1ad4e8ad54cfee3730e6d2cdbd4fc44201090f10915881fc75837a61c7f4": {
+   "at": "2026-11-16T11:17:37.215Z",
+   "outcome": "parsed",
+   "ids": [
+    "movenet"
+   ],
+   "usd": 0.011087,
+   "kind": "software_or_repo"
+  },
+  "919b3bc345b286f5c7d98ab349d7437e0ffa21b9be633fefa3b9020f64e5bf7f": {
+   "at": "2026-11-16T11:17:37.772Z",
+   "outcome": "parsed",
+   "ids": [
+    "videopose3d"
+   ],
+   "usd": 0.0113,
+   "kind": "article_or_post"
+  },
+  "ab695c8be4b283c15d2970ca8bc0304948d4cee8ef77bb3b2e6cd044a3a2113a": {
+   "at": "2026-11-16T11:17:39.294Z",
+   "outcome": "parsed",
+   "ids": [
+    "4d-humans"
+   ],
+   "usd": 0.011371,
+   "kind": "software_or_repo"
+  },
+  "b74b0e36f64b513251bf827c3c6a4aa05441d38e54a357a37357613769c07c7f": {
+   "at": "2026-11-16T11:17:41.001Z",
+   "outcome": "parsed",
+   "ids": [
+    "easymocap"
+   ],
+   "usd": 0.011168,
+   "kind": "software_or_repo"
+  },
+  "973b91f64f947f898eca035374767cea34ea1707ec5a30d2019445a32fa0107b": {
+   "at": "2026-11-16T11:17:42.744Z",
+   "outcome": "parsed",
+   "ids": [
+    "blender"
+   ],
+   "usd": 0.011087,
+   "kind": "software_or_repo"
+  },
+  "d8225d917f7952acf5de061fb03e2d932fe947e19d09b6bbbcabe03f8ba3e4d2": {
+   "at": "2026-11-16T11:17:44.260Z",
+   "outcome": "parsed",
+   "ids": [
+    "openseo"
+   ],
+   "usd": 0.010988,
+   "kind": "software_or_repo"
+  },
+  "b09140c0f3bb32791389b697e69397978d925de1d29d5529cee51c3ac94809ca": {
+   "at": "2026-11-16T11:17:45.675Z",
+   "outcome": "parsed",
+   "ids": [
+    "magnitude"
+   ],
+   "usd": 0.010928,
+   "kind": "software_or_repo"
   }
  },
  "dismissed": [
@@ -5365,10 +5541,10 @@
   "book:wolf"
  ],
  "totals": {
-  "shots": 673,
-  "media": 384,
-  "added": 409,
-  "inbox": 202,
-  "usd": 1.57721
+  "shots": 693,
+  "media": 403,
+  "added": 424,
+  "inbox": 204,
+  "usd": 1.790449
  }
 }
