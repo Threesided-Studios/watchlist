@@ -50,14 +50,16 @@ export function listPages(items = loadItems()) {
     const t = canonicalType(it.type);
     counts[t] = (counts[t] || 0) + 1;
   }
-  const pages = [{ path: '', view: 'all', title: 'Watchlist — a private marquee', subtitle: 'a private marquee',
-    description: 'A personal watchlist. Movies, shows, games, books and more, kept in one place.' }];
+  const pages = [{ path: '', view: 'home', title: 'Watchlist — a private marquee', subtitle: 'a private marquee',
+    description: 'A personal watchlist. Movies, shows, games, books and more, kept in one place.' },
+  { path: 'all/', view: 'all', title: 'Watchlist — Everything', subtitle: 'everything', description: 'Every item on the list, searchable and filterable.' }];
   for (const c of CATEGORIES) {
     pages.push({ path: `${c.slug}/`, view: 'type', type: c.key, title: `Watchlist — ${c.label}`, subtitle: c.label,
       description: `A personal list: ${c.label.toLowerCase()}.`, count: counts[c.key] || 0, label: c.label });
   }
   pages.push({ path: 'recommended/', view: 'recommended', title: 'Watchlist — Recommended by Friends', subtitle: 'recommended by friends',
     description: 'What friends recommend from the list.' });
+  pages.push({ path: 'stats/', view: 'stats', title: 'Watchlist — Stats', subtitle: 'stats', description: 'The list in numbers.' });
   pages.push({ path: 'inbox/', view: 'inbox', title: 'Watchlist — Screenshot inbox', subtitle: 'screenshot inbox',
     description: 'Screenshot finds awaiting review.', noindex: true });
   return pages;
@@ -68,7 +70,7 @@ const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').repl
 /* Nav lists only categories that have something in them, so new ones appear as they fill up. */
 function navHtml(pages, current) {
   const link = (href, label, cls = '') => `        <a href="${href}"${cls ? ` class="${cls}"` : ''}${href === `/${current.path}` ? ' aria-current="page"' : ''}>${label}</a>`;
-  const out = [link('/', 'All')];
+  const out = [link('/', 'Home'), link('/all/', 'Everything')];
   for (const p of pages) if (p.view === 'type' && (p.count > 0 || p === current)) out.push(link(`/${p.path}`, esc(p.label)));
   out.push(link('/recommended/', '★ Friends'), link('/inbox/', '📥 Inbox', 'owner-only'));
   return out.join('\n');
