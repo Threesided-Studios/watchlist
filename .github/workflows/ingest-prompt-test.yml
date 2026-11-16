@@ -1,0 +1,52 @@
+name: Ingest prompt test
+
+# Runs the screenshot ingest in dry-run mode over phone-sized captures of
+# public pages (taken fresh on the runner, never committed) and prints what
+# the models extracted. Changes nothing: no data.json write, no queue access.
+on:
+  workflow_dispatch: {}
+  push:
+    branches: ["ingest/**"]
+    paths: ["scripts/ingest/**", ".github/workflows/ingest-prompt-test.yml"]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install
+        working-directory: scripts/ingest
+        run: |
+          npm install --no-audit --no-fund
+          npm install --no-save --no-audit --no-fund playwright
+          npx playwright install --with-deps chromium
+      - name: Capture sample pages
+        working-directory: scripts/ingest
+        run: node samples/capture.mjs "$RUNNER_TEMP/samples"
+      - name: Dry-run ingest
+        working-directory: scripts/ingest
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
+          TMDB_READ_TOKEN: ${{ secrets.TMDB_READ_TOKEN }}
+          SPOTIFY_CLIENT_ID: ${{ secrets.SPOTIFY_CLIENT_ID }}
+          SPOTIFY_CLIENT_SECRET: ${{ secrets.SPOTIFY_CLIENT_SECRET }}
+          GITHUB_TOKEN: ${{ github.token }}
+          MAX_RUN_USD: "1"
+        run: |
+          node run.mjs --local "$RUNNER_TEMP/samples" --dry-run --limit 30
+          echo "----- extracted items -----"
+          node -e "
+            const r = JSON.parse(require('fs').readFileSync('.last-report.json', 'utf8'));
+            for (const x of r.report.filter((x) => x.item)) {
+              const i = x.item;
+              console.log(JSON.stringify({ shot: x.name, title: i.title, type: i.type, status: i.status, year: i.year, author: i.author, via: i.enriched_via, match: i.match_ok, poster: !!x.poster, link: i.link, blurb: (i.blurb || '').slice(0, 90), quote: i.quote, availability: i.availability, price: i.price, location: i.location, stars: i.stars, language: i.language, tags: i.tags, context: i.source_context, conf: i.ai_confidence }));
+            }
+            console.log('total usd', r.runUsd.toFixed(4));"

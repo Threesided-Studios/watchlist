@@ -14,7 +14,7 @@ test('offline screenshot reaches classification and strict JSON parsing without 
     mkdirSync(dir, { recursive: true });
     mkdirSync(join(root, 'shots'));
     symlinkSync(fileURLToPath(new URL('./node_modules', import.meta.url)), join(dir, 'node_modules'), 'junction');
-    for (const file of ['run.mjs', 'lib.mjs', 'art.mjs', 'qa.mjs', 'openai-request.mjs', 'models.mjs']) copyFileSync(new URL(file, import.meta.url), join(dir, file));
+    for (const file of ['run.mjs', 'lib.mjs', 'art.mjs', 'qa.mjs', 'openai-request.mjs', 'models.mjs', 'vision.mjs', 'enrich-extra.mjs']) copyFileSync(new URL(file, import.meta.url), join(dir, file));
     cpSync(fileURLToPath(new URL('../../shared', import.meta.url)), join(root, 'shared'), { recursive: true });   // taxonomy + normaliser
     writeFileSync(join(root, 'data.json'), '[]');
     await sharp({ create: { width: 1200, height: 1800, channels: 3, background: 'white' } }).png().toFile(join(root, 'shots', 'synthetic.png'));
@@ -26,16 +26,16 @@ test('offline screenshot reaches classification and strict JSON parsing without 
       globalThis.fetch = async (url, init) => {
         assert.equal(url, 'https://api.openai.com/v1/chat/completions');
         const b = JSON.parse(init.body);
-        assert.equal(b.model, 'gpt-6-luna');
+        assert.equal(b.model, calls === 0 ? 'gpt-6-luna' : 'gpt-6-sol');
         assert.equal(b.reasoning_effort, 'none');
         assert.equal(b.response_format.json_schema.strict, true);
         assert.equal(b.response_format.json_schema.schema.additionalProperties, false);
         const image = b.messages[1].content.find(x => x.type === 'image_url').image_url;
         const meta = await sharp(Buffer.from(image.url.split(',')[1], 'base64')).metadata();
-        assert.equal(meta.width, calls === 0 ? 384 : 1024);
+        assert.equal(meta.width, calls === 0 ? 384 : 1200);   // parse asks for 1536 but never enlarges
         assert.equal(image.detail, calls === 0 ? 'low' : 'high');
         calls++;
-        const out = calls === 1 ? {media: true} : {screenshot_kind:'test', source_context:'synthetic', titles:[]};
+        const out = calls === 1 ? {worth_saving: true, kind: 'other', note: 'synthetic'} : {kind:'other', app:'', description:'synthetic', source_context:'synthetic', intent:'unclear', items:[]};
         return Response.json({choices:[{finish_reason:'stop',message:{content:JSON.stringify(out)}}],usage:{prompt_tokens:100,completion_tokens:10}});
       };
       process.on('exit', () => assert.equal(calls, 2));
