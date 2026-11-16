@@ -71394,7 +71394,9 @@
     "screenshot": "5b06e21310b0",
     "author": "getintoai",
     "quote": "Build a realistic 30-day Instagram growth plan with weekly themes, reels, carousels, stories, collaborations, community engagement, and analytics reviews.",
-    "intent": "reference"
+    "intent": "reference",
+    "verdict": "skip",
+    "updated": "2026-11-16"
   },
   {
     "id": "kimi-k3-1-pro",
@@ -72373,7 +72375,9 @@
     "screenshot": "845031af60ed",
     "author": "Rainbow Wander",
     "quote": "You never walk alone",
-    "intent": "reference"
+    "intent": "reference",
+    "verdict": "skip",
+    "updated": "2026-11-16"
   },
   {
     "id": "huashu-art-motion",
