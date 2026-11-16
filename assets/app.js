@@ -136,22 +136,55 @@ function openAdd() {
   title.focus();
 }
 
-/* Random pick from the backlog of whatever is on screen (this category, or everything). */
+/* Tonight picker: narrow the backlog by category, genre, where it streams and
+   how much time there is, then roll. Opens on whatever category is on screen. */
 function openSurprise() {
-  const pool = visibleItems().filter((it) => stage(it) === 'backlog' && (!PAGE.type || it.type === PAGE.type));
-  if (!pool.length) { toast('Nothing in the backlog here.'); return; }
-  const roll = () => {
-    const it = pool[Math.floor(Math.random() * pool.length)];
+  const backlog = visibleItems().filter((it) => stage(it) === 'backlog');
+  if (!backlog.length) { toast('Nothing in the backlog.'); return; }
+  const pick = { type: PAGE.type || '', tag: '', on: '', max: '', friends: false };
+  const present = CATEGORIES.filter((c) => backlog.some((it) => it.type === c.key));
+  const result = el('div', { class: 'surprise-result' });
+  const controls = el('div', { class: 'picker' });
+
+  const pool = () => backlog.filter((it) => (!pick.type || it.type === pick.type) && (!pick.tag || (it.tags || []).includes(pick.tag))
+    && (!pick.on || (it.providers || []).includes(pick.on)) && (!pick.max || (it.runtime && it.runtime <= Number(pick.max)))
+    && (!pick.friends || (state.tallies[it.id]?.net || 0) > 0));
+
+  function roll() {
+    const p = pool();
+    if (!p.length) { result.replaceChildren(el('p', { class: 'modal-msg', text: 'Nothing matches. Loosen a filter.' })); return; }
+    const it = p[Math.floor(Math.random() * p.length)];
     const cat = category(it.type);
-    openModal(el('div', { class: 'modal-card surprise' },
-      el('h3', { text: `🎲 How about this ${cat.singular}?` }),
+    result.replaceChildren(
       el('div', { class: 'surprise-pick' },
         el('div', { class: `surprise-art sheet-art-${cat.cover}` }, cover(it, { eager: true })),
-        el('div', {}, el('div', { class: 'sheet-title', text: it.title }), el('p', { class: 'sheet-sub', text: [it.year, it.author].filter(Boolean).join(' · ') }), el('p', { class: 'surprise-blurb', text: it.blurb || it.summary || '' }))),
+        el('div', {},
+          el('div', { class: 'sheet-title', text: it.title }),
+          el('p', { class: 'sheet-sub', text: [cat.singular, it.year, it.author, it.runtime && `${it.runtime} min`, (it.providers || [])[0]].filter(Boolean).join(' · ') }),
+          el('p', { class: 'surprise-blurb', text: it.blurb || it.summary || '' }))),
       el('div', { class: 'modal-actions' },
+        el('span', { class: 'modal-msg', text: `1 of ${p.length.toLocaleString()}` }),
         el('button', { type: 'button', class: 'btn btn-ghost', text: '🎲 Roll again', onclick: roll }),
-        el('button', { type: 'button', class: 'btn btn-primary', text: 'Open', onclick: () => { closeModal(); location.hash = `item=${encodeURIComponent(it.id)}`; } }))));
-  };
+        el('button', { type: 'button', class: 'btn btn-primary', text: 'Open', onclick: () => { closeModal(); location.hash = `item=${encodeURIComponent(it.id)}`; } })));
+  }
+  function drawControls() {
+    const scoped = backlog.filter((it) => !pick.type || it.type === pick.type);
+    const count = (get) => { const m = new Map(); for (const it of scoped) for (const v of [].concat(get(it) || [])) m.set(v, (m.get(v) || 0) + 1); return [...m].sort((x, y) => y[1] - x[1]); };
+    const tags = count((it) => it.tags).slice(0, 14), on = count((it) => it.providers).slice(0, 10);
+    const hasRuntime = scoped.some((it) => it.runtime);
+    const sel = (label, key, options) => el('label', { class: 'facet' }, el('span', { class: 'facet-label', text: label }),
+      el('select', { onchange: (e) => { pick[key] = e.target.value; if (key === 'type') { pick.tag = ''; pick.on = ''; pick.max = ''; drawControls(); } roll(); } },
+        options.map(([v, t]) => el('option', { value: v, selected: v === pick[key], text: t }))));
+    controls.replaceChildren(...[
+      sel('what', 'type', [['', 'anything'], ...present.map((c) => [c.key, c.label.toLowerCase()])]),
+      tags.length > 0 && sel('mood', 'tag', [['', 'any'], ...tags.map(([t]) => [t, t.toLowerCase()])]),
+      on.length > 0 && sel('streaming on', 'on', [['', 'anywhere'], ...on.map(([t]) => [t, t])]),
+      hasRuntime && sel('time', 'max', [['', 'any length'], ['30', 'under 30 min'], ['60', 'under an hour'], ['100', 'under 100 min'], ['130', 'under 2h 10']]),
+      Object.keys(state.tallies).length > 0 && el('label', { class: 'picker-check' }, el('input', { type: 'checkbox', onchange: (e) => { pick.friends = e.target.checked; roll(); } }), 'friends’ picks only'),
+    ].filter(Boolean));
+  }
+  drawControls();
+  openModal(el('div', { class: 'modal-card surprise' }, el('h3', { text: '🎲 What tonight?' }), controls, result));
   roll();
 }
 

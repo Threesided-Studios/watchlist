@@ -38,7 +38,7 @@ const MAX_KEPT_BYTES = 1_800_000;       // one SQLite row
 const DISPATCH_DELAY_MS = 120_000;      // let a burst of uploads or edits finish before starting a run
 const MAX_EDIT_BYTES = 20_000;
 /* What an owner edit may carry. A superset of EDITABLE in assets/js/store.js (adds bring a few more fields). */
-const EDIT_FIELDS = ['title', 'blurb', 'summary', 'notes', 'status', 'verdict', 'type', 'tags', 'pinned', 'year', 'link', 'author', 'format', 'poster_url', 'added', 'source', 'tmdb_id', 'steam_appid'];
+const EDIT_FIELDS = ['title', 'blurb', 'summary', 'notes', 'status', 'verdict', 'type', 'tags', 'pinned', 'year', 'link', 'author', 'format', 'poster_url', 'added', 'source', 'tmdb_id', 'steam_appid', 'finished'];
 
 const hex = (buf) => [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, '0')).join('');
 const sha256 = async (data) => hex(await crypto.subtle.digest('SHA-256', data));

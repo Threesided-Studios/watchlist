@@ -5,7 +5,7 @@ const text = (it) => [it.title, it.blurb, it.summary, Array.isArray(it.tags) ? i
 
 /* q: every word must appear somewhere. type/status/verdict/source: exact. tag: has it.
    decade: 1990 matches 1990-1999. stage: computed by the caller-supplied stageOf. */
-export function applyFilters(items, { q = '', type = '', status = '', verdict = '', source = '', tag = '', decade = '', stage = '' } = {}, stageOf = null) {
+export function applyFilters(items, { q = '', type = '', status = '', verdict = '', source = '', tag = '', decade = '', stage = '', on = '', series = '' } = {}, stageOf = null) {
   const words = q.trim().toLowerCase().split(/\s+/).filter(Boolean);
   const dec = Number(decade) || 0;
   const tagLow = tag.toLowerCase();
@@ -17,6 +17,8 @@ export function applyFilters(items, { q = '', type = '', status = '', verdict = 
     if (stage && stageOf && stageOf(it) !== stage) return false;
     if (tagLow && !(it.tags || []).some((t) => String(t).toLowerCase() === tagLow)) return false;
     if (dec && !(it.year >= dec && it.year < dec + 10)) return false;
+    if (on && !(it.providers || []).includes(on)) return false;
+    if (series && it.series !== series) return false;
     if (words.length) {
       const hay = text(it);
       if (!words.every((w) => hay.includes(w))) return false;
@@ -35,6 +37,9 @@ const SORTS = {
   'year-desc': (a, b) => (b.year || -Infinity) - (a.year || -Infinity),
   'year-asc': (a, b) => (a.year || Infinity) - (b.year || Infinity),
   'hours-desc': (a, b) => (b.hours || 0) - (a.hours || 0),
+  'stars-desc': (a, b) => (b.stars || 0) - (a.stars || 0),
+  'series': (a, b) => (a.series_n ?? Infinity) - (b.series_n ?? Infinity),
+  'soonest': (a, b) => str(a.next_air || '9999', b.next_air || '9999'),
 };
 export const SORT_KEYS = Object.keys(SORTS);
 
