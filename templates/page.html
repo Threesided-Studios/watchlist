@@ -21,169 +21,56 @@
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/styles.css?v={{V}}" />
 </head>
-<body>
+<body data-owner="false">
+  <a class="skip" href="#app">Skip to the list</a>
   <header class="topbar">
-    <div class="brand">
-      <span class="brand-mark" aria-hidden="true">◐</span>
-      <h1>Watchlist</h1>
-      <span class="brand-sub">{{SUBTITLE}}</span>
-      <nav class="pagenav" aria-label="Lists">
-{{NAV}}
-      </nav>
-    </div>
-    <div class="controls" role="toolbar" aria-label="Filters and actions">
-      <label class="field field-search">
-        <span class="field-label">find</span>
-        <input id="q" type="search" placeholder="title, tag, anything…" autocomplete="off" />
+    <div class="topbar-row">
+      <a class="brand" href="/" aria-label="Watchlist home">
+        <span class="brand-mark" aria-hidden="true">◐</span>
+        <span class="brand-name">Watchlist</span>
+        <span class="brand-sub">{{SUBTITLE}}</span>
+      </a>
+      <label class="search">
+        <span class="visually-hidden">Search the list</span>
+        <input id="q" type="search" placeholder="Search titles, people, genres…" autocomplete="off" enterkeyhint="search" />
+        <kbd aria-hidden="true">/</kbd>
       </label>
-      <label class="field">
-        <span class="field-label">type</span>
-        <select id="type">
-          <option value="">all</option>
-          <!-- options populated dynamically from data (only types present) -->
-        </select>
-      </label>
-      <label class="field">
-        <span class="field-label">status</span>
-        <select id="status">
-          <option value="">any</option>
-          <option value="todo">to watch</option>
-          <option value="active">in progress</option>
-          <option value="done">done</option>
-        </select>
-      </label>
-      <label class="field">
-        <span class="field-label">sort</span>
-        <select id="sort">
-          <option value="added-desc">newest first</option>
-          <option value="added-asc">oldest first</option>
-          <option value="title-asc">title a–z</option>
-          <option value="title-desc">title z–a</option>
-          <option value="year-desc">year ↓</option>
-          <option value="year-asc">year ↑</option>
-          <option value="type">by type</option>
-        </select>
-      </label>
-      <div class="actions">
-        <button id="surprise" class="btn" type="button" title="Pick something at random from the backlog">🎲 <span class="surprise-label">Surprise</span></button>
-        <button id="add" class="btn btn-primary" type="button"><span aria-hidden="true">+</span> <span class="add-label">Add</span></button>
-        <button id="export" class="btn owner-only" type="button">Export</button>
-        <label class="btn import owner-only">
-          <input id="import" type="file" accept="application/json" hidden />
-          Import
-        </label>
-        <button id="lock" class="btn" type="button">🔒 Guest</button>
+      <div class="topbar-actions">
+        <button id="surprise" class="btn btn-ghost" type="button" title="Pick something at random">🎲<span class="btn-label"> Surprise</span></button>
+        <button id="add" class="btn btn-primary" type="button"><span aria-hidden="true">+</span> <span class="add-label">Suggest</span></button>
+        <button id="menu-btn" class="btn btn-ghost" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="menu" title="Owner and data options">🔒</button>
+        <div id="menu" class="menu" hidden>
+          <button id="lock" type="button">Unlock owner mode</button>
+          <a href="/stats/">Stats</a>
+          <button id="export" class="owner-only" type="button">Export data.json</button>
+          <label class="owner-only menu-file">Import data.json<input id="import" type="file" accept="application/json" hidden /></label>
+        </div>
       </div>
     </div>
+    <nav class="pagenav" aria-label="Lists">
+{{NAV}}
+    </nav>
   </header>
 
-  <aside id="intro" class="intro" hidden>
-    <div class="intro-body">
-      <button id="intro-dismiss" class="intro-x" type="button" aria-label="Dismiss intro">×</button>
-      <h2 class="intro-h">A private marquee — browse freely.</h2>
-      <p class="intro-p">Everything I'm watching, playing, and reading, gathered in one place. As a guest you can:</p>
-      <ul class="intro-list">
-        <li><strong>Browse &amp; filter</strong> — search by title or tag, or narrow by type and status.</li>
-        <li><strong>👍 / 👎 a title</strong> — what guests love rises into <a href="/recommended/">★ Recommended by Friends</a>.</li>
-        <li><strong>+ Suggest</strong> — spotted something I should add? Send it over.</li>
-      </ul>
-      <p class="intro-note">Rating and editing are owner-only — but your votes and suggestions are always welcome.</p>
-    </div>
-  </aside>
-
-  <main id="grid" class="grid" aria-live="polite" aria-label="Watchlist items"></main>
-
-  <template id="card-tpl">
-    <article class="card" draggable="true" data-status="todo">
-      <div class="stage">
-        <div class="obj">
-          <div class="poster">
-            <div class="poster-placeholder" aria-hidden="true">
-              <span class="placeholder-glyph"></span>
-              <span class="placeholder-title"></span>
-            </div>
-            <img loading="lazy" decoding="async" alt="" />
-            <div class="scrim" aria-hidden="true"></div>
-          </div>
-          <div class="spine" aria-hidden="true"><span class="spine-title"></span></div>
-          <div class="edge-top" aria-hidden="true"></div>
-        </div>
-        <span class="type"></span>
-        <span class="rec-badge" aria-hidden="true"></span>
-        <div class="verdict" role="group" aria-label="Rate">
-          <button class="v-love" type="button" title="Loved it"         aria-label="Loved it">⭐</button>
-          <button class="v-up"   type="button" title="Liked it"         aria-label="Liked it">👍</button>
-          <button class="v-down" type="button" title="Did not like it"  aria-label="Did not like it">👎</button>
-          <button class="v-skip" type="button" title="Not interested"   aria-label="Not interested">🚫</button>
-        </div>
-        <div class="gvote" role="group" aria-label="Recommend">
-          <button class="gv-up"   type="button" title="Recommend this">👍 Rec</button>
-          <button class="gv-down" type="button" title="Don't recommend">👎</button>
-        </div>
-      </div>
-      <div class="meta">
-        <div class="meta-head">
-          <h2 class="title" contenteditable="true" spellcheck="false"></h2>
-          <span class="year"></span>
-        </div>
-        <span class="playtime" aria-label="playtime"></span>
-        <div class="byline"></div>
-        <p class="blurb" contenteditable="true"></p>
-        <div class="genres" aria-label="Genres"></div>
-        <details class="summary">
-          <summary><span class="summary-label">Summary</span><span class="summary-caret" aria-hidden="true">▾</span></summary>
-          <p class="summary-text"></p>
-        </details>
-        <div class="row">
-          <select class="status" aria-label="Status">
-            <option value="todo">to watch</option>
-            <option value="active">in progress</option>
-            <option value="done">done</option>
-          </select>
-          <a class="meta-link" href="#" target="_blank" rel="noopener noreferrer" title="Open external link" aria-label="External link">↗</a>
-        </div>
-      </div>
-    </article>
-  </template>
-
-  <div id="suggest-modal" class="modal" hidden>
-    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="suggest-h">
-      <h3 id="suggest-h">Suggest a title</h3>
-      <p class="modal-sub">Send a movie, show, game, or book to add to the list.</p>
-      <input id="suggest-title" type="text" placeholder="Title (and year, if you know it)" autocomplete="off" />
-      <textarea id="suggest-note" rows="2" placeholder="Optional note — why, or where to find it"></textarea>
-      <div class="modal-actions">
-        <button id="suggest-cancel" class="btn" type="button">Cancel</button>
-        <button id="suggest-send" class="btn btn-primary" type="button">Send</button>
-      </div>
-      <p id="suggest-msg" class="modal-msg" aria-live="polite"></p>
-    </div>
-  </div>
-
-  <div id="surprise-modal" class="modal" hidden>
-    <div class="modal-card surprise-card" role="dialog" aria-modal="true" aria-labelledby="surprise-h">
-      <h3 id="surprise-h">🎲 Tonight…</h3>
-      <div class="surprise-pick">
-        <img id="surprise-poster" alt="" />
-        <div class="surprise-meta">
-          <div class="surprise-title"></div>
-          <div class="surprise-year"></div>
-          <p class="surprise-blurb"></p>
-          <a class="surprise-link" href="#" target="_blank" rel="noopener noreferrer" hidden>Open in store ↗</a>
-        </div>
-      </div>
-      <div class="modal-actions">
-        <button id="surprise-again" class="btn" type="button">🎲 Roll again</button>
-        <button id="surprise-close" class="btn btn-primary" type="button">Close</button>
-      </div>
-    </div>
-  </div>
+  <main id="app" tabindex="-1" aria-live="polite"></main>
 
   <footer class="footer">
-    <span class="count" id="count" aria-live="polite"></span>
-    <span class="dot">·</span>
-    <span class="footer-note">drag to reorder · click title or blurb to edit</span>
+    <span id="count"></span>
+    <span id="sync" class="owner-only"></span>
   </footer>
+
+  <nav class="tabbar" aria-label="Primary">
+    <a href="/" data-tab="home"><span aria-hidden="true">⌂</span>Home</a>
+    <a href="/all/" data-tab="all"><span aria-hidden="true">▦</span>Browse</a>
+    <button type="button" id="tab-add"><span aria-hidden="true">＋</span><span class="add-label">Suggest</span></button>
+    <a href="/recommended/" data-tab="recommended" class="guest-only"><span aria-hidden="true">★</span>Friends</a>
+    <a href="/inbox/" data-tab="inbox" class="owner-only"><span aria-hidden="true">📥</span>Inbox</a>
+    <a href="/stats/" data-tab="stats"><span aria-hidden="true">◔</span>Stats</a>
+  </nav>
+
+  <dialog id="sheet" class="sheet" aria-label="Item details"></dialog>
+  <dialog id="modal" class="modal"></dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
 
   <script>window.WL_PAGE={{PAGE}};</script>
   <script type="module" src="/assets/app.js?v={{V}}"></script>
