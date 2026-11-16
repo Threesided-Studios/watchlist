@@ -42,6 +42,18 @@ test('sort: newest first by default, undated years last both ways', () => {
   assert.deepEqual(ids(applySort(ITEMS, 'title-asc')), ['c', 'b', 'a', 'd']);
 });
 
+test('provider and series filters; series and soonest sorts', () => {
+  const xs = [
+    { id: 'a', title: 'A', providers: ['Netflix', 'Max'], series: 'wot', series_n: 2, next_air: '2026-12-01' },
+    { id: 'b', title: 'B', providers: ['Hulu'], series: 'wot', series_n: 1 },
+    { id: 'c', title: 'C', next_air: '2026-11-20' },
+  ];
+  assert.deepEqual(ids(applyFilters(xs, { on: 'Netflix' })), ['a']);
+  assert.deepEqual(ids(applyFilters(xs, { series: 'wot' })), ['a', 'b']);
+  assert.deepEqual(ids(applySort(xs, 'series')), ['b', 'a', 'c']);
+  assert.deepEqual(ids(applySort(xs, 'soonest')), ['c', 'a', 'b']);
+});
+
 test('facetCounts ranks by count then name', () => {
   assert.deepEqual(facetCounts(ITEMS, (it) => it.tags), [['Sci-Fi', 2], ['Drama', 1], ['Indie', 1]]);
   assert.deepEqual(facetCounts(ITEMS, (it) => it.type, 1), [['movie', 2]]);

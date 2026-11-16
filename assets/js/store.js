@@ -6,6 +6,7 @@
  * soon as the canonical data agrees with it.
  */
 import { canonicalType, normalizeTags } from '../../shared/taxonomy.js';
+import { seriesOf } from '../../shared/series.js';
 import { isVotingEnabled, fetchTallies } from '../votes.js';
 
 const LS_PATCHES = 'watchlist.patches.v1';
@@ -21,7 +22,7 @@ export const INGEST_URL = (/^(localhost|127\.0\.0\.1)$/.test(location.hostname) 
 const OWNER_HASH = '73ed39e720cb63bd270d9610e8617f8f2fef3ef1ab5deb62832feb9b7ce929b5';
 
 /* Keep in step with SET_FIELDS in scripts/ingest/apply-edits.mjs. */
-export const EDITABLE = ['title', 'blurb', 'notes', 'status', 'verdict', 'type', 'tags', 'pinned', 'year', 'link', 'author', 'format'];
+export const EDITABLE = ['title', 'blurb', 'notes', 'status', 'verdict', 'type', 'tags', 'pinned', 'year', 'link', 'author', 'format', 'finished'];
 
 const readJSON = (k, d) => { try { return JSON.parse(localStorage.getItem(k)) ?? d; } catch { return d; } };
 const writeJSON = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch { /* storage full or blocked */ } };
@@ -47,6 +48,9 @@ function prepare(it) {
   it.type = canonicalType(it.type);
   it.tags = Array.isArray(it.tags) ? it.tags : [];
   it.status = it.status || 'todo';
+  /* books and comics: which series, and where in it (worked out from the title) */
+  const s = it.type === 'book' || it.type === 'manga' ? seriesOf(it.title) : null;
+  if (s) { it.series = s.key; it.series_name = s.name; it.series_n = s.n; } else { delete it.series; delete it.series_name; delete it.series_n; }
   return it;
 }
 
@@ -154,8 +158,12 @@ export function update(id, fields, opts = {}) {
     if (!EDITABLE.includes(k)) continue;
     clean[k] = k === 'tags' ? normalizeTags(v) : k === 'type' ? canonicalType(v) : v;
   }
+  /* remember when something was finished (for the year in review) */
+  const finishing = (clean.verdict && clean.verdict !== 'skip') || clean.status === 'done';
+  if (finishing && !it.finished) clean.finished = new Date().toISOString().slice(0, 10);
   patches[id] = { ...(patches[id] || {}), ...clean };
   Object.assign(it, clean);
+  prepare(it);
   writeJSON(LS_PATCHES, patches);
   if (opts.sync !== false && Object.keys(clean).length) enqueue({ id, op: 'set', fields: clean });
   emit('edit');

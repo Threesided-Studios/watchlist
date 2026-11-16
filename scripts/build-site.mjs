@@ -42,6 +42,26 @@ export function slimItem(it) {
 }
 export const buildData = (items = loadItems()) => JSON.stringify(items.map(slimItem));
 
+/* Subscribable calendar (/upcoming.ics) of next episodes and releases for what is on the list. */
+export function buildCalendar(items, now = new Date()) {
+  const today = now.toISOString().slice(0, 10);
+  const day = (d) => d.replace(/-/g, '');
+  const next = (d) => { const t = new Date(`${d}T12:00:00Z`); t.setUTCDate(t.getUTCDate() + 1); return t.toISOString().slice(0, 10); };
+  const text = (s) => String(s || '').replace(/[\\;,]/g, (c) => `\\${c}`).replace(/\r?\n/g, ' ');
+  const stamp = now.toISOString().replace(/[-:]/g, '').replace(/\.\d+/, '');
+  const lines = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//threesided//Watchlist//EN', 'CALSCALE:GREGORIAN', 'X-WR-CALNAME:Watchlist: coming up'];
+  for (const it of items) {
+    if (!it.next_air || it.next_air < today || HIDDEN.has(it.status) || it.adult || it.verdict === 'skip') continue;
+    lines.push('BEGIN:VEVENT', `UID:${it.id}-${it.next_air}@watch.threesided.com`, `DTSTAMP:${stamp}`,
+      `DTSTART;VALUE=DATE:${day(it.next_air)}`, `DTEND;VALUE=DATE:${day(next(it.next_air))}`,
+      `SUMMARY:${text(it.title)}${it.type === 'movie' ? ' (release)' : ' (new episode)'}`,
+      `DESCRIPTION:${text([(it.providers || []).join(', '), it.blurb].filter(Boolean).join(' — '))}`,
+      `URL:https://watch.threesided.com/all/#item=${encodeURIComponent(it.id)}`, 'END:VEVENT');
+  }
+  lines.push('END:VCALENDAR');
+  return lines.join('\r\n') + '\r\n';
+}
+
 /* ---------- pages ---------- */
 export function listPages(items = loadItems()) {
   const counts = {};
@@ -174,6 +194,7 @@ export function build({ out = join(ROOT, '_site'), posters = true } = {}) {
   }
   const data = buildData(items);
   writeFileSync(join(out, 'data.min.json'), data);
+  writeFileSync(join(out, 'upcoming.ics'), buildCalendar(items));
   writeFileSync(join(out, 'sw.js'), renderServiceWorker(pages, version));
   writeFileSync(join(out, 'version.json'), JSON.stringify({ sha: gitSha(), assets: version, items: items.length, deployed_at: new Date().toISOString() }) + '\n');
   writeFileSync(join(out, '.nojekyll'), '');

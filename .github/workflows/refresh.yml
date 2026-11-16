@@ -1,0 +1,46 @@
+name: Weekly refresh
+
+# Refreshes facts that change after an item is added: where things stream,
+# next episodes and upcoming releases, runtimes, and repository stars and
+# releases (scripts/refresh.mjs). Shares the ingest concurrency group so two
+# jobs never write data.json at once.
+on:
+  schedule:
+    - cron: "23 9 * * 1"      # Mondays
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: screenshot-ingest
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Refresh
+        env:
+          TMDB_READ_TOKEN: ${{ secrets.TMDB_READ_TOKEN }}
+          GITHUB_TOKEN: ${{ github.token }}
+        run: node scripts/refresh.mjs
+      - name: Commit and deploy
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git add data.json
+          if git diff --cached --quiet; then echo "Nothing changed."; exit 0; fi
+          git config user.name "watchlist-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Weekly refresh: streaming, upcoming, repos"
+          ok=0
+          for i in 1 2 3; do if git pull --rebase -q && git push; then ok=1; break; fi; sleep 5; done
+          [ "$ok" = 1 ] || exit 1
+          gh workflow run pages.yml --repo "${{ github.repository }}" --ref main

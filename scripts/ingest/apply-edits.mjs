@@ -16,7 +16,7 @@ import { titleKey, family, uniqueId } from './lib.mjs';
 import { canonicalType, normalizeTags } from '../../shared/taxonomy.js';
 
 /* Fields an edit may set on an existing item, and the extra ones a new item may arrive with. */
-export const SET_FIELDS = ['title', 'blurb', 'notes', 'status', 'verdict', 'type', 'tags', 'pinned', 'year', 'link', 'author', 'format'];
+export const SET_FIELDS = ['title', 'blurb', 'notes', 'status', 'verdict', 'type', 'tags', 'pinned', 'year', 'link', 'author', 'format', 'finished'];
 const ADD_FIELDS = [...SET_FIELDS, 'summary', 'added', 'source', 'tmdb_id', 'steam_appid'];
 const STATUSES = new Set(['todo', 'active', 'done', 'inbox']);
 const VERDICTS = new Set(['love', 'up', 'down', 'played', 'skip']);
@@ -28,6 +28,7 @@ function cleanField(k, v) {
   if (k === 'verdict') return v === null || v === '' ? null : VERDICTS.has(v) ? v : undefined;
   if (k === 'pinned') return !!v;
   if (k === 'year' || k === 'tmdb_id' || k === 'steam_appid') return v === null || v === '' ? null : Number.isFinite(Number(v)) ? Number(v) : undefined;
+  if (k === 'finished') return /^\d{4}-\d{2}-\d{2}$/.test(String(v)) ? v : undefined;
   if (k === 'link') return v === '' || /^https?:\/\//i.test(String(v)) ? String(v).slice(0, 500) : undefined;
   return typeof v === 'string' ? v.slice(0, k === 'notes' || k === 'summary' ? 4000 : 500) : undefined;
 }

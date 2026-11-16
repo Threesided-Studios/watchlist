@@ -1,0 +1,47 @@
+name: Import GitHub stars
+
+# Adds a GitHub user's starred repositories to the list as repos
+# (scripts/import-github-stars.mjs). Safe to re-run: existing ones are skipped.
+on:
+  workflow_dispatch:
+    inputs:
+      user:
+        description: "GitHub username"
+        default: "adamaragon"
+  schedule:
+    - cron: "47 10 * * 1"     # Mondays: pick up anything starred since
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: screenshot-ingest
+  cancel-in-progress: false
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Import
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: node scripts/import-github-stars.mjs "${{ inputs.user || 'adamaragon' }}"
+      - name: Commit and deploy
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git add data.json
+          if git diff --cached --quiet; then echo "Nothing new."; exit 0; fi
+          git config user.name "watchlist-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Import GitHub stars"
+          ok=0
+          for i in 1 2 3; do if git pull --rebase -q && git push; then ok=1; break; fi; sleep 5; done
+          [ "$ok" = 1 ] || exit 1
+          gh workflow run pages.yml --repo "${{ github.repository }}" --ref main
