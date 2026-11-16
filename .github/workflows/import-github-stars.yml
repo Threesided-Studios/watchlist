@@ -28,20 +28,25 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
-      - name: Import
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-        run: node scripts/import-github-stars.mjs "${{ inputs.user || 'adamaragon' }}"
-      - name: Commit and deploy
+      # Work from the newest main each attempt and re-run on a lost push race,
+      # instead of rebasing a whole-file rewrite of data.json (which conflicts).
+      - name: Run, commit and deploy
         env:
           GH_TOKEN: ${{ github.token }}
+          GITHUB_TOKEN: ${{ github.token }}
         run: |
-          git add data.json
-          if git diff --cached --quiet; then echo "Nothing new."; exit 0; fi
           git config user.name "watchlist-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "Import GitHub stars"
-          ok=0
-          for i in 1 2 3; do if git pull --rebase -q && git push; then ok=1; break; fi; sleep 5; done
-          [ "$ok" = 1 ] || exit 1
-          gh workflow run pages.yml --repo "${{ github.repository }}" --ref main
+          for attempt in 1 2 3; do
+            git fetch -q origin main && git reset -q --hard origin/main
+            node scripts/import-github-stars.mjs "${{ inputs.user || 'adamaragon' }}"
+            git add data.json
+            if git diff --cached --quiet; then echo "Nothing changed."; exit 0; fi
+            git commit -q -m "Import GitHub stars"
+            if git push -q origin HEAD:main; then
+              gh workflow run pages.yml --repo "${{ github.repository }}" --ref main
+              exit 0
+            fi
+            echo "main moved; retrying"; sleep 5
+          done
+          exit 1
