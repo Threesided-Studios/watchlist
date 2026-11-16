@@ -29,12 +29,10 @@
 
 * { box-sizing: border-box; }
 [hidden] { display: none !important; }
-html { -webkit-text-size-adjust: 100%; scroll-padding-top: 140px; background: var(--void); }
-body {
-  margin: 0;
-  min-height: 100vh;
-  color: var(--text);
-  font: 15px/1.5 var(--font-body);
+/* The ground (glows + grid) is painted on <html> so the three.js canvas, which
+   sits at z-index -1, shows above it and behind the page. */
+html {
+  -webkit-text-size-adjust: 100%; scroll-padding-top: 140px;
   background:
     radial-gradient(ellipse 900px 520px at 88% -8%, rgba(255, 0, 110, .16), transparent 62%),
     radial-gradient(ellipse 800px 520px at -6% 108%, rgba(0, 217, 255, .12), transparent 62%),
@@ -43,6 +41,7 @@ body {
     var(--void);
   background-attachment: fixed;
 }
+body { margin: 0; min-height: 100vh; color: var(--text); font: 15px/1.5 var(--font-body); }
 a { color: inherit; }
 button, input, select, textarea { font: inherit; color: inherit; }
 ::selection { background: var(--magenta); color: #fff; }
@@ -472,6 +471,184 @@ a.bar:hover { background: rgba(0, 217, 255, .07); }
 }
 @keyframes sheet-up { from { transform: translateY(48px); } }
 
+/* ==========================================================================
+   MOTION AND SHINE
+   Everything below is decoration layered on the layout above. The
+   prefers-reduced-motion block at the very end switches all of it off.
+   ========================================================================== */
+
+@property --spin { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
+
+/* ---------- ground: three.js canvas + pointer spotlight ---------- */
+.scene { position: fixed; inset: 0; width: 100%; height: 100%; z-index: -1; opacity: 0; transition: opacity 1.6s var(--ease); pointer-events: none; }
+.scene.is-live { opacity: .9; }
+.spotlight { position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background: radial-gradient(420px circle at var(--px, 50%) var(--py, -20%), rgba(0, 217, 255, .10), transparent 70%); }
+
+/* ---------- buttons: bracketed plates with a travelling sheen ---------- */
+.btn {
+  position: relative; isolation: isolate; overflow: hidden;
+  border-radius: 3px; border-color: rgba(255, 255, 255, .16);
+  background: linear-gradient(180deg, rgba(255, 255, 255, .07), rgba(255, 255, 255, .02));
+}
+/* corner brackets that open on hover */
+.btn::before {
+  content: ""; position: absolute; inset: 3px; z-index: -1; pointer-events: none;
+  background:
+    linear-gradient(var(--cyan), var(--cyan)) 0 0 / 8px 1px, linear-gradient(var(--cyan), var(--cyan)) 0 0 / 1px 8px,
+    linear-gradient(var(--cyan), var(--cyan)) 100% 100% / 8px 1px, linear-gradient(var(--cyan), var(--cyan)) 100% 100% / 1px 8px;
+  background-repeat: no-repeat; opacity: .55;
+  transition: inset .25s var(--ease), opacity .25s var(--ease);
+}
+.btn:hover::before { inset: -1px; opacity: 1; }
+/* sheen */
+.btn::after {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: linear-gradient(105deg, transparent 35%, rgba(255, 255, 255, .28) 50%, transparent 65%);
+  transform: translateX(-120%);
+}
+.btn:hover::after { transform: translateX(120%); transition: transform .7s var(--ease); }
+.btn:hover { border-color: var(--cyan); color: var(--text); box-shadow: 0 0 26px -8px var(--cyan), inset 0 0 18px -10px var(--cyan); }
+.btn-primary {
+  border: 0; color: var(--ink); font-weight: 700;
+  background: linear-gradient(110deg, var(--magenta), #ff5c9f 45%, var(--cyan) 110%); background-size: 220% 100%; background-position: 0 0;
+  transition: background-position .6s var(--ease), box-shadow .3s var(--ease), transform .15s var(--ease);
+}
+.btn-primary::before { background-image: none; }
+.btn-primary:hover { background-position: 100% 0; color: var(--ink); box-shadow: 0 0 34px -6px var(--magenta), 0 0 60px -20px var(--cyan); }
+.btn-ghost { background: transparent; }
+
+/* ---------- top bar: a signal that travels ---------- */
+.topbar::after { background: linear-gradient(90deg, transparent, var(--magenta), var(--cyan), var(--yellow), transparent); background-size: 50% 100%; background-repeat: no-repeat; opacity: .9; animation: travel 6s linear infinite; }
+@keyframes travel { from { background-position: -60% 0; } to { background-position: 160% 0; } }
+.brand-mark { animation: mark-turn 9s var(--ease) infinite; transform-origin: 50% 62%; }
+@keyframes mark-turn { 0%, 78% { transform: rotate(0); } 90% { transform: rotate(120deg); } 100% { transform: rotate(120deg); } }
+.brand:hover .brand-name { text-shadow: -2px 0 var(--magenta), 2px 0 var(--cyan); }
+.pagenav a, .nav-toggle { position: relative; }
+.pagenav a::after { content: ""; position: absolute; left: 14px; right: 14px; bottom: -2px; height: 2px; background: var(--cyan); transform: scaleX(0); transform-origin: left; transition: transform .25s var(--ease); }
+.pagenav a:hover::after { transform: scaleX(1); }
+
+/* ---------- gradient text that flows ---------- */
+.grad, .list-title { background-size: 220% 100%; animation: flow 7s ease-in-out infinite alternate; }
+@keyframes flow { from { background-position: 0 0; } to { background-position: 100% 0; } }
+
+/* glitch: two offset colour ghosts that flicker now and then */
+.glitch { position: relative; display: inline-block; }
+.glitch::before, .glitch::after { content: attr(data-text); position: absolute; inset: 0; -webkit-text-fill-color: currentColor; background: none; pointer-events: none; opacity: 0; }
+.glitch::before { color: var(--cyan); animation: glitch-a 5.5s steps(1) infinite; }
+.glitch::after { color: var(--magenta); animation: glitch-b 5.5s steps(1) infinite; }
+@keyframes glitch-a { 0%, 91%, 100% { opacity: 0; } 92% { opacity: .8; transform: translate(-4px, 1px); clip-path: inset(10% 0 55% 0); } 94% { opacity: .8; transform: translate(3px, -1px); clip-path: inset(60% 0 8% 0); } 96% { opacity: 0; } }
+@keyframes glitch-b { 0%, 91%, 100% { opacity: 0; } 93% { opacity: .8; transform: translate(4px, -1px); clip-path: inset(40% 0 30% 0); } 95% { opacity: .8; transform: translate(-3px, 2px); clip-path: inset(5% 0 70% 0); } 97% { opacity: 0; } }
+
+/* ---------- home hero + ticker ---------- */
+.hero-home { padding-top: clamp(18px, 6vw, 72px); min-height: min(52vh, 460px); align-content: center; }
+.hero-home .hero-title { font-size: clamp(42px, 9vw, 104px); }
+.ticker { display: flex; align-items: center; gap: 14px; overflow: hidden; margin: 0 calc(var(--gutter) * -1); padding: 10px var(--gutter); border-block: 1px solid var(--line); background: rgba(7, 5, 18, .55); }
+.ticker-label { flex: none; padding: 2px 10px; background: var(--yellow); color: var(--ink); font: 700 10px var(--font-mono); letter-spacing: .12em; text-transform: uppercase; animation: blink 1.6s steps(2) infinite; }
+@keyframes blink { 50% { opacity: .55; } }
+.ticker-track { display: flex; min-width: 0; flex: 1; overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
+.ticker-run { flex: none; display: flex; gap: 34px; padding-right: 34px; animation: ticker 60s linear infinite; }
+.ticker:hover .ticker-run { animation-play-state: paused; }
+.ticker-item { white-space: nowrap; font: 500 12px var(--font-mono); color: var(--muted); }
+.ticker-item i { font-style: normal; font-size: 8px; margin-right: 8px; color: var(--magenta); }
+.ticker-item:nth-child(3n + 2) i { color: var(--cyan); }
+.ticker-item:nth-child(3n + 3) i { color: var(--yellow); }
+@keyframes ticker { to { transform: translateX(-100%); } }
+
+/* ---------- reveal on scroll (classes set by fx.js) ---------- */
+.fx { opacity: 0; transform: translateY(26px) scale(.985); filter: blur(6px); transition: opacity .7s var(--ease) var(--d, 0ms), transform .7s var(--ease) var(--d, 0ms), filter .7s var(--ease) var(--d, 0ms); }
+.fx.is-in { opacity: 1; transform: none; filter: none; }
+
+/* ---------- cards: staggered entrance, holographic tilt ---------- */
+.grid > .card, .shelf-row > .card, .rows > .row { animation: card-in .55s var(--ease) both; }
+.grid > :nth-child(6n + 2), .shelf-row > :nth-child(6n + 2) { animation-delay: 45ms; }
+.grid > :nth-child(6n + 3), .shelf-row > :nth-child(6n + 3) { animation-delay: 90ms; }
+.grid > :nth-child(6n + 4), .shelf-row > :nth-child(6n + 4) { animation-delay: 135ms; }
+.grid > :nth-child(6n + 5), .shelf-row > :nth-child(6n + 5) { animation-delay: 180ms; }
+.grid > :nth-child(6n + 6), .shelf-row > :nth-child(6n + 6) { animation-delay: 225ms; }
+@keyframes card-in { from { opacity: 0; transform: translateY(18px) scale(.94); } }
+
+.card { perspective: 700px; }
+.card-art { transform-style: preserve-3d; will-change: transform; }
+.card-art.is-tilting { transition: transform .08s linear, filter .25s var(--ease); transform: translateY(-6px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) scale(1.04); }
+.card:hover .card-art:not(.is-tilting), .card:focus-visible .card-art { transform: translateY(-6px) scale(1.03); }
+/* glare that follows the pointer, plus a rainbow foil wash */
+.card-art::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0; transition: opacity .3s var(--ease); mix-blend-mode: screen;
+  background:
+    radial-gradient(220px circle at var(--gx, 50%) var(--gy, 0%), rgba(255, 255, 255, .42), transparent 60%),
+    linear-gradient(115deg, rgba(255, 0, 110, .28), rgba(0, 217, 255, .26) 50%, rgba(255, 249, 91, .22));
+}
+.card:hover .card-art::after { opacity: 1; }
+/* animated light running round the edge of the hovered card */
+.card-art::before {
+  content: ""; position: absolute; inset: -2px; z-index: -1; opacity: 0; transition: opacity .3s var(--ease);
+  background: conic-gradient(from var(--spin), var(--magenta), var(--cyan), var(--yellow), var(--magenta));
+  animation: spin 2.4s linear infinite; filter: blur(7px);
+}
+.card:hover .card-art::before { opacity: .95; }
+@keyframes spin { to { --spin: 360deg; } }
+.card:hover .card-art, .card:focus-visible .card-art { filter: none; }
+
+/* ---------- panels: a light that circles the border on hover ---------- */
+.tile, .step, .feature, .cat, .chart, .review, .why { position: relative; }
+.tile::after, .step::after, .feature::after, .chart::after {
+  content: ""; position: absolute; inset: -1px; pointer-events: none; padding: 1px; opacity: 0; transition: opacity .35s var(--ease);
+  background: conic-gradient(from var(--spin), transparent 0 62%, var(--cyan) 78%, var(--magenta) 90%, transparent 100%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude;
+  animation: spin 3.2s linear infinite;
+}
+.tile:hover::after, .step:hover::after, .feature:hover::after, .chart:hover::after { opacity: 1; }
+.tile-value { background: linear-gradient(180deg, #fff, #b9c6ff); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.shelf-head::after { width: 0; transition: width .9s var(--ease) .15s; }
+.shelf.is-in .shelf-head::after { width: 96px; }
+.bar-fill { transform-origin: left; animation: grow-x .9s var(--ease) both; background: linear-gradient(90deg, #00a8d0, var(--cyan)); }
+.col-bar { transform-origin: bottom; animation: grow-y .9s var(--ease) both; background: linear-gradient(0deg, #00a8d0, var(--cyan)); }
+@keyframes grow-x { from { transform: scaleX(0); } }
+@keyframes grow-y { from { transform: scaleY(0); } }
+
+/* ---------- chips, tabs, facets ---------- */
+.chip { transition: transform .2s var(--ease), background .15s var(--ease), color .15s var(--ease), box-shadow .2s var(--ease); }
+.chip:hover { transform: skewX(-12deg) translateY(-2px); box-shadow: 0 6px 18px -8px currentColor; }
+.tab { position: relative; transition: color .2s var(--ease), background .3s var(--ease); }
+.facet:hover, .form-field:hover { border-color: rgba(0, 217, 255, .45); }
+
+/* ---------- detail sheet, modal, toast ---------- */
+.sheet[open]::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 2px; background: var(--signal); background-size: 200% 100%; animation: flow 3s linear infinite alternate; }
+.sheet[open] > * { animation: sheet-item .5s var(--ease) both; }
+.sheet[open] > :nth-child(2) { animation-delay: 60ms; } .sheet[open] > :nth-child(3) { animation-delay: 110ms; } .sheet[open] > :nth-child(4) { animation-delay: 160ms; }
+.sheet[open] > :nth-child(5) { animation-delay: 210ms; } .sheet[open] > :nth-child(n + 6) { animation-delay: 260ms; }
+@keyframes sheet-item { from { opacity: 0; transform: translateX(22px); } }
+.sheet-close { animation: none !important; }
+.sheet-art { position: relative; }
+.sheet-art::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, transparent 46%, rgba(0, 217, 255, .30) 50%, transparent 54%); background-size: 100% 300%; animation: scan 2.8s linear infinite; mix-blend-mode: screen; }
+@keyframes scan { from { background-position: 0 100%; } to { background-position: 0 -50%; } }
+.modal[open] .modal-card { animation: pop .32s var(--ease) both; }
+@keyframes pop { from { opacity: 0; transform: translateY(14px) scale(.96); } }
+.toast { animation: toast-in .35s var(--ease) both; }
+@keyframes toast-in { from { opacity: 0; transform: translate(-50%, 16px); } }
+.seg button[aria-pressed="true"] { box-shadow: 0 0 24px -6px var(--cyan); }
+
+/* ---------- Lottie ---------- */
+.lottie { display: block; margin-inline: auto; }
+.lottie svg { display: block; }
+.lottie-overlay { position: fixed; left: 50%; top: 42%; transform: translate(-50%, -50%); z-index: 70; pointer-events: none; filter: drop-shadow(0 0 18px rgba(0, 217, 255, .6)); }
+.empty .lottie { margin-bottom: 4px; filter: drop-shadow(0 0 14px rgba(0, 217, 255, .35)); }
+
+/* ---------- boot ---------- */
+.boot { display: grid; justify-items: center; gap: 18px; padding: 18vh 0; color: var(--muted); font: 500 11px var(--font-mono); letter-spacing: .16em; text-transform: uppercase; }
+.boot-mark { width: 56px; height: 50px; background: var(--signal); clip-path: polygon(50% 0, 100% 100%, 0 100%); animation: boot 1.2s var(--ease) infinite; }
+@keyframes boot { 0% { transform: rotate(0) scale(.8); opacity: .5; } 50% { transform: rotate(60deg) scale(1.05); opacity: 1; } 100% { transform: rotate(120deg) scale(.8); opacity: .5; } }
+.boot-text::after { content: "_"; animation: blink 1s steps(2) infinite; }
+
+@media (max-width: 760px) {
+  .hero-home { min-height: 0; }
+  .scene.is-live { opacity: .65; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  .scene, .spotlight { display: none; }
+  .fx { opacity: 1; transform: none; filter: none; }
+  .glitch::before, .glitch::after { display: none; }
 }

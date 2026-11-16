@@ -8,6 +8,7 @@ import { CATEGORIES, category } from '../../../shared/taxonomy.js';
 import { applySort } from '../../lib/filters.js';
 import { state, inboxItems, update, ownerPass, INGEST_URL } from '../store.js';
 import { el, cover, card, emptyState, toast } from '../card.js';
+import { burst } from '../fx.js';
 
 async function sendReview(it, action) {
   const pass = ownerPass();
@@ -91,6 +92,7 @@ export function renderInbox(root, { requestUnlock }) {
       selected.delete(it.id); rows.delete(it.id);
       node.remove(); refreshBulk(); focusRow(cursor);
       toast(action === 'approve' ? `Kept “${it.title}”` : `Dismissed “${it.title}”`);
+      if (action === 'approve') burst();
       if (!list.children.length) list.replaceWith(emptyState('✨', 'Nothing left to review.', 'New screenshot finds show up here.'));
     } else node.classList.remove('is-busy');
   }

@@ -9,6 +9,7 @@ import { renderInbox } from './js/views/inbox.js';
 import { renderStats } from './js/views/stats.js';
 import { initDetail } from './js/views/detail.js';
 import { renderHow, renderPipeline } from './js/views/about.js';
+import { initFx, enliven, burst } from './js/fx.js';
 
 const PAGE = window.WL_PAGE || { view: 'home' };
 const $ = (s) => document.querySelector(s);
@@ -30,6 +31,7 @@ function render() {
   else if (PAGE.view === 'home' && !searching) renderHome(app);
   /* searching from home searches everything */
   else redrawList = renderList(app, PAGE.view === 'home' ? { view: 'all' } : PAGE);
+  enliven(app);
 }
 
 function chrome() {
@@ -114,7 +116,7 @@ function openAdd() {
       const extra = picked && picked.title === t ? { blurb: picked.blurb || '', summary: picked.summary || '', author: picked.author || '', poster_url: picked.poster_url || '', tmdb_id: picked.tmdb_id, steam_appid: picked.steam_appid, format: picked.format } : {};
       for (const k of Object.keys(extra)) if (extra[k] === undefined || extra[k] === '') delete extra[k];
       const it = addItem({ title: t, type: type.value, year: Number(year.value) || null, link: link.value.trim(), notes: note.value.trim(), ...extra });
-      closeModal(); toast(`Added “${t}”`); location.hash = `item=${it.id}`;
+      closeModal(); toast(`Added “${t}”`); burst(); location.hash = `item=${it.id}`;
       return;
     }
     submit.disabled = true; msg.textContent = 'Sending…';
@@ -213,6 +215,7 @@ subscribe((what) => {
   render();
 });
 
+initFx();
 chrome();
 await load();
 initDetail(() => { if (dirty) { dirty = false; render(); } });

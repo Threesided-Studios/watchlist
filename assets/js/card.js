@@ -1,6 +1,7 @@
 /* Small DOM helpers and the card every view is built from. */
 import { category } from '../../shared/taxonomy.js';
 import { state, stage, netVotes } from './store.js';
+import { lottieSlot, motionOK } from './fx.js';
 
 export function el(tag, attrs = {}, ...kids) {
   const node = document.createElement(tag);
@@ -83,7 +84,7 @@ export function row(it, opts = {}) {
 }
 
 export function emptyState(glyph, msg, hint) {
-  return el('div', { class: 'empty' }, el('div', { class: 'empty-glyph', text: glyph }), el('p', { class: 'empty-msg', text: msg }), hint && el('p', { class: 'empty-hint', text: hint }));
+  return el('div', { class: 'empty' }, motionOK ? lottieSlot('radar', { size: 140 }) : el('div', { class: 'empty-glyph', text: glyph }), el('p', { class: 'empty-msg', text: msg }), hint && el('p', { class: 'empty-hint', text: hint }));
 }
 
 let toastTimer;

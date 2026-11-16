@@ -3,6 +3,7 @@ import { CATEGORIES, category, STATUSES } from '../../../shared/taxonomy.js';
 import { state, update, removeItem, netVotes, stage, ownerPass, INGEST_URL } from '../store.js';
 import { isVotingEnabled, myVote, castVote } from '../../votes.js';
 import { el, cover, VERDICTS, sourceLabel, toast } from '../card.js';
+import { burst } from '../fx.js';
 
 const sheet = () => document.getElementById('sheet');
 const enc = encodeURIComponent;
@@ -76,7 +77,7 @@ function ownerPanel(it, redraw) {
       el('button', { type: 'button', 'aria-pressed': String(it.status === s && !it.verdict), text: cat.verbs[i], onclick: () => set({ status: s, ...(s !== 'done' ? { verdict: null } : {}) }) }))),
     el('div', { class: 'seg', role: 'group', 'aria-label': 'Verdict' }, Object.entries(VERDICTS).filter(([k]) => k !== 'played' || it.type === 'game').map(([k, v]) =>
       el('button', { type: 'button', 'aria-pressed': String(it.verdict === k), title: v.label, onclick: () => set({ verdict: it.verdict === k ? null : k, ...(k !== 'skip' && it.verdict !== k ? { status: 'done' } : {}) }) }, `${v.glyph} ${v.label}`))),
-    el('button', { type: 'button', class: 'btn btn-ghost', 'aria-pressed': String(!!it.pinned), text: it.pinned ? '▲ Pinned to Up next' : '△ Pin to Up next', onclick: () => set({ pinned: !it.pinned }, it.pinned ? 'Unpinned' : 'Pinned to Up next') }),
+    el('button', { type: 'button', class: 'btn btn-ghost', 'aria-pressed': String(!!it.pinned), text: it.pinned ? '▲ Pinned to Up next' : '△ Pin to Up next', onclick: () => { if (!it.pinned) burst(); set({ pinned: !it.pinned }, it.pinned ? 'Unpinned' : 'Pinned to Up next'); } }),
     field('notes', notes),
     el('details', { class: 'edit-more' },
       el('summary', { text: 'Edit details' }),
