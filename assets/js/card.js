@@ -25,8 +25,15 @@ export const VERDICTS = {
   skip: { glyph: '⊘', label: 'Not interested' },
 };
 
-const SOURCE_LABEL = { screenshot: 'from a screenshot', reddit: 'from a Reddit thread', steam: 'Steam library', kindle: 'Kindle library', airtable: 'added by hand', manual: 'added by hand' };
+const SOURCE_LABEL = { 'github-stars': 'starred on GitHub', screenshot: 'from a screenshot', reddit: 'from a Reddit thread', steam: 'Steam library', kindle: 'Kindle library', airtable: 'added by hand', manual: 'added by hand' };
 export const sourceLabel = (it) => SOURCE_LABEL[it.source] || '';
+
+export const compact = (n) => (n >= 1000 ? `${(n / 1000).toFixed(n >= 10000 ? 0 : 1).replace(/\.0$/, '')}k` : String(n));
+const DAY = 86400000;
+export const daysUntil = (date) => Math.round((new Date(`${date}T12:00:00`) - new Date(new Date().toISOString().slice(0, 10) + 'T12:00:00')) / DAY);
+export const shortDate = (date) => new Date(`${date}T12:00:00`).toLocaleDateString([], { month: 'short', day: 'numeric' });
+/* true for two weeks after a watched repository ships a release */
+export const freshRelease = (it) => !!it.release_at && daysUntil(it.release_at) >= -14;
 
 /* Art, or a tinted tile with the title when there is none. */
 export function cover(it, { eager = false } = {}) {
@@ -55,11 +62,13 @@ export function card(it, opts = {}) {
     it.pinned && el('span', { class: 'badge badge-pin', title: 'Up next', text: '▲ next' }),
     st === 'active' && el('span', { class: 'badge badge-active', text: cat.verbs[1] }),
     it.verdict && VERDICTS[it.verdict] && el('span', { class: 'badge badge-verdict', title: VERDICTS[it.verdict].label, text: VERDICTS[it.verdict].glyph }),
+    it.next_air && daysUntil(it.next_air) >= 0 && daysUntil(it.next_air) <= 60 && el('span', { class: 'badge badge-soon', title: `Next: ${it.next_air}`, text: `▶ ${shortDate(it.next_air)}` }),
+    freshRelease(it) && el('span', { class: 'badge badge-soon', title: `Released ${it.release}`, text: `new ${it.release || 'release'}`.slice(0, 16) }),
     votes > 0 && el('span', { class: 'badge badge-rec', title: `${votes} friend recommendation${votes === 1 ? '' : 's'}`, text: `★ ${votes}` }),
     it.adult && state.owner && el('span', { class: 'badge', text: '18+' }),
   );
-  const sub = [it.year, it.author, it.hours ? `${it.hours}h played` : ''].filter(Boolean).join(' · ');
-  const context = opts.context && (it.recommended_by ? `via ${it.recommended_by}` : sourceLabel(it));
+  const sub = (it.type === 'repo' && it.stars ? [`★ ${compact(it.stars)}`, it.language, it.author] : [it.year, it.author, it.hours ? `${it.hours}h played` : '']).filter(Boolean).join(' · ');
+  const context = opts.when && it.next_air ? `${shortDate(it.next_air)}${daysUntil(it.next_air) <= 7 ? ` · in ${Math.max(0, daysUntil(it.next_air))}d` : ''}` : opts.context && (it.recommended_by ? `via ${it.recommended_by}` : sourceLabel(it));
   return el('a', { class: `card card-${cat.cover}`, href: `#item=${encodeURIComponent(it.id)}`, dataset: { id: it.id, type: it.type, stage: st } },
     el('div', { class: 'card-art' }, cover(it), badges),
     el('div', { class: 'card-meta' },
@@ -68,6 +77,17 @@ export function card(it, opts = {}) {
       context && el('span', { class: 'card-context', text: context }),
     ),
   );
+}
+
+/* A whole series shown as one tile; opens the list filtered to that series. */
+export function stackCard(series, members, href) {
+  const firstBook = [...members].sort((a, b) => (a.series_n ?? 99) - (b.series_n ?? 99))[0];
+  const done = members.filter((it) => stage(it) === 'finished').length;
+  return el('a', { class: 'card card-stack', href, dataset: { type: firstBook.type } },
+    el('div', { class: 'card-art' }, cover(firstBook), el('div', { class: 'card-badges' }, el('span', { class: 'badge badge-pin', text: `${members.length} in series` }))),
+    el('div', { class: 'card-meta' },
+      el('span', { class: 'card-title', text: series }),
+      el('span', { class: 'card-sub', text: [firstBook.author, done ? `${done} of ${members.length} read` : ''].filter(Boolean).join(' · ') })));
 }
 
 /* Compact row for the list layout. */

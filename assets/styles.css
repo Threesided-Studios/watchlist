@@ -635,6 +635,38 @@ a.bar:hover { background: rgba(0, 217, 255, .07); }
 .lottie-overlay { position: fixed; left: 50%; top: 42%; transform: translate(-50%, -50%); z-index: 70; pointer-events: none; filter: drop-shadow(0 0 18px rgba(0, 217, 255, .6)); }
 .empty .lottie { margin-bottom: 4px; filter: drop-shadow(0 0 14px rgba(0, 217, 255, .35)); }
 
+/* ---------- facts, quote, series stacks, picker ---------- */
+.facts { display: flex; flex-wrap: wrap; gap: 6px; }
+.fact { display: inline-flex; align-items: baseline; gap: 6px; padding: 4px 10px; font: 500 12px var(--font-mono); background: rgba(255, 255, 255, .04); border: 1px solid var(--line); }
+.fact i { font-style: normal; font-size: 9px; letter-spacing: .14em; text-transform: uppercase; color: var(--cyan); }
+.fact-hot { border-color: var(--yellow); box-shadow: 0 0 18px -8px var(--yellow); }
+.fact-hot i { color: var(--yellow); }
+.fact-warn { border-color: var(--magenta); color: var(--magenta); }
+.sheet-quote { margin: 0; padding: 2px 0 2px 14px; border-left: 2px solid var(--magenta); font-size: 16px; line-height: 1.5; color: var(--text); }
+.sheet-quote::before { content: "“"; color: var(--magenta); }
+.sheet-quote::after { content: "”"; color: var(--magenta); }
+.sheet-more { padding-top: 6px; }
+.sheet-more .shelf-title { font-size: 17px; }
+.sheet-more .shelf-row { margin: 0 -26px; padding-inline: 26px; grid-auto-columns: 96px; }
+.sheet-more .card-title { font-size: 12px; }
+.badge-soon { background: var(--cyan); border-color: var(--cyan); color: var(--ink); }
+/* a stack: two more tiles peeking out behind the first */
+.card-stack .card-art { margin: 0 10px 10px 0; }
+.card-stack .card-art > .cover { position: relative; z-index: 2; }
+.card-stack .card-art::before, .card-stack .card-art::after { content: ""; position: absolute; inset: 0; z-index: 0; opacity: 1; filter: none; animation: none; mix-blend-mode: normal; background: var(--panel-2); border: 1px solid var(--line); transition: transform .3s var(--ease); }
+.card-stack .card-art::before { transform: translate(5px, 5px); }
+.card-stack .card-art::after { transform: translate(10px, 10px); z-index: -1; }
+.card-stack:hover .card-art::before { transform: translate(8px, 8px) rotate(2deg); opacity: 1; }
+.card-stack:hover .card-art::after { transform: translate(16px, 14px) rotate(4deg); opacity: 1; }
+.card-stack .card-badges { z-index: 3; }
+.picker { display: flex; flex-wrap: wrap; gap: 8px; align-items: stretch; }
+.picker .facet { flex: 1 1 130px; }
+.picker-check { display: inline-flex; align-items: center; gap: 8px; font: 12px var(--font-mono); color: var(--muted); }
+.picker-check input { width: 16px; height: 16px; accent-color: var(--cyan); }
+.modal-card.surprise .facet select { padding: 0; background: transparent; border: 0; }
+.surprise-result { display: grid; gap: 12px; min-height: 190px; align-content: start; }
+.modal-actions .modal-msg { margin-right: auto; align-self: center; }
+
 /* ---------- boot ---------- */
 .boot { display: grid; justify-items: center; gap: 18px; padding: 18vh 0; color: var(--muted); font: 500 11px var(--font-mono); letter-spacing: .16em; text-transform: uppercase; }
 .boot-mark { width: 56px; height: 50px; background: var(--signal); clip-path: polygon(50% 0, 100% 100%, 0 100%); animation: boot 1.2s var(--ease) infinite; }

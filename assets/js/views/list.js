@@ -3,11 +3,11 @@
 import { CATEGORIES, category } from '../../../shared/taxonomy.js';
 import { applyFilters, applySort, facetCounts } from '../../lib/filters.js';
 import { state, visibleItems, stage, netVotes } from '../store.js';
-import { el, card, row, emptyState } from '../card.js';
+import { el, card, row, emptyState, stackCard } from '../card.js';
 
 const BATCH = 60;
 const LS_LAYOUT = 'watchlist.layout';
-const PARAMS = ['q', 'stage', 'tag', 'sort', 'verdict', 'source', 'decade', 'type'];
+const PARAMS = ['q', 'stage', 'tag', 'sort', 'verdict', 'source', 'decade', 'type', 'on', 'series'];
 
 export function readParams() {
   const sp = new URLSearchParams(location.search);
@@ -56,13 +56,15 @@ export function renderList(root, page) {
     const set = (patch) => { writeParams({ ...readParams(), ...patch }); draw(); };
 
     const scoped = base.filter((it) => (p.stage ? stage(it) === p.stage : state.owner || stage(it) !== 'skipped'));
-    const filtered = applyFilters(scoped, { q: p.q, tag: p.tag, verdict: p.verdict, source: p.source, decade: p.decade });
-    const sortKey = p.sort || (page.view === 'recommended' ? 'votes' : 'added-desc');
+    const filtered = applyFilters(scoped, { q: p.q, tag: p.tag, verdict: p.verdict, source: p.source, decade: p.decade, on: p.on, series: p.series });
+    const sortKey = p.sort || (p.series ? 'series' : page.view === 'recommended' ? 'votes' : 'added-desc');
     const sorted = sortKey === 'votes' ? [...filtered].sort((a, b) => netVotes(b) - netVotes(a)) : applySort(filtered, sortKey);
 
     const tagFacets = facetCounts(scoped, (it) => it.tags, 14);
     const decades = facetCounts(scoped, (it) => (it.year ? Math.floor(it.year / 10) * 10 : null)).map(([d]) => d).sort((a, b) => b - a);
     const sources = facetCounts(scoped, (it) => it.source || 'manual');
+    const providers = facetCounts(scoped, (it) => it.providers || [], 14);
+    const seriesName = p.series && (filtered[0]?.series_name || p.series);
     const layout = localStorage.getItem(LS_LAYOUT) === 'rows' ? 'rows' : 'grid';
     const active = PARAMS.filter((k) => k !== 'sort' && k !== 'stage' && !(k === 'type' && fixedType) && p[k]);
 
@@ -82,9 +84,13 @@ export function renderList(root, page) {
         ['added-desc', 'newest added'], ['added-asc', 'oldest added'], ['title-asc', 'title a–z'], ['title-desc', 'title z–a'],
         ['year-desc', 'year, newest'], ['year-asc', 'year, oldest'],
         ...(scoped.some((it) => it.hours) ? [['hours-desc', 'most played']] : []),
+        ...(scoped.some((it) => it.stars) ? [['stars-desc', 'most starred']] : []),
+        ...(scoped.some((it) => it.next_air) ? [['soonest', 'next up soonest']] : []),
+        ...(p.series ? [['series', 'series order']] : []),
       ], (v) => set({ sort: v })),
       decades.length > 1 && select('decade', p.decade, [['', 'any'], ...decades.map((d) => [String(d), `${d}s`])], (v) => set({ decade: v })),
       p.stage === 'finished' && select('verdict', p.verdict, [['', 'any'], ['love', 'loved'], ['up', 'liked'], ['down', 'not for me'], ['played', 'played']], (v) => set({ verdict: v })),
+      providers.length > 0 && select('streaming on', p.on, [['', 'anywhere'], ...providers.map(([s, n]) => [s, `${s} (${n})`])], (v) => set({ on: v })),
       sources.length > 1 && select('source', p.source, [['', 'any'], ...sources.map(([s, n]) => [s, `${s} (${n})`])], (v) => set({ source: v })),
       el('div', { class: 'layout-toggle', role: 'group', 'aria-label': 'Layout' },
         el('button', { type: 'button', 'aria-pressed': String(layout === 'grid'), title: 'Grid', text: '▦', onclick: () => { localStorage.setItem(LS_LAYOUT, 'grid'); draw(); } }),
@@ -94,6 +100,7 @@ export function renderList(root, page) {
     const chips = el('div', { class: 'chips', 'aria-label': 'Genres' },
       tagFacets.map(([t, n]) => el('button', { type: 'button', class: 'chip', 'aria-pressed': String(p.tag.toLowerCase() === t.toLowerCase()), onclick: () => set({ tag: p.tag.toLowerCase() === t.toLowerCase() ? '' : t }) },
         t, el('span', { class: 'chip-n', text: String(n) }))),
+      p.series && el('button', { type: 'button', class: 'chip', 'aria-pressed': 'true', onclick: () => set({ series: '', sort: '' }), text: `series: ${seriesName} ✕` }),
       p.tag && !tagFacets.some(([t]) => t.toLowerCase() === p.tag.toLowerCase()) && el('button', { type: 'button', class: 'chip', 'aria-pressed': 'true', onclick: () => set({ tag: '' }), text: p.tag }),
       active.length > 0 && el('button', { type: 'button', class: 'chip chip-clear', text: '✕ clear filters', onclick: () => { document.getElementById('q').value = ''; set(Object.fromEntries(active.map((k) => [k, '']))); } }),
     );
@@ -101,12 +108,26 @@ export function renderList(root, page) {
     const grid = el('div', { class: layout === 'rows' ? 'rows' : 'grid' });
     const sentinel = el('div', { class: 'sentinel', 'aria-hidden': 'true' });
     let shown = 0;
+    /* in the grid, a series with two or more books on screen collapses into one stack */
+    const bySeries = new Map();
+    if (layout === 'grid' && !p.series && !p.q) for (const it of sorted) if (it.series) (bySeries.get(it.series) || bySeries.set(it.series, []).get(it.series)).push(it);
+    const stacked = new Set();
+    const entries = [];
+    for (const it of sorted) {
+      const group = it.series && bySeries.get(it.series);
+      if (group && group.length > 1) {
+        if (stacked.has(it.series)) continue;
+        stacked.add(it.series);
+        const sp = new URLSearchParams(location.search); sp.set('series', it.series); sp.delete('sort');
+        entries.push(() => stackCard(it.series_name, group, `${location.pathname}?${sp}`));
+      } else entries.push(it);
+    }
     const more = () => {
-      const next = sorted.slice(shown, shown + BATCH);
+      const next = entries.slice(shown, shown + BATCH);
       const opts = { showType: !type };
-      grid.append(...next.map((it) => (layout === 'rows' ? row(it, opts) : card(it, opts))));
+      grid.append(...next.map((it) => (typeof it === 'function' ? it() : layout === 'rows' ? row(it, opts) : card(it, opts))));
       shown += next.length;
-      if (shown >= sorted.length) { observer?.disconnect(); sentinel.remove(); }
+      if (shown >= entries.length) { observer?.disconnect(); sentinel.remove(); }
     };
 
     root.replaceChildren(head, facets, chips, grid, sentinel);
@@ -117,11 +138,18 @@ export function renderList(root, page) {
     } else {
       more();
       observer = new IntersectionObserver((entries) => { if (entries.some((e) => e.isIntersecting)) more(); }, { rootMargin: '900px' });
-      if (shown < sorted.length) observer.observe(sentinel);
+      if (shown < entries.length) observer.observe(sentinel);
     }
     document.getElementById('count').textContent = `${sorted.length} of ${base.length} shown`;
   }
 
+  root.addEventListener('click', (e) => {
+    const a = e.target.closest('a.card-stack');
+    if (!a) return;
+    e.preventDefault();
+    history.pushState(null, '', a.href); draw(); scrollTo({ top: 0 });
+  });
+  addEventListener('popstate', () => { if (root.isConnected) draw(); });
   draw();
   return draw;
 }

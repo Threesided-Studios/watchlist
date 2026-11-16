@@ -1,8 +1,8 @@
 /* Detail sheet: everything about one item, and (for the owner) every edit. Opened by #item=<id>. */
 import { CATEGORIES, category, STATUSES } from '../../../shared/taxonomy.js';
-import { state, update, removeItem, netVotes, stage, ownerPass, INGEST_URL } from '../store.js';
+import { state, update, removeItem, netVotes, stage, ownerPass, visibleItems, INGEST_URL } from '../store.js';
 import { isVotingEnabled, myVote, castVote } from '../../votes.js';
-import { el, cover, VERDICTS, sourceLabel, toast } from '../card.js';
+import { el, cover, card, VERDICTS, sourceLabel, toast, compact, daysUntil, shortDate, freshRelease } from '../card.js';
 import { burst } from '../fx.js';
 
 const sheet = () => document.getElementById('sheet');
@@ -109,6 +109,44 @@ function votePanel(it, redraw) {
     el('button', { type: 'button', 'aria-pressed': String(mine === 'down'), text: '👎 Skip it', onclick: () => vote('down') }));
 }
 
+/* Other things on the list that are close to this one: same series, same author, shared genres. */
+function similar(it) {
+  const tags = new Set((it.tags || []).map((t) => t.toLowerCase()));
+  const scored = [];
+  for (const o of visibleItems()) {
+    if (o.id === it.id || o.type !== it.type || stage(o) === 'skipped') continue;
+    let score = 0;
+    if (it.series && o.series === it.series) score += 6;
+    if (it.author && o.author === it.author) score += 3;
+    for (const t of o.tags || []) if (tags.has(t.toLowerCase())) score += 2;
+    if (it.language && o.language === it.language) score += 1;
+    if (score >= 3) scored.push([score + (stage(o) === 'backlog' ? 0.5 : 0), o]);
+  }
+  return scored.sort((a, b) => b[0] - a[0]).slice(0, 10).map((x) => x[1]);
+}
+
+/* Short labelled facts under the title: where to watch, how long, what it costs, where it is. */
+function facts(it) {
+  const out = [];
+  const add = (label, value, cls = '') => { if (value) out.push(el('span', { class: `fact ${cls}`.trim() }, el('i', { text: label }), value)); };
+  if (it.next_air && daysUntil(it.next_air) >= 0) add('next', `${shortDate(it.next_air)}${daysUntil(it.next_air) === 0 ? ' · today' : ` · in ${daysUntil(it.next_air)} days`}`, 'fact-hot');
+  for (const p of it.providers || []) add('on', p);
+  if (!(it.providers || []).length) add('seen on', it.availability);
+  add('runtime', it.runtime && `${it.runtime} min`);
+  add('episode', it.season_episode);
+  add('price', it.price);
+  add('where', it.location);
+  if (it.type === 'repo') {
+    add('stars', it.stars && `★ ${compact(it.stars)}`);
+    add('language', it.language);
+    add('licence', it.license);
+    add('release', it.release, freshRelease(it) ? 'fact-hot' : '');
+    add('last push', it.pushed);
+    if (it.archived) add('status', 'archived', 'fact-warn');
+  }
+  return out.length ? el('div', { class: 'facts' }, out) : null;
+}
+
 function draw(it) {
   const cat = category(it.type);
   const redraw = () => draw(it);
@@ -122,6 +160,7 @@ function draw(it) {
     state.owner && typeof it.ai_confidence === 'number' && `AI ${Math.round(it.ai_confidence * 100)}% sure${it.enriched_via ? ` · matched on ${it.enriched_via}${it.match_ok === false ? ' (unverified)' : ''}` : ''}`,
   ].filter(Boolean);
   const body = it.summary && it.summary !== it.blurb ? it.summary : it.blurb;
+  const more = similar(it);
   const primary = [...(it.link ? [[hostLabel(it.link), it.link, true]] : []), ...(it.repo_url && it.repo_url !== it.link ? [['Repository', it.repo_url, true]] : [])];
   /* no "Steam" search next to a direct Steam link */
   const links = [...primary, ...lookups(it).filter(([label]) => !primary.some(([l]) => l === label))];
@@ -136,12 +175,15 @@ function draw(it) {
         el('p', { class: 'sheet-sub', text: [it.year, it.author, it.hours && `${it.hours}h played`].filter(Boolean).join(' · ') }),
         el('p', { class: 'sheet-state', dataset: { stage: st } }, stateText, it.pinned && ' · ▲ up next', votes > 0 && ` · ★ ${votes} from friends`),
         (it.tags || []).length > 0 && el('div', { class: 'chips' }, it.tags.map((t) => el('a', { class: 'chip', href: `/${cat.slug}/?tag=${enc(t)}`, text: t }))))),
+    facts(it),
+    it.quote && el('blockquote', { class: 'sheet-quote', text: it.quote }),
     body && el('p', { class: 'sheet-body', text: body }),
     el('div', { class: 'sheet-links' }, links.map(([label, href, primary]) => el('a', { class: primary ? 'btn btn-primary' : 'btn btn-ghost', href, target: '_blank', rel: 'noopener noreferrer' }, `${label} ↗`))),
     votePanel(it, redraw),
     why.length > 0 && el('section', { class: 'why' }, el('h3', { text: 'Why it’s here' }), why.map((w) => el('p', { text: w }))),
     it.notes && !state.owner && el('section', { class: 'why' }, el('h3', { text: 'Notes' }), el('p', { text: it.notes })),
     state.owner && ownerPanel(it, redraw),
+    more.length > 0 && el('section', { class: 'shelf sheet-more' }, el('header', { class: 'shelf-head' }, el('h2', { class: 'shelf-title', text: 'More like this' })), el('div', { class: 'shelf-row' }, more.map((o) => card(o)))),
   ].filter(Boolean));
 }
 
