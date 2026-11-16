@@ -41,14 +41,16 @@
         <button id="menu-btn" class="btn btn-ghost" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="menu" title="Owner and data options">🔒</button>
         <div id="menu" class="menu" hidden>
           <button id="lock" type="button">Unlock owner mode</button>
-          <a href="/stats/">Stats</a>
           <button id="export" class="owner-only" type="button">Export data.json</button>
           <label class="owner-only menu-file">Import data.json<input id="import" type="file" accept="application/json" hidden /></label>
         </div>
       </div>
     </div>
-    <nav class="pagenav" aria-label="Lists">
+    <nav class="pagenav" aria-label="Pages">
 {{NAV}}
+    </nav>
+    <nav id="catnav" class="catnav" aria-label="Categories"{{CATNAV_HIDDEN}}>
+{{CATNAV}}
     </nav>
   </header>
 
@@ -65,7 +67,7 @@
     <button type="button" id="tab-add"><span aria-hidden="true">＋</span><span class="add-label">Suggest</span></button>
     <a href="/recommended/" data-tab="recommended" class="guest-only"><span aria-hidden="true">★</span>Friends</a>
     <a href="/inbox/" data-tab="inbox" class="owner-only"><span aria-hidden="true">📥</span>Inbox</a>
-    <a href="/stats/" data-tab="stats"><span aria-hidden="true">◔</span>Stats</a>
+    <a href="/how-it-works/" data-tab="how"><span aria-hidden="true">?</span>About</a>
   </nav>
 
   <dialog id="sheet" class="sheet" aria-label="Item details"></dialog>

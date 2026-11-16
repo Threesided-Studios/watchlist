@@ -8,6 +8,7 @@ import { renderList, readParams, writeParams } from './js/views/list.js';
 import { renderInbox } from './js/views/inbox.js';
 import { renderStats } from './js/views/stats.js';
 import { initDetail } from './js/views/detail.js';
+import { renderHow, renderPipeline } from './js/views/about.js';
 
 const PAGE = window.WL_PAGE || { view: 'home' };
 const $ = (s) => document.querySelector(s);
@@ -24,6 +25,8 @@ function render() {
   const searching = q.value.trim();
   if (PAGE.view === 'inbox') renderInbox(app, { requestUnlock });
   else if (PAGE.view === 'stats') renderStats(app);
+  else if (PAGE.view === 'how') renderHow(app, { openAdd });
+  else if (PAGE.view === 'pipeline') renderPipeline(app, PAGE.facts);
   else if (PAGE.view === 'home' && !searching) renderHome(app);
   /* searching from home searches everything */
   else redrawList = renderList(app, PAGE.view === 'home' ? { view: 'all' } : PAGE);
@@ -44,7 +47,7 @@ function chrome() {
     : waiting ? `${waiting} edit${waiting === 1 ? '' : 's'} not synced yet. ${sync.error}`
     : edits ? `${edits} edit${edits === 1 ? '' : 's'} synced, waiting for the next list update`
     : state.owner ? 'All edits synced' : '';
-  const tab = PAGE.view === 'type' ? 'all' : PAGE.view;
+  const tab = PAGE.view === 'type' ? 'all' : PAGE.view === 'pipeline' ? 'how' : PAGE.view;
   for (const a of document.querySelectorAll('.tabbar [data-tab]')) {
     if (a.dataset.tab === tab) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current');
   }
@@ -153,7 +156,13 @@ function openSurprise() {
 /* ---------- wiring ---------- */
 let typing;
 q.value = readParams().q;
+/* pages with no list of their own: searching from them goes to Browse */
+const STATIC_VIEWS = new Set(['how', 'pipeline', 'stats', 'inbox']);
+q.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter' && STATIC_VIEWS.has(PAGE.view) && q.value.trim()) location.href = `/all/?q=${encodeURIComponent(q.value.trim())}`;
+});
 q.addEventListener('input', () => {
+  if (STATIC_VIEWS.has(PAGE.view)) return;
   clearTimeout(typing);
   typing = setTimeout(() => {
     writeParams({ ...readParams(), q: q.value.trim() });
@@ -168,6 +177,12 @@ addEventListener('keydown', (e) => {
 $('#add').addEventListener('click', openAdd);
 $('#tab-add').addEventListener('click', openAdd);
 $('#surprise').addEventListener('click', openSurprise);
+
+/* category strip: open on category pages, otherwise as last left */
+const catnav = $('#catnav'), catToggle = $('#cat-toggle');
+const setCats = (open) => { catnav.hidden = !open; catToggle.setAttribute('aria-expanded', String(open)); };
+if (PAGE.view !== 'type') setCats(localStorage.getItem('watchlist.catnav') === '1');
+catToggle.addEventListener('click', () => { const open = catnav.hidden; setCats(open); localStorage.setItem('watchlist.catnav', open ? '1' : '0'); });
 
 const menu = $('#menu'), menuBtn = $('#menu-btn');
 const setMenu = (open) => { menu.hidden = !open; menuBtn.setAttribute('aria-expanded', String(open)); };
