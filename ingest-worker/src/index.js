@@ -16,6 +16,7 @@
  *   GET  /reviews                   pending review decisions
  *   GET  /queue-attempts            recent upload attempts (accepted / duplicate / rejected)
  *   POST /reviews/ack               {ids:[...]} clear applied decisions
+ *   POST /queue/forget              {shas:[...]} forget processed screenshots so the phone can send them again
  *   GET  /edits                     pending owner edits, oldest first
  *   POST /edits/ack                 {upto: seq} clear applied edits
  *   PUT  /shots/<sha>               store the downsized screenshot the parser read
@@ -109,6 +110,16 @@ export class ShotQueue extends DurableObject {
     for (const e of edits) { this.sql.exec('INSERT INTO edits (id, op, fields, at) VALUES (?, ?, ?, ?)', e.id, e.op, JSON.stringify(e.fields || {}), at); n++; }
     if (n) await this.wake();
     return { ok: true, queued: n };
+  }
+  /* Forget screenshots that were already read, so a re-send from the phone is accepted
+     and read again (used after the reader learns new categories). */
+  forget(shas) {
+    let n = 0;
+    for (const sha of shas) {
+      n += this.sql.exec(`DELETE FROM shots WHERE sha = ? AND status = 'done' RETURNING sha`, sha).toArray().length;
+      this.sql.exec('DELETE FROM seen_keys WHERE sha = ?', sha);
+    }
+    return { ok: true, forgotten: n };
   }
   edits(limit = 500) {
     return this.sql.exec('SELECT seq, id, op, fields, at FROM edits ORDER BY seq LIMIT ?', limit).toArray().map((r) => ({ ...r, fields: JSON.parse(r.fields || '{}') }));
@@ -373,6 +384,11 @@ export default {
       if (path.startsWith('/queue') || path.startsWith('/reviews') || path.startsWith('/edits')) {
         if (!queueOk()) return json({ error: 'forbidden' }, 403);
         if (path === '/queue' && req.method === 'GET') return json(await q.list(Number(url.searchParams.get('limit')) || 100));
+        if (path === '/queue/forget' && req.method === 'POST') {
+          const b = await req.json().catch(() => null);
+          const shas = Array.isArray(b?.shas) ? b.shas.filter((x) => /^[0-9a-f]{64}$/.test(x)).slice(0, 2000) : [];
+          return json(await q.forget(shas));
+        }
         let m = path.match(/^\/queue\/([0-9a-f]{64})$/);
         if (m && req.method === 'GET') {
           const r = await q.get(m[1]);

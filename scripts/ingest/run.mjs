@@ -20,6 +20,12 @@ import { CLASSIFY_MODEL, PARSE_MODEL } from './models.mjs';
 import { completionBody } from './openai-request.mjs';
 import { titleKey, family, tmdbKind, lookupType, setScreenKind, buildIndex, findDuplicate, uniqueId, costOf, decideStatus } from './lib.mjs';
 import { normalizeItem } from '../../shared/normalize.js';
+import { canonicalType } from '../../shared/taxonomy.js';
+import { TRIAGE_WIDTH, PARSE_WIDTH, TRIAGE_SCHEMA, TRIAGE_SYSTEM, TRIAGE_PROMPT, PARSE_SCHEMA, PARSE_SYSTEM, PARSE_PROMPT, KEPT_ROLES, decideStatusV2 } from './vision.mjs';
+import { EXTRA_CHAINS, EXTRA_FIELDS, pageUrl, fallbackLink } from './enrich-extra.mjs';
+
+/* types the original enrichment chain (TMDB / Steam / Open Library / app stores) handles */
+const LEGACY_TYPES = new Set(['movie', 'show', 'book', 'game', 'software']);
 import { huntArt } from './art.mjs';
 import { qaScreen, tmdbPosterUrl } from './qa.mjs';
 
@@ -99,70 +105,32 @@ async function openai(model, messages, schema, maxTokens = 900) {
 
 const dataUrl = (buf) => `data:image/jpeg;base64,${buf.toString('base64')}`;
 
-const CLASSIFY_SCHEMA = {
-  type: 'object', additionalProperties: false, required: ['media'],
-  properties: { media: { type: 'boolean' } },
-};
-
-async function isMediaShot(img) {
-  const small = await sharp(img).rotate().resize({ width: 384, withoutEnlargement: true }).jpeg({ quality: 60 }).toBuffer();
+/* Pass 1: is anything here worth saving, and what kind of screenshot is it? (prompts and schemas: vision.mjs) */
+async function triageShot(img) {
+  const small = await sharp(img).rotate().resize({ width: TRIAGE_WIDTH, withoutEnlargement: true }).jpeg({ quality: 60 }).toBuffer();
   const { out, cost } = await openai(CLASSIFY_MODEL, [
-    { role: 'system', content: 'You triage iPhone screenshots for a personal watch/read/play list.' },
+    { role: 'system', content: TRIAGE_SYSTEM },
     { role: 'user', content: [
-      { type: 'text', text: 'Does this screenshot show or name at least one specific movie, TV show, anime, book, or video game (e.g. a poster or cover, a streaming/store/Goodreads/Letterboxd/IMDb page, a list, or a Reddit/social post or chat recommending titles)? Generic apps, maps, receipts, memes without a named title, music, and chats with no title => false. If unsure, answer true.' },
+      { type: 'text', text: TRIAGE_PROMPT },
       { type: 'image_url', image_url: { url: dataUrl(small), detail: 'low' } },
     ] },
-  ], CLASSIFY_SCHEMA, 20);
-  return { media: out.media, cost };
+  ], TRIAGE_SCHEMA, 80);
+  return { ...out, cost };
 }
 
-const PARSE_SCHEMA = {
-  type: 'object', additionalProperties: false,
-  required: ['screenshot_kind', 'source_context', 'titles'],
-  properties: {
-    screenshot_kind: { type: 'string', description: 'e.g. reddit thread, streaming app page, poster, book cover, store page, text message, social post, list' },
-    source_context: { type: 'string', description: 'Where this came from, short. e.g. \'Reddit r/MovieSuggestions: "Best slow-burn horror?"\' or \'Netflix title page\' or \'Facebook post by a friend\'. Never include full names of private people (first names or usernames only). Empty if unclear.' },
-    titles: {
-      type: 'array',
-      items: {
-        type: 'object', additionalProperties: false,
-        required: ['title', 'category', 'type', 'is_anime', 'year', 'creator', 'recommended_by', 'why', 'genres', 'evidence', 'adult', 'confidence'],
-        properties: {
-          title: { type: 'string', description: 'Canonical title, properly capitalised, no year' },
-          category: { type: 'string', enum: ['media_work', 'software_app_or_ai_tool', 'website_or_service', 'person_or_username', 'product_or_brand', 'place_or_business', 'other'], description: 'What this name actually refers to in the screenshot. media_work and software_app_or_ai_tool are kept.' },
-          type: { type: 'string', enum: ['movie', 'show', 'book', 'game', 'software'], description: 'software = apps, utilities, AI tools, dev tools (when category is software_app_or_ai_tool)' },
-          is_anime: { type: 'boolean' },
-          year: { type: ['integer', 'null'] },
-          creator: { type: ['string', 'null'], description: 'Author for books, director/studio if visible; null otherwise' },
-          recommended_by: { type: ['string', 'null'], description: 'Who recommends it: a Reddit/online username, or ONLY the first name of a private person. Never a full name. null if none.' },
-          why: { type: 'string', description: 'Very short reason it was mentioned (e.g. "top-voted reply: like Arrival but darker"). Empty if none.' },
-          genres: { type: 'array', items: { type: 'string' }, description: 'Up to 3 genres' },
-          evidence: { type: 'string', enum: ['recommended_or_discussed', 'poster_or_cover', 'store_or_streaming_page', 'ambiguous'], description: 'How the screenshot presents it as a work. ambiguous = could be a brand, product, phrase or unrelated word.' },
-          adult: { type: 'boolean', description: 'true for pornographic/hentai/explicitly sexual works or ones promoted mainly for sexual content' },
-          confidence: { type: 'number', description: '0-1: certainty that this exact title is named/shown as a creative work AND correctly identified (title and type)' },
-        },
-      },
-    },
-  },
-};
-
+/* Pass 2: everything the screenshot names, typed against the taxonomy. */
 async function parseShot(img) {
-  const big = await sharp(img).rotate().resize({ width: 1024, withoutEnlargement: true }).jpeg({ quality: 80 }).toBuffer();
+  const big = await sharp(img).rotate().resize({ width: PARSE_WIDTH, withoutEnlargement: true }).jpeg({ quality: 82 }).toBuffer();
   const res = await openai(PARSE_MODEL, [
-    { role: 'system', content: [
-      'You extract media titles from iPhone screenshots for a personal watch/read/play list.',
-      'Only list titles that are explicitly named or clearly shown (poster/cover/title card) AS a movie, TV show, anime, book, or video game. Never invent titles that are not on screen.',
-      'Software, apps (Mac/iOS/Android utilities), AI tools and models, websites, CMSs, browser extensions, player names/usernames in game lobbies, people, restaurants, brand names, product names, companies, logos on merchandise, song/album names, YouTube videos, podcasts are NOT media: label them with the matching category, never media_work. Software/apps/utilities/AI tools that are recommended or shown ARE kept, but as category software_app_or_ai_tool with type software (never type game). A game must be a video game you play, not an app used for work. A word that merely matches a book or game name is not enough: there must be a sign it is the work (recommended, discussed, being watched/read/played, a poster/cover/store page).',
-      'Pick the type from context: "on Netflix", "watch", "season", "episodes" => show or movie even if a game or book shares the name; "read", "author", "novel" => book; "play", "Steam", "Switch" => game.',
-      'Use the title as it is commonly listed on Wikipedia/TMDB/Steam/Goodreads, with correct capitalisation and punctuation; expand obvious abbreviations ("TLOU" => "The Last of Us").',
-      'Include every distinct qualifying title (max 25), including ones recommended in comments. Use low confidence and evidence=ambiguous when unsure.',
-    ].join(' ') },
+    { role: 'system', content: PARSE_SYSTEM },
     { role: 'user', content: [
-      { type: 'text', text: 'Extract the titles in this screenshot.' },
+      { type: 'text', text: PARSE_PROMPT },
       { type: 'image_url', image_url: { url: dataUrl(big), detail: 'high' } },
     ] },
-  ], PARSE_SCHEMA, 1800);
-  return { ...res, image: big };
+  ], PARSE_SCHEMA, 2400);
+  /* the kept copy is smaller than what the model read: it only has to be legible to a person */
+  const keep = await sharp(img).rotate().resize({ width: 1024, withoutEnlargement: true }).jpeg({ quality: 78 }).toBuffer();
+  return { ...res, image: keep };
 }
 
 /* Keep the downsized screenshot at the Worker for 30 days (owner-only) so an item can show where it came from. */
@@ -368,7 +336,9 @@ async function sameSoftware(c, r) {
   } catch { return false; }
 }
 
-async function enrich(c) {
+/* The chain above predates the anime and repo types: it knows movie/show/book/game/software
+   and an is_anime flag. v2 candidates carry taxonomy types, so translate on the way in. */
+async function enrichLegacy(c) {
   let fallback = null;
   const chain = c.type === 'software' ? [viaHomebrew, viaAppStore, viaGitHub]
     : c.type === 'game' ? [viaSteam, viaWikipedia]
@@ -378,6 +348,20 @@ async function enrich(c) {
     try { const r = await fn(c); if (r?.typeOk && c.type === 'software' && !(await sameSoftware(c, r))) continue; if (r?.typeOk) return { ...r, via: fn.name.replace('via', '') }; if (r && !fallback) fallback = { ...r, via: fn.name.replace('via', '') }; } catch { /* next */ }
   }
   return fallback;
+}
+
+async function enrich(c) {
+  const chain = EXTRA_CHAINS[c.type];
+  if (chain) {
+    let fallback = null;
+    for (const fn of chain) {
+      try { const r = await fn(c); if (r?.typeOk) return { ...r, via: fn.name.replace('via', '') }; if (r && !fallback) fallback = { ...r, via: fn.name.replace('via', '') }; } catch { /* next */ }
+    }
+    /* a repo the model named but GitHub search could not pin down may still be an app */
+    return fallback;
+  }
+  if (!LEGACY_TYPES.has(c.type) && c.type !== 'anime') return null;
+  return enrichLegacy({ ...c, type: lookupType(c), is_anime: c.type === 'anime' || !!c.is_anime });
 }
 
 async function savePoster(urls, id) {
@@ -599,6 +583,8 @@ const workKeys = (it) => {
   const link = String(it.link || '').replace(/[?#].*$/, '').replace(/\/+$/, '').toLowerCase();
   if (/store\.steampowered\.com\/app\/\d+|themoviedb\.org\/(movie|tv)\/\d+|openlibrary\.org\/works\/|apps\.apple\.com\/.*\/id\d+|anilist\.co\/|myanimelist\.net\//.test(link)) k.push(`link:${link.replace(/^https?:\/\/(www\.)?/, '')}`);
   if (it.tmdb_id) k.push(`tmdb:${tmdbKind(it)}:${it.tmdb_id}`);
+  if (it.spotify_id) k.push(`spotify:${it.spotify_id}`);
+  if (it.repo_url) k.push(`repo:${String(it.repo_url).toLowerCase().replace(/\/+$/, '')}`);
   if (it.steam_appid) k.push(`steam:${it.steam_appid}`);
   if (it.title) k.push(`${family(it.type)}:${titleKey(it.title)}`);
   return k;
@@ -620,56 +606,73 @@ async function processShot(s) {
   }
   const entry = { at: new Date().toISOString(), outcome: 'not-media', ids: [], usd: 0 };
   try {
-    const c1 = await isMediaShot(bytes);
-    entry.usd += c1.cost;
-    if (c1.media) {
+    const tri = await triageShot(bytes);
+    entry.usd += tri.cost;
+    /* The ledger and the Action log are public, so only the kind of screenshot is recorded,
+       never a description of it: a skipped screenshot may be a private chat or a receipt. */
+    entry.kind = tri.kind;
+    const note = LOCAL ? clean(tri.note).slice(0, 140) : '';
+    if (tri.worth_saving) {
       const p = await parseShot(bytes);
       entry.usd += p.cost;
-      const titles = p.out.titles || [];
-      entry.outcome = titles.length ? 'parsed' : 'no-titles';
-      for (const t of titles) {
-        const cand = { ...t, title: clean(t.title) };
+      const shot = p.out;
+      const named = (shot.items || []).filter((t) => t.is_thing);
+      const found = named.filter((t) => KEPT_ROLES.has(t.role));
+      for (const t of named) if (!KEPT_ROLES.has(t.role)) report.push({ name: s.name, title: clean(t.title), outcome: `skipped (${t.role})` });
+      entry.outcome = found.length ? 'parsed' : 'no-titles';
+      entry.kind = shot.kind;
+      for (const t of found) {
+        const cand = { ...t, title: clean(t.title), type: canonicalType(t.type) };
         if (cand.title.length < 2 || (cand.confidence ?? 0) < 0.3) continue;   // model itself says "not a title"
-        if (cand.category === 'software_app_or_ai_tool') { cand.type = 'software'; cand.is_anime = false; }
-        if (cand.type === 'software' && cand.category === 'media_work') cand.category = 'software_app_or_ai_tool';
-        if (cand.category && !['media_work', 'software_app_or_ai_tool'].includes(cand.category)) { report.push({ name: s.name, title: cand.title, outcome: `skipped (${cand.category})` }); continue; }
+        if (cand.type !== 'anime') cand.format = null;
         const famKey = `${family(cand.type)}:${titleKey(cand.title)}`;
         if (dismissed.has(famKey)) { report.push({ name: s.name, title: cand.title, outcome: 'previously-dismissed' }); continue; }
         const dup = findDuplicate(index, cand);
         if (dup) { report.push({ name: s.name, title: cand.title, outcome: `duplicate of ${dup}` }); entry.ids.push(dup); continue; }
-        cand.context = [p.out.source_context, cand.why].filter(Boolean).join(' — ');
+        cand.context = [shot.source_context, cand.why].filter(Boolean).join(' — ');
         index.set(famKey, '(pending)');   // reserve before any await so parallel shots can't add the same title twice
         const e = await enrich(cand);
         const exact = !!e && e.typeOk && exactTitle(e.title, cand.title);
+        const matched = !!e && e.typeOk;
         const title = e?.title && exact ? clean(e.title) : cand.title;
         const id = uniqueId(title, taken, e?.year || cand.year);
         taken.add(id);   // claim the id before the poster download await
         let poster = e ? await savePoster([e.posterUrl, e.posterFallback], id) : '';
         let art = null;
-        if (!poster) {   // deeper hunt (adult titles too: the art is stored, but they stay hidden in the Inbox): AniList/MAL/alt titles, book & web-novel sites, itch, official sites
-          const h = await huntArt({ ...cand, tags: cand.genres }, openai);
+        if (!poster && (LEGACY_TYPES.has(cand.type) || cand.type === 'anime' || cand.type === 'manga')) {
+          /* deeper hunt (adult titles too: the art is stored, but they stay hidden in the Inbox): AniList/MAL/alt titles, book & web-novel sites, itch, official sites */
+          const h = await huntArt({ ...cand, type: cand.type === 'manga' ? 'book' : lookupType(cand), is_anime: cand.type === 'anime', tags: cand.genres }, openai);
           entry.usd += h.cost;
           if (h.found) { poster = await savePoster([h.found.image, h.found.image2, h.found.image3], id); if (poster) art = h.found; }
           if (art?.adult) cand.adult = true;   // AniList/MAL 18+ flag: keep hidden
         }
-        /* Adam's rule: has cover art => straight onto the list; no art yet => Inbox.
-           Adult/explicit always waits in the (owner-only) Inbox because the list is public. */
-        const status = cand.adult ? 'inbox' : (poster ? 'todo' : 'inbox');
-        const tags = [...new Set([...(cand.is_anime ? ['Anime'] : []), ...((e?.genres?.length ? e.genres : cand.genres) || [])])].slice(0, 4);
-        const { who, ctx } = privacyScrub(cand, [p.out.source_context, cand.why].filter(Boolean).join(' — '));
+        const status = decideStatusV2(cand, { poster, matched });
+        const tags = [...new Set([...((e?.genres?.length ? e.genres : cand.genres) || [])])].slice(0, 4);
+        const { who, ctx } = privacyScrub(cand, [shot.source_context, cand.why].filter(Boolean).join(' — '));
+        const extra = {};
+        for (const k of EXTRA_FIELDS) if (e && e[k] !== undefined && e[k] !== '' && e[k] !== null && e[k] !== false) extra[k] = e[k];
         const item = normalizeItem({
           id, title, type: cand.type, year: e?.year || cand.year || null,
-          blurb: e?.blurb || '', summary: e?.summary || '', poster, link: e?.link || '',
+          blurb: e?.blurb || '', summary: e?.summary || '', poster, link: e?.link || pageUrl(cand) || fallbackLink(cand, shot.app),
           status, tags, rating: null, notes: '', added: today(),
           source: 'screenshot', source_context: ctx, recommended_by: who,
           ai_confidence: Math.round((cand.confidence || 0) * 100) / 100,
           enriched_via: e?.via || '', match_ok: exact, screenshot: s.sha.slice(0, 12),
           ...(cand.adult ? { adult: true } : {}),
-          ...(e?.author || cand.creator && cand.type === 'book' ? { author: e?.author || cand.creator } : {}),
+          ...(cand.type === 'anime' ? { format: cand.format || e?.format || 'series' } : e?.format ? { format: e.format } : {}),
+          ...(e?.author || cand.creator ? { author: e?.author || cand.creator } : {}),
           ...(e?.tmdb_id || art?.tmdb_id ? { tmdb_id: e?.tmdb_id || art.tmdb_id } : {}),
           ...(art ? { art_via: art.source, ...(e?.link ? {} : { link: art.link }) } : {}),
           ...(e?.steam_appid ? { steam_appid: e.steam_appid } : {}),
-        }).item;   // current data shape: anime/repo types, one spelling per tag
+          /* what the screenshot itself said */
+          ...(clean(cand.quote) ? { quote: clean(cand.quote).slice(0, 240) } : {}),
+          ...(cand.availability ? { availability: clean(cand.availability).slice(0, 80) } : {}),
+          ...(cand.price ? { price: clean(cand.price).slice(0, 40) } : {}),
+          ...(e?.location || cand.location ? { location: clean(e?.location || cand.location).slice(0, 160) } : {}),
+          ...(cand.season_episode ? { season_episode: clean(cand.season_episode).slice(0, 20) } : {}),
+          ...(shot.intent && shot.intent !== 'unclear' ? { intent: shot.intent } : {}),
+          ...extra,
+        }).item;   // current data shape: one spelling per tag
         /* poster QA: same-title collisions (remake vs original, same-name films, movie vs series).
            The screenshot's year/context decides; unclear cases wait in the Inbox. */
         if (family(item.type) === 'screen' && process.env.TMDB_READ_TOKEN) {
@@ -700,12 +703,12 @@ async function processShot(s) {
         for (const k of workKeys(item)) if (!workIndex.has(k)) workIndex.set(k, id);
         entry.ids.push(id);
         ledger.totals[item.status === 'todo' ? 'added' : 'inbox']++;
-        report.push({ name: s.name, title, type: item.type, year: item.year, outcome: item.status + (item.qa ? ` (qa ${item.qa})` : ''), conf: item.ai_confidence, via: item.enriched_via || 'none', poster: !!poster, context: ctx });
+        report.push({ name: s.name, title, type: item.type, year: item.year, outcome: item.status + (item.qa ? ` (qa ${item.qa})` : ''), conf: item.ai_confidence, via: item.enriched_via || 'none', poster: !!poster, context: ctx, item });
       }
       ledger.totals.media++;
       if (entry.ids.length) await keepShot(s.sha, p.image);
     } else {
-      report.push({ name: s.name, outcome: 'not-media' });
+      report.push({ name: s.name, outcome: 'not-media', kind: tri.kind, note });
     }
   } catch (err) {
     console.warn('error on', s.name || s.sha.slice(0, 12), String(err).slice(0, 200));
@@ -750,4 +753,4 @@ if (!DRY) {
 writeFileSync(join(HERE, '.last-report.json'), JSON.stringify({ runUsd, report }, null, 2));
 const n = shots.length || 1;
 console.log(JSON.stringify({ processed: shots.length, runUsd: Math.round(runUsd * 1e5) / 1e5, perShotUsd: Math.round((runUsd / n) * 1e5) / 1e5 }));
-for (const r of report) console.log(' -', r.outcome.padEnd(18), r.title ? `${r.title} (${r.type || ''} ${r.year || ''}) conf=${r.conf ?? ''} via=${r.via ?? ''}` : (r.name || ''));
+for (const r of report) console.log(' -', r.outcome.padEnd(18), r.title ? `${r.title} (${r.type || ''} ${r.year || ''}) conf=${r.conf ?? ''} via=${r.via ?? ''}` : `${r.name || ''}${r.kind ? `  [${r.kind}] ${r.note || ''}` : ''}`);

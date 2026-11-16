@@ -91,6 +91,16 @@ export function listPages(items = loadItems()) {
 
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
 
+/* The last screenshots the pipeline read and what became of each, for the inbox log.
+   Only the outcome and the kind of screenshot: never a description of it. */
+export function recentShots(limit = 40) {
+  try {
+    const shots = JSON.parse(read('scripts/ingest/ledger.json')).shots || {};
+    return Object.entries(shots).map(([sha, s]) => ({ at: s.at, outcome: s.outcome, kind: s.kind || '', ids: s.ids || [], shot: sha.slice(0, 12) }))
+      .sort((a, b) => String(b.at).localeCompare(String(a.at))).slice(0, limit);
+  } catch { return []; }
+}
+
 /* Totals from the ingest ledger, shown on /pipeline/. */
 function pipelineFacts() {
   try {
@@ -195,6 +205,7 @@ export function build({ out = join(ROOT, '_site'), posters = true } = {}) {
   const data = buildData(items);
   writeFileSync(join(out, 'data.min.json'), data);
   writeFileSync(join(out, 'upcoming.ics'), buildCalendar(items));
+  writeFileSync(join(out, 'ingest.json'), JSON.stringify(recentShots()));
   writeFileSync(join(out, 'sw.js'), renderServiceWorker(pages, version));
   writeFileSync(join(out, 'version.json'), JSON.stringify({ sha: gitSha(), assets: version, items: items.length, deployed_at: new Date().toISOString() }) + '\n');
   writeFileSync(join(out, '.nojekyll'), '');

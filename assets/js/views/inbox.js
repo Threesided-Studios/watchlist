@@ -127,10 +127,30 @@ export function renderInbox(root, { requestUnlock }) {
   }
 
   const recent = applySort(state.items.filter((it) => it.source === 'screenshot' && it.status !== 'inbox' && it.status !== 'dismissed' && (state.owner || !it.adult)), 'added-desc').slice(0, 24);
-  root.replaceChildren(head, bulk,
+  /* what happened to the last screenshots sent, so a missing title can be traced */
+  const log = el('section', { class: 'shelf' });
+  const KIND = { media_page_or_poster: 'title page or poster', recommendation_thread: 'recommendation thread', list_or_ranking: 'list or ranking', store_or_product_page: 'store page',
+    software_or_repo: 'software or repo', audio: 'music or podcast', video: 'video', place_or_map: 'place or map', food_or_recipe: 'food or recipe', article_or_post: 'article or post',
+    private_chat: 'chat', receipt_or_finance: 'receipt or finance', personal_photo: 'personal photo', meme_or_joke: 'meme', system_or_app_ui: 'app or system screen', other: 'other' };
+  fetch('/ingest.json', { cache: 'no-store' }).then((r) => (r.ok ? r.json() : [])).then((shots) => {
+    if (!shots.length) return;
+    const row = (s) => {
+      const found = s.ids.map((id) => state.byId.get(id)).filter(Boolean);
+      const what = s.outcome === 'parsed' ? (found.length ? found.map((it) => el('a', { href: `#item=${encodeURIComponent(it.id)}`, text: it.title })) : ['already on the list'])
+        : [s.outcome === 'error' ? 'could not be read' : `nothing to save${s.kind ? ` (${KIND[s.kind] || s.kind})` : ''}`];
+      return el('li', { class: `log-row log-${s.outcome}` },
+        el('time', { text: new Date(s.at).toLocaleString([], { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' }) }),
+        el('span', { class: 'log-what' }, what.flatMap((w, i) => (i ? [', ', w] : [w]))));
+    };
+    log.append(el('header', { class: 'shelf-head' }, el('h2', { class: 'shelf-title', text: 'Recent screenshots' }), el('span', { class: 'shelf-note', text: 'what each one became' })),
+      el('ul', { class: 'log' }, shots.map(row)));
+  }).catch(() => {});
+
+  root.replaceChildren(...[head, bulk,
     pending.length ? list : emptyState('✨', 'Nothing to review.', 'New screenshot finds show up here.'),
     recent.length ? el('section', { class: 'shelf' }, el('header', { class: 'shelf-head' }, el('h2', { class: 'shelf-title', text: 'Recently added from screenshots' })),
-      el('div', { class: 'shelf-row' }, recent.map((it) => card(it, { showType: true, context: true })))) : null);
+      el('div', { class: 'shelf-row' }, recent.map((it) => card(it, { showType: true, context: true })))) : null,
+    state.owner ? log : null].filter(Boolean));
   if (pending.length) focusRow(0);
   document.getElementById('count').textContent = `${pending.length} to review`;
 

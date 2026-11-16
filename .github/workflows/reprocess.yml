@@ -1,0 +1,42 @@
+name: Reprocess skipped screenshots
+
+# Clears the "already seen" records for recent screenshots that produced
+# nothing, so they can be sent from the phone again and re-read (for example
+# after the reader learns new categories). See scripts/ingest/reprocess.mjs.
+on:
+  workflow_dispatch:
+    inputs:
+      days:
+        description: "How many days back"
+        default: "16"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: screenshot-ingest
+  cancel-in-progress: false
+
+jobs:
+  reprocess:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Forget skipped screenshots
+        working-directory: scripts/ingest
+        env:
+          WATCHLIST_QUEUE_KEY: ${{ secrets.WATCHLIST_QUEUE_KEY }}
+        run: node reprocess.mjs --days "${{ inputs.days || '16' }}"
+      - name: Commit ledger
+        run: |
+          git add scripts/ingest/ledger.json
+          if git diff --cached --quiet; then echo "Nothing to forget."; exit 0; fi
+          git config user.name "watchlist-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Forget skipped screenshots so they can be re-read [skip ci]"
+          for i in 1 2 3; do if git pull --rebase -q && git push; then exit 0; fi; sleep 5; done
+          exit 1
