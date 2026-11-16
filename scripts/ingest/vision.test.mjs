@@ -32,7 +32,7 @@ test('offline screenshot reaches classification and strict JSON parsing without 
         assert.equal(b.response_format.json_schema.schema.additionalProperties, false);
         const image = b.messages[1].content.find(x => x.type === 'image_url').image_url;
         const meta = await sharp(Buffer.from(image.url.split(',')[1], 'base64')).metadata();
-        assert.equal(meta.width, calls === 0 ? 384 : 1200);   // parse asks for 1536 but never enlarges
+        assert.equal(meta.width, calls === 0 ? 512 : 1200);   // parse asks for 1536 but never enlarges
         assert.equal(image.detail, calls === 0 ? 'low' : 'high');
         calls++;
         const out = calls === 1 ? {worth_saving: true, kind: 'other', note: 'synthetic'} : {kind:'other', app:'', description:'synthetic', source_context:'synthetic', intent:'unclear', items:[]};

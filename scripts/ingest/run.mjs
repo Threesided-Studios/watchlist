@@ -608,7 +608,10 @@ async function processShot(s) {
   try {
     const tri = await triageShot(bytes);
     entry.usd += tri.cost;
-    entry.kind = tri.kind; entry.note = clean(tri.note).slice(0, 140);   // why a skipped screenshot was skipped
+    /* The ledger and the Action log are public, so only the kind of screenshot is recorded,
+       never a description of it: a skipped screenshot may be a private chat or a receipt. */
+    entry.kind = tri.kind;
+    const note = LOCAL ? clean(tri.note).slice(0, 140) : '';
     if (tri.worth_saving) {
       const p = await parseShot(bytes);
       entry.usd += p.cost;
@@ -617,7 +620,7 @@ async function processShot(s) {
       const found = named.filter((t) => KEPT_ROLES.has(t.role));
       for (const t of named) if (!KEPT_ROLES.has(t.role)) report.push({ name: s.name, title: clean(t.title), outcome: `skipped (${t.role})` });
       entry.outcome = found.length ? 'parsed' : 'no-titles';
-      entry.kind = shot.kind; entry.note = clean(shot.description).slice(0, 140);
+      entry.kind = shot.kind;
       for (const t of found) {
         const cand = { ...t, title: clean(t.title), type: canonicalType(t.type) };
         if (cand.title.length < 2 || (cand.confidence ?? 0) < 0.3) continue;   // model itself says "not a title"
@@ -705,7 +708,7 @@ async function processShot(s) {
       ledger.totals.media++;
       if (entry.ids.length) await keepShot(s.sha, p.image);
     } else {
-      report.push({ name: s.name, outcome: 'not-media', kind: tri.kind, note: entry.note });
+      report.push({ name: s.name, outcome: 'not-media', kind: tri.kind, note });
     }
   } catch (err) {
     console.warn('error on', s.name || s.sha.slice(0, 12), String(err).slice(0, 200));

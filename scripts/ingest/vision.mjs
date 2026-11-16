@@ -9,7 +9,7 @@
  */
 import { CATEGORIES } from '../../shared/taxonomy.js';
 
-export const TRIAGE_WIDTH = 384;
+export const TRIAGE_WIDTH = 512;
 export const PARSE_WIDTH = 1536;
 
 export const SHOT_KINDS = ['media_page_or_poster', 'recommendation_thread', 'list_or_ranking', 'store_or_product_page', 'software_or_repo', 'audio', 'video',
@@ -30,6 +30,7 @@ export const TRIAGE_PROMPT = [
   'That means a named: movie, TV show, anime, manga or comic, book, video game, board game, app or AI tool, code repository, podcast, album/artist/song, YouTube video or channel, restaurant/bar/shop/venue/travel spot, recipe, product to buy, or article to read.',
   'It can appear as a poster or cover, a store, streaming or map page, a list, or a post, thread or chat recommending it.',
   'Answer worth_saving=false for: receipts, banking, settings and system screens, calendars, navigation in progress, personal photos, memes with no named thing, and chats that name nothing specific.',
+  'Text is small at this size. A discussion thread, comment section, list, search results or group chat that could plausibly contain recommendations counts as worth saving even when you cannot read the names: answer true and let the closer read decide.',
   'If unsure, answer true.',
 ].join(' ');
 

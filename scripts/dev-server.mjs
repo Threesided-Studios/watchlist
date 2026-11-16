@@ -7,7 +7,7 @@
 import { createServer } from 'node:http';
 import { readFileSync, existsSync, statSync } from 'node:fs';
 import { join, extname, normalize } from 'node:path';
-import { ROOT, loadItems, listPages, renderPage, buildData, renderServiceWorker } from './build-site.mjs';
+import { ROOT, loadItems, listPages, renderPage, buildData, renderServiceWorker, recentShots, buildCalendar } from './build-site.mjs';
 
 const PORT = Number(process.argv[process.argv.indexOf('--port') + 1]) || 8765;
 const TYPES = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8',
@@ -19,6 +19,8 @@ createServer((req, res) => {
   try {
     const path = decodeURIComponent(new URL(req.url, 'http://x').pathname);
     if (path === '/data.min.json') return send(200, buildData(), TYPES['.json']);
+    if (path === '/ingest.json') return send(200, JSON.stringify(recentShots()), TYPES['.json']);
+    if (path === '/upcoming.ics') return send(200, buildCalendar(loadItems()), 'text/calendar');
     if (path === '/version.json') return send(200, JSON.stringify({ sha: 'dev', assets: 'dev' }), TYPES['.json']);
     const items = loadItems();
     const pages = listPages(items);
