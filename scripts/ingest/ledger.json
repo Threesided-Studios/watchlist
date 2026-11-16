@@ -4395,12 +4395,6 @@
    ],
    "usd": 0.002039
   },
-  "b5fd3bdcd3093e1718e0396937b2d819ee86c13b7ab5f44331048c29435cf607": {
-   "at": "2026-10-31T13:50:57.303Z",
-   "outcome": "not-media",
-   "ids": [],
-   "usd": 0.000034
-  },
   "3f50e442eff469ac53d792cdf2b4215e66d307b486d7eadd9d8518b1f13b3c3c": {
    "at": "2026-10-31T13:50:57.245Z",
    "outcome": "parsed",
@@ -4433,24 +4427,6 @@
    ],
    "usd": 0.002426
   },
-  "c90e698c96da438761eccf3760234f88673a0e3742226ff7ad36dcbd98410416": {
-   "at": "2026-10-31T13:51:02.627Z",
-   "outcome": "not-media",
-   "ids": [],
-   "usd": 0.000034
-  },
-  "6c6f8de9ef6ed4d1fef772aa2544243a1443f25ff4243ab97f8f90ed15e06483": {
-   "at": "2026-10-31T13:51:02.811Z",
-   "outcome": "not-media",
-   "ids": [],
-   "usd": 0.000034
-  },
-  "581826cd86b821a8b2274d065243d5ea2487cfaf48479ae2601de92f6f347d0e": {
-   "at": "2026-10-31T13:51:03.672Z",
-   "outcome": "not-media",
-   "ids": [],
-   "usd": 0.000034
-  },
   "be3a0aaa068d1159a7b7313558261519056961a6786e3350b42b28ab6a728063": {
    "at": "2026-10-31T13:51:04.115Z",
    "outcome": "parsed",
@@ -4467,12 +4443,6 @@
    ],
    "usd": 0.000441
   },
-  "5b06e21310b01890493f43fbbfb80577db011aac0ef7e6d9476a1817b9990a92": {
-   "at": "2026-10-31T13:51:08.104Z",
-   "outcome": "not-media",
-   "ids": [],
-   "usd": 0.000034
-  },
   "105fddf06a87f0c4d825643f12e218c49f3b079a5c61021b0b2e3b91b733bedd": {
    "at": "2026-10-31T13:51:03.469Z",
    "outcome": "parsed",
@@ -4480,36 +4450,6 @@
     "stranger-things"
    ],
    "usd": 0.000555
-  },
-  "c41e921325c49142f90b2e8af7b5c042d3038d476929815cfee8aac21b6c5d29": {
-   "at": "2026-10-31T13:51:07.968Z",
-   "outcome": "not-media",
-   "ids": [],
-   "usd": 0.000034
-  },
-  "811fedd2159f266743809ad7d054e8557c75c415376793718c2174c61a93ff29": {
-   "at": "2026-10-31T13:51:08.943Z",
-   "outcome": "not-media",
-   "ids": [],
-   "usd": 0.000034
-  },
-  "90656c64487b61b7d013fa5b98c2a63f7af7ccf1b2285cd20629312360e745fa": {
-   "at": "2026-10-31T13:51:09.025Z",
-   "outcome": "not-media",
-   "ids": [],
-   "usd": 0.000034
-  },
-  "04a38f361037de290a13bccff76a03432bea8e9b43dc51e409ab66ba4a6b5bef": {
-   "at": "2026-10-31T13:51:09.851Z",
-   "outcome": "not-media",
-   "ids": [],
-   "usd": 0.000034
-  },
-  "e225dabc5b17fa900f59dbc9aee721e8d890aa0decedd8492c389a268d8413a9": {
-   "at": "2026-10-31T13:51:10.348Z",
-   "outcome": "not-media",
-   "ids": [],
-   "usd": 0.000034
   },
   "f35431376c6a30c4d3ccbc5b2884a237e89cac745c9a41fe9c76272725ef0706": {
    "at": "2026-10-31T13:51:11.396Z",
@@ -4526,12 +4466,6 @@
     "ntr-kishi"
    ],
    "usd": 0.002022
-  },
-  "5e7d13f50780f3b37b691af20e23ee945b92da1f2f1d491693f3a68c37771393": {
-   "at": "2026-10-31T13:51:15.317Z",
-   "outcome": "not-media",
-   "ids": [],
-   "usd": 0.000034
   },
   "7b602d22f3f3bec09c5ad04372fc451edd786f2048b1f8569b421c52bd0f0490": {
    "at": "2026-10-31T13:51:02.728Z",
@@ -4566,18 +4500,6 @@
     "in-your-eyes"
    ],
    "usd": 0.000561
-  },
-  "2c7381dba5263e64e805521f10308e73e38c395c3e2376792e44d3741550a687": {
-   "at": "2026-10-31T22:47:36.810Z",
-   "outcome": "not-media",
-   "ids": [],
-   "usd": 0.000034
-  },
-  "a37ff40b35228d5bba60b5cdfb05554f8bf43933419eb3f0a17474a5c4714170": {
-   "at": "2026-10-31T22:47:36.821Z",
-   "outcome": "not-media",
-   "ids": [],
-   "usd": 0.000034
   },
   "5593ebafcff86bbcedae89456122dab22c955d45b3de880bad902d7b77bb4943": {
    "at": "2026-10-31T22:47:36.835Z",
@@ -4675,12 +4597,6 @@
    ],
    "usd": 0.000225
   },
-  "bb2244aa9fafa4a7218ef1255ad682f94924a11a19b81b47fe3f0a399d9bee43": {
-   "at": "2026-11-01T09:40:54.157Z",
-   "outcome": "not-media",
-   "ids": [],
-   "usd": 0.000034
-  },
   "fac9f0b501336b04729221c27cbd152f971401f5eead08f19404e67e974f4c44": {
    "at": "2026-11-01T09:40:54.425Z",
    "outcome": "parsed",
@@ -4701,30 +4617,6 @@
    ],
    "usd": 0.003588
   },
-  "c5dc02177c27d1cdc6e7831cee39621bb5c2ca23a43a169987e52ca340a8f483": {
-   "at": "2026-11-01T16:24:14.135Z",
-   "outcome": "not-media",
-   "ids": [],
-   "usd": 0.000034
-  },
-  "c6509e02445595ba5fe02c25270f8fbd6a673f10e8770609fe117fdd22b70257": {
-   "at": "2026-11-01T16:24:14.174Z",
-   "outcome": "not-media",
-   "ids": [],
-   "usd": 0.000034
-  },
-  "824277ee4b3577276029d3426e1a358bb73c44ae67c89d74d79f518804b0e6d6": {
-   "at": "2026-11-01T16:24:14.409Z",
-   "outcome": "not-media",
-   "ids": [],
-   "usd": 0.000034
-  },
-  "4cc4ffa86179d1bc01e113be3ab8ef7f5326687ab2fdc8085aca325f35d1c901": {
-   "at": "2026-11-01T16:24:14.103Z",
-   "outcome": "no-titles",
-   "ids": [],
-   "usd": 0.000407
-  },
   "81c8a01824edd8478a240ee77f924eb9bdab40f1aa8e3d5f29fd5666bf3a4b0f": {
    "at": "2026-11-03T01:46:28.065Z",
    "outcome": "parsed",
@@ -4732,18 +4624,6 @@
     "the-quest"
    ],
    "usd": 0.000571
-  },
-  "c5386b634a2d7ec217db3c0a8f2a698ca37a56b9857d5fd8a269644681d26008": {
-   "at": "2026-11-04T03:14:36.050Z",
-   "outcome": "not-media",
-   "ids": [],
-   "usd": 0.000034
-  },
-  "a6739dc60e743348aa6907e5151f38ccb4f0b7fb8c638cca34acf7eb89c035ac": {
-   "at": "2026-11-04T03:14:36.311Z",
-   "outcome": "not-media",
-   "ids": [],
-   "usd": 0.000034
   },
   "5ba6331eb19f72db191316e88fa6d7a7dd00e14cd62be63d77bfc0d07e76f8f3": {
    "at": "2026-11-04T03:14:38.560Z",
@@ -4801,12 +4681,6 @@
    ],
    "usd": 0.00054
   },
-  "e28f254d30647623343998d28fd361e4188687ff7ed1cc40f6cbd50c034d90d4": {
-   "at": "2026-11-04T03:14:47.843Z",
-   "outcome": "not-media",
-   "ids": [],
-   "usd": 0.000034
-  },
   "687022b237b7e1266092ccdbc9a454e92990ad805c6abd4c77294f3107214b0c": {
    "at": "2026-11-04T03:14:46.324Z",
    "outcome": "parsed",
@@ -4839,18 +4713,6 @@
     "neon-genesis-evangelion"
    ],
    "usd": 0.000487
-  },
-  "21a2b40ae7d0596183d625e56318f5aee2d2d1528b2ae833ae8457349cf9b0bd": {
-   "at": "2026-11-04T11:31:57.733Z",
-   "outcome": "not-media",
-   "ids": [],
-   "usd": 0.000034
-  },
-  "4ef8f6d2e2e612ad0482c92821ff93b0685190b35314ce169f0a0eb19d25c69f": {
-   "at": "2026-11-05T15:46:56.351Z",
-   "outcome": "not-media",
-   "ids": [],
-   "usd": 0.000028
   },
   "4a8edd242af5c1f749a361fcf889e2f6f74a2c9d093ad7d35543e6085dfcd18e": {
    "at": "2026-11-05T15:46:56.637Z",
@@ -4904,36 +4766,6 @@
    ],
    "usd": 0.000355
   },
-  "e9014cf43e73506b129f1d1fbc2ec83227b5e68db91ce4b313db84353335cce2": {
-   "at": "2026-11-08T06:39:45.540Z",
-   "outcome": "not-media",
-   "ids": [],
-   "usd": 0.00004
-  },
-  "52d6e38cd1432c07f87d401776171712b1a57a89bf6ac76a12571096825ed8d9": {
-   "at": "2026-11-08T06:39:45.575Z",
-   "outcome": "not-media",
-   "ids": [],
-   "usd": 0.00004
-  },
-  "3353738bd97e244030c22c7bfef5308e314bcb59317a4b84685c3aae3165bb4a": {
-   "at": "2026-11-08T13:51:34.532Z",
-   "outcome": "not-media",
-   "ids": [],
-   "usd": 0.000042
-  },
-  "6f17021583f261fafb31ce5e4f0dff59c43a5228d3e15e20f4ebfa577847c84d": {
-   "at": "2026-11-08T13:51:34.507Z",
-   "outcome": "not-media",
-   "ids": [],
-   "usd": 0.000042
-  },
-  "6d7299111ca2aecf8d931efe0892c3fe056b80de45e0781c1ac2944278191af4": {
-   "at": "2026-11-08T13:51:37.042Z",
-   "outcome": "not-media",
-   "ids": [],
-   "usd": 0.000042
-  },
   "c3d6ba4865579146f1cc39910edc7e274784af60fa1849d2dabb179629062bf1": {
    "at": "2026-11-08T13:51:34.690Z",
    "outcome": "parsed",
@@ -4943,12 +4775,6 @@
     "elf"
    ],
    "usd": 0.000627
-  },
-  "fc5f6ba1e56d2153a2b873340e3d6fa72b7f66b97880f16f3d448c74f3a17738": {
-   "at": "2026-11-08T13:51:44.244Z",
-   "outcome": "not-media",
-   "ids": [],
-   "usd": 0.000042
   },
   "aeec025910ab3a0e4838b06f94c438de4b6f9452d34653557e54d80403d3a103": {
    "at": "2026-11-08T13:51:38.467Z",
@@ -4965,12 +4791,6 @@
     "opentoonz"
    ],
    "usd": 0.004179
-  },
-  "40d788eb63a1efe57b233e64111b1bbbcad938f4ad565deb85256a768e926fa3": {
-   "at": "2026-11-08T13:51:48.648Z",
-   "outcome": "not-media",
-   "ids": [],
-   "usd": 0.000042
   },
   "bc9a46145d61dc369396c839c99f9bb69b1bbab3bfe559a4f01c01388bb4d16b": {
    "at": "2026-11-08T13:51:45.454Z",
@@ -4996,78 +4816,6 @@
    ],
    "usd": 0.003292
   },
-  "f5f68fd038afd4f02a03e30b02706c0da79fc35aab094ea1ef4eb77b237d7c1b": {
-   "at": "2026-11-08T13:51:50.485Z",
-   "outcome": "not-media",
-   "ids": [],
-   "usd": 0.000042
-  },
-  "bc9e08304979cc4da341f3a0bb7a21052672d4267c6796531fac3d7c2ee8fc64": {
-   "at": "2026-11-10T04:19:59.752Z",
-   "outcome": "not-media",
-   "ids": [],
-   "usd": 0.00004
-  },
-  "40f9cbd7e1e8c02a81ea0fb55fd3ae047f512088c1b231b0c5dddc0928f350f1": {
-   "at": "2026-11-10T04:19:59.367Z",
-   "outcome": "not-media",
-   "ids": [],
-   "usd": 0.00004
-  },
-  "c152381d04cc9e3d675c3082111fafadc02ea2ae7415435261c9bf833b4f403f": {
-   "at": "2026-11-10T04:19:59.422Z",
-   "outcome": "not-media",
-   "ids": [],
-   "usd": 0.00004
-  },
-  "88d5584c45a2adf4227e7f35de465caa9b5aae9430872bae5d382b97b0060aa5": {
-   "at": "2026-11-10T04:19:59.508Z",
-   "outcome": "no-titles",
-   "ids": [],
-   "usd": 0.000326
-  },
-  "62ca716c7ee5b86972964125e09618f3ced536ebeade7ed058adee3286e2ff6f": {
-   "at": "2026-11-10T12:56:57.695Z",
-   "outcome": "not-media",
-   "ids": [],
-   "usd": 0.000042
-  },
-  "e6a1e60ed5e07f60bca9a1b7063c3f20b011f4e46c60210c77b670f794e2c2ab": {
-   "at": "2026-11-10T12:56:57.395Z",
-   "outcome": "not-media",
-   "ids": [],
-   "usd": 0.00004
-  },
-  "f1fcbff38899cdcbe807196a815e76a2424205667880ae26177b0dbbe7a7c7eb": {
-   "at": "2026-11-11T16:34:13.781Z",
-   "outcome": "not-media",
-   "ids": [],
-   "usd": 0.00004
-  },
-  "f49657908bf0378db659c3f8afa151202a7e5adba5aa0828ff2c41d9acf7cf3e": {
-   "at": "2026-11-11T16:34:13.690Z",
-   "outcome": "not-media",
-   "ids": [],
-   "usd": 0.00004
-  },
-  "a0c99666cabff27ec2bc0b7b3751db611d3da77cf4b119685f3b24c46f541d9c": {
-   "at": "2026-11-11T16:34:16.056Z",
-   "outcome": "not-media",
-   "ids": [],
-   "usd": 0.00004
-  },
-  "231d28526740e9308eb2b5aecc805c4a6171cb73cb36c21579c9705f466f5d63": {
-   "at": "2026-11-11T16:34:17.189Z",
-   "outcome": "not-media",
-   "ids": [],
-   "usd": 0.00004
-  },
-  "4f9f3514b6e0b3259e283b323b714a473896add99809257a1c8df53dc7886bda": {
-   "at": "2026-11-11T16:34:17.890Z",
-   "outcome": "not-media",
-   "ids": [],
-   "usd": 0.00004
-  },
   "c5dd639d9f7429e1a3f540c73a7fb26fea4ba5cfca46bf3da6e63788e553c11a": {
    "at": "2026-11-11T16:34:13.459Z",
    "outcome": "parsed",
@@ -5075,18 +4823,6 @@
     "oh-boy-was-i-wrong-about-her"
    ],
    "usd": 0.000364
-  },
-  "8ef4a8453e4b57b609004ba7bcf9bf3e94e39a0419e2964dc9902dc11fb08541": {
-   "at": "2026-11-11T16:34:20.021Z",
-   "outcome": "not-media",
-   "ids": [],
-   "usd": 0.00004
-  },
-  "57e3bb1c3346c6d36a9c272a4828a3bf8cd9a68ba9220d82ab3f10a3fd6d8f55": {
-   "at": "2026-11-11T16:34:19.490Z",
-   "outcome": "not-media",
-   "ids": [],
-   "usd": 0.00004
   },
   "07f3befe066c6eb3125eedcfedf0bafd6502e44f15cc5b56e1005df320bd02b4": {
    "at": "2026-11-11T16:34:13.414Z",
@@ -5096,12 +4832,6 @@
    ],
    "usd": 0.004032
   },
-  "845031af60ed4858167ef53bac79b388d1fd769dc7639e9985c28a18622d06c8": {
-   "at": "2026-11-13T23:51:04.650Z",
-   "outcome": "not-media",
-   "ids": [],
-   "usd": 0.00004
-  },
   "ca5df87c8fa4e99b1936eea44a8c5602e0d492eada9afe5c61153346a4d89321": {
    "at": "2026-11-13T23:51:05.024Z",
    "outcome": "parsed",
@@ -5109,12 +4839,6 @@
     "screatures"
    ],
    "usd": 0.000357
-  },
-  "2e9813cf52ee71892185f5ef0f26a9bab57f0cae1e94aef20cd99f914964faed": {
-   "at": "2026-11-14T06:58:46.302Z",
-   "outcome": "not-media",
-   "ids": [],
-   "usd": 0.00004
   },
   "3477f43ae8f256fe3c671de564ed8e34d5dcd22392f368a9de94bca9add06421": {
    "at": "2026-11-14T14:28:17.057Z",
@@ -5185,30 +4909,6 @@
    ],
    "usd": 0.004374
   },
-  "e5b56bef5f051704da92c73dc44e4caca7e4af62b965e339c3ab2159999397a4": {
-   "at": "2026-11-15T17:57:51.490Z",
-   "outcome": "not-media",
-   "ids": [],
-   "usd": 0.00004
-  },
-  "49200eb62421e950ba5ca15115a62bc37f68c7982e6de8f798adb9c4844c0282": {
-   "at": "2026-11-15T17:57:51.254Z",
-   "outcome": "not-media",
-   "ids": [],
-   "usd": 0.00004
-  },
-  "176208ec122ccf5a67e13b26bcc8b42fac3260544f42c8665716e4be38ef6926": {
-   "at": "2026-11-15T17:57:53.592Z",
-   "outcome": "not-media",
-   "ids": [],
-   "usd": 0.00004
-  },
-  "5896ea7bdc5759393208b56d66ebaf82645530fd841155f6815b86c7bc5745a6": {
-   "at": "2026-11-15T17:57:53.725Z",
-   "outcome": "not-media",
-   "ids": [],
-   "usd": 0.00004
-  },
   "9b07853c7dbe5d4877ff097e94fa50da0a042307767535e46064d52b6c68dc3d": {
    "at": "2026-11-15T17:57:51.213Z",
    "outcome": "parsed",
@@ -5217,24 +4917,6 @@
     "the-qwaser-of-stigmata"
    ],
    "usd": 0.000399
-  },
-  "3f924100cf6b51f5f37b69b61af3421ea7bbd81d39757741507399c10c26f10c": {
-   "at": "2026-11-15T17:57:55.105Z",
-   "outcome": "not-media",
-   "ids": [],
-   "usd": 0.00004
-  },
-  "e03a1ad4e8ad54cfee3730e6d2cdbd4fc44201090f10915881fc75837a61c7f4": {
-   "at": "2026-11-15T17:57:55.991Z",
-   "outcome": "not-media",
-   "ids": [],
-   "usd": 0.00004
-  },
-  "919b3bc345b286f5c7d98ab349d7437e0ffa21b9be633fefa3b9020f64e5bf7f": {
-   "at": "2026-11-15T17:57:56.597Z",
-   "outcome": "not-media",
-   "ids": [],
-   "usd": 0.00004
   },
   "068469a9f10e7c69c7aba45febef0b29ebfa2e497c71451c27c84707542a993e": {
    "at": "2026-11-15T17:57:51.191Z",
@@ -5245,36 +4927,6 @@
    ],
    "usd": 0.002384
   },
-  "ab695c8be4b283c15d2970ca8bc0304948d4cee8ef77bb3b2e6cd044a3a2113a": {
-   "at": "2026-11-15T17:57:58.163Z",
-   "outcome": "not-media",
-   "ids": [],
-   "usd": 0.00004
-  },
-  "b74b0e36f64b513251bf827c3c6a4aa05441d38e54a357a37357613769c07c7f": {
-   "at": "2026-11-15T17:57:58.294Z",
-   "outcome": "not-media",
-   "ids": [],
-   "usd": 0.00004
-  },
-  "973b91f64f947f898eca035374767cea34ea1707ec5a30d2019445a32fa0107b": {
-   "at": "2026-11-15T17:57:59.021Z",
-   "outcome": "not-media",
-   "ids": [],
-   "usd": 0.00004
-  },
-  "d8225d917f7952acf5de061fb03e2d932fe947e19d09b6bbbcabe03f8ba3e4d2": {
-   "at": "2026-11-15T17:57:59.662Z",
-   "outcome": "not-media",
-   "ids": [],
-   "usd": 0.00004
-  },
-  "b09140c0f3bb32791389b697e69397978d925de1d29d5529cee51c3ac94809ca": {
-   "at": "2026-11-15T17:58:00.089Z",
-   "outcome": "not-media",
-   "ids": [],
-   "usd": 0.00004
-  },
   "fdad877953806a8153a1342cb70602d81a95995aa8e50eb23c91d98ab12649a3": {
    "at": "2026-11-15T17:57:59.575Z",
    "outcome": "parsed",
@@ -5282,18 +4934,6 @@
     "amagi-brilliant-park"
    ],
    "usd": 0.000359
-  },
-  "77d2b22bc205e6c27ed40b2e071cdbb6a73383692375b85e4fd43e9b28a8fd2e": {
-   "at": "2026-11-15T17:58:01.448Z",
-   "outcome": "not-media",
-   "ids": [],
-   "usd": 0.00004
-  },
-  "05d932640fbd5df79c3d8182ddf8497aaf083b9117d67b71b60b3f3edbfc0f0a": {
-   "at": "2026-11-15T17:58:02.444Z",
-   "outcome": "not-media",
-   "ids": [],
-   "usd": 0.000034
   },
   "5f9814404ef378f27b59423bed66b86507974fc603d0a20b10f9a9588ebcbca8": {
    "at": "2026-11-15T17:58:00.565Z",
@@ -5372,7 +5012,7 @@
   "book:wolf"
  ],
  "totals": {
-  "shots": 693,
+  "shots": 633,
   "media": 346,
   "added": 384,
   "inbox": 189,
