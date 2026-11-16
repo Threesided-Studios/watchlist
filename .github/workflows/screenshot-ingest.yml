@@ -78,6 +78,23 @@ jobs:
         env:
           WATCHLIST_QUEUE_KEY: ${{ secrets.WATCHLIST_QUEUE_KEY }}
         run: node run.mjs --ack
+      # Runs every time, not only after a commit, so a missed or failed deploy
+      # heals itself on the next run instead of leaving the site stale.
+      - name: Deploy if the live site is behind main
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          head=$(git ls-remote origin refs/heads/main | cut -f1)
+          live=$(curl -fsS -m 20 "https://watch.threesided.com/version.json?t=$(date +%s)" \
+            | python3 -c 'import json,sys; print(json.load(sys.stdin)["sha"])' 2>/dev/null || true)
+          echo "main=$head live=${live:-unknown}"
+          if [ -n "$head" ] && [ "$head" != "$live" ]; then
+            gh workflow run pages.yml --repo "${{ github.repository }}" --ref main
+            echo "Started a site deploy."
+          else
+            echo "Live site is current."
+          fi
       - name: Keepalive (GitHub disables idle schedules after 60 days)
         if: always()
         env:

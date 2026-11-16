@@ -12,6 +12,7 @@ on:
 
 permissions:
   contents: write
+  actions: write              # start the site deploy after committing
 
 concurrency:
   group: airtable-pull
@@ -33,6 +34,8 @@ jobs:
           AIRTABLE_TABLE: ${{ secrets.AIRTABLE_TABLE }}
         run: python3 scripts/airtable_pull.py
       - name: Commit changes (if any)
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           git add data.json scripts/airtable_snapshot.json
           if git diff --cached --quiet; then
@@ -42,4 +45,5 @@ jobs:
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git commit -m "Pull edits from Airtable [skip ci]"
             git push
+            gh workflow run pages.yml --repo "${{ github.repository }}" --ref main
           fi
