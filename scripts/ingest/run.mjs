@@ -21,7 +21,7 @@ import { completionBody } from './openai-request.mjs';
 import { titleKey, family, tmdbKind, lookupType, setScreenKind, placeKey, buildIndex, findDuplicate, uniqueId, costOf, decideStatus } from './lib.mjs';
 import { normalizeItem } from '../../shared/normalize.js';
 import { canonicalType } from '../../shared/taxonomy.js';
-import { TRIAGE_WIDTH, PARSE_WIDTH, TRIAGE_SCHEMA, TRIAGE_SYSTEM, TRIAGE_PROMPT, PARSE_SCHEMA, PARSE_SYSTEM, PARSE_PROMPT, KEPT_ROLES, decideStatusV2, needsSecondRead } from './vision.mjs';
+import { TRIAGE_WIDTH, PARSE_WIDTH, TRIAGE_SCHEMA, TRIAGE_SYSTEM, TRIAGE_PROMPT, PARSE_SCHEMA, PARSE_SYSTEM, PARSE_PROMPT, KEPT_ROLES, decideStatusV2, needsSecondRead, strongFirst, dropSelfNamed } from './vision.mjs';
 import { EXTRA_CHAINS, EXTRA_FIELDS, pageUrl, fallbackLink } from './enrich-extra.mjs';
 import { geocode } from '../geocode-places.mjs';
 
@@ -119,9 +119,9 @@ async function triageShot(img) {
   return { ...out, cost };
 }
 
-const stats = { parsed: 0, escalated: 0 };   // how often the strong model was needed
+const stats = { parsed: 0, strongFirst: 0, escalated: 0 };   // how often the strong model was needed, and why
 /* Pass 2: everything the screenshot names, typed against the taxonomy. */
-async function parseShot(img) {
+async function parseShot(img, triageKind = '') {
   const big = await sharp(img).rotate().resize({ width: PARSE_WIDTH, withoutEnlargement: true }).jpeg({ quality: 82 }).toBuffer();
   const ask = (model) => openai(model, [
     { role: 'system', content: PARSE_SYSTEM },
@@ -130,13 +130,21 @@ async function parseShot(img) {
       { type: 'image_url', image_url: { url: dataUrl(big), detail: 'high' } },
     ] },
   ], PARSE_SCHEMA, 2400);
-  let res = await ask(PARSE_MODEL);
-  /* cheap read first; the strong model only re-reads what the cheap one was unsure about */
-  if (PARSE_STRONG_MODEL && PARSE_STRONG_MODEL !== PARSE_MODEL && needsSecondRead(res.out)) {
-    const second = await ask(PARSE_STRONG_MODEL);
-    res = { ...second, cost: res.cost + second.cost, escalated: true };
-    stats.escalated++;
+  /* which model reads what: see vision.mjs (strongFirst, needsSecondRead) */
+  const twoModels = PARSE_STRONG_MODEL && PARSE_STRONG_MODEL !== PARSE_MODEL;
+  let res;
+  if (twoModels && strongFirst(triageKind)) {
+    res = await ask(PARSE_STRONG_MODEL); stats.strongFirst++;
+  } else {
+    res = await ask(PARSE_MODEL);
+    res.out = dropSelfNamed(res.out);
+    if (twoModels && needsSecondRead(res.out)) {
+      const second = await ask(PARSE_STRONG_MODEL);
+      res = { ...second, cost: res.cost + second.cost };
+      stats.escalated++;
+    }
   }
+  res.out = dropSelfNamed(res.out);
   stats.parsed++;
   /* the kept copy is smaller than what the model read: it only has to be legible to a person */
   const keep = await sharp(img).rotate().resize({ width: 1024, withoutEnlargement: true }).jpeg({ quality: 78 }).toBuffer();
@@ -623,7 +631,7 @@ async function processShot(s) {
     entry.kind = tri.kind;
     const note = LOCAL ? clean(tri.note).slice(0, 140) : '';
     if (tri.worth_saving) {
-      const p = await parseShot(bytes);
+      const p = await parseShot(bytes, tri.kind);
       entry.usd += p.cost;
       const shot = p.out;
       const named = (shot.items || []).filter((t) => t.is_thing);
@@ -764,5 +772,5 @@ if (!DRY) {
 }
 writeFileSync(join(HERE, '.last-report.json'), JSON.stringify({ runUsd, report }, null, 2));
 const n = shots.length || 1;
-console.log(JSON.stringify({ processed: shots.length, runUsd: Math.round(runUsd * 1e5) / 1e5, perShotUsd: Math.round((runUsd / n) * 1e5) / 1e5, closeReads: stats.parsed, secondReads: stats.escalated }));
+console.log(JSON.stringify({ processed: shots.length, runUsd: Math.round(runUsd * 1e5) / 1e5, perShotUsd: Math.round((runUsd / n) * 1e5) / 1e5, closeReads: stats.parsed, strongDirect: stats.strongFirst, strongSecondRead: stats.escalated }));
 for (const r of report) console.log(' -', r.outcome.padEnd(18), r.title ? `${r.title} (${r.type || ''} ${r.year || ''}) conf=${r.conf ?? ''} via=${r.via ?? ''}` : `${r.name || ''}${r.kind ? `  [${r.kind}] ${r.note || ''}` : ''}`);

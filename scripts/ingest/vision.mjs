@@ -12,11 +12,32 @@ import { CATEGORIES } from '../../shared/taxonomy.js';
 export const TRIAGE_WIDTH = 512;
 export const PARSE_WIDTH = 1280;
 
-/* A first read is trusted unless it says it is unsure: a kept item below this
-   confidence, or one it marked ambiguous, sends the screenshot to the strong model. */
+/* Which model reads a screenshot. The cheap model is confidently wrong often enough that its
+   own confidence cannot be the only signal, so the rules below do not rely on it alone.
+
+   1. Text-dense screenshots (threads, lists, chats, articles) go straight to the strong model:
+      small text and many names are exactly where the cheap one misses things.
+   2. Everything else is read by the cheap model first, and re-read by the strong one when
+        - it kept nothing, although triage said there was something to save, or
+        - it is unsure of something it would keep (low confidence, or marked ambiguous). */
+export const DENSE_KINDS = new Set(['recommendation_thread', 'list_or_ranking', 'private_chat', 'article_or_post']);
+export const strongFirst = (triageKind) => DENSE_KINDS.has(triageKind);
 export const ESCALATE_BELOW = 0.75;
+
+const nameKey = (s) => String(s || '').toLowerCase().replace(/[^a-z0-9]+/g, '');
+/* The cheap model sometimes lists the site a screenshot is from as the thing to save
+   ("Goodreads" on a Goodreads book page). Drop an item that is just the app's own name,
+   unless the page really is about that app (a store or repo page for it). */
+export function dropSelfNamed(out) {
+  const app = nameKey(out?.app);
+  if (!app || !Array.isArray(out?.items)) return out;
+  const aboutTheApp = out.kind === 'software_or_repo' || out.kind === 'store_or_product_page';
+  return { ...out, items: out.items.filter((t) => !(nameKey(t.title) === app && !(aboutTheApp && out.items.length === 1))) };
+}
+export const keptItems = (out) => (out?.items || []).filter((t) => t.is_thing && KEPT_ROLES.has(t.role));
 export function needsSecondRead(out) {
-  const kept = (out?.items || []).filter((t) => t.is_thing && KEPT_ROLES.has(t.role));
+  const kept = keptItems(out);
+  if (!kept.length) return true;
   return kept.some((t) => (t.confidence ?? 0) < ESCALATE_BELOW || t.evidence === 'ambiguous');
 }
 
