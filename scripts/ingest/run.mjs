@@ -18,7 +18,7 @@ import { fileURLToPath } from 'node:url';
 import sharp from 'sharp';
 import { CLASSIFY_MODEL, PARSE_MODEL } from './models.mjs';
 import { completionBody } from './openai-request.mjs';
-import { titleKey, family, tmdbKind, lookupType, setScreenKind, buildIndex, findDuplicate, uniqueId, costOf, decideStatus } from './lib.mjs';
+import { titleKey, family, tmdbKind, lookupType, setScreenKind, placeKey, buildIndex, findDuplicate, uniqueId, costOf, decideStatus } from './lib.mjs';
 import { normalizeItem } from '../../shared/normalize.js';
 import { canonicalType } from '../../shared/taxonomy.js';
 import { TRIAGE_WIDTH, PARSE_WIDTH, TRIAGE_SCHEMA, TRIAGE_SYSTEM, TRIAGE_PROMPT, PARSE_SCHEMA, PARSE_SYSTEM, PARSE_PROMPT, KEPT_ROLES, decideStatusV2 } from './vision.mjs';
@@ -584,6 +584,9 @@ const workKeys = (it) => {
   if (/store\.steampowered\.com\/app\/\d+|themoviedb\.org\/(movie|tv)\/\d+|openlibrary\.org\/works\/|apps\.apple\.com\/.*\/id\d+|anilist\.co\/|myanimelist\.net\//.test(link)) k.push(`link:${link.replace(/^https?:\/\/(www\.)?/, '')}`);
   if (it.tmdb_id) k.push(`tmdb:${tmdbKind(it)}:${it.tmdb_id}`);
   if (it.spotify_id) k.push(`spotify:${it.spotify_id}`);
+  /* the same spot under two spellings ("Wigglin Out Indoor Playground" / "Wigglin’ Out") shares its coordinates */
+  if (it.type === 'place' && placeKey(it.title)) k.push(`place:${placeKey(it.title)}`);
+  if (it.type === 'place' && it.lat && it.lon) k.push(`geo:${Number(it.lat).toFixed(4)},${Number(it.lon).toFixed(4)}`);
   if (it.repo_url) k.push(`repo:${String(it.repo_url).toLowerCase().replace(/\/+$/, '')}`);
   if (it.steam_appid) k.push(`steam:${it.steam_appid}`);
   if (it.title) k.push(`${family(it.type)}:${titleKey(it.title)}`);

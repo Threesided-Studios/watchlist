@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { titleKey, buildIndex, findDuplicate, uniqueId, decideStatus, costOf, lookupType, setScreenKind, tmdbKind } from './lib.mjs';
+import { placeKey, titleKey, buildIndex, findDuplicate, uniqueId, decideStatus, costOf, lookupType, setScreenKind, tmdbKind } from './lib.mjs';
 
 test('titleKey normalises articles, years and punctuation', () => {
   assert.equal(titleKey('The Killing'), 'killing');
@@ -34,6 +34,13 @@ test('anime keeps its type when a TMDB kind is recorded', () => {
   const show = { type: 'movie' };
   setScreenKind(show, 'tv');
   assert.equal(show.type, 'show');
+});
+
+test('placeKey joins loose spellings of one place and refuses thin names', () => {
+  assert.equal(placeKey('Black Label Burgers'), placeKey('Black Label Burger Company'));
+  assert.equal(placeKey('Wigglin Out Indoor Playground'), placeKey('Wigglin’ Out'));
+  assert.notEqual(placeKey('The Hat'), placeKey('The Habit Burger Grill'));
+  assert.equal(placeKey('The Bar'), null);
 });
 
 test('dismissed items do not block nor match', () => {
