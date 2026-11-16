@@ -5538,7 +5538,14 @@
   "screen:top-mecha-girl-assassin",
   "software:gpt",
   "software:gemini",
-  "book:wolf"
+  "book:wolf",
+  "article:creative-testing-benchmarks",
+  "tool:gpt-6-astra",
+  "tool:blender-mcp",
+  "article:tailscale-oauth-apps-user-identity-device-provisioning",
+  "tool:deepseek-creator-mode",
+  "tool:unreal-engine",
+  "game:ecsaf-orm"
  ],
  "totals": {
   "shots": 693,
