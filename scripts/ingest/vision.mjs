@@ -10,7 +10,15 @@
 import { CATEGORIES } from '../../shared/taxonomy.js';
 
 export const TRIAGE_WIDTH = 512;
-export const PARSE_WIDTH = 1536;
+export const PARSE_WIDTH = 1280;
+
+/* A first read is trusted unless it says it is unsure: a kept item below this
+   confidence, or one it marked ambiguous, sends the screenshot to the strong model. */
+export const ESCALATE_BELOW = 0.75;
+export function needsSecondRead(out) {
+  const kept = (out?.items || []).filter((t) => t.is_thing && KEPT_ROLES.has(t.role));
+  return kept.some((t) => (t.confidence ?? 0) < ESCALATE_BELOW || t.evidence === 'ambiguous');
+}
 
 export const SHOT_KINDS = ['media_page_or_poster', 'recommendation_thread', 'list_or_ranking', 'store_or_product_page', 'software_or_repo', 'audio', 'video',
   'place_or_map', 'food_or_recipe', 'article_or_post', 'private_chat', 'receipt_or_finance', 'personal_photo', 'meme_or_joke', 'system_or_app_ui', 'other'];

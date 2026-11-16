@@ -27,7 +27,7 @@ test('offline screenshot reaches classification and strict JSON parsing without 
       globalThis.fetch = async (url, init) => {
         assert.equal(url, 'https://api.openai.com/v1/chat/completions');
         const b = JSON.parse(init.body);
-        assert.equal(b.model, calls === 0 ? 'gpt-6-luna' : 'gpt-6-sol');
+        assert.equal(b.model, 'gpt-6-luna');   // an empty, confident read never reaches the strong model
         assert.equal(b.reasoning_effort, 'none');
         assert.equal(b.response_format.json_schema.strict, true);
         assert.equal(b.response_format.json_schema.schema.additionalProperties, false);

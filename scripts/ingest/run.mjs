@@ -16,12 +16,12 @@ import { createHash } from 'node:crypto';
 import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import sharp from 'sharp';
-import { CLASSIFY_MODEL, PARSE_MODEL } from './models.mjs';
+import { CLASSIFY_MODEL, PARSE_MODEL, PARSE_STRONG_MODEL } from './models.mjs';
 import { completionBody } from './openai-request.mjs';
 import { titleKey, family, tmdbKind, lookupType, setScreenKind, placeKey, buildIndex, findDuplicate, uniqueId, costOf, decideStatus } from './lib.mjs';
 import { normalizeItem } from '../../shared/normalize.js';
 import { canonicalType } from '../../shared/taxonomy.js';
-import { TRIAGE_WIDTH, PARSE_WIDTH, TRIAGE_SCHEMA, TRIAGE_SYSTEM, TRIAGE_PROMPT, PARSE_SCHEMA, PARSE_SYSTEM, PARSE_PROMPT, KEPT_ROLES, decideStatusV2 } from './vision.mjs';
+import { TRIAGE_WIDTH, PARSE_WIDTH, TRIAGE_SCHEMA, TRIAGE_SYSTEM, TRIAGE_PROMPT, PARSE_SCHEMA, PARSE_SYSTEM, PARSE_PROMPT, KEPT_ROLES, decideStatusV2, needsSecondRead } from './vision.mjs';
 import { EXTRA_CHAINS, EXTRA_FIELDS, pageUrl, fallbackLink } from './enrich-extra.mjs';
 import { geocode } from '../geocode-places.mjs';
 
@@ -119,16 +119,25 @@ async function triageShot(img) {
   return { ...out, cost };
 }
 
+const stats = { parsed: 0, escalated: 0 };   // how often the strong model was needed
 /* Pass 2: everything the screenshot names, typed against the taxonomy. */
 async function parseShot(img) {
   const big = await sharp(img).rotate().resize({ width: PARSE_WIDTH, withoutEnlargement: true }).jpeg({ quality: 82 }).toBuffer();
-  const res = await openai(PARSE_MODEL, [
+  const ask = (model) => openai(model, [
     { role: 'system', content: PARSE_SYSTEM },
     { role: 'user', content: [
       { type: 'text', text: PARSE_PROMPT },
       { type: 'image_url', image_url: { url: dataUrl(big), detail: 'high' } },
     ] },
   ], PARSE_SCHEMA, 2400);
+  let res = await ask(PARSE_MODEL);
+  /* cheap read first; the strong model only re-reads what the cheap one was unsure about */
+  if (PARSE_STRONG_MODEL && PARSE_STRONG_MODEL !== PARSE_MODEL && needsSecondRead(res.out)) {
+    const second = await ask(PARSE_STRONG_MODEL);
+    res = { ...second, cost: res.cost + second.cost, escalated: true };
+    stats.escalated++;
+  }
+  stats.parsed++;
   /* the kept copy is smaller than what the model read: it only has to be legible to a person */
   const keep = await sharp(img).rotate().resize({ width: 1024, withoutEnlargement: true }).jpeg({ quality: 78 }).toBuffer();
   return { ...res, image: keep };
@@ -755,5 +764,5 @@ if (!DRY) {
 }
 writeFileSync(join(HERE, '.last-report.json'), JSON.stringify({ runUsd, report }, null, 2));
 const n = shots.length || 1;
-console.log(JSON.stringify({ processed: shots.length, runUsd: Math.round(runUsd * 1e5) / 1e5, perShotUsd: Math.round((runUsd / n) * 1e5) / 1e5 }));
+console.log(JSON.stringify({ processed: shots.length, runUsd: Math.round(runUsd * 1e5) / 1e5, perShotUsd: Math.round((runUsd / n) * 1e5) / 1e5, closeReads: stats.parsed, secondReads: stats.escalated }));
 for (const r of report) console.log(' -', r.outcome.padEnd(18), r.title ? `${r.title} (${r.type || ''} ${r.year || ''}) conf=${r.conf ?? ''} via=${r.via ?? ''}` : `${r.name || ''}${r.kind ? `  [${r.kind}] ${r.note || ''}` : ''}`);
