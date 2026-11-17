@@ -74075,5 +74075,30 @@
     "quote": "She is already his wife, overpowered, bubbly, and learning to love him one homemade meal at a time.",
     "availability": "mochi.to",
     "intent": "recommendation"
+  },
+  {
+    "id": "cleanyour-tv",
+    "title": "CleanYour.tv",
+    "type": "software",
+    "year": null,
+    "blurb": "",
+    "summary": "",
+    "poster": "posters/cleanyour-tv.jpg",
+    "link": "https://cleanyourtv.com/",
+    "status": "todo",
+    "tags": [],
+    "rating": null,
+    "notes": "",
+    "added": "2026-11-17",
+    "source": "screenshot",
+    "source_context": "Instagram post by @forgoodcode: “Feel free to add to the list” — Recommended as a tool to remove bloatware, ads, unwanted apps, and tracking.",
+    "recommended_by": "forgoodcode",
+    "ai_confidence": 0.91,
+    "enriched_via": "",
+    "match_ok": false,
+    "screenshot": "70c7a63f88ad",
+    "art_via": "official site",
+    "quote": "It removed all bloatware, all adds, all unwanted apps and functions I don't need. It also removes tracking.",
+    "intent": "recommendation"
   }
 ]

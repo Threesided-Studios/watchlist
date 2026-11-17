@@ -5540,6 +5540,24 @@
    ],
    "usd": 0.016609,
    "kind": "list_or_ranking"
+  },
+  "33d9c8c600271cde697a43cae3d6e23a3d14fc4336cc6307fc5a6771c748f1dd": {
+   "at": "2026-11-17T12:17:22.374Z",
+   "outcome": "parsed",
+   "ids": [
+    "opentoonz"
+   ],
+   "usd": 0.000681,
+   "kind": "software_or_repo"
+  },
+  "70c7a63f88ad5e4289d1eb361e6f94419a7ec56c34e5a33c4cf0bc7ff524774c": {
+   "at": "2026-11-17T12:17:22.688Z",
+   "outcome": "parsed",
+   "ids": [
+    "cleanyour-tv"
+   ],
+   "usd": 0.00446,
+   "kind": "software_or_repo"
   }
  },
  "dismissed": [
@@ -5607,10 +5625,10 @@
   "game:ecsaf-orm"
  ],
  "totals": {
-  "shots": 699,
-  "media": 409,
-  "added": 429,
+  "shots": 701,
+  "media": 411,
+  "added": 430,
   "inbox": 210,
-  "usd": 1.846551
+  "usd": 1.851692
  }
 }
