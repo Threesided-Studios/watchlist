@@ -5490,6 +5490,56 @@
    ],
    "usd": 0.000622,
    "kind": "media_page_or_poster"
+  },
+  "3a062b9c9fefb0f91e12e109cdef4b7267185f8b8ceeee9365fa3c021acfbc25": {
+   "at": "2026-11-17T12:05:30.578Z",
+   "outcome": "parsed",
+   "ids": [
+    "i-reincarnated-as-a-trash-demon",
+    "dungeon-master"
+   ],
+   "usd": 0.003993,
+   "kind": "recommendation_thread"
+  },
+  "f8bf9c6a6e4a305e43b546e9a57810e201f62f479145c03c53c0bbeea527c420": {
+   "at": "2026-11-17T12:05:52.770Z",
+   "outcome": "parsed",
+   "ids": [
+    "dandelion",
+    "last-man"
+   ],
+   "usd": 0.000894,
+   "kind": "recommendation_thread"
+  },
+  "24e2d0c7f1d7140b51512486fd58f6a4ecda9a7872ee350c64b1bc108ab7b8c2": {
+   "at": "2026-11-17T12:05:30.891Z",
+   "outcome": "parsed",
+   "ids": [
+    "god-slayer",
+    "i-was-the-weakest-hero"
+   ],
+   "usd": 0.017114,
+   "kind": "list_or_ranking"
+  },
+  "d221745574206e4ecbbc6093313b24b8fc7842aa0043652c7b444c65f7362e1c": {
+   "at": "2026-11-17T12:05:30.784Z",
+   "outcome": "parsed",
+   "ids": [
+    "reincarnated-into-harem-game",
+    "i-ll-rule-hell-s-academy"
+   ],
+   "usd": 0.01687,
+   "kind": "list_or_ranking"
+  },
+  "86422e00afa02de2e4ac8d1129893596be0f8af5d6aa4e26727eb7fefef7f0bd": {
+   "at": "2026-11-17T12:05:30.542Z",
+   "outcome": "parsed",
+   "ids": [
+    "every-monster-thinks-i-m-their-landlord",
+    "my-demon-wife-can-t-be-this-cute"
+   ],
+   "usd": 0.016609,
+   "kind": "list_or_ranking"
   }
  },
  "dismissed": [
@@ -5557,10 +5607,10 @@
   "game:ecsaf-orm"
  ],
  "totals": {
-  "shots": 694,
-  "media": 404,
-  "added": 425,
-  "inbox": 204,
-  "usd": 1.791071
+  "shots": 699,
+  "media": 409,
+  "added": 429,
+  "inbox": 210,
+  "usd": 1.846551
  }
 }
