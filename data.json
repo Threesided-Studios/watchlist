@@ -74100,5 +74100,31 @@
     "art_via": "official site",
     "quote": "It removed all bloatware, all adds, all unwanted apps and functions I don't need. It also removes tracking.",
     "intent": "recommendation"
+  },
+  {
+    "id": "gods-eye",
+    "title": "Gods Eye",
+    "type": "show",
+    "year": null,
+    "blurb": "",
+    "summary": "",
+    "poster": "",
+    "link": "",
+    "status": "inbox",
+    "tags": [],
+    "rating": null,
+    "notes": "",
+    "added": "2026-11-17",
+    "source": "screenshot",
+    "source_context": "Instagram comments: “Series Name: GODS EYE Watch it on Trimz” — The pinned comment identifies the series and says to watch it on Trimz.",
+    "recommended_by": "stoicstic",
+    "ai_confidence": 0.88,
+    "enriched_via": "",
+    "match_ok": false,
+    "screenshot": "650505fec786",
+    "quote": "Watch it on Trimz",
+    "availability": "Trimz",
+    "season_episode": "Episode 1",
+    "intent": "recommendation"
   }
 ]

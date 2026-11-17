@@ -5558,6 +5558,24 @@
    ],
    "usd": 0.00446,
    "kind": "software_or_repo"
+  },
+  "02480c8e001e5263c329bbcb3004b7fe4af0ce9c85840d6f32ac3b2f4c79b7a1": {
+   "at": "2026-11-17T12:32:22.764Z",
+   "outcome": "parsed",
+   "ids": [
+    "fantastic-planet"
+   ],
+   "usd": 0.000628,
+   "kind": "recommendation_thread"
+  },
+  "650505fec7865ff0fc2c3cec773a0ff3bf3dff7cee43923a2efe47ab3b095312": {
+   "at": "2026-11-17T12:32:22.749Z",
+   "outcome": "parsed",
+   "ids": [
+    "gods-eye"
+   ],
+   "usd": 0.002524,
+   "kind": "video"
   }
  },
  "dismissed": [
@@ -5625,10 +5643,10 @@
   "game:ecsaf-orm"
  ],
  "totals": {
-  "shots": 701,
-  "media": 411,
+  "shots": 703,
+  "media": 413,
   "added": 430,
-  "inbox": 210,
-  "usd": 1.851692
+  "inbox": 211,
+  "usd": 1.854844
  }
 }
