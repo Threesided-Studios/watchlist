@@ -73748,5 +73748,34 @@
     "notes": "",
     "rating": null,
     "added": "2026-11-16"
+  },
+  {
+    "id": "stella-deus-the-gate-of-eternity",
+    "title": "Stella Deus: The Gate of Eternity",
+    "type": "game",
+    "year": 2004,
+    "blurb": "Stella Deus: The Gate of Eternity is a 2004 tactical role-playing game co-developed by Atlus and Pinegrow for the PlayStation 2.",
+    "summary": "Stella Deus: The Gate of Eternity is a 2004 tactical role-playing game co-developed by Atlus and Pinegrow for the PlayStation 2. It was published in Japan and North America by Atlus, and in Europe by 505 Games. The gameplay, which is similar to that of Hoshigami: Ruining Blue Earth, has the player controlling six characters through story-driven tactical missions, revolving around positioning, assigned equipment, and the special skills of individual characters. The story focuses on Spero, a young man who is caught in the middle of a growing conflict between various religious factions, which in turn are being spurred by the advance of the Miasma, a force that will destroy all life.",
+    "poster": "posters/stella-deus-the-gate-of-eternity.jpg",
+    "link": "https://en.wikipedia.org/wiki/Stella_Deus%3A_The_Gate_of_Eternity",
+    "status": "todo",
+    "tags": [
+      "strategy RPG",
+      "tactical RPG",
+      "Fantasy"
+    ],
+    "rating": null,
+    "notes": "",
+    "added": "2026-11-17",
+    "source": "screenshot",
+    "source_context": "Described as a memorable PS2 strategy RPG with isometric tactical battles.",
+    "recommended_by": "",
+    "ai_confidence": 0.99,
+    "enriched_via": "Wikipedia",
+    "match_ok": true,
+    "screenshot": "f14b6aa4ff7e",
+    "quote": "this is a memorable PS2 strategy RPG for fans of the genre.",
+    "availability": "PlayStation 2",
+    "intent": "recommendation"
   }
 ]

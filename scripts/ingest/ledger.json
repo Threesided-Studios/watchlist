@@ -5481,6 +5481,15 @@
    ],
    "usd": 0.010928,
    "kind": "software_or_repo"
+  },
+  "f14b6aa4ff7ee25cdac1ff123d0743c522e2092d14d0f94514ac33c27848e881": {
+   "at": "2026-11-17T00:13:46.349Z",
+   "outcome": "parsed",
+   "ids": [
+    "stella-deus-the-gate-of-eternity"
+   ],
+   "usd": 0.000622,
+   "kind": "media_page_or_poster"
   }
  },
  "dismissed": [
@@ -5548,10 +5557,10 @@
   "game:ecsaf-orm"
  ],
  "totals": {
-  "shots": 693,
-  "media": 403,
-  "added": 424,
+  "shots": 694,
+  "media": 404,
+  "added": 425,
   "inbox": 204,
-  "usd": 1.790449
+  "usd": 1.791071
  }
 }
