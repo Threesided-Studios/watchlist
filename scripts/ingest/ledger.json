@@ -5576,6 +5576,15 @@
    ],
    "usd": 0.002524,
    "kind": "video"
+  },
+  "42d6ac635323b4a3e4eeb9480ef39c467d796fc96d3579df2ae41cdbb0fd97bf": {
+   "at": "2026-11-17T12:36:49.351Z",
+   "outcome": "parsed",
+   "ids": [
+    "berserk-of-gluttony"
+   ],
+   "usd": 0.000616,
+   "kind": "media_page_or_poster"
   }
  },
  "dismissed": [
@@ -5643,10 +5652,10 @@
   "game:ecsaf-orm"
  ],
  "totals": {
-  "shots": 703,
-  "media": 413,
+  "shots": 704,
+  "media": 414,
   "added": 430,
   "inbox": 211,
-  "usd": 1.854844
+  "usd": 1.85546
  }
 }
