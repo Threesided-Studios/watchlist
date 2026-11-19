@@ -5628,6 +5628,42 @@
    ],
    "usd": 0.000603,
    "kind": "video"
+  },
+  "739b82fe777425fc95be4e1a7464eae4937b68037f4a8ef4920cbc87d3ab288d": {
+   "at": "2026-11-19T22:56:02.976Z",
+   "outcome": "parsed",
+   "ids": [
+    "the-shiunji-family-children"
+   ],
+   "usd": 0.010571,
+   "kind": "recommendation_thread"
+  },
+  "a1aaa66ed75c33f0b3018771cfb4d4fe7eca13ea78a9802ce4e597bd9f610c18": {
+   "at": "2026-11-19T22:56:02.985Z",
+   "outcome": "parsed",
+   "ids": [
+    "the-snow-woman-and-the-cursed-ring"
+   ],
+   "usd": 0.013324,
+   "kind": "video"
+  },
+  "5582bb9b0ece2384ab88914c56b1c4df17a35a8e1c22a055e59e1d07f38677f5": {
+   "at": "2026-11-19T22:56:02.947Z",
+   "outcome": "parsed",
+   "ids": [
+    "shut-up-evil-dragon"
+   ],
+   "usd": 0.011013,
+   "kind": "video"
+  },
+  "8b677a7d707b0606be52ad61c46f6889bda3f068b2181c1238e64b2f97ddeb08": {
+   "at": "2026-11-19T22:56:03.035Z",
+   "outcome": "parsed",
+   "ids": [
+    "netorareta-bakunyuu-tsuma-tachi-2"
+   ],
+   "usd": 0.012196,
+   "kind": "recommendation_thread"
   }
  },
  "dismissed": [
@@ -5695,10 +5731,10 @@
   "game:ecsaf-orm"
  ],
  "totals": {
-  "shots": 709,
-  "media": 418,
-  "added": 432,
-  "inbox": 211,
-  "usd": 1.85797
+  "shots": 713,
+  "media": 422,
+  "added": 435,
+  "inbox": 212,
+  "usd": 1.905074
  }
 }
