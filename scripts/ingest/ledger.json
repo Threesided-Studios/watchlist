@@ -5664,6 +5664,24 @@
    ],
    "usd": 0.012196,
    "kind": "recommendation_thread"
+  },
+  "07595f1649c601454828f32c64db51dcffcef57fe48cb8506447bd87ae220824": {
+   "at": "2026-11-19T22:56:41.374Z",
+   "outcome": "parsed",
+   "ids": [
+    "the-world-s-strongest-rearguard-the-newcomer-in-the-labyrinth"
+   ],
+   "usd": 0.010961,
+   "kind": "recommendation_thread"
+  },
+  "435ab7df1c59c0863f60ebf6dfe0158caee5eadea8319cdde0d98adb8dc4abd9": {
+   "at": "2026-11-19T22:56:41.338Z",
+   "outcome": "parsed",
+   "ids": [
+    "the-seven-heavenly-virtues"
+   ],
+   "usd": 0.000612,
+   "kind": "media_page_or_poster"
   }
  },
  "dismissed": [
@@ -5731,10 +5749,10 @@
   "game:ecsaf-orm"
  ],
  "totals": {
-  "shots": 713,
-  "media": 422,
-  "added": 435,
+  "shots": 715,
+  "media": 424,
+  "added": 436,
   "inbox": 212,
-  "usd": 1.905074
+  "usd": 1.916647
  }
 }

@@ -74288,5 +74288,37 @@
     "format": "series",
     "art_via": "AniList",
     "intent": "recommendation"
+  },
+  {
+    "id": "the-seven-heavenly-virtues",
+    "title": "The Seven Heavenly Virtues",
+    "type": "anime",
+    "year": 2018,
+    "blurb": "Heaven has been thrown into chaos, and in the ashes, seven angels known as the Seven Heavenly Virtues, are sent to Earth to search for a candidate who can become the \"true messiah\".",
+    "summary": "Heaven has been thrown into chaos, and in the ashes, seven angels known as the Seven Heavenly Virtues, are sent to Earth to search for a candidate who can become the \"true messiah\".",
+    "poster": "posters/the-seven-heavenly-virtues.jpg",
+    "link": "https://www.themoviedb.org/tv/76138",
+    "status": "todo",
+    "tags": [
+      "Animation",
+      "Sci-Fi",
+      "Fantasy"
+    ],
+    "rating": null,
+    "notes": "",
+    "added": "2026-11-19",
+    "source": "screenshot",
+    "source_context": "Instagram suggested post by boxtalksanime — Featured anime recommendation; the post lists ecchi and fantasy genres.",
+    "recommended_by": "boxtalksanime",
+    "ai_confidence": 0.94,
+    "enriched_via": "TMDB",
+    "match_ok": true,
+    "screenshot": "435ab7df1c59",
+    "adult": true,
+    "format": "series",
+    "tmdb_id": 76138,
+    "quote": "Anime NOT for Kids, No Censorship (18+...)",
+    "availability": "Other Sites",
+    "intent": "recommendation"
   }
 ]
