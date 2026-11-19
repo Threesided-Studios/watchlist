@@ -5745,6 +5745,42 @@
    ],
    "usd": 0.000613,
    "kind": "video"
+  },
+  "876c76d5d131711294b29b98be4f5342bc3b0246acc6df484dc5fe98aa9ef2d7": {
+   "at": "2026-11-19T23:08:27.764Z",
+   "outcome": "parsed",
+   "ids": [
+    "peter-grill-and-the-philosopher-s-time"
+   ],
+   "usd": 0.000617,
+   "kind": "video"
+  },
+  "e891d2347874ba37053f71cd39a510ab7f2383d9cdca863f672b906d86ae7f1b": {
+   "at": "2026-11-19T23:08:27.891Z",
+   "outcome": "parsed",
+   "ids": [
+    "yamada-s-first-time-b-gata-h-kei"
+   ],
+   "usd": 0.000616,
+   "kind": "video"
+  },
+  "2f5dbb681445aa8095aa7020967990b32f0842e184e678d35bfb18b9f32c7e7a": {
+   "at": "2026-11-19T23:08:27.698Z",
+   "outcome": "parsed",
+   "ids": [
+    "netsuzou-trap-ntr"
+   ],
+   "usd": 0.000621,
+   "kind": "video"
+  },
+  "4440af98832254a486167defe208ed234afdf9fa6907df16c842d025b0b73119": {
+   "at": "2026-11-19T23:08:27.653Z",
+   "outcome": "parsed",
+   "ids": [
+    "my-instant-death-ability-is-so-overpowered-no-one-in-this-other-world-stands-a-chance"
+   ],
+   "usd": 0.003209,
+   "kind": "video"
   }
  },
  "dismissed": [
@@ -5812,10 +5848,10 @@
   "game:ecsaf-orm"
  ],
  "totals": {
-  "shots": 722,
-  "media": 431,
-  "added": 439,
+  "shots": 726,
+  "media": 435,
+  "added": 442,
   "inbox": 212,
-  "usd": 1.92292
+  "usd": 1.927983
  }
 }
