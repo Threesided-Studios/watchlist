@@ -5682,6 +5682,15 @@
    ],
    "usd": 0.000612,
    "kind": "media_page_or_poster"
+  },
+  "9dc6f3309d0bbefb4460aeff9a1a2a1f7adcd022bf2113e8a512beb6a0827779": {
+   "at": "2026-11-19T22:57:15.571Z",
+   "outcome": "parsed",
+   "ids": [
+    "the-seven-heavenly-virtues"
+   ],
+   "usd": 0.000612,
+   "kind": "video"
   }
  },
  "dismissed": [
@@ -5749,10 +5758,10 @@
   "game:ecsaf-orm"
  ],
  "totals": {
-  "shots": 715,
-  "media": 424,
+  "shots": 716,
+  "media": 425,
   "added": 436,
   "inbox": 212,
-  "usd": 1.916647
+  "usd": 1.917259
  }
 }
