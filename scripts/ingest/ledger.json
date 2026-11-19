@@ -5691,6 +5691,60 @@
    ],
    "usd": 0.000612,
    "kind": "video"
+  },
+  "8cb29e02742d560d025b06eadf5b6d7f5a446625bfd2ee440a1735c24878e07d": {
+   "at": "2026-11-19T23:03:33.952Z",
+   "outcome": "parsed",
+   "ids": [
+    "classroom-for-heroes"
+   ],
+   "usd": 0.000611,
+   "kind": "video"
+  },
+  "dea7dbe101b6c71a3541335fe8274a75a55221e795516c6cc3bbdff677664d3c": {
+   "at": "2026-11-19T23:03:33.928Z",
+   "outcome": "parsed",
+   "ids": [
+    "the-brilliant-healer-s-new-life-in-the-shadows"
+   ],
+   "usd": 0.000609,
+   "kind": "video"
+  },
+  "3392ce2ec604aa19475b1a40f84e15775dec8381c0a1c222d510be506acf0ec9": {
+   "at": "2026-11-19T23:03:33.966Z",
+   "outcome": "parsed",
+   "ids": [
+    "in-another-world-with-my-smartphone"
+   ],
+   "usd": 0.000612,
+   "kind": "video"
+  },
+  "9ff9e28fad0e2f71e6a6ec40afae3defe99c18dcad84872a771e09e177cfdda8": {
+   "at": "2026-11-19T23:03:33.890Z",
+   "outcome": "parsed",
+   "ids": [
+    "hitozuma-life-one-time-gal"
+   ],
+   "usd": 0.002605,
+   "kind": "video"
+  },
+  "ced33125d394c4825a26209b9e5e6ce88bc6b292b2bf6eb24a7b608d6f71d6c3": {
+   "at": "2026-11-19T23:03:41.876Z",
+   "outcome": "parsed",
+   "ids": [
+    "farming-life-in-another-world"
+   ],
+   "usd": 0.000611,
+   "kind": "recommendation_thread"
+  },
+  "e105762c5c105410ed7201f287583b70b6d6eec8be926d7acce80c12197c7d45": {
+   "at": "2026-11-19T23:03:41.746Z",
+   "outcome": "parsed",
+   "ids": [
+    "how-a-realist-hero-rebuilt-the-kingdom"
+   ],
+   "usd": 0.000613,
+   "kind": "video"
   }
  },
  "dismissed": [
@@ -5758,10 +5812,10 @@
   "game:ecsaf-orm"
  ],
  "totals": {
-  "shots": 716,
-  "media": 425,
-  "added": 436,
+  "shots": 722,
+  "media": 431,
+  "added": 439,
   "inbox": 212,
-  "usd": 1.917259
+  "usd": 1.92292
  }
 }
