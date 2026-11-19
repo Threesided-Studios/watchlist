@@ -5592,6 +5592,42 @@
    "ids": [],
    "usd": 0.000075,
    "kind": "recommendation_thread"
+  },
+  "4debec8e1820a47974f0ac474853000e2e953dc187e9abed99f827cf6347cf07": {
+   "at": "2026-11-19T22:52:44.677Z",
+   "outcome": "parsed",
+   "ids": [
+    "prison-school"
+   ],
+   "usd": 0.000603,
+   "kind": "media_page_or_poster"
+  },
+  "78e7a52a5c36470fd83ec71ee23455eaeed9338cbecb72209180a0c0dafa720e": {
+   "at": "2026-11-19T22:52:44.642Z",
+   "outcome": "parsed",
+   "ids": [
+    "beheneko-the-elf-girl-s-cat-is-secretly-an-s-ranked-monster"
+   ],
+   "usd": 0.000613,
+   "kind": "media_page_or_poster"
+  },
+  "87d4019f233dabddb4affd7b8a50779fd6bbc4961f25a36542abc955fca8b786": {
+   "at": "2026-11-19T22:52:44.846Z",
+   "outcome": "parsed",
+   "ids": [
+    "hands-off-sawaranaide-kotesashi-kun"
+   ],
+   "usd": 0.000616,
+   "kind": "media_page_or_poster"
+  },
+  "333489a2e8713c4e60ce0ea56b3b65b4a344993cc657291572027434ded65d1b": {
+   "at": "2026-11-19T22:52:45.009Z",
+   "outcome": "parsed",
+   "ids": [
+    "haganai"
+   ],
+   "usd": 0.000603,
+   "kind": "video"
   }
  },
  "dismissed": [
@@ -5659,10 +5695,10 @@
   "game:ecsaf-orm"
  ],
  "totals": {
-  "shots": 705,
-  "media": 414,
-  "added": 430,
+  "shots": 709,
+  "media": 418,
+  "added": 432,
   "inbox": 211,
-  "usd": 1.855535
+  "usd": 1.85797
  }
 }
