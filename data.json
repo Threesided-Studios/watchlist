@@ -53814,7 +53814,7 @@
     "summary": "",
     "poster": "posters/obsidian.jpg",
     "link": "https://obsidian.md/",
-    "status": "todo",
+    "status": "done",
     "tags": [
       "Productivity",
       "Software"
@@ -53829,8 +53829,9 @@
     "enriched_via": "Homebrew",
     "screenshot": "95b682278c97",
     "match_ok": true,
-    "verdict": null,
-    "updated": "2026-11-16"
+    "verdict": "love",
+    "updated": "2026-11-20",
+    "finished": "2026-11-20"
   },
   {
     "id": "black-lagoon",
@@ -71343,7 +71344,8 @@
     "intent": "reference",
     "art_via": "DuckDuckGo Images",
     "finished": "2026-11-20",
-    "updated": "2026-11-20"
+    "updated": "2026-11-20",
+    "verdict": "up"
   },
   {
     "id": "griffin",
@@ -73457,7 +73459,9 @@
     "quote": "After a plane crash he wakes up on a tropical island as the only man among 12 female influencers.",
     "availability": "mochi.tv",
     "intent": "recommendation",
-    "same_title_works": 4
+    "same_title_works": 4,
+    "verdict": "skip",
+    "updated": "2026-11-20"
   },
   {
     "id": "god-slayer",
