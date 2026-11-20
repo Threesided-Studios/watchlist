@@ -5790,6 +5790,15 @@
    ],
    "usd": 0.010922,
    "kind": "article_or_post"
+  },
+  "7fce47ee4d716adfb079bd0318bf84251fd1da8a555ec5296fef060017782321": {
+   "at": "2026-11-20T00:48:12.272Z",
+   "outcome": "parsed",
+   "ids": [
+    "suikoden-woven-web-of-the-centuries"
+   ],
+   "usd": 0.002888,
+   "kind": "article_or_post"
   }
  },
  "dismissed": [
@@ -5857,10 +5866,10 @@
   "game:ecsaf-orm"
  ],
  "totals": {
-  "shots": 727,
-  "media": 436,
+  "shots": 728,
+  "media": 437,
   "added": 443,
-  "inbox": 212,
-  "usd": 1.938905
+  "inbox": 213,
+  "usd": 1.941793
  }
 }

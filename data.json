@@ -74525,5 +74525,32 @@
     "screenshot": "3b9aa20d4aa2",
     "quote": "is a Japanese tactical role-playing game",
     "intent": "recommendation"
+  },
+  {
+    "id": "suikoden-woven-web-of-the-centuries",
+    "title": "Suikoden: Woven Web of the Centuries",
+    "type": "game",
+    "year": null,
+    "blurb": "Suikoden  is a series of role-playing video games developed and published by Konami.",
+    "summary": "Suikoden  is a series of role-playing video games developed and published by Konami. Created by Yoshitaka Murayama, the games are loosely based on the classical Chinese novel Water Margin, whose title is rendered as Suikoden (水滸伝) in Japanese. Each individual game centers on themes of politics, corruption, revolution, mystical crystals known as True Runes, and the \"108 Stars of Destiny\"—the 108 protagonists who are loosely interpreted from the source material.",
+    "poster": "",
+    "link": "https://en.wikipedia.org/wiki/Suikoden",
+    "status": "inbox",
+    "tags": [
+      "Role-Playing"
+    ],
+    "rating": null,
+    "notes": "",
+    "added": "2026-11-20",
+    "source": "screenshot",
+    "source_context": "Instagram post about Suikoden: Woven Web of the Centuries — The post describes the game and its English fan translation.",
+    "recommended_by": "",
+    "ai_confidence": 0.99,
+    "enriched_via": "Wikipedia",
+    "match_ok": false,
+    "screenshot": "7fce47ee4d71",
+    "quote": "this overlooked PSP entry offers a different take on the Suikoden formula.",
+    "availability": "PlayStation Portable",
+    "intent": "recommendation"
   }
 ]
