@@ -5818,6 +5818,29 @@
    ],
    "usd": 0.014047,
    "kind": "recommendation_thread"
+  },
+  "cc18041ca77f26952f82087f22a761ea91500838bb8e39f231bcb67e56346e51": {
+   "at": "2026-11-20T07:18:16.701Z",
+   "outcome": "parsed",
+   "ids": [
+    "the-vampire-lovers",
+    "lust-for-a-vampire",
+    "twins-of-evil",
+    "blood-from-the-mummy-s-tomb"
+   ],
+   "usd": 0.014491,
+   "kind": "recommendation_thread"
+  },
+  "5111f04dbc91e672a1326229d20ae702406369bbc4d1d6da4a040d172175608a": {
+   "at": "2026-11-20T07:18:16.712Z",
+   "outcome": "parsed",
+   "ids": [
+    "pantheon",
+    "black-mirror",
+    "reddit"
+   ],
+   "usd": 0.013169,
+   "kind": "recommendation_thread"
   }
  },
  "dismissed": [
@@ -5907,10 +5930,10 @@
   "screen:phantom-thieves"
  ],
  "totals": {
-  "shots": 730,
-  "media": 439,
-  "added": 445,
+  "shots": 732,
+  "media": 441,
+  "added": 451,
   "inbox": 213,
-  "usd": 1.96621
+  "usd": 1.99387
  }
 }
