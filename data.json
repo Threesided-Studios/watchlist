@@ -258,7 +258,7 @@
     "year": 2022,
     "link": "https://en.wikipedia.org/wiki/Severance_(TV_series)",
     "poster": "posters/reddit.jpg",
-    "status": "todo",
+    "status": "done",
     "tags": [
       "Sci-Fi",
       "Thriller",
@@ -273,7 +273,10 @@
       "Apple TV"
     ],
     "runtime": 80,
-    "airing": true
+    "airing": true,
+    "verdict": "love",
+    "finished": "2026-11-20",
+    "updated": "2026-11-20"
   },
   {
     "id": "synchronic",
@@ -53782,7 +53785,7 @@
     "summary": "",
     "poster": "posters/claude.jpg",
     "link": "https://claude.com/download",
-    "status": "todo",
+    "status": "done",
     "tags": [
       "Productivity",
       "Software"
@@ -53798,8 +53801,9 @@
     "screenshot": "95b682278c97",
     "match_ok": true,
     "art_via": "App Store",
-    "verdict": null,
-    "updated": "2026-11-16"
+    "verdict": "love",
+    "updated": "2026-11-20",
+    "finished": "2026-11-20"
   },
   {
     "id": "obsidian",
@@ -66477,7 +66481,7 @@
     "summary": "When a young boy vanishes, a small town uncovers a mystery involving secret experiments, terrifying supernatural forces, and one strange little girl.",
     "poster": "posters/stranger-things.jpg",
     "link": "https://www.themoviedb.org/tv/66732",
-    "status": "todo",
+    "status": "done",
     "tags": [
       "Action",
       "Adventure",
@@ -66500,7 +66504,10 @@
     "providers": [
       "Netflix"
     ],
-    "runtime": 129
+    "runtime": 129,
+    "verdict": "love",
+    "finished": "2026-11-20",
+    "updated": "2026-11-20"
   },
   {
     "id": "when-i-fly-towards-you",
@@ -71320,7 +71327,7 @@
     "summary": "",
     "poster": "posters/kling-4-0.jpg",
     "link": "",
-    "status": "todo",
+    "status": "done",
     "tags": [],
     "rating": null,
     "notes": "",
@@ -71334,7 +71341,9 @@
     "screenshot": "04a38f361037",
     "quote": "A single prompt generates a complete 30-second scene in one go, keeping uploaded characters, objects, and voices consistent from beginning to end.",
     "intent": "reference",
-    "art_via": "DuckDuckGo Images"
+    "art_via": "DuckDuckGo Images",
+    "finished": "2026-11-20",
+    "updated": "2026-11-20"
   },
   {
     "id": "griffin",
@@ -72702,12 +72711,14 @@
     "blurb": "",
     "poster": "posters/higgsfield.jpg",
     "verdict": null,
-    "status": "todo",
+    "status": "done",
     "source": "screenshot",
     "link": "",
     "notes": "",
     "rating": null,
-    "added": "2026-11-16"
+    "added": "2026-11-16",
+    "finished": "2026-11-20",
+    "updated": "2026-11-20"
   },
   {
     "id": "final-fantasy-x",
@@ -72722,13 +72733,15 @@
     "summary": "",
     "blurb": "FINAL FANTASY X/X-2 HD Remaster celebrates two of the most cherished and beloved entries to the world-renowned franchise, completely remastered in gorgeous High Definition &amp; now available on PC / Windows!",
     "poster": "posters/final-fantasy-x.jpg",
-    "verdict": null,
-    "status": "todo",
+    "verdict": "love",
+    "status": "done",
     "source": "screenshot",
     "link": "",
     "notes": "",
     "rating": null,
-    "added": "2026-11-16"
+    "added": "2026-11-16",
+    "finished": "2026-11-20",
+    "updated": "2026-11-20"
   },
   {
     "id": "persona-4",
@@ -72909,13 +72922,15 @@
     "summary": "",
     "blurb": "One of the most acclaimed adventure games of all time is now back, better than ever. Grim Fandango Remastered has the all the beautiful art and engaging story fans remember, but has also been remastered to look, sound, and control even better than the award-winning original release.",
     "poster": "posters/grim-fandango.jpg",
-    "verdict": null,
-    "status": "todo",
+    "verdict": "love",
+    "status": "done",
     "source": "screenshot",
     "link": "",
     "notes": "",
     "rating": null,
-    "added": "2026-11-16"
+    "added": "2026-11-16",
+    "finished": "2026-11-20",
+    "updated": "2026-11-20"
   },
   {
     "id": "the-day-of-the-tentacle",
@@ -72930,13 +72945,15 @@
     "summary": "",
     "blurb": "Originally released by LucasArts in 1993 as a sequel to Ron Gilbert’s ground breaking Maniac Mansion, Day of the Tentacle is back in a remastered edition that features all new hand-drawn, high resolution artwork, with remastered audio, music and sound effects.",
     "poster": "posters/the-day-of-the-tentacle.jpg",
-    "verdict": null,
-    "status": "todo",
+    "verdict": "love",
+    "status": "done",
     "source": "screenshot",
     "link": "",
     "notes": "",
     "rating": null,
-    "added": "2026-11-16"
+    "added": "2026-11-16",
+    "finished": "2026-11-20",
+    "updated": "2026-11-20"
   },
   {
     "id": "my-birthday-party-was-cancelled-so-now-i-will-murder-all-my-friends-who-did-not-attend-even-though-they-couldn-t-have-because-it-was-cancelled-i-m-just-a-b-tch-that-way",
@@ -73279,13 +73296,15 @@
     "summary": "Dragon Quest VIII: Journey of the Cursed King is a 2004 role-playing video game developed by Level-5 and published by Square Enix for the PlayStation 2. It was first released in Japan in November 2004, followed by North America in November 2005 and PAL regions in April 2006. It is the eighth installment of the Dragon Quest series and it is the first English version of a Dragon Quest game to drop the Dragon Warrior title. A version of the game for Android and iOS was released in Japan in 2013 and worldwide in 2014, with a version for Nintendo 3DS releasing later in 2015 in Japan and 2017 globally.",
     "blurb": "Dragon Quest VIII: Journey of the Cursed King is a 2004 role-playing video game developed by Level-5 and published by Square Enix for the PlayStation 2.",
     "poster": "posters/dragon-quest-viii.jpg",
-    "verdict": null,
-    "status": "todo",
+    "verdict": "love",
+    "status": "done",
     "source": "screenshot",
     "link": "",
     "notes": "",
     "rating": null,
-    "added": "2026-11-16"
+    "added": "2026-11-16",
+    "finished": "2026-11-20",
+    "updated": "2026-11-20"
   },
   {
     "id": "stella-deus-the-gate-of-eternity",
