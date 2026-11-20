@@ -5799,6 +5799,13 @@
    ],
    "usd": 0.002888,
    "kind": "article_or_post"
+  },
+  "1d750387f240e94d9c0b7d62fd6ce0c57b92c10e165889f782f85d0436b67dc4": {
+   "at": "2026-11-20T04:54:09.420Z",
+   "outcome": "no-titles",
+   "ids": [],
+   "usd": 0.01037,
+   "kind": "video"
   }
  },
  "dismissed": [
@@ -5866,10 +5873,10 @@
   "game:ecsaf-orm"
  ],
  "totals": {
-  "shots": 728,
-  "media": 437,
+  "shots": 729,
+  "media": 438,
   "added": 443,
   "inbox": 213,
-  "usd": 1.941793
+  "usd": 1.952163
  }
 }
