@@ -54242,7 +54242,9 @@
     ],
     "runtime": 49,
     "next_air": "2026-11-20",
-    "airing": true
+    "airing": true,
+    "verdict": "skip",
+    "updated": "2026-11-20"
   },
   {
     "id": "b-gata-h-kei",
@@ -55247,32 +55249,6 @@
     "enriched_via": "Wikipedia",
     "screenshot": "8c272158af9a",
     "match_ok": true
-  },
-  {
-    "id": "phantom-thieves",
-    "title": "Phantom Thieves",
-    "type": "anime",
-    "year": null,
-    "blurb": "",
-    "summary": "",
-    "poster": "",
-    "link": "",
-    "status": "inbox",
-    "tags": [
-      "Action",
-      "Supernatural"
-    ],
-    "rating": null,
-    "notes": "",
-    "added": "2026-10-10",
-    "source": "screenshot",
-    "source_context": "Reddit r/Animesuggest — mentioned as a suggestion",
-    "recommended_by": "nice-_one",
-    "ai_confidence": 0.8,
-    "enriched_via": "",
-    "screenshot": "3bf5f04f2261",
-    "match_ok": false,
-    "format": "series"
   },
   {
     "id": "victoria-of-many-faces",
@@ -57174,7 +57150,7 @@
     "summary": "",
     "poster": "",
     "link": "",
-    "status": "inbox",
+    "status": "todo",
     "tags": [],
     "rating": null,
     "notes": "",
@@ -62467,58 +62443,6 @@
     "runtime": 24
   },
   {
-    "id": "the-monarch-money-killer",
-    "title": "The Monarch Money killer.",
-    "type": "software",
-    "year": null,
-    "blurb": "",
-    "summary": "",
-    "poster": "posters/the-monarch-money-killer.jpg",
-    "link": "https://apps.apple.com/us/app/mm-tweaks-for-monarch-money/id6753774259?uo=4",
-    "status": "inbox",
-    "tags": [
-      "Personal Finance",
-      "AI advisor"
-    ],
-    "rating": null,
-    "notes": "Art check: the title is a tagline (\"The Monarch Money killer.\"), not an app name. The App Store match was a different app (MM Tweaks for Monarch Money), so it was removed. Needs the real app name from the post.",
-    "added": "2026-10-17",
-    "source": "screenshot",
-    "source_context": "Instagram post by sebastianhardy_ — mentioned as an AI advisor for personal finance",
-    "recommended_by": "sebastianhardy_",
-    "ai_confidence": 0.9,
-    "enriched_via": "",
-    "match_ok": false,
-    "screenshot": "7d6a745c9b41",
-    "art_via": "page preview"
-  },
-  {
-    "id": "the-after-effects-killer",
-    "title": "The After Effects killer.",
-    "type": "software",
-    "year": null,
-    "blurb": "",
-    "summary": "",
-    "poster": "",
-    "link": "",
-    "status": "inbox",
-    "tags": [
-      "Software",
-      "Video Editing",
-      "AI"
-    ],
-    "rating": null,
-    "notes": "",
-    "added": "2026-10-17",
-    "source": "screenshot",
-    "source_context": "Instagram post by sebastianhardy_ — described as a web page to MP4 tool",
-    "recommended_by": "sebastianhardy_",
-    "ai_confidence": 0.9,
-    "enriched_via": "",
-    "match_ok": false,
-    "screenshot": "752589f007b7"
-  },
-  {
     "id": "my-new-stepsister-is-the-most-popular-girl-in-school",
     "title": "Days with My Stepsister",
     "type": "anime",
@@ -63162,7 +63086,7 @@
     "summary": "",
     "poster": "",
     "link": "",
-    "status": "inbox",
+    "status": "todo",
     "tags": [
       "Fantasy"
     ],
@@ -63764,7 +63688,7 @@
     "summary": "",
     "poster": "posters/demon-s-roots.jpg",
     "link": "https://store.steampowered.com/app/1933660/",
-    "status": "inbox",
+    "status": "todo",
     "tags": [
       "Role-Playing Game"
     ],
@@ -63790,7 +63714,7 @@
     "summary": "",
     "poster": "posters/sol-rui.jpg",
     "link": "https://store.steampowered.com/app/3226850/",
-    "status": "inbox",
+    "status": "todo",
     "tags": [],
     "rating": null,
     "notes": "",
@@ -63814,7 +63738,7 @@
     "summary": "",
     "poster": "posters/dragon-conqueror.jpg",
     "link": "https://store.steampowered.com/app/3396400/",
-    "status": "inbox",
+    "status": "todo",
     "tags": [],
     "rating": null,
     "notes": "",
@@ -63838,7 +63762,7 @@
     "summary": "",
     "poster": "posters/magical-girl-celesphonia.jpg",
     "link": "https://store.steampowered.com/app/1786790/",
-    "status": "inbox",
+    "status": "todo",
     "tags": [
       "JRPG",
       "Role-Playing"
@@ -63865,7 +63789,7 @@
     "summary": "",
     "poster": "posters/unholy-maiden.jpg",
     "link": "https://store.steampowered.com/app/4719200/",
-    "status": "inbox",
+    "status": "todo",
     "tags": [],
     "rating": null,
     "notes": "",
@@ -63889,7 +63813,7 @@
     "summary": "",
     "poster": "posters/enishia-and-the-binding-brand.jpg",
     "link": "https://store.steampowered.com/app/2582650/",
-    "status": "inbox",
+    "status": "todo",
     "tags": [
       "JRPG",
       "Role-Playing"
@@ -63941,7 +63865,7 @@
     "summary": "",
     "poster": "posters/lelie-navigation.jpg",
     "link": "https://store.steampowered.com/app/1279260/",
-    "status": "inbox",
+    "status": "todo",
     "tags": [
       "JRPG"
     ],
@@ -63967,7 +63891,7 @@
     "summary": "",
     "poster": "posters/into-the-nightmare.jpg",
     "link": "https://store.steampowered.com/app/1551560/",
-    "status": "inbox",
+    "status": "todo",
     "tags": [
       "JRPG"
     ],
@@ -64017,7 +63941,7 @@
     "summary": "",
     "poster": "posters/and-the-hero-was-never-seen-again.jpg",
     "link": "https://store.steampowered.com/app/2582660/",
-    "status": "inbox",
+    "status": "todo",
     "tags": [
       "JRPG"
     ],
@@ -64043,7 +63967,7 @@
     "summary": "",
     "poster": "posters/monster-girl-quest-paradox.jpg",
     "link": "https://vndb.org/v17046",
-    "status": "inbox",
+    "status": "todo",
     "tags": [
       "Role-Playing"
     ],
@@ -64069,7 +63993,7 @@
     "summary": "",
     "poster": "posters/kamidori-alchemy-meister.jpg",
     "link": "https://vndb.org/v5652",
-    "status": "inbox",
+    "status": "todo",
     "tags": [
       "Role-Playing Game"
     ],
@@ -64095,7 +64019,7 @@
     "summary": "",
     "poster": "posters/war-demon-kirsten.jpg",
     "link": "",
-    "status": "inbox",
+    "status": "todo",
     "tags": [],
     "rating": null,
     "notes": "",
@@ -64144,7 +64068,7 @@
     "summary": "",
     "poster": "posters/monster-girl-quest.jpg",
     "link": "https://vndb.org/v5657",
-    "status": "inbox",
+    "status": "todo",
     "tags": [],
     "rating": null,
     "notes": "",
@@ -64240,7 +64164,7 @@
     "summary": "",
     "poster": "posters/price-for-the-freedom.jpg",
     "link": "",
-    "status": "inbox",
+    "status": "todo",
     "tags": [],
     "rating": null,
     "notes": "",
@@ -64263,7 +64187,7 @@
     "summary": "",
     "poster": "posters/do-disciplinary-committee-members-dream-of-succubi.jpg",
     "link": "https://store.steampowered.com/app/4233960/",
-    "status": "inbox",
+    "status": "todo",
     "tags": [],
     "rating": null,
     "notes": "",
@@ -67182,7 +67106,7 @@
     "summary": "Driven by a dream of revenge against those who made her an outcast in Edo-period Japan, a young warrior cuts a bloody path toward her destiny.",
     "poster": "posters/blue-eye-samurai.jpg",
     "link": "https://www.themoviedb.org/tv/225180",
-    "status": "todo",
+    "status": "done",
     "tags": [
       "Action",
       "Adventure",
@@ -67204,7 +67128,10 @@
     ],
     "runtime": 49,
     "next_air": "2027-01-19",
-    "airing": true
+    "airing": true,
+    "verdict": "love",
+    "finished": "2026-11-20",
+    "updated": "2026-11-20"
   },
   {
     "id": "attack-on-titan",
@@ -67441,7 +67368,7 @@
     "summary": "The Grinch decides to rob Whoville of Christmas - but a dash of kindness from little Cindy Lou Who and her family may be enough to melt his heart...",
     "poster": "posters/how-the-grinch-stole-christmas.jpg",
     "link": "https://www.themoviedb.org/movie/8871",
-    "status": "todo",
+    "status": "done",
     "tags": [
       "Family",
       "Comedy",
@@ -67463,7 +67390,10 @@
       "Peacock Premium",
       "Peacock Premium Plus"
     ],
-    "runtime": 105
+    "runtime": 105,
+    "verdict": "up",
+    "finished": "2026-11-20",
+    "updated": "2026-11-20"
   },
   {
     "id": "elf",
@@ -72749,13 +72679,14 @@
     "summary": "Wedding Day is a 1942 Italian \"white-telephones\" comedy film directed by Raffaello Matarazzo and starring Armando Falconi, Amelia Chellini and Anna Proclemer.",
     "blurb": "Wedding Day is a 1942 Italian \"white-telephones\" comedy film directed by Raffaello Matarazzo and starring Armando Falconi, Amelia Chellini and Anna Proclemer.",
     "poster": "posters/wedding-day.jpg",
-    "verdict": null,
+    "verdict": "skip",
     "status": "todo",
     "source": "screenshot",
     "link": "",
     "notes": "",
     "rating": null,
-    "added": "2026-11-16"
+    "added": "2026-11-16",
+    "updated": "2026-11-20"
   },
   {
     "id": "higgsfield",
