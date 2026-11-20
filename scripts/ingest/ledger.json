@@ -5841,6 +5841,72 @@
    ],
    "usd": 0.013169,
    "kind": "recommendation_thread"
+  },
+  "72ccaa048c3ce0fb8bb56e3c7d7f20577677681f06828280605c5e85834b9a37": {
+   "at": "2026-11-20T07:22:58.867Z",
+   "outcome": "parsed",
+   "ids": [
+    "golden-boy",
+    "the-100-girlfriends-who-really-really-really-really-really-love-you",
+    "baka-and-test-summon-the-beasts",
+    "monogatari-series"
+   ],
+   "usd": 0.013902,
+   "kind": "recommendation_thread"
+  },
+  "b398b8f723f7d157915414a0870e83686b9d59a009f9112903f627132a266e1e": {
+   "at": "2026-11-20T07:22:58.651Z",
+   "outcome": "parsed",
+   "ids": [
+    "monogatari-series",
+    "the-fruit-of-evolution-before-i-knew-it-my-life-had-it-made",
+    "my-life-as-inukai-san-s-dog",
+    "sword-art-online",
+    "higehiro-after-being-rejected-i-shaved-and-took-in-a-high-school-runaway"
+   ],
+   "usd": 0.015061,
+   "kind": "recommendation_thread"
+  },
+  "750d7b2b4bf976ce72c044474b0844de0e2ef63d0df93b7aa500b742380c765c": {
+   "at": "2026-11-20T07:22:58.851Z",
+   "outcome": "parsed",
+   "ids": [
+    "sekirei",
+    "kiss-x-sis",
+    "yosuga-no-sora",
+    "miss-kobayashi-s-dragon-maid"
+   ],
+   "usd": 0.016447,
+   "kind": "recommendation_thread"
+  },
+  "8e4de06060595b6a5a4c3261e8291c9eb169045b5c302e2787401010b41abf09": {
+   "at": "2026-11-20T07:22:58.604Z",
+   "outcome": "parsed",
+   "ids": [
+    "high-school-dxd",
+    "girls-bravo",
+    "beatless",
+    "tenchi-in-tokyo",
+    "ikki-tousen",
+    "my-deer-friend-nokotan",
+    "prison-school",
+    "golden-boy"
+   ],
+   "usd": 0.01753,
+   "kind": "recommendation_thread"
+  },
+  "850854302e31cca13c81a3dd0f93d4a2ae557885576d990318abd948e2704c10": {
+   "at": "2026-11-20T07:23:07.948Z",
+   "outcome": "parsed",
+   "ids": [
+    "tenpuru",
+    "are-you-lost",
+    "monster-musume-everyday-life-with-monster-girls",
+    "queen-s-blade",
+    "high-school-dxd"
+   ],
+   "usd": 0.01447,
+   "kind": "recommendation_thread"
   }
  },
  "dismissed": [
@@ -5930,10 +5996,10 @@
   "screen:phantom-thieves"
  ],
  "totals": {
-  "shots": 732,
-  "media": 441,
-  "added": 451,
-  "inbox": 213,
-  "usd": 1.99387
+  "shots": 737,
+  "media": 446,
+  "added": 464,
+  "inbox": 214,
+  "usd": 2.07128
  }
 }
