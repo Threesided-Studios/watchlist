@@ -5781,6 +5781,15 @@
    ],
    "usd": 0.003209,
    "kind": "video"
+  },
+  "3b9aa20d4aa25104abdd8fdceaa14558ffdb9958efdf0cb6b60b47de42dfd13e": {
+   "at": "2026-11-20T00:37:55.047Z",
+   "outcome": "parsed",
+   "ids": [
+    "dragon-knight-4"
+   ],
+   "usd": 0.010922,
+   "kind": "article_or_post"
   }
  },
  "dismissed": [
@@ -5848,10 +5857,10 @@
   "game:ecsaf-orm"
  ],
  "totals": {
-  "shots": 726,
-  "media": 435,
-  "added": 442,
+  "shots": 727,
+  "media": 436,
+  "added": 443,
   "inbox": 212,
-  "usd": 1.927983
+  "usd": 1.938905
  }
 }

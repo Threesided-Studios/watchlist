@@ -74499,5 +74499,31 @@
     "art_via": "AniList",
     "quote": "is the ultimate anti-climactic popcorn watch!",
     "intent": "recommendation"
+  },
+  {
+    "id": "dragon-knight-4",
+    "title": "Dragon Knight 4",
+    "type": "game",
+    "year": 1994,
+    "blurb": "Dragon Knight 4 is a role-playing video game developed by ELF Corporation and released only in Japan for several platforms between 1994 and 1997.",
+    "summary": "Dragon Knight 4 is a role-playing video game developed by ELF Corporation and released only in Japan for several platforms between 1994 and 1997. In 1994, the game first became available for PC MS-DOS, NEC PC-9801 and X68000, with a censored version ported to the Super Nintendo Entertainment System in 1996 and later to the PC-FX and PlayStation in 1997. It was also adapted into illustrated novels and an anime miniseries.",
+    "poster": "posters/dragon-knight-4.jpg",
+    "link": "https://en.wikipedia.org/wiki/Dragon_Knight_4",
+    "status": "todo",
+    "tags": [
+      "tactical RPG"
+    ],
+    "rating": null,
+    "notes": "",
+    "added": "2026-11-20",
+    "source": "screenshot",
+    "source_context": "Facebook group Retro Gaming 80s 90s 00s: Retro RPGs post — Featured in a retro RPG post with gameplay screenshots.",
+    "recommended_by": "",
+    "ai_confidence": 0.99,
+    "enriched_via": "Wikipedia",
+    "match_ok": true,
+    "screenshot": "3b9aa20d4aa2",
+    "quote": "is a Japanese tactical role-playing game",
+    "intent": "recommendation"
   }
 ]
