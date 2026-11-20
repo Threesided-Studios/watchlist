@@ -5806,6 +5806,18 @@
    "ids": [],
    "usd": 0.01037,
    "kind": "video"
+  },
+  "c7c996bed69f1b6bf1d0adbce8ed53f47fcb795d67c6ad1710fec7b0cae9e8a1": {
+   "at": "2026-11-20T07:06:14.301Z",
+   "outcome": "parsed",
+   "ids": [
+    "haikyu",
+    "ping-pong-the-animation",
+    "hajime-no-ippo",
+    "slam-dunk"
+   ],
+   "usd": 0.014047,
+   "kind": "recommendation_thread"
   }
  },
  "dismissed": [
@@ -5870,13 +5882,32 @@
   "article:tailscale-oauth-apps-user-identity-device-provisioning",
   "tool:deepseek-creator-mode",
   "tool:unreal-engine",
-  "game:ecsaf-orm"
+  "game:ecsaf-orm",
+  "tool:gpt",
+  "game:gpt-5-6-terra",
+  "screen:ladies-and-ladies",
+  "book:wolf",
+  "book:my-sister-my-sister-why-do-you-look-at-me-as-if-my-hands-are-now-the-heads-of-pigs",
+  "game:claude-fable-5",
+  "book:8-000-phone-agent",
+  "book:my-life-has-taken-a-turn-for-the-worse-thanks-to-a-sorceress-who-hates-me-but-i-think-in-a-way-that-means-she-s-really-into-me-but-maybe-that-s-just-her-face",
+  "book:reincarnated-as-a-buzz-saw-i-now-seek-revenge-on-my-party-members-who-left-me-for-dead-with-the-buzz-saw-witch-because-seriously-what-the-f-did-they-think-was-gonna-happen",
+  "game:qwen3-8-27b",
+  "tool:gemini",
+  "game:game-master-engine-gm-edition",
+  "tool:gpt-image",
+  "game:gpt-5-6-luna",
+  "game:big-black-card",
+  "screen:war-of-the-worlds",
+  "book:my-birthday-party-was-cancelled-so-now-i-will-murder-all-my-friends-who-did-not-attend-even-though-they-couldn-t-have-because-it-was-cancelled",
+  "tool:perplexity",
+  "tool:pi"
  ],
  "totals": {
-  "shots": 729,
-  "media": 438,
-  "added": 443,
+  "shots": 730,
+  "media": 439,
+  "added": 445,
   "inbox": 213,
-  "usd": 1.952163
+  "usd": 1.96621
  }
 }
