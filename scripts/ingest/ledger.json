@@ -5921,6 +5921,69 @@
    "ids": [],
    "usd": 0.009771,
    "kind": "system_or_app_ui"
+  },
+  "7990cab6a464cff79461c0ac60292bb9eb16a3ef939a574a910cdd075446e78c": {
+   "at": "2026-11-21T04:49:08.522Z",
+   "outcome": "parsed",
+   "ids": [
+    "ironbound"
+   ],
+   "usd": 0.000621,
+   "kind": "video"
+  },
+  "dc57435b7b90ff73dc105e43c62640521696d930e10f4622c4be7108040ae352": {
+   "at": "2026-11-21T04:49:08.555Z",
+   "outcome": "parsed",
+   "ids": [
+    "unsouled"
+   ],
+   "usd": 0.010885,
+   "kind": "video"
+  },
+  "751cffdc0ae0dc071b0ec81f2d72e4c0b35cc51c19608ffedc8782d835a109e5": {
+   "at": "2026-11-21T04:49:08.537Z",
+   "outcome": "parsed",
+   "ids": [
+    "vigil-s-justice"
+   ],
+   "usd": 0.013089,
+   "kind": "video"
+  },
+  "c8a46b49ac26cb9e912c11b705a58831641e1620bd2eed12867d70e12015f5db": {
+   "at": "2026-11-21T04:49:08.550Z",
+   "outcome": "parsed",
+   "ids": [
+    "ravenous"
+   ],
+   "usd": 0.015033,
+   "kind": "video"
+  },
+  "d56b164c2119f3e85df01577801a2f9731de963bee7dae7562d77129d9ced96e": {
+   "at": "2026-11-21T04:49:47.967Z",
+   "outcome": "parsed",
+   "ids": [
+    "jake-s-magical-market"
+   ],
+   "usd": 0.010873,
+   "kind": "video"
+  },
+  "7b2afadb6a41680bd3066800d84d062035ff4f4428783b8f5b44c4e64af7b09e": {
+   "at": "2026-11-21T04:49:15.006Z",
+   "outcome": "parsed",
+   "ids": [
+    "tower-of-jack"
+   ],
+   "usd": 0.013005,
+   "kind": "video"
+  },
+  "31b155094b3777ee3e0e08ed52cb66d779b4e184193763fcfd61363c239ec82d": {
+   "at": "2026-11-21T04:49:17.032Z",
+   "outcome": "parsed",
+   "ids": [
+    "the-first-step"
+   ],
+   "usd": 0.014039,
+   "kind": "video"
   }
  },
  "dismissed": [
@@ -6010,10 +6073,10 @@
   "screen:phantom-thieves"
  ],
  "totals": {
-  "shots": 739,
-  "media": 448,
-  "added": 464,
-  "inbox": 214,
-  "usd": 2.091991
+  "shots": 746,
+  "media": 455,
+  "added": 466,
+  "inbox": 218,
+  "usd": 2.169536
  }
 }
