@@ -75363,5 +75363,37 @@
     "screenshot": "31b155094b37",
     "author": "Tao Wong",
     "intent": "recommendation"
+  },
+  {
+    "id": "a-certain-dark-item",
+    "title": "A Certain Dark Item",
+    "type": "anime",
+    "year": 2026,
+    "blurb": "In Academy City, psychic powers promise a brighter future.",
+    "summary": "In Academy City, psychic powers promise a brighter future. But beneath the city's peaceful surface lurks a merciless dark side. ITEM, an elite team of four girls with deadly abilities, carries out dangerous missions that can never see the light of day. When a fifth girl enters their lives, ITEM is drawn deeper into a world of violence, brutality, and moral corruption.",
+    "poster": "posters/a-certain-dark-item.jpg",
+    "link": "https://www.themoviedb.org/tv/284580",
+    "status": "todo",
+    "tags": [
+      "Animation",
+      "Action",
+      "Adventure",
+      "Mystery",
+      "Sci-Fi",
+      "Fantasy"
+    ],
+    "rating": null,
+    "notes": "",
+    "added": "2026-11-22",
+    "source": "screenshot",
+    "source_context": "Instagram Reel by reelscenelibrary — Named in the Reel caption as the anime shown.",
+    "recommended_by": "",
+    "ai_confidence": 0.84,
+    "enriched_via": "TMDB",
+    "match_ok": true,
+    "screenshot": "e079943eddba",
+    "format": "series",
+    "tmdb_id": 284580,
+    "quote": "They really said f*ck censorship"
   }
 ]

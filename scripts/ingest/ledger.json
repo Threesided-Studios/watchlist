@@ -5984,6 +5984,15 @@
    ],
    "usd": 0.014039,
    "kind": "video"
+  },
+  "e079943eddba5e7c644235361aeb3321f6f6ad1799efb79a98b0950629589857": {
+   "at": "2026-11-22T01:31:04.091Z",
+   "outcome": "parsed",
+   "ids": [
+    "a-certain-dark-item"
+   ],
+   "usd": 0.000614,
+   "kind": "video"
   }
  },
  "dismissed": [
@@ -6073,10 +6082,10 @@
   "screen:phantom-thieves"
  ],
  "totals": {
-  "shots": 746,
-  "media": 455,
-  "added": 466,
+  "shots": 747,
+  "media": 456,
+  "added": 467,
   "inbox": 218,
-  "usd": 2.169536
+  "usd": 2.17015
  }
 }
