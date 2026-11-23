@@ -71307,7 +71307,7 @@
     "year": null,
     "blurb": "",
     "summary": "",
-    "poster": "",
+    "poster": "posters/kimi-k3-1-pro.jpg",
     "link": "",
     "status": "todo",
     "tags": [],
@@ -71324,7 +71324,8 @@
     "quote": "Kimi K3.1 Pro has 2.8T total parameters, a 1M-token context window and works directly with Blender, Unreal, Godot and CAD.",
     "intent": "reference",
     "verdict": "skip",
-    "updated": "2026-11-16"
+    "updated": "2026-11-16",
+    "art_via": "DuckDuckGo Images"
   },
   {
     "id": "kling-4-0",
@@ -71361,7 +71362,7 @@
     "year": null,
     "blurb": "",
     "summary": "",
-    "poster": "",
+    "poster": "posters/griffin.jpg",
     "link": "",
     "status": "todo",
     "tags": [],
@@ -71377,7 +71378,8 @@
     "screenshot": "811fedd2159f",
     "author": "Tavus",
     "quote": "48% of people in a one-minute video call with Griffin thought they were speaking to a real person.",
-    "intent": "reference"
+    "intent": "reference",
+    "art_via": "DuckDuckGo Images"
   },
   {
     "id": "kimi-k3-1",
@@ -71411,7 +71413,7 @@
     "year": null,
     "blurb": "",
     "summary": "",
-    "poster": "",
+    "poster": "posters/dessa.jpg",
     "link": "",
     "status": "todo",
     "tags": [
@@ -71429,7 +71431,8 @@
     "match_ok": false,
     "screenshot": "e225dabc5b17",
     "quote": "Dessa is a new AI model trained entirely on speech, allowing natural, two-way conversations in real time.",
-    "intent": "reference"
+    "intent": "reference",
+    "art_via": "DuckDuckGo Images"
   },
   {
     "id": "snack-n-screen",
@@ -71438,7 +71441,7 @@
     "year": null,
     "blurb": "Las Vegas, Nevada",
     "summary": "",
-    "poster": "",
+    "poster": "posters/snack-n-screen.jpg",
     "link": "https://www.google.com/maps/search/Snack%20N%20Screen%2C%20Las%20Vegas%2C%20Nevada",
     "status": "todo",
     "tags": [],
@@ -71454,7 +71457,8 @@
     "screenshot": "c5dc02177c27",
     "quote": "every course is timed to the exact scene it appears in!",
     "location": "Las Vegas, Nevada",
-    "intent": "wishlist"
+    "intent": "wishlist",
+    "art_via": "DuckDuckGo Images"
   },
   {
     "id": "fat-boys",
@@ -72728,7 +72732,8 @@
     "rating": null,
     "added": "2026-11-16",
     "finished": "2026-11-20",
-    "updated": "2026-11-20"
+    "updated": "2026-11-20",
+    "art_via": "DuckDuckGo Images"
   },
   {
     "id": "final-fantasy-x",
@@ -72751,7 +72756,8 @@
     "rating": null,
     "added": "2026-11-16",
     "finished": "2026-11-20",
-    "updated": "2026-11-20"
+    "updated": "2026-11-20",
+    "art_via": "DuckDuckGo Images"
   },
   {
     "id": "persona-4",
@@ -72816,7 +72822,8 @@
     "link": "",
     "notes": "",
     "rating": null,
-    "added": "2026-11-16"
+    "added": "2026-11-16",
+    "art_via": "DuckDuckGo Images"
   },
   {
     "id": "in-my-cosmic-van-i-travel-the-multiverse",
@@ -72940,7 +72947,8 @@
     "rating": null,
     "added": "2026-11-16",
     "finished": "2026-11-20",
-    "updated": "2026-11-20"
+    "updated": "2026-11-20",
+    "art_via": "DuckDuckGo Images"
   },
   {
     "id": "the-day-of-the-tentacle",
@@ -72963,7 +72971,8 @@
     "rating": null,
     "added": "2026-11-16",
     "finished": "2026-11-20",
-    "updated": "2026-11-20"
+    "updated": "2026-11-20",
+    "art_via": "DuckDuckGo Images"
   },
   {
     "id": "my-birthday-party-was-cancelled-so-now-i-will-murder-all-my-friends-who-did-not-attend-even-though-they-couldn-t-have-because-it-was-cancelled-i-m-just-a-b-tch-that-way",
@@ -73071,7 +73080,8 @@
     "link": "",
     "notes": "",
     "rating": null,
-    "added": "2026-11-16"
+    "added": "2026-11-16",
+    "art_via": "DuckDuckGo Images"
   },
   {
     "id": "powerless-beggar-is-actually-a-supreme-master-no-one-in-the-martial-world-can-defeat-him",
@@ -73086,14 +73096,15 @@
     ],
     "summary": "",
     "blurb": "",
-    "poster": "",
+    "poster": "posters/powerless-beggar-is-actually-a-supreme-master-no-one-in-the-martial-world-can-defeat-him.jpg",
     "verdict": null,
     "status": "todo",
     "source": "screenshot",
     "link": "",
     "notes": "",
     "rating": null,
-    "added": "2026-11-16"
+    "added": "2026-11-16",
+    "art_via": "DuckDuckGo Images"
   },
   {
     "id": "pillars-of-eternity-turn-based-edition",
@@ -73108,14 +73119,15 @@
     ],
     "summary": "",
     "blurb": "",
-    "poster": "",
+    "poster": "posters/pillars-of-eternity-turn-based-edition.jpg",
     "verdict": null,
     "status": "todo",
     "source": "screenshot",
     "link": "",
     "notes": "",
     "rating": null,
-    "added": "2026-11-16"
+    "added": "2026-11-16",
+    "art_via": "DuckDuckGo Images"
   },
   {
     "id": "the-monkey-island",
@@ -73158,7 +73170,8 @@
     "notes": "",
     "rating": null,
     "added": "2026-11-16",
-    "format": "series"
+    "format": "series",
+    "art_via": "DuckDuckGo Images"
   },
   {
     "id": "this-ordinary-monk-turns-out-to-be-a-kung-fu-master",
@@ -73223,7 +73236,8 @@
     "link": "",
     "notes": "",
     "rating": null,
-    "added": "2026-11-16"
+    "added": "2026-11-16",
+    "art_via": "DuckDuckGo Images"
   },
   {
     "id": "yanineko-chainsmoker-cat",
@@ -73246,7 +73260,8 @@
     "notes": "",
     "rating": null,
     "added": "2026-11-16",
-    "format": "series"
+    "format": "series",
+    "art_via": "DuckDuckGo Images"
   },
   {
     "id": "i-think-our-son-is-not-our-son-and-is-instead-a-golem-made-out-of-meat-that-was-placed-in-our-house-by-the-government",
@@ -73314,7 +73329,8 @@
     "rating": null,
     "added": "2026-11-16",
     "finished": "2026-11-20",
-    "updated": "2026-11-20"
+    "updated": "2026-11-20",
+    "art_via": "DuckDuckGo Images"
   },
   {
     "id": "stella-deus-the-gate-of-eternity",
@@ -73517,7 +73533,7 @@
     "year": null,
     "blurb": "",
     "summary": "",
-    "poster": "",
+    "poster": "posters/reincarnated-into-harem-game.jpg",
     "link": "",
     "status": "todo",
     "tags": [
@@ -73537,7 +73553,8 @@
     "screenshot": "d22174557420",
     "quote": "After clearing his favorite harem game 43 times, Alex wakes up inside it as the legendary sorcerer Lucien.",
     "availability": "mochi.to",
-    "intent": "recommendation"
+    "intent": "recommendation",
+    "art_via": "DuckDuckGo Images"
   },
   {
     "id": "every-monster-thinks-i-m-their-landlord",
@@ -73633,7 +73650,7 @@
     "year": null,
     "blurb": "",
     "summary": "",
-    "poster": "",
+    "poster": "posters/my-demon-wife-can-t-be-this-cute.jpg",
     "link": "",
     "status": "todo",
     "tags": [
@@ -73652,7 +73669,8 @@
     "screenshot": "86422e00afa0",
     "quote": "She is already his wife, overpowered, bubbly, and learning to love him one homemade meal at a time.",
     "availability": "mochi.to",
-    "intent": "recommendation"
+    "intent": "recommendation",
+    "art_via": "DuckDuckGo Images"
   },
   {
     "id": "cleanyour-tv",
@@ -73829,7 +73847,7 @@
     "year": null,
     "blurb": "",
     "summary": "",
-    "poster": "",
+    "poster": "posters/shut-up-evil-dragon.jpg",
     "link": "",
     "status": "todo",
     "tags": [],
@@ -73847,7 +73865,8 @@
     "quote": "She’s got him completely wrapped around her finger.",
     "availability": "Lolobun",
     "season_episode": "Episode 3",
-    "intent": "recommendation"
+    "intent": "recommendation",
+    "art_via": "DuckDuckGo Images"
   },
   {
     "id": "netorareta-bakunyuu-tsuma-tachi-2",
@@ -74133,7 +74152,7 @@
     "year": null,
     "blurb": "Suikoden  is a series of role-playing video games developed and published by Konami.",
     "summary": "Suikoden  is a series of role-playing video games developed and published by Konami. Created by Yoshitaka Murayama, the games are loosely based on the classical Chinese novel Water Margin, whose title is rendered as Suikoden (水滸伝) in Japanese. Each individual game centers on themes of politics, corruption, revolution, mystical crystals known as True Runes, and the \"108 Stars of Destiny\"—the 108 protagonists who are loosely interpreted from the source material.",
-    "poster": "",
+    "poster": "posters/suikoden-woven-web-of-the-centuries.jpg",
     "link": "https://en.wikipedia.org/wiki/Suikoden",
     "status": "todo",
     "tags": [
@@ -74151,7 +74170,8 @@
     "screenshot": "7fce47ee4d71",
     "quote": "this overlooked PSP entry offers a different take on the Suikoden formula.",
     "availability": "PlayStation Portable",
-    "intent": "recommendation"
+    "intent": "recommendation",
+    "art_via": "DuckDuckGo Images"
   },
   {
     "id": "ping-pong-the-animation",
@@ -74662,9 +74682,9 @@
     "year": null,
     "blurb": "",
     "summary": "",
-    "poster": "",
+    "poster": "posters/kiss-x-sis.jpg",
     "link": "",
-    "status": "inbox",
+    "status": "todo",
     "tags": [],
     "rating": null,
     "notes": "",
@@ -74679,7 +74699,8 @@
     "adult": true,
     "format": "series",
     "quote": "kiss x sis for the twisted mind",
-    "intent": "recommendation"
+    "intent": "recommendation",
+    "art_via": "DuckDuckGo Images"
   },
   {
     "id": "ikki-tousen",
@@ -74981,14 +75002,15 @@
     ],
     "summary": "",
     "blurb": "",
-    "poster": "",
+    "poster": "posters/the-after-effects-killer.jpg",
     "verdict": null,
-    "status": "inbox",
+    "status": "todo",
     "source": "screenshot",
     "link": "",
     "notes": "",
     "rating": null,
-    "added": "2026-11-20"
+    "added": "2026-11-20",
+    "art_via": "DuckDuckGo Images"
   },
   {
     "id": "wolf",
@@ -75001,14 +75023,15 @@
     ],
     "summary": "",
     "blurb": "",
-    "poster": "",
+    "poster": "posters/wolf.jpg",
     "verdict": null,
-    "status": "inbox",
+    "status": "todo",
     "source": "screenshot",
     "link": "",
     "notes": "",
     "rating": null,
-    "added": "2026-11-20"
+    "added": "2026-11-20",
+    "art_via": "DuckDuckGo Images"
   },
   {
     "id": "my-sister-my-sister-why-do-you-look-at-me-as-if-my-hands-are-now-the-heads-of-pigs",
@@ -75060,12 +75083,13 @@
     "blurb": "",
     "poster": "posters/pi.jpg",
     "verdict": null,
-    "status": "inbox",
+    "status": "todo",
     "source": "screenshot",
     "link": "",
     "notes": "",
     "rating": null,
-    "added": "2026-11-20"
+    "added": "2026-11-20",
+    "art_via": "DuckDuckGo Images"
   },
   {
     "id": "the-8-000-phone-agent",
@@ -75143,14 +75167,15 @@
     "tags": [],
     "summary": "",
     "blurb": "",
-    "poster": "",
+    "poster": "posters/qwen3-8-27b.jpg",
     "verdict": null,
-    "status": "inbox",
+    "status": "todo",
     "source": "screenshot",
     "link": "",
     "notes": "",
     "rating": null,
-    "added": "2026-11-20"
+    "added": "2026-11-20",
+    "art_via": "DuckDuckGo Images"
   },
   {
     "id": "gemini",
@@ -75161,14 +75186,15 @@
     "tags": [],
     "summary": "",
     "blurb": "",
-    "poster": "",
+    "poster": "posters/gemini.jpg",
     "verdict": null,
-    "status": "inbox",
+    "status": "todo",
     "source": "screenshot",
     "link": "",
     "notes": "",
     "rating": null,
-    "added": "2026-11-20"
+    "added": "2026-11-20",
+    "art_via": "DuckDuckGo Images"
   },
   {
     "id": "phantom-thieves",
@@ -75182,14 +75208,15 @@
     ],
     "summary": "",
     "blurb": "",
-    "poster": "",
+    "poster": "posters/phantom-thieves.jpg",
     "verdict": null,
-    "status": "inbox",
+    "status": "todo",
     "source": "screenshot",
     "link": "",
     "notes": "",
     "rating": null,
-    "added": "2026-11-20"
+    "added": "2026-11-20",
+    "art_via": "DuckDuckGo Images"
   },
   {
     "id": "perplexity",
@@ -75202,12 +75229,13 @@
     "blurb": "",
     "poster": "posters/perplexity.jpg",
     "verdict": null,
-    "status": "inbox",
+    "status": "todo",
     "source": "screenshot",
     "link": "",
     "notes": "",
     "rating": null,
-    "added": "2026-11-20"
+    "added": "2026-11-20",
+    "art_via": "DuckDuckGo Images"
   },
   {
     "id": "game-master-engine-gm-edition",
@@ -75223,14 +75251,15 @@
     ],
     "summary": "",
     "blurb": "",
-    "poster": "",
+    "poster": "posters/game-master-engine-gm-edition.jpg",
     "verdict": null,
-    "status": "inbox",
+    "status": "todo",
     "source": "screenshot",
     "link": "",
     "notes": "",
     "rating": null,
-    "added": "2026-11-20"
+    "added": "2026-11-20",
+    "art_via": "DuckDuckGo Images"
   },
   {
     "id": "gpt-image",
@@ -75307,12 +75336,13 @@
     "blurb": "Will Radford is a top analyst for Homeland Security who tracks potential threats through a mass surveillance program, until one day an attack by an unknown entity leads him to question whether the government is hiding something from him...",
     "poster": "posters/war-of-the-worlds.jpg",
     "verdict": null,
-    "status": "inbox",
+    "status": "todo",
     "source": "screenshot",
     "link": "",
     "notes": "",
     "rating": null,
-    "added": "2026-11-20"
+    "added": "2026-11-20",
+    "art_via": "DuckDuckGo Images"
   },
   {
     "id": "my-birthday-party-was-cancelled-so-now-i-will-murder-all-my-friends-who-did-not-attend-even-though-they-couldn-t-have-because-it-was-cancelled",
@@ -75396,9 +75426,9 @@
     "year": null,
     "blurb": "",
     "summary": "",
-    "poster": "",
+    "poster": "posters/ravenous.jpg",
     "link": "",
-    "status": "inbox",
+    "status": "todo",
     "tags": [
       "LitRPG"
     ],
@@ -75412,7 +75442,8 @@
     "enriched_via": "",
     "match_ok": false,
     "screenshot": "c8a46b49ac26",
-    "intent": "recommendation"
+    "intent": "recommendation",
+    "art_via": "DuckDuckGo Images"
   },
   {
     "id": "vigil-s-justice",
@@ -75421,9 +75452,9 @@
     "year": 2023,
     "blurb": "",
     "summary": "",
-    "poster": "",
+    "poster": "posters/vigil-s-justice.jpg",
     "link": "https://openlibrary.org/works/OL36482759W",
-    "status": "inbox",
+    "status": "todo",
     "tags": [
       "LitRPG"
     ],
@@ -75438,7 +75469,8 @@
     "match_ok": true,
     "screenshot": "751cffdc0ae0",
     "author": "James Hunter",
-    "intent": "recommendation"
+    "intent": "recommendation",
+    "art_via": "DuckDuckGo Images"
   },
   {
     "id": "tower-of-jack",
@@ -75447,9 +75479,9 @@
     "year": 2024,
     "blurb": "",
     "summary": "",
-    "poster": "",
+    "poster": "posters/tower-of-jack.jpg",
     "link": "https://openlibrary.org/works/OL41885216W",
-    "status": "inbox",
+    "status": "todo",
     "tags": [
       "LitRPG"
     ],
@@ -75464,7 +75496,8 @@
     "match_ok": true,
     "screenshot": "7b2afadb6a41",
     "author": "Sean Loomer",
-    "intent": "recommendation"
+    "intent": "recommendation",
+    "art_via": "DuckDuckGo Images"
   },
   {
     "id": "the-first-step",
@@ -75473,9 +75506,9 @@
     "year": 2026,
     "blurb": "",
     "summary": "",
-    "poster": "",
+    "poster": "posters/the-first-step.jpg",
     "link": "https://openlibrary.org/works/OL46452199W",
-    "status": "inbox",
+    "status": "todo",
     "tags": [
       "LitRPG"
     ],
@@ -75490,7 +75523,8 @@
     "match_ok": true,
     "screenshot": "31b155094b37",
     "author": "Tao Wong",
-    "intent": "recommendation"
+    "intent": "recommendation",
+    "art_via": "DuckDuckGo Images"
   },
   {
     "id": "a-certain-dark-item",
@@ -75603,7 +75637,7 @@
     "year": null,
     "blurb": "Vietnam",
     "summary": "",
-    "poster": "",
+    "poster": "posters/da-nang.jpg",
     "link": "https://www.google.com/maps/search/Da%20Nang%2C%20Vietnam",
     "status": "todo",
     "tags": [],
@@ -75619,7 +75653,8 @@
     "screenshot": "9efd419aa1c6",
     "quote": "First one I can think of is Da Nang Vietnam",
     "location": "Vietnam",
-    "intent": "recommendation"
+    "intent": "recommendation",
+    "art_via": "DuckDuckGo Images"
   },
   {
     "id": "siargao",
@@ -75628,7 +75663,7 @@
     "year": null,
     "blurb": "island · Surigao del Norte",
     "summary": "",
-    "poster": "",
+    "poster": "posters/siargao.jpg",
     "link": "https://www.google.com/maps/search/Siargao%2C%20Philippines",
     "status": "todo",
     "tags": [],
@@ -75647,7 +75682,8 @@
     "intent": "recommendation",
     "map_url": "https://www.google.com/maps/search/Siargao%2C%20Philippines",
     "lat": 9.9037596,
-    "lon": 126.0507404
+    "lon": 126.0507404,
+    "art_via": "map"
   },
   {
     "id": "bali",
@@ -75680,7 +75716,7 @@
     "year": null,
     "blurb": "Thailand",
     "summary": "",
-    "poster": "",
+    "poster": "posters/ubon-ratchathani.jpg",
     "link": "https://www.google.com/maps/search/Ubon%20Ratchathani%2C%20Thailand",
     "status": "todo",
     "tags": [],
@@ -75696,7 +75732,8 @@
     "screenshot": "9efd419aa1c6",
     "quote": "It's a modern, developed city with local Thai prices rather than tourist prices.",
     "location": "Thailand",
-    "intent": "recommendation"
+    "intent": "recommendation",
+    "art_via": "DuckDuckGo Images"
   },
   {
     "id": "bizarre-bar",
@@ -75705,7 +75742,7 @@
     "year": null,
     "blurb": "Las Vegas",
     "summary": "",
-    "poster": "",
+    "poster": "posters/bizarre-bar.jpg",
     "link": "https://www.google.com/maps/search/Bizarre%20Bar%2C%20Las%20Vegas",
     "status": "todo",
     "tags": [],
@@ -75721,7 +75758,8 @@
     "screenshot": "3f5910ce9eb6",
     "quote": "Bizarre Bar is amazing, and the inside is awesome too",
     "location": "Las Vegas",
-    "intent": "recommendation"
+    "intent": "recommendation",
+    "art_via": "DuckDuckGo Images"
   },
   {
     "id": "oddfellows",
@@ -75730,7 +75768,7 @@
     "year": null,
     "blurb": "Las Vegas",
     "summary": "",
-    "poster": "",
+    "poster": "posters/oddfellows.jpg",
     "link": "https://www.google.com/maps/search/Oddfellows%2C%20Las%20Vegas",
     "status": "todo",
     "tags": [],
@@ -75746,7 +75784,8 @@
     "screenshot": "3f5910ce9eb6",
     "quote": "it's got multiple rooms with different themes",
     "location": "Las Vegas",
-    "intent": "recommendation"
+    "intent": "recommendation",
+    "art_via": "DuckDuckGo Images"
   },
   {
     "id": "liquid-red-nights",
