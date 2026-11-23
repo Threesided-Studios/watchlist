@@ -6020,6 +6020,18 @@
    ],
    "usd": 0.000621,
    "kind": "video"
+  },
+  "9efd419aa1c62f3e69db9fc9ee4661f96233c38c523daf57802faedde1dbee6a": {
+   "at": "2026-11-23T07:37:45.452Z",
+   "outcome": "parsed",
+   "ids": [
+    "da-nang",
+    "siargao",
+    "bali",
+    "ubon-ratchathani"
+   ],
+   "usd": 0.014365,
+   "kind": "recommendation_thread"
   }
  },
  "dismissed": [
@@ -6109,10 +6121,10 @@
   "screen:phantom-thieves"
  ],
  "totals": {
-  "shots": 750,
-  "media": 459,
-  "added": 469,
+  "shots": 751,
+  "media": 460,
+  "added": 473,
   "inbox": 218,
-  "usd": 2.172019
+  "usd": 2.186384
  }
 }
