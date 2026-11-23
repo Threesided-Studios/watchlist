@@ -6032,6 +6032,17 @@
    ],
    "usd": 0.014365,
    "kind": "recommendation_thread"
+  },
+  "3f5910ce9eb638062848dad5175b6f9e5a8fe59a48206e47a5a2538f8b2ffa14": {
+   "at": "2026-11-23T07:47:06.512Z",
+   "outcome": "parsed",
+   "ids": [
+    "bizarre-bar",
+    "oddfellows",
+    "liquid-red-nights"
+   ],
+   "usd": 0.012951,
+   "kind": "recommendation_thread"
   }
  },
  "dismissed": [
@@ -6121,10 +6132,10 @@
   "screen:phantom-thieves"
  ],
  "totals": {
-  "shots": 751,
-  "media": 460,
-  "added": 473,
-  "inbox": 218,
-  "usd": 2.186384
+  "shots": 752,
+  "media": 461,
+  "added": 475,
+  "inbox": 219,
+  "usd": 2.199335
  }
 }
