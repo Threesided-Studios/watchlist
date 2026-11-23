@@ -374,6 +374,7 @@
     "summary": "A psychological thriller in which a couple receives unsettling gifts from a former acquaintance, forcing them to confront buried secrets. Joel Edgerton writes, directs, and stars in this slow-burn examination of guilt and menace.",
     "tmdb_id": 328425,
     "providers": [
+      "Criterion Channel",
       "Lionsgate+"
     ],
     "runtime": 108
@@ -567,7 +568,6 @@
       "Paramount Plus Premium",
       "Paramount Plus Essential",
       "Paramount+",
-      "MGM Plus Roku Premium Channel",
       "Paramount+ Roku Premium Channel"
     ],
     "runtime": 157
@@ -638,7 +638,7 @@
     "tmdb_id": 11954,
     "providers": [
       "Amazon Prime Video",
-      "MGM Plus Roku Premium Channel"
+      "Criterion Channel"
     ],
     "runtime": 102
   },
@@ -907,7 +907,6 @@
     "providers": [
       "Philo",
       "Starz",
-      "Starz Roku Premium Channel",
       "Howdy"
     ],
     "runtime": 93
@@ -1088,7 +1087,7 @@
       "Paramount Plus Essential",
       "Paramount+",
       "History Vault",
-      "Starz"
+      "Paramount+ Roku Premium Channel"
     ],
     "runtime": 110
   },
@@ -1340,7 +1339,6 @@
     "providers": [
       "Philo",
       "AMC+",
-      "AMC+ Roku Premium Channel",
       "Shudder"
     ],
     "runtime": 79
@@ -1453,8 +1451,8 @@
       "fuboTV",
       "MGM+",
       "Philo",
-      "YouTube TV",
-      "MGM Plus"
+      "MGM Plus Roku Premium Channel",
+      "YouTube TV"
     ],
     "runtime": 85
   },
@@ -1867,6 +1865,7 @@
     "summary": "A man with powerful telepathic and telekinetic abilities — a 'scanner' — is recruited by a corporation to infiltrate a rogue scanner organisation with violent revolutionary ambitions. David Cronenberg's body-horror classic is best remembered for its exploding-head centrepiece and its queasy meditation on mental intrusion.",
     "tmdb_id": 9538,
     "providers": [
+      "Criterion Channel",
       "HBO Max"
     ],
     "runtime": 103
@@ -1895,7 +1894,7 @@
       "Paramount Plus Premium",
       "Paramount Plus Essential",
       "Paramount+",
-      "Paramount+ Roku Premium Channel"
+      "Criterion Channel"
     ],
     "runtime": 104
   },
@@ -2475,8 +2474,8 @@
     "tmdb_id": 11559,
     "providers": [
       "Philo",
-      "Fandor",
       "Night Flight Plus",
+      "Fandor",
       "Screambox",
       "Midnight Pulp"
     ],
@@ -2611,8 +2610,7 @@
     "tmdb_id": 2502,
     "providers": [
       "Netflix",
-      "Starz",
-      "Starz Roku Premium Channel"
+      "Starz"
     ],
     "runtime": 108
   },
@@ -2981,8 +2979,8 @@
     "tmdb_id": 525,
     "providers": [
       "Netflix",
-      "Philo",
       "AMC Plus",
+      "AMC+ Roku Premium Channel",
       "AMC+",
       "YouTube TV"
     ],
@@ -3344,8 +3342,8 @@
     "summary": "A Soviet cosmonaut returns from orbit carrying an alien organism inside him, and a psychologist is brought in to assess him at a secret military facility. This Russian sci-fi horror is tense and atmospheric, drawing comparisons to classic body-horror while grounding itself in Cold War paranoia.",
     "tmdb_id": 594718,
     "providers": [
+      "fuboTV",
       "Philo",
-      "AMC Plus",
       "AMC+",
       "Shudder",
       "Sundance Now"
@@ -4571,10 +4569,10 @@
     "tmdb_id": 510388,
     "providers": [
       "Amazon Prime Video",
-      "Hulu",
       "fuboTV",
       "Peacock Premium",
-      "Philo"
+      "Philo",
+      "AMC Plus"
     ],
     "runtime": 89
   },
@@ -5322,9 +5320,7 @@
     "tmdb_id": 489430,
     "providers": [
       "Philo",
-      "AMC Plus",
       "AMC+",
-      "AMC+ Roku Premium Channel",
       "Shudder"
     ],
     "runtime": 88
@@ -5719,7 +5715,8 @@
       "Shahid VIP"
     ],
     "runtime": 56,
-    "airing": true
+    "airing": true,
+    "next_air": "2026-12-06"
   },
   {
     "id": "destroy-all-neighbors",
@@ -5741,9 +5738,7 @@
     "tmdb_id": 974558,
     "providers": [
       "Philo",
-      "AMC Plus",
       "AMC+",
-      "AMC+ Roku Premium Channel",
       "Shudder"
     ],
     "runtime": 86
@@ -6175,7 +6170,6 @@
     "providers": [
       "Philo",
       "AMC+",
-      "AMC+ Roku Premium Channel",
       "Sundance Now"
     ],
     "runtime": 93
@@ -6506,8 +6500,7 @@
     "providers": [
       "Crunchyroll"
     ],
-    "runtime": 24,
-    "airing": true
+    "runtime": 24
   },
   {
     "id": "the-court-jester",
@@ -6732,7 +6725,11 @@
     "added": "2026-06-04",
     "summary": "Set in 19th-century Macedonia, a young woman is turned into a witch by an ancient spirit and discovers she can inhabit the bodies of others, experiencing life through multiple human perspectives. The film is a slow, lyrical meditation on what it means to be human, told through the eyes of an outsider to humanity. It is notable for its haunting cinematography and unconventional approach to the witch genre.",
     "tmdb_id": 883083,
-    "runtime": 108
+    "runtime": 108,
+    "providers": [
+      "Peacock Premium",
+      "Peacock Premium Plus"
+    ]
   },
   {
     "id": "swing-time",
@@ -6796,6 +6793,7 @@
     "tmdb_id": 704,
     "providers": [
       "HBO Max",
+      "Criterion Channel",
       "Cinemax"
     ],
     "runtime": 88
@@ -6940,7 +6938,6 @@
     "tmdb_id": 13225,
     "providers": [
       "Amazon Prime Video",
-      "fuboTV",
       "Shout! Factory"
     ],
     "runtime": 76
@@ -7030,7 +7027,6 @@
     "summary": "A deadpan sci-fi dark comedy set in a future where terminally ill people can have themselves cloned as a replacement for their loved ones. When the protagonist unexpectedly recovers, she must face her double in a legally mandated duel to the death. Directed by Riley Stearns, the film uses its absurd premise to explore identity, self-worth, and the rituals of modern life with dry wit.",
     "tmdb_id": 698128,
     "providers": [
-      "Philo",
       "AMC Plus",
       "AMC+",
       "AMC+ Roku Premium Channel",
@@ -8379,6 +8375,7 @@
     "summary": "A child psychologist uses experimental technology to enter the unconscious mind of a comatose serial killer in order to find the location of his latest victim before she drowns. Directed by Tarsem Singh, the film is as visually extravagant as it is disturbing, drawing on surrealist art and fashion photography for its dreamscapes. Jennifer Lopez and Vince Vaughn star.",
     "tmdb_id": 8843,
     "providers": [
+      "Criterion Channel",
       "Howdy"
     ],
     "runtime": 107
@@ -8959,7 +8956,7 @@
       "Paramount Plus Premium",
       "Paramount Plus Essential",
       "Paramount+",
-      "Starz"
+      "Paramount+ Roku Premium Channel"
     ],
     "runtime": 130
   },
@@ -9517,7 +9514,8 @@
       "HBO Max",
       "Paramount Plus Premium",
       "Paramount Plus Essential",
-      "Paramount+"
+      "Paramount+",
+      "Paramount+ Roku Premium Channel"
     ],
     "runtime": 108
   },
@@ -9895,8 +9893,7 @@
     "summary": "A young Mexican boy who dreams of becoming a musician is accidentally transported to the vibrant Land of the Dead on Día de los Muertos, where he searches for his great-great-grandfather and uncovers a long-buried family secret. Pixar's film is a visually spectacular and emotionally devastating love letter to Mexican culture and family memory. It won the Academy Award for Best Animated Feature.",
     "tmdb_id": 354912,
     "providers": [
-      "Disney Plus",
-      "fuboTV"
+      "Disney Plus"
     ],
     "runtime": 105
   },
@@ -9998,7 +9995,7 @@
       "Paramount Plus Premium",
       "Paramount Plus Essential",
       "Paramount+",
-      "MGM Plus Roku Premium Channel"
+      "Paramount+ Roku Premium Channel"
     ],
     "runtime": 135
   },
@@ -10150,9 +10147,6 @@
     "source": "reddit",
     "summary": "Ash Williams is hurled back to medieval England where he must retrieve the Necronomicon from an army of the dead to find his way home, despite being an insufferable coward about it. Sam Raimi's third Evil Dead film leans almost entirely into swaggering comedy and Three Stooges slapstick. Bruce Campbell's quotable bravado made Ash a lasting cult icon.",
     "tmdb_id": 766,
-    "providers": [
-      "AMC+ Roku Premium Channel"
-    ],
     "runtime": 89
   },
   {
@@ -10202,6 +10196,7 @@
     "summary": "A lone Finnish prospector in 1944 Lapland discovers gold and must fight his way through a retreating Nazi platoon that is determined to take it from him — and quickly discovers he cannot be killed. Director Jalmari Helander delivers a gloriously brutal, near-wordless action film that functions as a chapter-based revenge escalation. The concept of 'sisu' — a uniquely Finnish form of grit — is embodied with furious efficiency.",
     "tmdb_id": 840326,
     "providers": [
+      "fuboTV",
       "MovieSphere+"
     ],
     "runtime": 91
@@ -10412,8 +10407,8 @@
       "Amazon Prime Video",
       "fuboTV",
       "Philo",
-      "AMC Plus",
-      "AMC+"
+      "AMC+",
+      "Shudder"
     ],
     "runtime": 110
   },
@@ -10466,8 +10461,7 @@
     "summary": "Five college students head to a remote cabin where terrible things begin to happen — but the film almost immediately reveals that unseen technicians are orchestrating the horror for reasons that become increasingly cosmically enormous. Drew Goddard and Joss Whedon's film is a love letter to and dissection of horror tropes that works as a genuine horror film in its own right. Its third act escalation is still remarkable.",
     "tmdb_id": 22970,
     "providers": [
-      "HBO Max",
-      "AMC"
+      "HBO Max"
     ],
     "runtime": 95
   },
@@ -10516,7 +10510,8 @@
     "summary": "A directionless thirty-something and his slovenly best friend stumble through a zombie apocalypse, treating the undead as an inconvenience while trying to sort out their relationships and get to the pub. Edgar Wright's film works as both a tender character study and a surprisingly faithful zombie film. It launched the Cornetto trilogy and announced Wright as a major filmmaking talent.",
     "tmdb_id": 747,
     "providers": [
-      "Starz"
+      "Starz",
+      "Starz Roku Premium Channel"
     ],
     "runtime": 99
   },
@@ -11040,9 +11035,6 @@
     "source": "reddit",
     "summary": "A Los Angeles private detective investigates an amnesiac woman and uncovers a possible connection to a 1940s murder in which a famous conductor was accused of killing his wife with scissors — and past and present may be more intertwined than they appear. Kenneth Branagh directs and stars alongside Emma Thompson in a stylish neo-noir that plays with past-life regression with sincere conviction. A clever, twisty romantic thriller.",
     "tmdb_id": 11498,
-    "providers": [
-      "MGM Plus Roku Premium Channel"
-    ],
     "runtime": 107
   },
   {
@@ -11724,9 +11716,6 @@
     "summary": "A cash-strapped Korean family schemes their way into employment with a wealthy household, but their carefully constructed deception begins to collapse when a shocking secret beneath the rich family's home comes to light. Bong Joon-ho's Palme d'Or and Academy Award Best Picture winner is a ferociously constructed class satire that shifts genre registers with breathtaking control. It is one of the defining films of the 21st century.",
     "tmdb_id": 496243,
     "qa": "fixed",
-    "providers": [
-      "Paramount Plus Essential"
-    ],
     "runtime": 133
   },
   {
@@ -12195,7 +12184,8 @@
       "Paramount Plus Premium",
       "Paramount Plus Essential",
       "Paramount+",
-      "YouTube TV"
+      "YouTube TV",
+      "Paramount+ Roku Premium Channel"
     ],
     "runtime": 116
   },
@@ -12344,7 +12334,6 @@
     "tmdb_id": 50357,
     "providers": [
       "Amazon Prime Video",
-      "Hulu",
       "fuboTV",
       "Shout! Factory"
     ],
@@ -12558,6 +12547,7 @@
     "summary": "A mockumentary following the rise of fictional gangsta rap group CB4 — Cell Block 4 — as middle-class suburbanites who adopt the personas of hardened criminals to achieve hip-hop stardom. Chris Rock wrote and stars in the film as a sharp parody of early-90s rap culture and the music industry's exploitation of Black artists. It is a sharper and funnier satire than it is often given credit for.",
     "tmdb_id": 15278,
     "providers": [
+      "Criterion Channel",
       "Starz"
     ],
     "runtime": 88
@@ -12724,8 +12714,7 @@
     "summary": "A visceral dramatisation of the 2010 BP oil rig explosion in the Gulf of Mexico, the worst offshore drilling disaster in US history. The film centres on the workers on the rig during the catastrophic blowout, balancing personal stakes with industrial horror. Notable for its harrowing practical effects and a committed performance from Mark Wahlberg.",
     "tmdb_id": 296524,
     "providers": [
-      "Amazon Prime Video",
-      "Angel Studios"
+      "Amazon Prime Video"
     ],
     "runtime": 107
   },
@@ -12770,8 +12759,9 @@
     "summary": "A teenager has a premonition that his school flight will explode and persuades several classmates to leave the plane before it takes off — only for Death itself to begin hunting them down in elaborate sequence. The film launched a long-running franchise built around Rube Goldberg-style death scenes. Notable for turning fatalism into a darkly inventive horror subgenre.",
     "tmdb_id": 9532,
     "providers": [
+      "fuboTV",
       "HBO Max",
-      "AMC"
+      "Philo"
     ],
     "runtime": 98
   },
@@ -13271,7 +13261,7 @@
       "Crunchyroll"
     ],
     "runtime": 24,
-    "next_air": "2026-11-20",
+    "next_air": "2026-11-27",
     "airing": true
   },
   {
@@ -13353,7 +13343,7 @@
       "Adult Swim"
     ],
     "runtime": 24,
-    "next_air": "2026-11-21",
+    "next_air": "2026-11-28",
     "airing": true
   },
   {
@@ -13477,7 +13467,7 @@
     "tmdb_id": 73223,
     "format": "series",
     "runtime": 24,
-    "next_air": "2026-11-21",
+    "next_air": "2026-11-28",
     "airing": true
   },
   {
@@ -14463,10 +14453,10 @@
     "tmdb_id": 196024,
     "providers": [
       "Philo",
-      "AMC Plus",
       "AMC+",
-      "AMC+ Roku Premium Channel",
-      "Sundance Now"
+      "Sundance Now",
+      "AcornTV",
+      "Acorn TV"
     ],
     "runtime": 93
   },
@@ -14494,8 +14484,9 @@
     "providers": [
       "Philo",
       "AMC+",
-      "AMC+ Roku Premium Channel",
-      "Sundance Now"
+      "Sundance Now",
+      "AcornTV",
+      "Acorn TV"
     ],
     "runtime": 116
   },
@@ -14522,10 +14513,10 @@
     "tmdb_id": 348668,
     "providers": [
       "Philo",
-      "AMC Plus",
       "AMC+",
-      "AMC+ Roku Premium Channel",
-      "Sundance Now"
+      "Sundance Now",
+      "AcornTV",
+      "Acorn TV"
     ],
     "runtime": 108
   },
@@ -15067,9 +15058,7 @@
     "tmdb_id": 158990,
     "providers": [
       "Philo",
-      "AMC Plus",
       "AMC+",
-      "AMC+ Roku Premium Channel",
       "Sundance Now"
     ],
     "runtime": 83
@@ -15096,9 +15085,7 @@
     "tmdb_id": 547009,
     "providers": [
       "Philo",
-      "AMC Plus",
       "AMC+",
-      "AMC+ Roku Premium Channel",
       "Sundance Now"
     ],
     "runtime": 96
@@ -15332,7 +15319,8 @@
       "Philo",
       "AMC Plus",
       "AMC+",
-      "Shudder"
+      "AMC+ Roku Premium Channel",
+      "Criterion Channel"
     ],
     "runtime": 101
   },
@@ -15510,10 +15498,7 @@
     "tmdb_id": 438631,
     "providers": [
       "HBO Max",
-      "YouTube TV",
-      "TNT",
-      "TBS",
-      "tru TV"
+      "YouTube TV"
     ],
     "runtime": 155
   },
@@ -15927,9 +15912,6 @@
     "summary": "After death, people arrive at a mysterious bar where they must play games to determine whether their souls are reincarnated or condemned to the void. The series uses this premise to explore morality, memory, and what makes us human. It's a spiritual successor to the short film Death Billiards and stands out for its emotional depth.",
     "tmdb_id": 61901,
     "format": "series",
-    "providers": [
-      "Crunchyroll"
-    ],
     "runtime": 23
   },
   {
@@ -16396,7 +16378,10 @@
     "source": "reddit",
     "summary": "A heartbroken man undergoes a procedure to erase all memories of his ex-girlfriend, but during the process decides he wants to hold onto them — leading to a chaotic journey through fragmenting recollections. Michel Gondry and Charlie Kaufman's collaboration is among the most inventive explorations of love and memory in cinema. Its non-linear structure and emotional honesty have made it a modern classic.",
     "tmdb_id": 38,
-    "runtime": 108
+    "runtime": 108,
+    "providers": [
+      "Criterion Channel"
+    ]
   },
   {
     "id": "unknown",
@@ -16419,8 +16404,7 @@
     "tmdb_id": 9828,
     "qa": "fixed",
     "providers": [
-      "Starz",
-      "Starz Roku Premium Channel"
+      "Starz"
     ],
     "runtime": 85
   },
@@ -16890,6 +16874,7 @@
     "summary": "Charlie Kaufman's screenplay is simultaneously about a screenwriter named Charlie Kaufman struggling to adapt Susan Orlean's non-fiction book 'The Orchid Thief' and about that very struggle — collapsing in on itself in increasingly meta ways. Nicolas Cage plays both Charlie and his fictional twin brother in a film that interrogates creativity, obsession, and narrative convention. It remains one of the most formally audacious Hollywood films of its era.",
     "tmdb_id": 2757,
     "providers": [
+      "Criterion Channel",
       "Sony Pictures Core"
     ],
     "runtime": 115
@@ -16993,7 +16978,7 @@
       "Crunchyroll"
     ],
     "runtime": 23,
-    "next_air": "2026-11-20",
+    "next_air": "2026-11-27",
     "airing": true
   },
   {
@@ -17147,7 +17132,6 @@
       "fuboTV",
       "MGM+",
       "Philo",
-      "MGM Plus Roku Premium Channel",
       "MGM Plus"
     ],
     "runtime": 110
@@ -18144,9 +18128,9 @@
     "providers": [
       "Philo",
       "AMC+",
+      "Criterion Channel",
       "Shudder",
-      "Lionsgate+",
-      "Starz"
+      "Lionsgate+"
     ],
     "runtime": 96
   },
@@ -18304,8 +18288,8 @@
     "qa": "fixed",
     "providers": [
       "Amazon Prime Video",
-      "fuboTV",
-      "YouTube TV"
+      "YouTube TV",
+      "Criterion Channel"
     ],
     "runtime": 88
   },
@@ -18330,9 +18314,6 @@
     "summary": "The daughter of a chauffeur grows up adoring the wealthy playboy son of her employer, goes to Paris, returns transformed, and finds herself caught between two very different brothers. Billy Wilder's charming romantic comedy is a showcase for Audrey Hepburn in one of her defining roles.",
     "tmdb_id": 6620,
     "qa": "fixed",
-    "providers": [
-      "MGM Plus Roku Premium Channel"
-    ],
     "runtime": 114
   },
   {
@@ -18561,7 +18542,8 @@
     "summary": "A man who murders his boss becomes trapped in an elevator overnight while his getaway car is stolen by a young couple who go on to commit their own murder spree — all while his accomplice waits in mounting dread. Louis Malle's debut film is a masterful noir with a legendary Miles Davis score improvised while watching the footage.",
     "tmdb_id": 1093,
     "providers": [
-      "HBO Max"
+      "HBO Max",
+      "Criterion Channel"
     ],
     "runtime": 92
   },
@@ -18635,6 +18617,7 @@
     "tmdb_id": 15794,
     "providers": [
       "fuboTV",
+      "TCM",
       "IndieFlix Shorts"
     ],
     "runtime": 114
@@ -18756,9 +18739,6 @@
     "source": "reddit",
     "summary": "Three Hollywood professionals — a director, a writer, and an actress — separately recount how the same ruthless producer advanced their careers while using and betraying each of them. Vincente Minnelli's behind-the-scenes Hollywood portrait features Kirk Douglas in one of his most compelling performances.",
     "tmdb_id": 32499,
-    "providers": [
-      "TCM"
-    ],
     "runtime": 118
   },
   {
@@ -19186,9 +19166,6 @@
     "source": "reddit",
     "summary": "A suburban family's home is invaded by malevolent spirits that abduct their young daughter into another dimension. Directed by Tobe Hooper and produced by Spielberg, it's a landmark of mainstream horror that made 'they're here' iconic and domestic suburbia feel deeply unsafe.",
     "tmdb_id": 609,
-    "providers": [
-      "AMC"
-    ],
     "runtime": 114
   },
   {
@@ -19213,7 +19190,6 @@
     "tmdb_id": 11797,
     "qa": "fixed",
     "providers": [
-      "AMC",
       "Artiflix",
       "Sony Pictures Core"
     ],
@@ -19239,10 +19215,6 @@
     "source": "reddit",
     "summary": "Two brothers move to a California beach town and one falls in with a gang of stylish, murderous vampires. Joel Schumacher's cult classic blends MTV aesthetics, teenage angst, and vampire lore into one of the most rewatchable horror films of the decade.",
     "tmdb_id": 1547,
-    "providers": [
-      "AMC+ Roku Premium Channel",
-      "AMC"
-    ],
     "runtime": 97
   },
   {
@@ -19398,8 +19370,8 @@
       "fuboTV",
       "MGM+",
       "Philo",
-      "YouTube TV",
-      "MGM Plus"
+      "MGM Plus Roku Premium Channel",
+      "YouTube TV"
     ],
     "runtime": 112
   },
@@ -19570,9 +19542,9 @@
     "providers": [
       "Paramount Plus Premium",
       "Paramount Plus Essential",
-      "Philo",
       "Paramount+",
-      "AMC"
+      "AMC",
+      "Paramount+ Roku Premium Channel"
     ],
     "runtime": 142
   },
@@ -19618,11 +19590,11 @@
     "summary": "A teenager wishes her baby brother away and must navigate a surreal, magical labyrinth ruled by the Goblin King to get him back before time runs out. Jim Henson and David Bowie combine to create one of the most distinctive and beloved fantasy films of the decade, with unforgettable creature work and songs.",
     "tmdb_id": 13597,
     "providers": [
-      "Hulu",
       "fuboTV",
       "Peacock Premium",
       "Night Flight Plus",
-      "Peacock Premium Plus"
+      "Peacock Premium Plus",
+      "Shout! Factory"
     ],
     "runtime": 101
   },
@@ -19754,6 +19726,7 @@
       "Philo",
       "Starz",
       "Lionsgate+",
+      "Starz Roku Premium Channel",
       "Howdy"
     ],
     "runtime": 114
@@ -20081,7 +20054,8 @@
     "providers": [
       "Paramount Plus Premium",
       "Paramount Plus Essential",
-      "Paramount+"
+      "Paramount+",
+      "Paramount+ Roku Premium Channel"
     ],
     "runtime": 149
   },
@@ -20589,7 +20563,10 @@
     "source": "reddit",
     "summary": "A puppeteer discovers a portal behind a filing cabinet that leads directly into the mind of actor John Malkovich, offering fifteen minutes of experience as the man himself. Spike Jonze and Charlie Kaufman's debut is a wildly original comedy that uses its absurd premise to explore identity, desire, and the nature of consciousness.",
     "tmdb_id": 492,
-    "runtime": 113
+    "runtime": 113,
+    "providers": [
+      "Criterion Channel"
+    ]
   },
   {
     "id": "brazil",
@@ -54246,7 +54223,7 @@
       "YouTube TV"
     ],
     "runtime": 49,
-    "next_air": "2026-11-20",
+    "next_air": "2026-11-27",
     "airing": true,
     "verdict": "skip",
     "updated": "2026-11-20"
@@ -54421,6 +54398,7 @@
     "tmdb_id": 9463,
     "format": "film",
     "providers": [
+      "AMC Plus",
       "AMC+",
       "Shudder",
       "HiDive",
@@ -54956,10 +54934,10 @@
     "tmdb_id": 2493,
     "providers": [
       "Hulu",
+      "fuboTV",
       "Peacock Premium",
       "Philo",
-      "AMC",
-      "Peacock Premium Plus"
+      "AMC"
     ],
     "runtime": 99
   },
@@ -55077,8 +55055,8 @@
     "screenshot": "9b86ef5cad1a",
     "match_ok": true,
     "repo_url": "https://github.com/vorssaint/vorssaint-utils",
-    "stars": 34909,
-    "pushed": "2026-11-13",
+    "stars": 35914,
+    "pushed": "2026-11-23",
     "language": "Swift",
     "release": "v3.4.4"
   },
@@ -55569,8 +55547,7 @@
     "tmdb_id": 1095,
     "format": "series",
     "providers": [
-      "YouTube TV",
-      "Criterion Channel"
+      "YouTube TV"
     ],
     "runtime": 25
   },
@@ -56691,7 +56668,7 @@
       "Rakuten Viki"
     ],
     "runtime": 24,
-    "next_air": "2026-11-20",
+    "next_air": "2026-11-27",
     "airing": true
   },
   {
@@ -56873,8 +56850,7 @@
     "providers": [
       "Crunchyroll"
     ],
-    "runtime": 24,
-    "airing": true
+    "runtime": 24
   },
   {
     "id": "helck",
@@ -57959,7 +57935,7 @@
       "Night Flight Plus",
       "Retrocrush",
       "Screambox",
-      "Midnight Pulp"
+      "Eternal Family"
     ],
     "runtime": 82
   },
@@ -59757,8 +59733,7 @@
     "screenshot": "98ac0ae4436f",
     "tmdb_id": 25066,
     "providers": [
-      "Starz",
-      "Starz Roku Premium Channel"
+      "Starz"
     ],
     "runtime": 98
   },
@@ -60045,8 +60020,7 @@
     "screenshot": "98ac0ae4436f",
     "tmdb_id": 26352,
     "providers": [
-      "Starz",
-      "Starz Roku Premium Channel"
+      "Starz"
     ],
     "runtime": 100
   },
@@ -60226,6 +60200,7 @@
     "tmdb_id": 11368,
     "providers": [
       "HBO Max",
+      "Criterion Channel",
       "Cinemax"
     ],
     "runtime": 97
@@ -60450,7 +60425,7 @@
       "Crunchyroll"
     ],
     "runtime": 24,
-    "next_air": "2026-11-20",
+    "next_air": "2026-11-27",
     "airing": true
   },
   {
@@ -60531,6 +60506,7 @@
     "screenshot": "98ac0ae4436f",
     "tmdb_id": 1115379,
     "providers": [
+      "Criterion Channel",
       "OVID",
       "Eternal Family"
     ],
@@ -61033,7 +61009,6 @@
     "tmdb_id": 561,
     "providers": [
       "HBO Max",
-      "AMC",
       "ViX Premium"
     ],
     "runtime": 121
@@ -61063,7 +61038,10 @@
     "match_ok": true,
     "screenshot": "3b01c9495d8b",
     "tmdb_id": 9319,
-    "runtime": 105
+    "runtime": 105,
+    "providers": [
+      "fuboTV"
+    ]
   },
   {
     "id": "kiss-kiss-bang-bang",
@@ -61157,7 +61135,6 @@
       "fuboTV",
       "Paramount Plus Premium",
       "Paramount Plus Essential",
-      "MGM Plus Roku Premium Channel",
       "Paramount+ Roku Premium Channel"
     ],
     "runtime": 128
@@ -61252,6 +61229,7 @@
     "tmdb_id": 25284,
     "providers": [
       "Amazon Prime Video",
+      "fuboTV",
       "Shout! Factory"
     ],
     "runtime": 110
@@ -61286,6 +61264,7 @@
       "fuboTV",
       "MGM+",
       "Philo",
+      "MGM Plus Roku Premium Channel",
       "MGM Plus"
     ],
     "runtime": 105
@@ -61625,7 +61604,10 @@
     "match_ok": true,
     "screenshot": "7a0b348454ad",
     "tmdb_id": 64690,
-    "runtime": 100
+    "runtime": 100,
+    "providers": [
+      "fuboTV"
+    ]
   },
   {
     "id": "enter-the-void",
@@ -61654,10 +61636,10 @@
     "tmdb_id": 34647,
     "providers": [
       "Philo",
-      "AMC Plus",
       "AMC+",
       "Shudder",
-      "Sundance Now"
+      "Sundance Now",
+      "MUBI"
     ],
     "runtime": 161
   },
@@ -61874,9 +61856,6 @@
     "match_ok": true,
     "screenshot": "7a0b348454ad",
     "tmdb_id": 829,
-    "providers": [
-      "MGM Plus Roku Premium Channel"
-    ],
     "runtime": 130
   },
   {
@@ -61938,9 +61917,8 @@
     "providers": [
       "Amazon Prime Video",
       "Philo",
-      "AMC Plus",
       "AMC+",
-      "AMC+ Roku Premium Channel"
+      "Shudder"
     ],
     "runtime": 118
   },
@@ -62145,6 +62123,7 @@
     "tmdb_id": 827,
     "providers": [
       "HBO Max",
+      "Criterion Channel",
       "Artify"
     ],
     "runtime": 118
@@ -62827,8 +62806,7 @@
     "same_title_works": 8,
     "providers": [
       "Philo",
-      "Starz",
-      "Starz Roku Premium Channel"
+      "Starz"
     ],
     "runtime": 124,
     "verdict": null,
@@ -63203,7 +63181,7 @@
     "screenshot": "5fd638819c98",
     "art_via": "GitHub",
     "repo_url": "https://github.com/thruwire/foreman",
-    "stars": 827,
+    "stars": 833,
     "pushed": "2026-10-15",
     "language": "Python",
     "release": "v0.5.1"
@@ -63254,10 +63232,11 @@
     "screenshot": "edac162e6670",
     "art_via": "GitHub",
     "repo_url": "https://github.com/openai/codex",
-    "stars": 135491,
-    "pushed": "2026-11-16",
+    "stars": 136245,
+    "pushed": "2026-11-23",
     "language": "Rust",
-    "release": "rust-v0.169.0"
+    "release": "rust-v0.171.0",
+    "release_at": "2026-11-23"
   },
   {
     "id": "magic-repo-man-dumped-by-my-party-i-ll-cash-in-with-a-cute-support-fairy-to-become-the-strongest",
@@ -63292,7 +63271,7 @@
       "Crunchyroll"
     ],
     "runtime": 24,
-    "next_air": "2026-11-22",
+    "next_air": "2026-11-29",
     "airing": true
   },
   {
@@ -63326,7 +63305,7 @@
       "Crunchyroll"
     ],
     "runtime": 24,
-    "next_air": "2026-11-16",
+    "next_air": "2026-11-23",
     "airing": true
   },
   {
@@ -64493,8 +64472,7 @@
     "providers": [
       "Amazon Prime Video",
       "Starz",
-      "MovieSphere+",
-      "Starz Roku Premium Channel"
+      "MovieSphere+"
     ],
     "runtime": 82
   },
@@ -64559,8 +64537,7 @@
     "tmdb_id": 2503,
     "providers": [
       "Netflix",
-      "Starz",
-      "Starz Roku Premium Channel"
+      "Starz"
     ],
     "runtime": 115
   },
@@ -64591,8 +64568,7 @@
     "tmdb_id": 49040,
     "providers": [
       "Netflix",
-      "Starz",
-      "Starz Roku Premium Channel"
+      "Starz"
     ],
     "runtime": 135
   },
@@ -64835,7 +64811,7 @@
       "Philo",
       "AMC Plus",
       "AMC+",
-      "YouTube TV"
+      "AMC+ Roku Premium Channel"
     ],
     "runtime": 101
   },
@@ -65271,6 +65247,7 @@
       "fuboTV",
       "MGM+",
       "Philo",
+      "MGM Plus Roku Premium Channel",
       "MGM Plus"
     ],
     "runtime": 111
@@ -65414,7 +65391,10 @@
     "screenshot": "1c7413f37547",
     "tmdb_id": 119283,
     "same_title_works": 4,
-    "runtime": 118
+    "runtime": 118,
+    "providers": [
+      "fuboTV"
+    ]
   },
   {
     "id": "homefront",
@@ -65690,7 +65670,8 @@
     "providers": [
       "Paramount Plus Premium",
       "Paramount Plus Essential",
-      "Paramount+"
+      "Paramount+",
+      "Paramount+ Roku Premium Channel"
     ],
     "runtime": 109
   },
@@ -65809,10 +65790,10 @@
     "tmdb_id": 10159,
     "providers": [
       "Amazon Prime Video",
+      "Philo",
       "AMC Plus",
-      "AMC+",
-      "AMC",
-      "Starz"
+      "AMC+ Roku Premium Channel",
+      "AMC+"
     ],
     "runtime": 104
   },
@@ -65846,7 +65827,6 @@
     "same_title_works": 3,
     "providers": [
       "Amazon Prime Video",
-      "MGM Plus Roku Premium Channel",
       "MGM Plus"
     ],
     "runtime": 86
@@ -66137,7 +66117,7 @@
       "Crunchyroll"
     ],
     "runtime": 24,
-    "next_air": "2026-11-18",
+    "next_air": "2026-11-25",
     "airing": true
   },
   {
@@ -66378,8 +66358,8 @@
       "HiDive",
       "Hidive"
     ],
-    "runtime": 24,
-    "next_air": "2026-11-17",
+    "runtime": 25,
+    "next_air": "2026-11-24",
     "airing": true
   },
   {
@@ -66572,7 +66552,7 @@
       "Amazon Prime Video"
     ],
     "runtime": 24,
-    "next_air": "2026-11-20",
+    "next_air": "2026-11-27",
     "airing": true
   },
   {
@@ -67263,8 +67243,7 @@
     "tmdb_id": 890,
     "format": "series",
     "providers": [
-      "Netflix",
-      "Criterion Channel"
+      "Netflix"
     ],
     "runtime": 25
   },
@@ -67300,7 +67279,7 @@
       "Crunchyroll"
     ],
     "runtime": 24,
-    "next_air": "2026-11-18",
+    "next_air": "2026-11-25",
     "airing": true
   },
   {
@@ -67432,7 +67411,10 @@
     "same_title_works": 5,
     "providers": [
       "Amazon Prime Video",
-      "HBO Max"
+      "HBO Max",
+      "TNT",
+      "TBS",
+      "tru TV"
     ],
     "runtime": 97
   },
@@ -67459,7 +67441,7 @@
     "screenshot": "aeec025910ab",
     "author": "effekseer",
     "repo_url": "https://github.com/effekseer/Effekseer",
-    "stars": 2094,
+    "stars": 2131,
     "pushed": "2026-10-30",
     "language": "C",
     "release": "1808"
@@ -67713,7 +67695,7 @@
       "Netflix"
     ],
     "runtime": 25,
-    "next_air": "2026-11-22",
+    "next_air": "2026-11-29",
     "airing": true
   },
   {
@@ -67749,7 +67731,7 @@
       "Crunchyroll"
     ],
     "runtime": 24,
-    "next_air": "2026-11-21",
+    "next_air": "2026-11-28",
     "airing": true
   },
   {
@@ -67810,7 +67792,7 @@
       "Hidive"
     ],
     "runtime": 23,
-    "next_air": "2026-11-19",
+    "next_air": "2026-11-26",
     "airing": true
   },
   {
@@ -67844,7 +67826,7 @@
       "Crunchyroll"
     ],
     "runtime": 24,
-    "next_air": "2026-11-18",
+    "next_air": "2026-11-25",
     "airing": true
   },
   {
@@ -67967,7 +67949,7 @@
     "tmdb_id": 311842,
     "format": "series",
     "runtime": 24,
-    "next_air": "2026-11-19",
+    "next_air": "2026-11-26",
     "airing": true
   },
   {
@@ -68002,8 +67984,7 @@
     "providers": [
       "Crunchyroll"
     ],
-    "runtime": 24,
-    "airing": true
+    "runtime": 24
   },
   {
     "id": "firefly-wedding",
@@ -68035,7 +68016,7 @@
       "Crunchyroll"
     ],
     "runtime": 23,
-    "next_air": "2026-11-20",
+    "next_air": "2026-11-27",
     "airing": true
   },
   {
@@ -68071,7 +68052,7 @@
       "Crunchyroll"
     ],
     "runtime": 24,
-    "next_air": "2026-11-20",
+    "next_air": "2026-11-27",
     "airing": true
   },
   {
@@ -68288,7 +68269,7 @@
     "screenshot": "886352e38ee9",
     "author": "yohanshin",
     "repo_url": "https://github.com/yohanshin/WHAM",
-    "stars": 1178,
+    "stars": 1183,
     "pushed": "2024-04-18",
     "language": "Python"
   },
@@ -68310,7 +68291,7 @@
     "added": "2026-11-16",
     "source": "github-stars",
     "author": "Absenti",
-    "stars": 9,
+    "stars": 15,
     "language": "Swift",
     "license": "MIT",
     "pushed": "2026-11-15",
@@ -68339,11 +68320,12 @@
     "added": "2026-11-16",
     "source": "github-stars",
     "author": "Dadon-11",
-    "stars": 9,
+    "stars": 37,
     "language": "Rust",
     "license": "MIT",
-    "pushed": "2026-11-15",
-    "release": "v0.1.1"
+    "pushed": "2026-11-22",
+    "release": "v0.1.2",
+    "release_at": "2026-11-23"
   },
   {
     "id": "saltline-fable-5-2",
@@ -68363,7 +68345,7 @@
     "added": "2026-11-15",
     "source": "github-stars",
     "author": "realcodebear",
-    "stars": 357,
+    "stars": 533,
     "language": "HTML",
     "pushed": "2026-11-11"
   },
@@ -68385,7 +68367,7 @@
     "added": "2026-11-14",
     "source": "github-stars",
     "author": "kencalx",
-    "stars": 4,
+    "stars": 7,
     "language": "Python",
     "license": "MIT",
     "pushed": "2026-11-14",
@@ -68414,12 +68396,12 @@
     "added": "2026-11-14",
     "source": "github-stars",
     "author": "FrigadeHQ",
-    "stars": 1757,
+    "stars": 3071,
     "language": "TypeScript",
     "license": "MIT",
-    "pushed": "2026-11-16",
-    "release": "v0.3.31",
-    "release_at": "2026-11-16"
+    "pushed": "2026-11-23",
+    "release": "v0.3.70",
+    "release_at": "2026-11-23"
   },
   {
     "id": "recompdb",
@@ -68439,7 +68421,7 @@
     "added": "2026-11-14",
     "source": "github-stars",
     "author": "ranveersoni98",
-    "stars": 4,
+    "stars": 5,
     "license": "CC0-1.0",
     "pushed": "2026-11-14"
   },
@@ -68466,7 +68448,7 @@
     "added": "2026-11-14",
     "source": "github-stars",
     "author": "Donchitos",
-    "stars": 39682,
+    "stars": 40716,
     "language": "Shell",
     "license": "MIT",
     "pushed": "2026-11-09",
@@ -68495,11 +68477,12 @@
     "added": "2026-11-12",
     "source": "github-stars",
     "author": "fleccy",
-    "stars": 16,
+    "stars": 20,
     "language": "C++",
     "license": "GPL-3.0",
-    "pushed": "2026-10-13",
-    "release": "v0.11.1"
+    "pushed": "2026-11-18",
+    "release": "v0.12.0",
+    "release_at": "2026-11-23"
   },
   {
     "id": "openrom",
@@ -68524,10 +68507,10 @@
     "added": "2026-11-12",
     "source": "github-stars",
     "author": "M5Devs",
-    "stars": 320,
+    "stars": 322,
     "language": "Dart",
     "license": "GPL-3.0",
-    "pushed": "2026-11-14",
+    "pushed": "2026-11-20",
     "release": "v4.1.0"
   },
   {
@@ -68553,10 +68536,11 @@
     "added": "2026-11-11",
     "source": "github-stars",
     "author": "shannonbay",
-    "stars": 29,
+    "stars": 46,
     "language": "TypeScript",
     "license": "Apache-2.0",
-    "pushed": "2026-11-16"
+    "pushed": "2026-11-23",
+    "release": "v0.32.0"
   },
   {
     "id": "notestackai",
@@ -68583,7 +68567,7 @@
     "author": "FireBird-Technologies",
     "stars": 36,
     "language": "Python",
-    "pushed": "2026-11-16"
+    "pushed": "2026-11-23"
   },
   {
     "id": "neonplan3d",
@@ -68608,11 +68592,12 @@
     "added": "2026-11-10",
     "source": "github-stars",
     "author": "Mastershort",
-    "stars": 1207,
+    "stars": 1275,
     "language": "TypeScript",
     "license": "MIT",
-    "pushed": "2026-11-15",
-    "release": "v3.4.1"
+    "pushed": "2026-11-22",
+    "release": "v4.0.1",
+    "release_at": "2026-11-23"
   },
   {
     "id": "swordboimacnative",
@@ -68632,7 +68617,7 @@
     "added": "2026-11-10",
     "source": "github-stars",
     "author": "Fasen24-AI",
-    "stars": 54,
+    "stars": 52,
     "language": "Python",
     "license": "MIT",
     "pushed": "2026-11-11"
@@ -68689,11 +68674,12 @@
     "added": "2026-11-10",
     "source": "github-stars",
     "author": "FortoGraphy",
-    "stars": 950,
+    "stars": 1305,
     "language": "Rust",
     "license": "MIT",
-    "pushed": "2026-11-01",
-    "release": "v1.2.4"
+    "pushed": "2026-11-17",
+    "release": "v1.2.5",
+    "release_at": "2026-11-23"
   },
   {
     "id": "claude-rc-launcher",
@@ -68713,10 +68699,11 @@
     "added": "2026-11-10",
     "source": "github-stars",
     "author": "kbirger",
-    "stars": 1,
+    "stars": 4,
     "language": "TypeScript",
-    "pushed": "2026-11-15",
-    "release": "v0.26.0"
+    "pushed": "2026-11-22",
+    "release": "v0.33.1",
+    "release_at": "2026-11-23"
   },
   {
     "id": "murmury",
@@ -68741,10 +68728,10 @@
     "added": "2026-11-10",
     "source": "github-stars",
     "author": "GianlucaBave",
-    "stars": 24,
+    "stars": 30,
     "language": "Python",
     "license": "GPL-3.0",
-    "pushed": "2026-11-16",
+    "pushed": "2026-11-23",
     "release": "v0.1.5"
   },
   {
@@ -68770,10 +68757,11 @@
     "added": "2026-11-10",
     "source": "github-stars",
     "author": "Gathin23",
-    "stars": 58458,
+    "stars": 60560,
     "language": "Python",
-    "pushed": "2026-11-15",
-    "release": "v3.5.0"
+    "pushed": "2026-11-22",
+    "release": "v3.6.0",
+    "release_at": "2026-11-23"
   },
   {
     "id": "arcade-manager",
@@ -68798,7 +68786,7 @@
     "added": "2026-11-07",
     "source": "github-stars",
     "author": "cosmo0",
-    "stars": 254,
+    "stars": 255,
     "language": "C#",
     "license": "GPL-3.0",
     "pushed": "2026-11-03",
@@ -68822,7 +68810,7 @@
     "added": "2026-11-06",
     "source": "github-stars",
     "author": "microsoft",
-    "stars": 57204,
+    "stars": 57514,
     "language": "Python",
     "license": "MIT",
     "pushed": "2026-10-08"
@@ -68845,7 +68833,7 @@
     "added": "2026-11-06",
     "source": "github-stars",
     "author": "P1pp89",
-    "stars": 47,
+    "stars": 48,
     "language": "Python",
     "license": "MIT",
     "pushed": "2026-11-09"
@@ -68873,11 +68861,12 @@
     "added": "2026-11-05",
     "source": "github-stars",
     "author": "LNPANDY",
-    "stars": 7360,
+    "stars": 8234,
     "language": "Swift",
     "license": "MIT",
-    "pushed": "2026-11-16",
-    "release": "v1.4.0"
+    "pushed": "2026-11-23",
+    "release": "v1.5.0",
+    "release_at": "2026-11-23"
   },
   {
     "id": "zapfast",
@@ -68902,11 +68891,12 @@
     "added": "2026-11-05",
     "source": "github-stars",
     "author": "crmne",
-    "stars": 4592,
+    "stars": 4986,
     "language": "Rust",
     "license": "MIT",
-    "pushed": "2026-11-16",
-    "release": "v0.21.2"
+    "pushed": "2026-11-23",
+    "release": "v0.21.3",
+    "release_at": "2026-11-23"
   },
   {
     "id": "8bitdo-macos",
@@ -68926,7 +68916,7 @@
     "added": "2026-11-04",
     "source": "github-stars",
     "author": "Alan-Gomes",
-    "stars": 43,
+    "stars": 46,
     "language": "C",
     "pushed": "2026-10-15",
     "release": "0.02"
@@ -68949,10 +68939,10 @@
     "added": "2026-11-04",
     "source": "github-stars",
     "author": "Eglantine-Community",
-    "stars": 6029,
+    "stars": 6217,
     "language": "C++",
     "license": "GPL-3.0",
-    "pushed": "2026-11-16",
+    "pushed": "2026-11-23",
     "release": "v0.1.0-rc4"
   },
   {
@@ -68978,10 +68968,10 @@
     "added": "2026-11-03",
     "source": "github-stars",
     "author": "Smaug6739",
-    "stars": 3923,
+    "stars": 3944,
     "language": "Vue",
     "license": "MIT",
-    "pushed": "2026-11-11",
+    "pushed": "2026-11-20",
     "release": "v8.14.4"
   },
   {
@@ -69002,7 +68992,7 @@
     "added": "2026-11-03",
     "source": "github-stars",
     "author": "deepseek-ai",
-    "stars": 23434,
+    "stars": 24352,
     "language": "TypeScript",
     "license": "MIT",
     "pushed": "2026-11-03"
@@ -69059,11 +69049,12 @@
     "added": "2026-11-02",
     "source": "github-stars",
     "author": "Lebbitheplow",
-    "stars": 85,
+    "stars": 89,
     "language": "TypeScript",
     "license": "MIT",
-    "pushed": "2026-11-16",
-    "release": "v0.35.1"
+    "pushed": "2026-11-23",
+    "release": "v0.39.1",
+    "release_at": "2026-11-23"
   },
   {
     "id": "defi",
@@ -69088,11 +69079,12 @@
     "added": "2026-11-01",
     "source": "github-stars",
     "author": "qeude",
-    "stars": 186,
+    "stars": 194,
     "language": "Swift",
     "license": "MIT",
-    "pushed": "2026-11-15",
-    "release": "v0.10.0"
+    "pushed": "2026-11-23",
+    "release": "v0.11.0",
+    "release_at": "2026-11-23"
   },
   {
     "id": "mac-tv",
@@ -69112,11 +69104,12 @@
     "added": "2026-10-31",
     "source": "github-stars",
     "author": "Arunprakaash",
-    "stars": 113,
+    "stars": 121,
     "language": "Swift",
     "license": "MIT",
-    "pushed": "2026-11-10",
-    "release": "v0.17.2"
+    "pushed": "2026-11-23",
+    "release": "v0.21",
+    "release_at": "2026-11-23"
   },
   {
     "id": "killerpdf",
@@ -69141,11 +69134,12 @@
     "added": "2026-10-30",
     "source": "github-stars",
     "author": "SteveTheKiller",
-    "stars": 4391,
+    "stars": 4447,
     "language": "C#",
     "license": "GPL-3.0",
-    "pushed": "2026-11-16",
-    "release": "v1.9.4"
+    "pushed": "2026-11-23",
+    "release": "v1.9.5",
+    "release_at": "2026-11-23"
   },
   {
     "id": "vitreo",
@@ -69188,10 +69182,10 @@
     "added": "2026-10-30",
     "source": "github-stars",
     "author": "hieunc229",
-    "stars": 123,
+    "stars": 131,
     "language": "Swift",
     "license": "AGPL-3.0",
-    "pushed": "2026-11-15",
+    "pushed": "2026-11-21",
     "release": "1.7"
   },
   {
@@ -69217,9 +69211,9 @@
     "added": "2026-10-29",
     "source": "github-stars",
     "author": "TheJustRun",
-    "stars": 81,
+    "stars": 88,
     "language": "Python",
-    "pushed": "2026-11-15",
+    "pushed": "2026-11-19",
     "release": "v1.0.2-stable-Kanye"
   },
   {
@@ -69245,11 +69239,12 @@
     "added": "2026-10-29",
     "source": "github-stars",
     "author": "narratarr",
-    "stars": 124,
+    "stars": 125,
     "language": "Python",
     "license": "MIT",
-    "pushed": "2026-11-06",
-    "release": "v0.9.4"
+    "pushed": "2026-11-18",
+    "release": "v0.9.7",
+    "release_at": "2026-11-23"
   },
   {
     "id": "flaregram",
@@ -69296,7 +69291,7 @@
     "added": "2026-10-28",
     "source": "github-stars",
     "author": "Nutlope",
-    "stars": 55812,
+    "stars": 60029,
     "language": "CSS",
     "license": "MIT",
     "pushed": "2026-11-11"
@@ -69324,10 +69319,10 @@
     "added": "2026-10-28",
     "source": "github-stars",
     "author": "gitroomhq",
-    "stars": 41726,
+    "stars": 42242,
     "language": "TypeScript",
     "license": "AGPL-3.0",
-    "pushed": "2026-11-16",
+    "pushed": "2026-11-23",
     "release": "v2.26.0"
   },
   {
@@ -69376,7 +69371,7 @@
     "added": "2026-10-27",
     "source": "github-stars",
     "author": "lixalistudio-oss",
-    "stars": 26,
+    "stars": 27,
     "language": "TypeScript",
     "pushed": "2026-11-02",
     "release": "v0.4.0"
@@ -69404,11 +69399,12 @@
     "added": "2026-10-25",
     "source": "github-stars",
     "author": "crmne",
-    "stars": 10393,
+    "stars": 10694,
     "language": "Rust",
     "license": "MIT",
-    "pushed": "2026-11-16",
-    "release": "v0.17.1"
+    "pushed": "2026-11-23",
+    "release": "v0.17.2",
+    "release_at": "2026-11-23"
   },
   {
     "id": "hypersol-hyperspace-3d",
@@ -69436,7 +69432,7 @@
     "stars": 1,
     "language": "TypeScript",
     "license": "Apache-2.0",
-    "pushed": "2026-11-13"
+    "pushed": "2026-11-18"
   },
   {
     "id": "windows-gpu-unlock",
@@ -69456,10 +69452,10 @@
     "added": "2026-10-25",
     "source": "github-stars",
     "author": "windows-GPU-UNLOCK",
-    "stars": 2242,
+    "stars": 2369,
     "language": "C",
     "license": "GPL-2.0",
-    "pushed": "2026-11-15"
+    "pushed": "2026-11-16"
   },
   {
     "id": "myfoldy",
@@ -69479,7 +69475,7 @@
     "added": "2026-10-25",
     "source": "github-stars",
     "author": "Piyushingle007",
-    "stars": 28,
+    "stars": 29,
     "language": "Kotlin",
     "license": "MIT",
     "pushed": "2026-10-21"
@@ -69507,11 +69503,12 @@
     "added": "2026-10-24",
     "source": "github-stars",
     "author": "rahatsagor",
-    "stars": 202,
+    "stars": 226,
     "language": "Rust",
     "license": "AGPL-3.0",
-    "pushed": "2026-11-16",
-    "release": "v0.8.1"
+    "pushed": "2026-11-23",
+    "release": "v1.0.0",
+    "release_at": "2026-11-23"
   },
   {
     "id": "flarebox",
@@ -69559,11 +69556,12 @@
     "added": "2026-10-22",
     "source": "github-stars",
     "author": "makeplane",
-    "stars": 62512,
+    "stars": 63042,
     "language": "TypeScript",
     "license": "AGPL-3.0",
-    "pushed": "2026-11-16",
-    "release": "v1.4.3"
+    "pushed": "2026-11-23",
+    "release": "v1.5.0",
+    "release_at": "2026-11-23"
   },
   {
     "id": "openfilm",
@@ -69588,11 +69586,12 @@
     "added": "2026-10-22",
     "source": "github-stars",
     "author": "openfilm",
-    "stars": 7739,
+    "stars": 9118,
     "language": "TypeScript",
     "license": "MIT",
-    "pushed": "2026-11-16",
-    "release": "v0.3.2"
+    "pushed": "2026-11-23",
+    "release": "v0.4.1",
+    "release_at": "2026-11-23"
   },
   {
     "id": "opendesigner",
@@ -69617,10 +69616,10 @@
     "added": "2026-10-22",
     "source": "github-stars",
     "author": "ckryptickunal",
-    "stars": 169,
+    "stars": 202,
     "language": "Python",
     "license": "MIT",
-    "pushed": "2026-11-16",
+    "pushed": "2026-11-23",
     "release": "v0.3.1"
   },
   {
@@ -69644,7 +69643,7 @@
     "stars": 37,
     "language": "TypeScript",
     "license": "MIT",
-    "pushed": "2026-11-01",
+    "pushed": "2026-11-20",
     "release": "v0.1.13"
   },
   {
@@ -69665,7 +69664,7 @@
     "added": "2026-10-12",
     "source": "github-stars",
     "author": "charlie947",
-    "stars": 4720,
+    "stars": 4779,
     "language": "Python",
     "license": "MIT",
     "pushed": "2026-10-18"
@@ -69688,10 +69687,10 @@
     "added": "2026-10-10",
     "source": "github-stars",
     "author": "chr33s",
-    "stars": 89,
+    "stars": 90,
     "language": "TypeScript",
     "license": "MIT",
-    "pushed": "2026-11-03"
+    "pushed": "2026-11-22"
   },
   {
     "id": "knowledge-work-plugins",
@@ -69711,10 +69710,10 @@
     "added": "2026-10-09",
     "source": "github-stars",
     "author": "anthropics",
-    "stars": 36247,
+    "stars": 36736,
     "language": "Python",
     "license": "Apache-2.0",
-    "pushed": "2026-11-13"
+    "pushed": "2026-11-23"
   },
   {
     "id": "rea",
@@ -69739,11 +69738,12 @@
     "added": "2026-10-09",
     "source": "github-stars",
     "author": "morluto",
-    "stars": 463019,
+    "stars": 475459,
     "language": "TypeScript",
     "license": "MIT",
-    "pushed": "2026-11-16",
-    "release": "rea-agents-6.9.0"
+    "pushed": "2026-11-23",
+    "release": "rea-agents-6.10.1",
+    "release_at": "2026-11-23"
   },
   {
     "id": "claude-mem",
@@ -69768,11 +69768,12 @@
     "added": "2026-10-09",
     "source": "github-stars",
     "author": "thedotmack",
-    "stars": 117519,
+    "stars": 119301,
     "language": "TypeScript",
     "license": "Apache-2.0",
-    "pushed": "2026-11-16",
-    "release": "v15.19.0"
+    "pushed": "2026-11-23",
+    "release": "v16.1.0",
+    "release_at": "2026-11-23"
   },
   {
     "id": "artcraft",
@@ -69797,10 +69798,10 @@
     "added": "2026-10-09",
     "source": "github-stars",
     "author": "storytold",
-    "stars": 41191,
+    "stars": 42086,
     "language": "Rust",
     "license": "Apache-2.0",
-    "pushed": "2026-11-16",
+    "pushed": "2026-11-23",
     "release": "artcraft-v0.41.1"
   },
   {
@@ -69848,11 +69849,12 @@
     "added": "2026-10-08",
     "source": "github-stars",
     "author": "rdborg",
-    "stars": 323,
+    "stars": 338,
     "language": "Go",
     "license": "AGPL-3.0",
-    "pushed": "2026-11-15",
-    "release": "v4.0.8"
+    "pushed": "2026-11-22",
+    "release": "v4.1.1",
+    "release_at": "2026-11-23"
   },
   {
     "id": "openmontage",
@@ -69877,7 +69879,7 @@
     "added": "2026-10-08",
     "source": "github-stars",
     "author": "OpenMontageInc",
-    "stars": 80850,
+    "stars": 82694,
     "language": "Python",
     "license": "AGPL-3.0",
     "pushed": "2026-11-16"
@@ -69927,10 +69929,10 @@
     "added": "2026-10-04",
     "source": "github-stars",
     "author": "hieunc229",
-    "stars": 6574,
+    "stars": 7507,
     "language": "TypeScript",
     "license": "AGPL-3.0",
-    "pushed": "2026-11-16"
+    "pushed": "2026-11-21"
   },
   {
     "id": "inkscape",
@@ -69950,7 +69952,7 @@
     "added": "2026-09-28",
     "source": "github-stars",
     "author": "inkscape",
-    "stars": 4129,
+    "stars": 4153,
     "pushed": "2022-03-03"
   },
   {
@@ -69993,11 +69995,12 @@
     "added": "2026-09-24",
     "source": "github-stars",
     "author": "NotProtonNot",
-    "stars": 2544,
+    "stars": 2720,
     "language": "Scala",
     "license": "GPL-3.0",
-    "pushed": "2026-11-15",
-    "release": "v1.2.6"
+    "pushed": "2026-11-23",
+    "release": "v1.2.7",
+    "release_at": "2026-11-23"
   },
   {
     "id": "instatic",
@@ -70022,12 +70025,12 @@
     "added": "2026-09-23",
     "source": "github-stars",
     "author": "CoreBunch",
-    "stars": 9127,
+    "stars": 9149,
     "language": "TypeScript",
     "license": "MIT",
-    "pushed": "2026-11-16",
-    "release": "v0.0.22",
-    "release_at": "2026-11-16"
+    "pushed": "2026-11-23",
+    "release": "v0.0.23",
+    "release_at": "2026-11-23"
   },
   {
     "id": "dungeon-drifters",
@@ -70052,9 +70055,9 @@
     "added": "2026-09-16",
     "source": "github-stars",
     "author": "MrCodeGameandAnime",
-    "stars": 6,
+    "stars": 7,
     "language": "Python",
-    "pushed": "2026-11-16",
+    "pushed": "2026-11-23",
     "release": "v0.8"
   },
   {
@@ -70075,7 +70078,7 @@
     "added": "2026-09-13",
     "source": "github-stars",
     "author": "slee-persis",
-    "stars": 1207,
+    "stars": 1212,
     "language": "Python",
     "license": "MIT",
     "pushed": "2026-11-05"
@@ -70098,7 +70101,7 @@
     "added": "2026-09-13",
     "source": "github-stars",
     "author": "zorrobyte",
-    "stars": 69,
+    "stars": 72,
     "language": "Python",
     "license": "0BSD",
     "pushed": "2026-09-15"
@@ -70124,7 +70127,7 @@
     "stars": 6,
     "language": "TypeScript",
     "license": "MIT",
-    "pushed": "2026-11-16",
+    "pushed": "2026-11-22",
     "release": "v2.0.0"
   },
   {
@@ -70150,7 +70153,7 @@
     "added": "2026-09-02",
     "source": "github-stars",
     "author": "kikkupico",
-    "stars": 592,
+    "stars": 593,
     "language": "TypeScript",
     "license": "MIT",
     "pushed": "2026-11-05"
@@ -70178,10 +70181,10 @@
     "added": "2026-08-28",
     "source": "github-stars",
     "author": "rommapp",
-    "stars": 14389,
+    "stars": 14464,
     "language": "Python",
     "license": "AGPL-3.0",
-    "pushed": "2026-11-16",
+    "pushed": "2026-11-23",
     "release": "5.4.1"
   },
   {
@@ -70207,7 +70210,7 @@
     "added": "2026-08-28",
     "source": "github-stars",
     "author": "ilyas-hallak",
-    "stars": 197,
+    "stars": 198,
     "language": "Swift",
     "license": "MIT",
     "pushed": "2026-10-29"
@@ -70230,10 +70233,10 @@
     "added": "2026-08-19",
     "source": "github-stars",
     "author": "stackblitz-labs",
-    "stars": 20094,
+    "stars": 20126,
     "language": "TypeScript",
     "license": "MIT",
-    "pushed": "2026-11-16",
+    "pushed": "2026-11-21",
     "release": "v1.0.3"
   },
   {
@@ -70259,10 +70262,10 @@
     "added": "2026-08-16",
     "source": "github-stars",
     "author": "sitepins",
-    "stars": 204,
+    "stars": 206,
     "language": "TypeScript",
     "license": "AGPL-3.0",
-    "pushed": "2026-11-16"
+    "pushed": "2026-11-19"
   },
   {
     "id": "builder",
@@ -70287,7 +70290,7 @@
     "added": "2026-08-15",
     "source": "github-stars",
     "author": "revyme-web",
-    "stars": 175,
+    "stars": 178,
     "language": "TypeScript",
     "license": "AGPL-3.0",
     "pushed": "2026-11-10"
@@ -70315,10 +70318,10 @@
     "added": "2026-08-15",
     "source": "github-stars",
     "author": "What0ff",
-    "stars": 11,
+    "stars": 12,
     "language": "Python",
     "license": "MIT",
-    "pushed": "2026-11-15",
+    "pushed": "2026-11-17",
     "release": "v2.0.1"
   },
   {
@@ -70344,10 +70347,10 @@
     "added": "2026-08-12",
     "source": "github-stars",
     "author": "trailhq",
-    "stars": 11307,
+    "stars": 11459,
     "language": "TypeScript",
     "license": "MIT",
-    "pushed": "2026-11-16"
+    "pushed": "2026-11-23"
   },
   {
     "id": "airship",
@@ -70367,7 +70370,7 @@
     "added": "2026-08-12",
     "source": "github-stars",
     "author": "0xnyn",
-    "stars": 738,
+    "stars": 744,
     "language": "TypeScript",
     "license": "MIT",
     "pushed": "2026-11-16"
@@ -70395,11 +70398,12 @@
     "added": "2026-08-06",
     "source": "github-stars",
     "author": "addyosmani",
-    "stars": 118131,
+    "stars": 119979,
     "language": "JavaScript",
     "license": "MIT",
-    "pushed": "2026-11-14",
-    "release": "0.6.16"
+    "pushed": "2026-11-18",
+    "release": "0.6.17",
+    "release_at": "2026-11-23"
   },
   {
     "id": "cloudflare-os",
@@ -70419,10 +70423,10 @@
     "added": "2026-08-06",
     "source": "github-stars",
     "author": "cloudflare",
-    "stars": 11807,
+    "stars": 11856,
     "language": "TypeScript",
     "license": "Apache-2.0",
-    "pushed": "2026-11-16"
+    "pushed": "2026-11-23"
   },
   {
     "id": "sceneproof",
@@ -70471,11 +70475,12 @@
     "added": "2026-07-28",
     "source": "github-stars",
     "author": "Zoo-Code-Org",
-    "stars": 2121,
+    "stars": 2146,
     "language": "TypeScript",
     "license": "Apache-2.0",
-    "pushed": "2026-11-16",
-    "release": "v3.98.0"
+    "pushed": "2026-11-23",
+    "release": "v3.98.2",
+    "release_at": "2026-11-23"
   },
   {
     "id": "roomote",
@@ -70495,10 +70500,11 @@
     "added": "2026-07-28",
     "source": "github-stars",
     "author": "RooCodeInc",
-    "stars": 339,
+    "stars": 353,
     "language": "TypeScript",
-    "pushed": "2026-11-14",
-    "release": "v1.21.0"
+    "pushed": "2026-11-23",
+    "release": "v1.24.0",
+    "release_at": "2026-11-23"
   },
   {
     "id": "macro",
@@ -70523,11 +70529,12 @@
     "added": "2026-07-19",
     "source": "github-stars",
     "author": "macro-inc",
-    "stars": 6347,
+    "stars": 6448,
     "language": "Rust",
     "license": "AGPL-3.0",
-    "pushed": "2026-11-16",
-    "release": "v2026.11.12.0"
+    "pushed": "2026-11-23",
+    "release": "v2026.11.19.1",
+    "release_at": "2026-11-23"
   },
   {
     "id": "throughline",
@@ -70550,7 +70557,7 @@
     "stars": 80,
     "language": "JavaScript",
     "license": "MIT",
-    "pushed": "2026-11-16",
+    "pushed": "2026-11-17",
     "release": "v0.34.0"
   },
   {
@@ -70576,10 +70583,10 @@
     "added": "2026-07-15",
     "source": "github-stars",
     "author": "posecode-dev",
-    "stars": 132,
+    "stars": 135,
     "language": "TypeScript",
     "license": "Apache-2.0",
-    "pushed": "2026-10-26",
+    "pushed": "2026-11-23",
     "release": "posecode-embed@0.6.0"
   },
   {
@@ -70605,7 +70612,7 @@
     "added": "2026-06-29",
     "source": "github-stars",
     "author": "gamedev-skills",
-    "stars": 9088,
+    "stars": 10583,
     "language": "Python",
     "license": "Apache-2.0",
     "pushed": "2026-11-12",
@@ -70634,7 +70641,7 @@
     "added": "2026-06-22",
     "source": "github-stars",
     "author": "Johell1NS",
-    "stars": 547,
+    "stars": 552,
     "language": "JavaScript",
     "license": "MIT",
     "pushed": "2026-10-22",
@@ -70714,7 +70721,7 @@
     "added": "2026-06-14",
     "source": "github-stars",
     "author": "TexasBedouin",
-    "stars": 640,
+    "stars": 645,
     "language": "HTML",
     "license": "MIT",
     "pushed": "2026-11-13",
@@ -70738,10 +70745,10 @@
     "added": "2026-06-12",
     "source": "github-stars",
     "author": "levy-street",
-    "stars": 2342,
+    "stars": 2346,
     "language": "TypeScript",
     "license": "MIT",
-    "pushed": "2026-11-16",
+    "pushed": "2026-11-23",
     "release": "v0.45.8"
   },
   {
@@ -70767,10 +70774,10 @@
     "added": "2026-05-29",
     "source": "github-stars",
     "author": "ruvnet",
-    "stars": 104422,
+    "stars": 104944,
     "language": "Rust",
     "license": "MIT",
-    "pushed": "2026-11-16",
+    "pushed": "2026-11-23",
     "release": "ruview-harness-v0.9.2"
   },
   {
@@ -70796,7 +70803,7 @@
     "added": "2026-05-21",
     "source": "github-stars",
     "author": "bytedance",
-    "stars": 39599,
+    "stars": 39590,
     "language": "TypeScript",
     "license": "Apache-2.0",
     "pushed": "2026-10-09",
@@ -70826,10 +70833,10 @@
     "added": "2026-05-21",
     "source": "github-stars",
     "author": "rohitg00",
-    "stars": 30399,
+    "stars": 30551,
     "language": "TypeScript",
     "license": "Apache-2.0",
-    "pushed": "2026-11-16",
+    "pushed": "2026-11-18",
     "release": "v0.9.33"
   },
   {
@@ -70878,7 +70885,7 @@
     "added": "2024-12-07",
     "source": "github-stars",
     "author": "Lattyware",
-    "stars": 501,
+    "stars": 500,
     "language": "Elm",
     "license": "AGPL-3.0",
     "pushed": "2023-11-21",
@@ -70907,10 +70914,10 @@
     "added": "2020-12-08",
     "source": "github-stars",
     "author": "gatsbyjs",
-    "stars": 55916,
+    "stars": 55917,
     "language": "JavaScript",
     "license": "MIT",
-    "pushed": "2026-11-11",
+    "pushed": "2026-11-20",
     "release": "gatsby@5.16.1"
   },
   {
@@ -70934,9 +70941,9 @@
     "added": "2020-08-20",
     "source": "github-stars",
     "author": "open5e",
-    "stars": 460,
+    "stars": 459,
     "language": "TypeScript",
-    "pushed": "2026-11-15",
+    "pushed": "2026-11-16",
     "release": "v2.2.1"
   },
   {
@@ -70957,7 +70964,7 @@
     "added": "2018-01-05",
     "source": "github-stars",
     "author": "conclave-team",
-    "stars": 725,
+    "stars": 726,
     "language": "JavaScript",
     "license": "MIT",
     "pushed": "2022-12-12"
@@ -70985,7 +70992,7 @@
     "added": "2017-07-18",
     "source": "github-stars",
     "author": "yakyak",
-    "stars": 3744,
+    "stars": 3743,
     "language": "CoffeeScript",
     "license": "MIT",
     "pushed": "2025-09-30",
@@ -71014,7 +71021,7 @@
     "added": "2017-06-22",
     "source": "github-stars",
     "author": "paulsonnentag",
-    "stars": 2090,
+    "stars": 2089,
     "language": "JavaScript",
     "license": "MIT",
     "pushed": "2017-06-25"
@@ -71042,7 +71049,7 @@
     "added": "2017-05-01",
     "source": "github-stars",
     "author": "turbo",
-    "stars": 2652,
+    "stars": 2651,
     "language": "JavaScript",
     "license": "MIT",
     "pushed": "2019-08-11",
@@ -71072,10 +71079,10 @@
     "added": "2017-04-26",
     "source": "github-stars",
     "author": "botpress",
-    "stars": 15000,
+    "stars": 15006,
     "language": "TypeScript",
     "license": "MIT",
-    "pushed": "2026-11-13",
+    "pushed": "2026-11-23",
     "release": "v12.30.9"
   },
   {
@@ -71156,7 +71163,7 @@
     "added": "2016-04-22",
     "source": "github-stars",
     "author": "mgsisk",
-    "stars": 104,
+    "stars": 105,
     "language": "PHP",
     "license": "GPL-2.0",
     "pushed": "2022-12-01",
@@ -71208,7 +71215,7 @@
     "added": "2015-10-06",
     "source": "github-stars",
     "author": "nylas",
-    "stars": 24727,
+    "stars": 24725,
     "language": "JavaScript",
     "license": "MIT",
     "pushed": "2026-06-25",
@@ -71238,10 +71245,10 @@
     "added": "2015-07-11",
     "source": "github-stars",
     "author": "dmotz",
-    "stars": 2412,
+    "stars": 2410,
     "language": "CoffeeScript",
     "license": "MIT",
-    "pushed": "2024-08-13"
+    "pushed": "2026-11-23"
   },
   {
     "id": "kite",
@@ -71922,7 +71929,7 @@
     "quote": "An open-source tool that captures real human movement using two or more ordinary cameras and turns it into 3D motion data.",
     "intent": "recommendation",
     "repo_url": "https://github.com/freemocap/freemocap",
-    "stars": 10821,
+    "stars": 10888,
     "language": "TypeScript",
     "license": "AGPL-3.0",
     "pushed": "2026-11-14",
@@ -71958,7 +71965,7 @@
     "quote": "A lightweight JavaScript library that helps you create, control and animate SVG graphics directly in your browser.",
     "intent": "reference",
     "repo_url": "https://github.com/svgdotjs/svg.js",
-    "stars": 11927,
+    "stars": 11956,
     "language": "JavaScript",
     "pushed": "2026-08-04",
     "release": "3.2.6"
@@ -71991,10 +71998,10 @@
     "quote": "A free visual-effects compositor that helps you combine footage, graphics and effects into polished shots.",
     "intent": "reference",
     "repo_url": "https://github.com/NatronGitHub/Natron",
-    "stars": 5719,
+    "stars": 5765,
     "language": "C++",
     "license": "GPL-2.0",
-    "pushed": "2026-11-16",
+    "pushed": "2026-11-23",
     "release": "v2.5.0"
   },
   {
@@ -72186,7 +72193,7 @@
     "quote": "One topic in, a Vox-style explainer out. Runs on a third-party API.",
     "intent": "reference",
     "repo_url": "https://github.com/Alisa0808/vox-director",
-    "stars": 2887,
+    "stars": 3056,
     "language": "Python",
     "license": "MIT",
     "pushed": "2026-10-05"
@@ -72216,7 +72223,7 @@
     "quote": "Motion graphics in one HTML file: openers, promos, kinetic text.",
     "intent": "reference",
     "repo_url": "https://github.com/bangtutorial/bang-motion",
-    "stars": 2255,
+    "stars": 2967,
     "language": "HTML",
     "license": "MIT",
     "pushed": "2026-09-15"
@@ -72246,7 +72253,7 @@
     "quote": "can generate character movements at an incredible 15,000 frames per second with just 2ms latency",
     "intent": "reference",
     "repo_url": "https://github.com/NVlabs/motionbricks",
-    "stars": 1029,
+    "stars": 1633,
     "language": "Python",
     "pushed": "2026-10-26"
   },
@@ -72307,10 +72314,10 @@
     "quote": "35+ art styles where the paintings actually move. Written in code.",
     "intent": "reference",
     "repo_url": "https://github.com/alchaincyf/huashu-art-motion",
-    "stars": 7017,
+    "stars": 7546,
     "language": "JavaScript",
     "license": "MIT",
-    "pushed": "2026-11-15",
+    "pushed": "2026-11-18",
     "release": "v1.3.1"
   },
   {
@@ -72371,10 +72378,10 @@
     "quote": "Tracks hands, faces and full-body movement from camera feeds in real time using pre-trained models.",
     "intent": "reference",
     "repo_url": "https://github.com/google-ai-edge/mediapipe",
-    "stars": 37714,
+    "stars": 37800,
     "language": "C++",
     "license": "Apache-2.0",
-    "pushed": "2026-11-16",
+    "pushed": "2026-11-23",
     "release": "v1.2.3"
   },
   {
@@ -72407,7 +72414,7 @@
     "quote": "Detects human body poses in images and videos by identifying key points such as shoulders, elbows, knees and wrists.",
     "intent": "reference",
     "repo_url": "https://github.com/CMU-Perceptual-Computing-Lab/openpose",
-    "stars": 34582,
+    "stars": 34612,
     "language": "C++",
     "pushed": "2024-08-03",
     "release": "v1.7.0"
@@ -72442,7 +72449,7 @@
     "quote": "Provides models and tools to detect body keypoints, estimate human poses and explore whole-body or animal pose estimation.",
     "intent": "recommendation",
     "repo_url": "https://github.com/open-mmlab/mmpose",
-    "stars": 8060,
+    "stars": 8077,
     "language": "Python",
     "license": "Apache-2.0",
     "pushed": "2025-08-04",
@@ -72476,7 +72483,7 @@
     "quote": "Detects key points on the human body from images or video using a lightweight pose-estimation model.",
     "intent": "reference",
     "repo_url": "https://github.com/tensorflow/tfjs-models",
-    "stars": 14814,
+    "stars": 14812,
     "language": "TypeScript",
     "license": "Apache-2.0",
     "pushed": "2026-06-23",
@@ -72510,7 +72517,7 @@
     "quote": "Uses 2D body keypoints detected in video to estimate a person’s 3D body pose.",
     "intent": "reference",
     "repo_url": "https://github.com/facebookresearch/VideoPose3D",
-    "stars": 4063,
+    "stars": 4062,
     "language": "Python",
     "pushed": "2022-12-10",
     "archived": true
@@ -72542,7 +72549,7 @@
     "quote": "Estimates 3D human body shapes and poses from images, with tools for detecting and tracking people in video.",
     "intent": "reference",
     "repo_url": "https://github.com/shubham-goel/4D-Humans",
-    "stars": 1737,
+    "stars": 1741,
     "language": "Python",
     "license": "MIT",
     "pushed": "2026-02-07"
@@ -72574,7 +72581,7 @@
     "quote": "Provides tools to reconstruct 3D human motion from multiple camera views without requiring markers attached to the body.",
     "intent": "reference",
     "repo_url": "https://github.com/zju3dv/EasyMocap",
-    "stars": 4981,
+    "stars": 4987,
     "language": "Python",
     "pushed": "2026-09-15",
     "release": "v0.1"
@@ -72609,9 +72616,9 @@
     "quote": "Provides tools for building 3D models, rigging characters, creating animations, rendering scenes and producing complete 3D projects.",
     "intent": "reference",
     "repo_url": "https://github.com/blender/blender",
-    "stars": 22090,
+    "stars": 22385,
     "language": "C++",
-    "pushed": "2026-11-16"
+    "pushed": "2026-11-23"
   },
   {
     "id": "openseo",
@@ -72643,11 +72650,12 @@
     "quote": "A Semrush alternative your agent can use",
     "intent": "recommendation",
     "repo_url": "https://github.com/every-app/open-seo",
-    "stars": 27881,
+    "stars": 28706,
     "language": "TypeScript",
     "license": "MIT",
-    "pushed": "2026-11-13",
-    "release": "v0.1.27"
+    "pushed": "2026-11-20",
+    "release": "v0.1.31",
+    "release_at": "2026-11-23"
   },
   {
     "id": "magnitude",
@@ -72674,10 +72682,10 @@
     "quote": "Magnitude is an open source inference engine that tunes its kernels on your hardware to find the fastest way to run each model.",
     "intent": "recommendation",
     "repo_url": "https://github.com/magnitudedev/magnitude",
-    "stars": 7865,
+    "stars": 8199,
     "language": "Rust",
     "license": "Apache-2.0",
-    "pushed": "2026-11-15",
+    "pushed": "2026-11-23",
     "release": "@magnitudedev/cli@0.2.17"
   },
   {
@@ -73428,7 +73436,11 @@
     "quote": "Lyra, a traumatized cyborg girl, and Ren, a protective young mechanic, are abducted by SujiCorp.",
     "availability": "mochi.tv",
     "intent": "recommendation",
-    "same_title_works": 8
+    "same_title_works": 8,
+    "providers": [
+      "Netflix"
+    ],
+    "runtime": 38
   },
   {
     "id": "last-man",
@@ -73461,7 +73473,12 @@
     "intent": "recommendation",
     "same_title_works": 4,
     "verdict": "skip",
-    "updated": "2026-11-20"
+    "updated": "2026-11-20",
+    "providers": [
+      "Hulu",
+      "Philo"
+    ],
+    "runtime": 21
   },
   {
     "id": "god-slayer",
@@ -73715,7 +73732,11 @@
     "format": "series",
     "tmdb_id": 283880,
     "quote": "Kotesashi-kun. Now this is pushing",
-    "intent": "recommendation"
+    "intent": "recommendation",
+    "providers": [
+      "Crunchyroll"
+    ],
+    "runtime": 23
   },
   {
     "id": "haganai",
@@ -73768,7 +73789,11 @@
     "screenshot": "739b82fe7774",
     "format": "series",
     "tmdb_id": 261091,
-    "intent": "recommendation"
+    "intent": "recommendation",
+    "providers": [
+      "Crunchyroll"
+    ],
+    "runtime": 24
   },
   {
     "id": "the-snow-woman-and-the-cursed-ring",
@@ -73880,7 +73905,8 @@
     "tmdb_id": 76138,
     "quote": "Anime NOT for Kids, No Censorship (18+...)",
     "availability": "Other Sites",
-    "intent": "recommendation"
+    "intent": "recommendation",
+    "runtime": 5
   },
   {
     "id": "classroom-for-heroes",
@@ -73910,7 +73936,11 @@
     "screenshot": "8cb29e02742d",
     "format": "series",
     "tmdb_id": 134742,
-    "intent": "recommendation"
+    "intent": "recommendation",
+    "providers": [
+      "Crunchyroll"
+    ],
+    "runtime": 24
   },
   {
     "id": "in-another-world-with-my-smartphone",
@@ -73942,7 +73972,11 @@
     "screenshot": "3392ce2ec604",
     "format": "series",
     "tmdb_id": 72505,
-    "intent": "recommendation"
+    "intent": "recommendation",
+    "providers": [
+      "Crunchyroll"
+    ],
+    "runtime": 24
   },
   {
     "id": "hitozuma-life-one-time-gal",
@@ -73999,7 +74033,8 @@
     "format": "series",
     "tmdb_id": 45967,
     "availability": "Other Sites",
-    "intent": "recommendation"
+    "intent": "recommendation",
+    "runtime": 25
   },
   {
     "id": "netsuzou-trap-ntr",
@@ -74029,7 +74064,11 @@
     "format": "series",
     "tmdb_id": 72510,
     "availability": "Crunchyroll",
-    "intent": "recommendation"
+    "intent": "recommendation",
+    "providers": [
+      "Crunchyroll"
+    ],
+    "runtime": 9
   },
   {
     "id": "my-instant-death-ability-is-so-overpowered-no-one-in-this-other-world-stands-a-chance",
@@ -74140,7 +74179,11 @@
     "screenshot": "c7c996bed69f",
     "format": "series",
     "tmdb_id": 60811,
-    "intent": "recommendation"
+    "intent": "recommendation",
+    "providers": [
+      "Crunchyroll"
+    ],
+    "runtime": 23
   },
   {
     "id": "slam-dunk",
@@ -74169,7 +74212,11 @@
     "format": "series",
     "tmdb_id": 42573,
     "intent": "recommendation",
-    "same_title_works": 3
+    "same_title_works": 3,
+    "providers": [
+      "Netflix"
+    ],
+    "runtime": 23
   },
   {
     "id": "the-vampire-lovers",
@@ -74196,7 +74243,13 @@
     "screenshot": "cc18041ca77f",
     "tmdb_id": 31952,
     "quote": "the Hammer Karnstein trilogy is classic, too.",
-    "intent": "recommendation"
+    "intent": "recommendation",
+    "providers": [
+      "FlixFling",
+      "IndieFlix",
+      "IndieFlix Shorts"
+    ],
+    "runtime": 91
   },
   {
     "id": "lust-for-a-vampire",
@@ -74223,7 +74276,13 @@
     "screenshot": "cc18041ca77f",
     "tmdb_id": 31472,
     "quote": "the Hammer Karnstein trilogy is classic, too.",
-    "intent": "recommendation"
+    "intent": "recommendation",
+    "providers": [
+      "Philo",
+      "FlixFling",
+      "Shout! Factory"
+    ],
+    "runtime": 91
   },
   {
     "id": "twins-of-evil",
@@ -74250,7 +74309,12 @@
     "screenshot": "cc18041ca77f",
     "tmdb_id": 28801,
     "quote": "Twins of Evil is a hoot",
-    "intent": "recommendation"
+    "intent": "recommendation",
+    "providers": [
+      "Amazon Prime Video",
+      "Shout! Factory"
+    ],
+    "runtime": 87
   },
   {
     "id": "blood-from-the-mummy-s-tomb",
@@ -74277,7 +74341,14 @@
     "screenshot": "cc18041ca77f",
     "tmdb_id": 39263,
     "quote": "If Valerie Leon does it for you, Blood from the Mummy's Tomb is also good",
-    "intent": "recommendation"
+    "intent": "recommendation",
+    "providers": [
+      "FlixFling",
+      "IndieFlix",
+      "IndieFlix Shorts",
+      "MovieSphere+"
+    ],
+    "runtime": 94
   },
   {
     "id": "pantheon",
@@ -74307,7 +74378,11 @@
     "tmdb_id": 195339,
     "quote": "The last episode of Pantheon was one of those pieces of sci-fi that I thought about for months afterward.",
     "intent": "recommendation",
-    "same_title_works": 2
+    "same_title_works": 2,
+    "providers": [
+      "Netflix"
+    ],
+    "runtime": 46
   },
   {
     "id": "black-mirror",
@@ -74337,7 +74412,12 @@
     "screenshot": "5111f04dbc91",
     "tmdb_id": 42009,
     "intent": "recommendation",
-    "same_title_works": 6
+    "same_title_works": 6,
+    "providers": [
+      "Netflix"
+    ],
+    "runtime": 90,
+    "airing": true
   },
   {
     "id": "sekirei",
@@ -74368,7 +74448,8 @@
     "format": "series",
     "tmdb_id": 34805,
     "quote": "The story's pretty solid for a harem anime",
-    "intent": "recommendation"
+    "intent": "recommendation",
+    "runtime": 25
   },
   {
     "id": "baka-and-test-summon-the-beasts",
@@ -74398,7 +74479,11 @@
     "screenshot": "72ccaa048c3c",
     "format": "series",
     "tmdb_id": 56343,
-    "intent": "recommendation"
+    "intent": "recommendation",
+    "providers": [
+      "Crunchyroll"
+    ],
+    "runtime": 24
   },
   {
     "id": "sword-art-online",
@@ -74430,7 +74515,13 @@
     "format": "series",
     "tmdb_id": 45782,
     "quote": "I actually enjoy it alot and I dont care if people say its bad",
-    "intent": "recommendation"
+    "intent": "recommendation",
+    "providers": [
+      "Netflix",
+      "Hulu",
+      "Crunchyroll"
+    ],
+    "runtime": 24
   },
   {
     "id": "higehiro-after-being-rejected-i-shaved-and-took-in-a-high-school-runaway",
@@ -74459,7 +74550,11 @@
     "format": "series",
     "tmdb_id": 106519,
     "quote": "I love found family stories",
-    "intent": "recommendation"
+    "intent": "recommendation",
+    "providers": [
+      "Crunchyroll"
+    ],
+    "runtime": 24
   },
   {
     "id": "girls-bravo",
@@ -74490,7 +74585,11 @@
     "adult": true,
     "format": "series",
     "tmdb_id": 34793,
-    "intent": "recommendation"
+    "intent": "recommendation",
+    "providers": [
+      "Crunchyroll"
+    ],
+    "runtime": 24
   },
   {
     "id": "beatless",
@@ -74522,7 +74621,8 @@
     "screenshot": "8e4de0606059",
     "format": "series",
     "tmdb_id": 76062,
-    "intent": "recommendation"
+    "intent": "recommendation",
+    "runtime": 25
   },
   {
     "id": "tenchi-in-tokyo",
@@ -74552,7 +74652,8 @@
     "screenshot": "8e4de0606059",
     "format": "series",
     "tmdb_id": 20485,
-    "intent": "recommendation"
+    "intent": "recommendation",
+    "runtime": 30
   },
   {
     "id": "kiss-x-sis",
@@ -74611,7 +74712,11 @@
     "adult": true,
     "format": "series",
     "tmdb_id": 37584,
-    "intent": "recommendation"
+    "intent": "recommendation",
+    "providers": [
+      "Crunchyroll"
+    ],
+    "runtime": 24
   },
   {
     "id": "miss-kobayashi-s-dragon-maid",
@@ -74641,7 +74746,12 @@
     "screenshot": "750d7b2b4bf9",
     "format": "series",
     "tmdb_id": 69291,
-    "intent": "recommendation"
+    "intent": "recommendation",
+    "providers": [
+      "Hulu",
+      "Crunchyroll"
+    ],
+    "runtime": 24
   },
   {
     "id": "my-deer-friend-nokotan",
@@ -74672,7 +74782,12 @@
     "format": "series",
     "tmdb_id": 248866,
     "quote": "I always thought it was hilarious",
-    "intent": "recommendation"
+    "intent": "recommendation",
+    "providers": [
+      "Amazon Prime Video",
+      "Crunchyroll"
+    ],
+    "runtime": 24
   },
   {
     "id": "tenpuru",
@@ -74700,7 +74815,11 @@
     "screenshot": "850854302e31",
     "format": "series",
     "tmdb_id": 218613,
-    "intent": "recommendation"
+    "intent": "recommendation",
+    "providers": [
+      "Crunchyroll"
+    ],
+    "runtime": 24
   },
   {
     "id": "are-you-lost",
@@ -74731,7 +74850,11 @@
     "screenshot": "850854302e31",
     "format": "series",
     "tmdb_id": 88805,
-    "intent": "recommendation"
+    "intent": "recommendation",
+    "providers": [
+      "Crunchyroll"
+    ],
+    "runtime": 12
   },
   {
     "id": "monster-musume-everyday-life-with-monster-girls",
@@ -74761,7 +74884,12 @@
     "screenshot": "850854302e31",
     "format": "series",
     "tmdb_id": 63187,
-    "intent": "recommendation"
+    "intent": "recommendation",
+    "providers": [
+      "HiDive",
+      "Hidive"
+    ],
+    "runtime": 24
   },
   {
     "id": "gpt",
@@ -75394,7 +75522,13 @@
     "screenshot": "e079943eddba",
     "format": "series",
     "tmdb_id": 284580,
-    "quote": "They really said f*ck censorship"
+    "quote": "They really said f*ck censorship",
+    "providers": [
+      "Crunchyroll"
+    ],
+    "runtime": 24,
+    "next_air": "2026-11-27",
+    "airing": true
   },
   {
     "id": "you-and-i-are-polar-opposites",
@@ -75423,7 +75557,11 @@
     "format": "series",
     "tmdb_id": 278043,
     "availability": "Crunchyroll",
-    "intent": "recommendation"
+    "intent": "recommendation",
+    "providers": [
+      "Crunchyroll"
+    ],
+    "runtime": 24
   },
   {
     "id": "osamake-romcom-where-the-childhood-friend-won-t-lose",
@@ -75452,7 +75590,11 @@
     "format": "series",
     "tmdb_id": 110975,
     "availability": "Crunchyroll",
-    "intent": "recommendation"
+    "intent": "recommendation",
+    "providers": [
+      "Crunchyroll"
+    ],
+    "runtime": 24
   },
   {
     "id": "da-nang",
