@@ -6043,6 +6043,15 @@
    ],
    "usd": 0.012951,
    "kind": "recommendation_thread"
+  },
+  "aabdc260619c21fb4774ef8f68a65d9a3e36ad7e84ad37ae1a4532fbc61ec2ab": {
+   "at": "2026-11-24T00:53:04.955Z",
+   "outcome": "parsed",
+   "ids": [
+    "fandom-bar"
+   ],
+   "usd": 0.010932,
+   "kind": "recommendation_thread"
   }
  },
  "dismissed": [
@@ -6132,10 +6141,10 @@
   "screen:phantom-thieves"
  ],
  "totals": {
-  "shots": 752,
-  "media": 461,
-  "added": 475,
+  "shots": 753,
+  "media": 462,
+  "added": 476,
   "inbox": 219,
-  "usd": 2.199335
+  "usd": 2.210267
  }
 }

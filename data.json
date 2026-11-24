@@ -75994,5 +75994,29 @@
     "language": "TypeScript",
     "license": "Apache-2.0",
     "pushed": "2026-11-23"
+  },
+  {
+    "id": "fandom-bar",
+    "title": "Fandom Bar",
+    "type": "place",
+    "year": null,
+    "blurb": "",
+    "summary": "",
+    "poster": "",
+    "link": "https://www.google.com/maps/search/Fandom%20Bar",
+    "status": "todo",
+    "tags": [],
+    "rating": null,
+    "notes": "",
+    "added": "2026-11-24",
+    "source": "screenshot",
+    "source_context": "Reddit r/vegasmakefriends: “Trivia tonight :)” — Invites others to join a laid-back trivia night there.",
+    "recommended_by": "TeaTime_001",
+    "ai_confidence": 0.98,
+    "enriched_via": "Nominatim",
+    "match_ok": false,
+    "screenshot": "aabdc260619c",
+    "quote": "It’s pretty laid back and always fun.",
+    "intent": "recommendation"
   }
 ]
