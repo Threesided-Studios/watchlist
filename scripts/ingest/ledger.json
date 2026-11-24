@@ -6062,6 +6062,50 @@
    ],
    "usd": 0.012471,
    "kind": "recommendation_thread"
+  },
+  "2a199d8940e6b65384c3e123632e5a7f5b6162edeeb90af7423095ddddd087d4": {
+   "at": "2026-11-24T01:19:18.739Z",
+   "outcome": "parsed",
+   "ids": [
+    "school-days",
+    "needy-girl-overdose",
+    "86-eighty-six",
+    "monster"
+   ],
+   "usd": 0.014063,
+   "kind": "recommendation_thread"
+  },
+  "42a5372f9ed6375357d4eeb539e4b319b30387b3b18995f9bb53dda5a4b8564c": {
+   "at": "2026-11-24T01:19:18.636Z",
+   "outcome": "parsed",
+   "ids": [
+    "monster",
+    "attack-on-titan",
+    "death-note",
+    "gurren-lagann",
+    "march-comes-in-like-a-lion",
+    "now-and-then-here-and-there"
+   ],
+   "usd": 0.015733,
+   "kind": "recommendation_thread"
+  },
+  "ccfe441ab9da5b42d931c5d8fff561a535573f45429561ab3b6ab633a4f7efb6": {
+   "at": "2026-11-24T01:19:18.373Z",
+   "outcome": "parsed",
+   "ids": [
+    "rumbling-hearts",
+    "wonder-egg-priority",
+    "welcome-to-the-n-h-k",
+    "oshi-no-ko",
+    "domestic-girlfriend",
+    "re-zero-starting-life-in-another-world",
+    "mushoku-tensei-jobless-reincarnation",
+    "neon-genesis-evangelion",
+    "steins-gate",
+    "haibane-renmei"
+   ],
+   "usd": 0.019751,
+   "kind": "recommendation_thread"
   }
  },
  "dismissed": [
@@ -6151,10 +6195,10 @@
   "screen:phantom-thieves"
  ],
  "totals": {
-  "shots": 754,
-  "media": 463,
-  "added": 478,
+  "shots": 757,
+  "media": 466,
+  "added": 486,
   "inbox": 219,
-  "usd": 2.222738
+  "usd": 2.272285
  }
 }
