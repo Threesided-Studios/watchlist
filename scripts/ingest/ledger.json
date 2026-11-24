@@ -6106,6 +6106,15 @@
    ],
    "usd": 0.019751,
    "kind": "recommendation_thread"
+  },
+  "61f5376d1462640936b90cfb795f337ed06ef11f68ee996b0d0d11abfd5086ca": {
+   "at": "2026-11-24T08:44:03.349Z",
+   "outcome": "parsed",
+   "ids": [
+    "prisoner-of-war"
+   ],
+   "usd": 0.011003,
+   "kind": "recommendation_thread"
   }
  },
  "dismissed": [
@@ -6195,10 +6204,10 @@
   "screen:phantom-thieves"
  ],
  "totals": {
-  "shots": 757,
-  "media": 466,
-  "added": 486,
+  "shots": 758,
+  "media": 467,
+  "added": 487,
   "inbox": 219,
-  "usd": 2.272285
+  "usd": 2.283288
  }
 }

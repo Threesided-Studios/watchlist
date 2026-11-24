@@ -76313,5 +76313,36 @@
     "tmdb_id": 34164,
     "quote": "The show doesnt seem super heavy initially. But by the end lots of themes of life, regret, death are explored.",
     "intent": "recommendation"
+  },
+  {
+    "id": "prisoner-of-war",
+    "title": "Prisoner of War",
+    "type": "movie",
+    "year": 2025,
+    "blurb": "British RAF Wing Commander James Wright is captured by the Japanese during WWII and forced to fight in brutal hand-to-hand combat.",
+    "summary": "British RAF Wing Commander James Wright is captured by the Japanese during WWII and forced to fight in brutal hand-to-hand combat. The Japanese soldiers get more than they bargained for when Wright’s years of martial arts training in Hong Kong prove him to be a formidable opponent.",
+    "poster": "posters/prisoner-of-war.jpg",
+    "link": "https://www.themoviedb.org/movie/1328803",
+    "status": "todo",
+    "tags": [
+      "Action",
+      "War",
+      "Thriller",
+      "History"
+    ],
+    "rating": null,
+    "notes": "",
+    "added": "2026-11-24",
+    "source": "screenshot",
+    "source_context": "Facebook video comments about a martial-arts clip — A commenter identifies the film by name.",
+    "recommended_by": "Terry",
+    "ai_confidence": 0.72,
+    "enriched_via": "TMDB",
+    "match_ok": true,
+    "screenshot": "61f5376d1462",
+    "tmdb_id": 1328803,
+    "quote": "it’s called “prisoner of war”",
+    "intent": "reference",
+    "same_title_works": 3
   }
 ]
