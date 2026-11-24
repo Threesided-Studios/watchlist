@@ -76018,5 +76018,57 @@
     "screenshot": "aabdc260619c",
     "quote": "It’s pretty laid back and always fun.",
     "intent": "recommendation"
+  },
+  {
+    "id": "dragon-quest-iv-chapters-of-the-chosen",
+    "title": "Dragon Quest IV: Chapters of the Chosen",
+    "type": "game",
+    "year": 1990,
+    "blurb": "Dragon Quest IV: Chapters of the Chosen, titled Dragon Warrior IV when initially localized to North America, is a 1990 role-playing video game, the fourth installment of the Dragon Quest video game series developed by Chunsoft and published by Enix, and the first of the Zenithian Trilogy.",
+    "summary": "Dragon Quest IV: Chapters of the Chosen, titled Dragon Warrior IV when initially localized to North America, is a 1990 role-playing video game, the fourth installment of the Dragon Quest video game series developed by Chunsoft and published by Enix, and the first of the Zenithian Trilogy. It was originally released for the Famicom on 11 February 1990 in Japan. A North American NES version followed in October 1992, and would be the last Dragon Quest game localized and published by Enix's Enix America Corporation subsidiary prior to its closure in November 1995, as well as the last Dragon Quest game to be localized into English prior to the localization of Dragon Warrior Monsters in December 1999. The game was remade by Heartbeat for the PlayStation, which eventually was available as an Ultimate Hits game. The remake was ported by ArtePiazza to the Nintendo DS, released in Japan November 2007 and worldwide in September 2008. A mobile version based on the Nintendo DS remake was released in 2014 for Android and iOS.",
+    "poster": "posters/dragon-quest-iv-chapters-of-the-chosen.jpg",
+    "link": "https://en.wikipedia.org/wiki/Dragon_Quest_IV",
+    "status": "todo",
+    "tags": [
+      "JRPG"
+    ],
+    "rating": null,
+    "notes": "",
+    "added": "2026-11-24",
+    "source": "screenshot",
+    "source_context": "Reddit post by u/slam_joetry about DQ4 PSX and DQ6 translation patches — New English translation patch for the PSX/PS1 version.",
+    "recommended_by": "slam_joetry",
+    "ai_confidence": 0.96,
+    "enriched_via": "Wikipedia",
+    "match_ok": false,
+    "screenshot": "bac9af5f8179",
+    "quote": "I've been waiting for these translations for decades.",
+    "intent": "reference"
+  },
+  {
+    "id": "dragon-quest-vi-realms-of-revelation",
+    "title": "Dragon Quest VI: Realms of Revelation",
+    "type": "game",
+    "year": 1995,
+    "blurb": "Dragon Quest VI: Realms of Revelation, known in Europe & Australia as Dragon Quest VI: Realms of Reverie, is a 1995 role-playing video game developed by Heartbeat and published by Enix for the Super Famicom as a part of the Dragon Quest series and as the last Dragon Quest game in the Zenithian Trilogy.",
+    "summary": "Dragon Quest VI: Realms of Revelation, known in Europe & Australia as Dragon Quest VI: Realms of Reverie, is a 1995 role-playing video game developed by Heartbeat and published by Enix for the Super Famicom as a part of the Dragon Quest series and as the last Dragon Quest game in the Zenithian Trilogy. It was released in Japan in December 1995, developed by Heartbeat; whereas the previous Dragon Quest games were developed by Chunsoft. In 2011, a remake of the game, along with Dragon Quest IV and Dragon Quest V, was released worldwide for the Nintendo DS, making this the first time the game was released in English. Another version of the game for Android and iOS devices was released in Japan in June 2015.",
+    "poster": "posters/dragon-quest-vi-realms-of-revelation.jpg",
+    "link": "https://en.wikipedia.org/wiki/Dragon_Quest_VI",
+    "status": "todo",
+    "tags": [
+      "JRPG"
+    ],
+    "rating": null,
+    "notes": "",
+    "added": "2026-11-24",
+    "source": "screenshot",
+    "source_context": "Reddit post by u/slam_joetry about DQ4 PSX and DQ6 translation patches — New English translation patch for the SNES/SFC version.",
+    "recommended_by": "slam_joetry",
+    "ai_confidence": 0.96,
+    "enriched_via": "Wikipedia",
+    "match_ok": false,
+    "screenshot": "bac9af5f8179",
+    "quote": "I've been waiting for these translations for decades.",
+    "intent": "reference"
   }
 ]

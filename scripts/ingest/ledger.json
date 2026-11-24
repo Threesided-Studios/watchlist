@@ -6052,6 +6052,16 @@
    ],
    "usd": 0.010932,
    "kind": "recommendation_thread"
+  },
+  "bac9af5f8179b49ecad6b7ecd9c10610b1c558c55905494f6065230a8b68ef7c": {
+   "at": "2026-11-24T01:03:59.285Z",
+   "outcome": "parsed",
+   "ids": [
+    "dragon-quest-iv-chapters-of-the-chosen",
+    "dragon-quest-vi-realms-of-revelation"
+   ],
+   "usd": 0.012471,
+   "kind": "recommendation_thread"
   }
  },
  "dismissed": [
@@ -6141,10 +6151,10 @@
   "screen:phantom-thieves"
  ],
  "totals": {
-  "shots": 753,
-  "media": 462,
-  "added": 476,
+  "shots": 754,
+  "media": 463,
+  "added": 478,
   "inbox": 219,
-  "usd": 2.210267
+  "usd": 2.222738
  }
 }
