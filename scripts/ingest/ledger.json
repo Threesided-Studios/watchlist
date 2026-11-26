@@ -6148,6 +6148,13 @@
    ],
    "usd": 0.02209,
    "kind": "recommendation_thread"
+  },
+  "f3f9d18f24493c737439fdfab428e6766b39789d7a9f504c5e189b28e737e222": {
+   "at": "2026-11-26T10:04:27.762Z",
+   "outcome": "not-media",
+   "ids": [],
+   "usd": 0.000073,
+   "kind": "system_or_app_ui"
   }
  },
  "dismissed": [
@@ -6237,10 +6244,10 @@
   "screen:phantom-thieves"
  ],
  "totals": {
-  "shots": 760,
+  "shots": 761,
   "media": 469,
   "added": 499,
   "inbox": 219,
-  "usd": 2.318817
+  "usd": 2.31889
  }
 }
