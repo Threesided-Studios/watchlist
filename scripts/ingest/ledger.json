@@ -6173,6 +6173,16 @@
    ],
    "usd": 0.014192,
    "kind": "video"
+  },
+  "ee31091c41d1a2b91a467b4c578c45ac4edfef26f5b715ea7fb50443fe7a5c68": {
+   "at": "2026-11-27T10:58:05.362Z",
+   "outcome": "parsed",
+   "ids": [
+    "30-coins",
+    "mirror-mirror-on-the-wall"
+   ],
+   "usd": 0.011846,
+   "kind": "recommendation_thread"
   }
  },
  "dismissed": [
@@ -6262,10 +6272,10 @@
   "screen:phantom-thieves"
  ],
  "totals": {
-  "shots": 763,
-  "media": 471,
-  "added": 500,
+  "shots": 764,
+  "media": 472,
+  "added": 502,
   "inbox": 220,
-  "usd": 2.333692
+  "usd": 2.345538
  }
 }
