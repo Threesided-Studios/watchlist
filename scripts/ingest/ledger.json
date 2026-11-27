@@ -6155,6 +6155,24 @@
    "ids": [],
    "usd": 0.000073,
    "kind": "system_or_app_ui"
+  },
+  "811db1db0b1b7a469849507167bb26415344a9e343a4d7082efd20b08985e95e": {
+   "at": "2026-11-27T06:43:02.386Z",
+   "outcome": "parsed",
+   "ids": [
+    "house-iii-the-horror-show"
+   ],
+   "usd": 0.00061,
+   "kind": "video"
+  },
+  "a6415011a3791f5900ba6d723959addf0cc397d5db81a4e5bad7c9348fc807a2": {
+   "at": "2026-11-27T06:43:02.611Z",
+   "outcome": "parsed",
+   "ids": [
+    "prospective"
+   ],
+   "usd": 0.014192,
+   "kind": "video"
   }
  },
  "dismissed": [
@@ -6244,10 +6262,10 @@
   "screen:phantom-thieves"
  ],
  "totals": {
-  "shots": 761,
-  "media": 469,
-  "added": 499,
-  "inbox": 219,
-  "usd": 2.31889
+  "shots": 763,
+  "media": 471,
+  "added": 500,
+  "inbox": 220,
+  "usd": 2.333692
  }
 }
