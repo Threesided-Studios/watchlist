@@ -6199,6 +6199,21 @@
    ],
    "usd": 0.027359,
    "kind": "software_or_repo"
+  },
+  "5b83eb8450adfc2fa43a9cee30c7c33bd2bf7d5025463a8995a844df021410b5": {
+   "at": "2026-11-28T11:17:40.876Z",
+   "outcome": "parsed",
+   "ids": [
+    "cosmos-point",
+    "fight-life-vanguard",
+    "forsworn",
+    "stardust-wish-of-witch",
+    "stellar-tactics",
+    "wardrum",
+    "veterum"
+   ],
+   "usd": 0.014973,
+   "kind": "list_or_ranking"
   }
  },
  "dismissed": [
@@ -6288,10 +6303,10 @@
   "screen:phantom-thieves"
  ],
  "totals": {
-  "shots": 765,
-  "media": 473,
-  "added": 503,
+  "shots": 766,
+  "media": 474,
+  "added": 510,
   "inbox": 226,
-  "usd": 2.372897
+  "usd": 2.38787
  }
 }
