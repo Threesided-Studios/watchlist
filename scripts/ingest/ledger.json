@@ -6183,6 +6183,22 @@
    ],
    "usd": 0.011846,
    "kind": "recommendation_thread"
+  },
+  "42c787778d4f669a3e18543e97bf5204b977ac44e04545f3298b9307d8dfa2e4": {
+   "at": "2026-11-28T09:45:56.566Z",
+   "outcome": "parsed",
+   "ids": [
+    "higgsfield",
+    "seedream-5-0-pro",
+    "nano-banana-pro",
+    "nano-banana",
+    "seedream-4-5",
+    "seedream-5-0-lite",
+    "kling-o1-image",
+    "flux-2-pro"
+   ],
+   "usd": 0.027359,
+   "kind": "software_or_repo"
   }
  },
  "dismissed": [
@@ -6272,10 +6288,10 @@
   "screen:phantom-thieves"
  ],
  "totals": {
-  "shots": 764,
-  "media": 472,
-  "added": 502,
-  "inbox": 220,
-  "usd": 2.345538
+  "shots": 765,
+  "media": 473,
+  "added": 503,
+  "inbox": 226,
+  "usd": 2.372897
  }
 }
